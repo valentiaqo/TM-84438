@@ -1,0 +1,17 @@
+# logs
+*.log
+
+# temp files
+*.tmp
+*.temp
+
+# node
+node_modules/
+
+# python
+venv/
+__pycache__/
+
+# system files
+.DS_Store
+Thumbs.db
