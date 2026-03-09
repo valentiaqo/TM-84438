@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable android:progress_large="@string/search_label" android:hint="@string/search_hint" android:searchSuggestAuthority="io.appium.android.apis.SuggestionProvider" android:searchSuggestSelection=" ? " android:voiceSearchMode="0x5" android:voiceLanguageModel="free_form" android:voicePromptText="@string/search_invoke"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

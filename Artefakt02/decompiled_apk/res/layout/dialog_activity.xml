@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="0x1" android:orientation="1" android:padding="4.0dp" android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@null" android:gravity="0x11" android:id="@id/text" android:layout_width="-2" android:layout_height="-2" android:text="@string/dialog_activity_text" android:contentDescription="@string/dialog_activity_text" />
+    <LinearLayout android:orientation="0" android:id="@id/inner_content" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:layout_width="-2" android:layout_height="-2" />
+    <LinearLayout android:layout_width="-1" android:layout_height="-2" android:measureWithLargestChild="true" style="?android:attr/buttonBarStyle">
+        <Button android:id="@id/add" android:layout_width="-2" android:layout_height="-2" android:text="@string/dialog_activity_add" android:layout_weight="1.0" android:contentDescription="@string/dialog_activity_add" style="?android:attr/buttonBarButtonStyle" />
+        <Button android:id="@id/remove" android:layout_width="-2" android:layout_height="-2" android:text="@string/dialog_activity_remove" android:layout_weight="1.0" android:contentDescription="@string/dialog_activity_remove" style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+</LinearLayout>

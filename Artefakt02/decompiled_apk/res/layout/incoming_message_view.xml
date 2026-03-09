@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="1" android:paddingLeft="4.0dp" android:paddingTop="4.0dp" android:paddingRight="4.0dp" android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@null" android:layout_gravity="0x10" android:paddingBottom="12.0dp" android:layout_width="-2" android:layout_height="-2" android:text="@string/incoming_message_view_message_text" android:contentDescription="@string/incoming_message_view_message_text" />
+    <LinearLayout android:orientation="0" android:layout_width="-1" android:layout_height="-2">
+        <ImageView android:layout_width="-2" android:layout_height="-2" android:src="@drawable/sample_thumb_2" />
+        <LinearLayout android:layout_gravity="0x10" android:orientation="1" android:paddingLeft="6.0dp" android:layout_width="-1" android:layout_height="-2">
+            <TextView android:textAppearance="@null" android:id="@id/from" android:layout_width="-2" android:layout_height="-2" />
+            <TextView android:textAppearance="@null" android:id="@id/message" android:layout_width="-2" android:layout_height="-2" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:textAppearance="@null" android:layout_gravity="0x10" android:paddingTop="12.0dp" android:layout_width="-2" android:layout_height="-2" android:text="@string/imcoming_message_view_message2_text" android:contentDescription="@string/imcoming_message_view_message2_text" />
+</LinearLayout>

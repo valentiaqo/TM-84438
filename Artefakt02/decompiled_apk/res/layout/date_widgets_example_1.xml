@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="1" android:layout_width="-2" android:layout_height="-2"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_width="-2" android:layout_height="-2">
+        <TextView android:id="@id/dateDisplay" android:layout_width="-2" android:layout_height="-2" android:text="@string/date_widgets_example_dateDisplay_text" android:contentDescription="@string/date_widgets_example_dateDisplay_text" />
+    </LinearLayout>
+    <Button android:id="@id/pickDate" android:layout_width="-2" android:layout_height="-2" android:text="@string/date_widgets_example_pickDate_text" android:contentDescription="@string/date_widgets_example_pickDate_text" />
+    <Button android:id="@id/pickTime" android:layout_width="-2" android:layout_height="-2" android:text="@string/date_widgets_example_pickTime_text" android:contentDescription="@string/date_widgets_example_pickTime_text" />
+</LinearLayout>

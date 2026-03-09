@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="1" android:padding="10.0dp" android:layout_width="-1" android:layout_height="-1">
+        <TextView android:id="@id/secure_view_description" android:layout_width="-1" android:layout_height="-2" android:text="@string/secure_view_description" android:contentDescription="@string/secure_view_description" />
+        <TextView android:textStyle="0x1" android:layout_width="-1" android:layout_height="-2" android:layout_marginTop="10.0dp" android:text="@string/secure_view_step1_heading" android:contentDescription="@string/secure_view_step1_heading" />
+        <TextView android:layout_width="-1" android:layout_height="-2" android:text="@string/secure_view_step1_detail" android:contentDescription="@string/secure_view_step1_detail" />
+        <Button android:layout_gravity="0x1" android:id="@id/secure_view_toast_button" android:layout_width="-2" android:layout_height="-2" android:text="@string/secure_view_pop_toast" android:contentDescription="@string/secure_view_pop_toast" />
+        <TextView android:textStyle="0x1" android:layout_width="-1" android:layout_height="-2" android:layout_marginTop="10.0dp" android:text="@string/secure_view_step2_heading" android:contentDescription="@string/secure_view_step2_heading" />
+        <TextView android:layout_width="-1" android:layout_height="-2" android:text="@string/secure_view_step2_detail" android:contentDescription="@string/secure_view_step2_detail" />
+        <Button android:textColor="#833" android:layout_gravity="0x1" android:id="@id/secure_view_unsecure_button" android:layout_width="-2" android:layout_height="-2" android:text="@string/secure_view_button" android:contentDescription="@string/secure_view_button" />
+        <TextView android:textStyle="0x1" android:layout_width="-1" android:layout_height="-2" android:layout_marginTop="10.0dp" android:text="@string/secure_view_step3_heading" android:contentDescription="@string/secure_view_step3_heading" />
+        <TextView android:layout_width="-1" android:layout_height="-2" android:text="@string/secure_view_step3_detail" android:contentDescription="@string/secure_view_step3_detail" />
+        <Button android:textColor="#833" android:layout_gravity="0x1" android:id="@id/secure_view_builtin_secure_button" android:layout_width="-2" android:layout_height="-2" android:text="@string/secure_view_button" android:contentDescription="@string/secure_view_button" android:filterTouchesWhenObscured="true" />
+        <TextView android:textStyle="0x1" android:layout_width="-1" android:layout_height="-2" android:layout_marginTop="10.0dp" android:text="@string/secure_view_step4_heading" android:contentDescription="@string/secure_view_step4_heading" />
+        <TextView android:layout_width="-1" android:layout_height="-2" android:text="@string/secure_view_step4_detail" android:contentDescription="@string/secure_view_step4_detail" />
+        <Button android:textColor="#833" android:layout_gravity="0x1" android:id="@id/secure_view_custom_secure_button" android:layout_width="-2" android:layout_height="-2" android:text="@string/secure_view_button" android:contentDescription="@string/secure_view_button" />
+    </LinearLayout>
+</ScrollView>

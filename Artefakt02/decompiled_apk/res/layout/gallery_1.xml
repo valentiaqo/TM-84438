@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="1" android:id="@id/layout2" android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Gallery android:id="@id/gallery" android:layout_width="-1" android:layout_height="-2" />
+    <EditText android:id="@id/EditText01" android:layout_width="-2" android:layout_height="-2" android:text="@id/EditText01" android:contentDescription="@id/EditText01" />
+</LinearLayout>

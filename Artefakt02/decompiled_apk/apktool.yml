@@ -1,0 +1,14 @@
+version: 3.0.1
+apkFileName: app.apk
+sdkInfo:
+  minSdkVersion: 4
+  targetSdkVersion: 19
+resourcesInfo:
+  packageId: 127
+doNotCompress:
+- arsc
+- gif
+- jpg
+- mp3
+- ogg
+- png

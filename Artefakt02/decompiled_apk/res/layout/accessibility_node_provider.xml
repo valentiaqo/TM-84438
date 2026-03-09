@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="1" android:layout_width="-2" android:layout_height="-2"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_width="-2" android:layout_height="-2" android:layout_marginBottom="50.0dp" android:text="@string/accessibility_node_provider_instructions" android:contentDescription="@string/accessibility_node_provider_instructions" />
+    <view android:layout_width="-2" android:layout_height="-2" class="io.appium.android.apis.accessibility.AccessibilityNodeProviderActivity$VirtualSubtreeRootView" />
+</LinearLayout>

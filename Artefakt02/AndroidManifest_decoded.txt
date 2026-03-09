@@ -1,0 +1,2003 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="io.appium.android.apis"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:progress_small_title="android.permission.READ_CONTACTS" />
+    <uses-permission android:progress_small_title="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:progress_small_title="android.permission.VIBRATE" />
+    <uses-permission android:progress_small_title="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:progress_small_title="android.permission.INTERNET" />
+    <uses-permission android:progress_small_title="android.permission.SET_WALLPAPER" />
+    <uses-permission android:progress_small_title="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:progress_small_title="android.permission.SEND_SMS" />
+    <uses-permission android:progress_small_title="android.permission.RECEIVE_SMS" />
+    <uses-permission android:progress_small_title="android.permission.NFC" />
+    <uses-permission android:progress_small_title="android.permission.RECORD_AUDIO" />
+    <uses-permission android:progress_small_title="android.permission.CAMERA" />
+    <uses-feature android:progress_small_title="android.hardware.camera" />
+    <uses-feature android:progress_small_title="android.hardware.camera.autofocus" android:required="false" />
+    <application android:progress_large="@string/activity_sample_code" android:progress_small="@drawable/app_sample_code" android:progress_small_title="ApiDemosApplication" android:debuggable="true" android:hardwareAccelerated="true" android:supportsRtl="true">
+        <uses-library android:progress_small_title="com.example.will.never.exist" android:required="false" />
+        <activity android:progress_small_title="ApiDemos">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="android.intent.category.DEFAULT" />
+                <category android:progress_small_title="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_hello_world" android:progress_small_title=".app.HelloWorld">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="@string/activity_dialog" android:progress_small_title=".app.DialogActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@style/Theme.CustomDialog" android:progress_large="@string/activity_custom_dialog" android:progress_small_title=".app.CustomDialogActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/quick_contacts_demo" android:progress_small_title=".app.QuickContactsDemo">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@style/Theme.Wallpaper" android:progress_large="@string/activity_wallpaper" android:progress_small_title=".app.WallpaperActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@style/Theme.Translucent" android:progress_large="@string/activity_translucent" android:progress_small_title=".app.TranslucentActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@style/Theme.Transparent" android:progress_large="@string/activity_translucent_blur" android:progress_small_title=".app.TranslucentBlurActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_animation" android:progress_small_title=".app.Animation">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_save_restore" android:progress_small_title=".app.SaveRestoreState" android:windowSoftInputMode="0x14">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_persistent" android:progress_small_title=".app.PersistentState" android:windowSoftInputMode="0x14">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_recreate" android:progress_small_title=".app.ActivityRecreate" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_finish_affinity" android:progress_small_title=".app.FinishAffinity" android:enabled="@bool/atLeastJellyBean" android:taskAffinity=":finishing">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/soft_input_modes" android:progress_small_title=".app.SoftInputModes">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_receive_result" android:progress_small_title=".app.ReceiveResult">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@style/ThemeDialogWhenLarge" android:progress_small_title=".app.SendResult" />
+        <activity android:progress_large="@string/activity_forwarding" android:progress_small_title=".app.Forwarding">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_small_title=".app.ForwardTarget" />
+        <activity android:progress_large="@string/activity_redirect" android:progress_small_title=".app.RedirectEnter">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_small_title=".app.RedirectMain" />
+        <activity android:progress_small_title=".app.RedirectGetter" />
+        <activity android:realtabcontent="@null" android:progress_large="@string/activity_custom_title" android:progress_small_title=".app.CustomTitle" android:windowSoftInputMode="0x24">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_reorder" android:progress_small_title=".app.ReorderOnLaunch">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_small_title=".app.ReorderTwo" />
+        <activity android:progress_small_title=".app.ReorderThree" />
+        <activity android:progress_small_title=".app.ReorderFour" />
+        <activity android:progress_large="@string/activity_setwallpaper" android:progress_small_title=".app.SetWallpaperActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_screen_orientation" android:progress_small_title=".app.ScreenOrientation">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_presentation" android:progress_small_title=".app.PresentationActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_presentation_with_media_router" android:progress_small_title=".app.PresentationWithMediaRouterActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_secure_window" android:progress_small_title=".app.SecureWindowActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_secure_dialog" android:progress_small_title=".app.SecureDialogActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_secure_surface_view" android:progress_small_title=".app.SecureSurfaceViewActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_alert_dialog" android:progress_small_title=".app.FragmentAlertDialog" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_arguments" android:progress_small_title=".app.FragmentArguments" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_custom_animations" android:progress_small_title=".app.FragmentCustomAnimations" android:enabled="@bool/atLeastHoneycombMR2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_hide_show" android:progress_small_title=".app.FragmentHideShow" android:enabled="@bool/atLeastHoneycomb" android:windowSoftInputMode="0x1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_context_menu" android:progress_small_title=".app.FragmentContextMenu" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_dialog" android:progress_small_title=".app.FragmentDialog" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_dialog_or_activity" android:progress_small_title=".app.FragmentDialogOrActivity" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_layout" android:progress_small_title=".app.FragmentLayout" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_small_title=".app.FragmentLayout$DetailsActivity" android:enabled="@bool/atLeastHoneycomb" />
+        <activity android:progress_large="@string/fragment_list_array" android:progress_small_title=".app.FragmentListArray" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_menu" android:progress_small_title=".app.FragmentMenu" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_nesting_tabs" android:progress_small_title=".app.FragmentNestingTabs" android:enabled="@bool/atLeastJellyBeanMR1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_retain_instance" android:progress_small_title=".app.FragmentRetainInstance" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_receive_result" android:progress_small_title=".app.FragmentReceiveResult" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_stack" android:progress_small_title=".app.FragmentStack" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/fragment_tabs" android:progress_small_title=".app.FragmentTabs" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/loader_cursor" android:progress_small_title=".app.LoaderCursor" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/loader_custom" android:progress_small_title=".app.LoaderCustom" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/loader_throttle" android:progress_small_title=".app.LoaderThrottle" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <provider android:progress_small_title=".app.LoaderThrottle$SimpleProvider" android:enabled="@bool/atLeastHoneycomb" android:authorities="io.appium.android.apis.app.LoaderThrottle" />
+        <activity android:progress_large="@string/loader_retained" android:progress_small_title=".app.LoaderRetained" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_intents" android:progress_small_title=".app.Intents">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_intent_activity_flags" android:progress_small_title=".app.IntentActivityFlags">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <service android:progress_small_title=".app.LocalService" android:stopWithTask="true" />
+        <activity android:progress_large="@string/activity_local_service_controller" android:progress_small_title=".app.LocalServiceActivities$Controller" android:launchMode="1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_local_service_binding" android:progress_small_title=".app.LocalServiceActivities$Binding">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <service android:progress_small_title=".app.MessengerService" android:process=":remote" />
+        <activity android:progress_large="@string/activity_messenger_service_binding" android:progress_small_title=".app.MessengerServiceActivities$Binding">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <service android:progress_small_title=".app.RemoteService" android:process=":remote">
+            <intent-filter>
+                <action android:progress_small_title="io.appium.android.apis.app.IRemoteService" />
+                <action android:progress_small_title="io.appium.android.apis.app.ISecondary" />
+                <action android:progress_small_title="io.appium.android.apis.app.REMOTE_SERVICE" />
+            </intent-filter>
+        </service>
+        <activity android:progress_large="@string/activity_remote_service_controller" android:progress_small_title=".app.RemoteService$Controller" android:launchMode="1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_remote_service_binding" android:progress_small_title=".app.RemoteService$Binding">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_remote_service_binding_options" android:progress_small_title=".app.RemoteService$BindingOptions">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <service android:progress_small_title=".app.ServiceStartArguments" />
+        <activity android:progress_large="@string/activity_service_start_arguments_controller" android:progress_small_title=".app.ServiceStartArguments$Controller" android:launchMode="1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <service android:progress_small_title=".app.ForegroundService" />
+        <activity android:progress_large="@string/activity_foreground_service_controller" android:progress_small_title=".app.ForegroundService$Controller" android:launchMode="1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_isolated_service_controller" android:progress_small_title=".app.IsolatedService$Controller" android:enabled="@bool/atLeastJellyBean" android:launchMode="1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <service android:progress_small_title=".app.IsolatedService" android:enabled="@bool/atLeastJellyBean" android:isolatedProcess="true" />
+        <service android:progress_small_title=".app.IsolatedService2" android:enabled="@bool/atLeastJellyBean" android:isolatedProcess="true" />
+        <receiver android:progress_small_title=".app.OneShotAlarm" android:process=":remote" />
+        <receiver android:progress_small_title=".app.RepeatingAlarm" android:process=":remote" />
+        <activity android:progress_large="@string/activity_alarm_controller" android:progress_small_title=".app.AlarmController">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <service android:progress_small_title=".app.AlarmService_Service" android:process=":remote" />
+        <activity android:progress_large="@string/activity_alarm_service" android:progress_small_title=".app.AlarmService">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/accessibility_service" android:progress_small_title=".accessibility.ClockBackActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <service android:progress_large="@string/accessibility_service_label" android:progress_small_title=".accessibility.ClockBackService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:progress_small_title="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+        </service>
+        <activity android:progress_large="@string/accessibility_query_window" android:progress_small_title=".accessibility.TaskListActivity" android:enabled="@bool/atLeastIceCreamSandwich">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <service android:progress_large="@string/accessibility_query_window_label" android:progress_small_title=".accessibility.TaskBackService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" android:enabled="@bool/atLeastIceCreamSandwich">
+            <intent-filter>
+                <action android:progress_small_title="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data android:progress_small_title="android.accessibilityservice" android:resource="@xml/taskbackconfig" />
+        </service>
+        <activity android:progress_large="@string/accessibility_custom_view" android:progress_small_title=".accessibility.CustomViewAccessibilityActivity" android:enabled="@bool/atLeastIceCreamSandwich">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_local_sample" android:progress_small_title=".app.LocalSample">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_contacts_filter" android:progress_small_title=".app.ContactsFilter">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="App/Notification/NotifyWithText" android:progress_small_title=".app.NotifyWithText">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="App/Notification/IncomingMessage" android:progress_small_title=".app.IncomingMessage">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="App/Notification/IncomingMessageView" android:progress_small_title=".app.IncomingMessageView" />
+        <activity android:realtabcontent="@style/ThemeHoloDialog" android:progress_large="You have messages" android:progress_small_title=".app.IncomingMessageInterstitial" android:taskAffinity="" android:excludeFromRecents="true" android:launchMode="2" />
+        <activity android:realtabcontent="@style/Theme.Transparent" android:progress_small_title=".app.NotificationDisplay" android:taskAffinity="" android:excludeFromRecents="true" android:noHistory="true" />
+        <activity android:progress_large="App/Notification/Status Bar" android:progress_small_title=".app.StatusBarNotifications" android:launchMode="1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <service android:progress_small_title=".app.NotifyingService" />
+        <activity android:progress_large="App/Notification/Notifying Service Controller" android:progress_small_title=".app.NotifyingController">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_alert_dialog" android:progress_small_title=".app.AlertDialogSamples">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/search_invoke" android:progress_small_title=".app.SearchInvoke">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+            <meta-data android:progress_small_title="android.app.default_searchable" android:value=".app.SearchQueryResults" />
+        </activity>
+        <activity android:progress_large="@string/search_query_results" android:progress_small_title=".app.SearchQueryResults">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.SEARCH" />
+                <category android:progress_small_title="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:progress_small_title="android.app.searchable" android:resource="@xml/searchable" />
+        </activity>
+        <provider android:progress_small_title=".app.SearchSuggestionSampleProvider" android:authorities="io.appium.android.apis.SuggestionProvider" />
+        <activity android:progress_large="@string/shortcuts" android:progress_small_title=".app.LauncherShortcuts">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity-alias android:progress_large="@string/sample_shortcuts" android:progress_small_title=".app.CreateShortcuts" android:targetActivity=".app.LauncherShortcuts">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.CREATE_SHORTCUT" />
+                <category android:progress_small_title="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+        <activity android:progress_large="@string/menu_from_xml_title" android:progress_small_title=".app.MenuInflateFromXml">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_sample_device_admin" android:progress_small_title=".app.DeviceAdminSample">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <receiver android:progress_large="@string/sample_device_admin" android:progress_small_title=".app.DeviceAdminSample$DeviceAdminSampleReceiver" android:permission="android.permission.BIND_DEVICE_ADMIN" android:description="@string/sample_device_admin_description">
+            <meta-data android:progress_small_title="android.app.device_admin" android:resource="@xml/device_admin_sample" />
+            <intent-filter>
+                <action android:progress_small_title="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+        <activity android:progress_large="@string/voice_recognition" android:progress_small_title=".app.VoiceRecognition">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/text_to_speech" android:progress_small_title=".app.TextToSpeechActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/action_bar_mechanics" android:progress_small_title=".app.ActionBarMechanics" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/action_bar_usage" android:progress_small_title=".app.ActionBarUsage" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/action_bar_display_options" android:progress_small_title=".app.ActionBarDisplayOptions" android:enabled="@bool/atLeastHoneycomb" android:logo="@drawable/apidemo_androidlogo">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/action_bar_tabs" android:progress_small_title=".app.ActionBarTabs" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/action_bar_settings_action_provider" android:progress_small_title=".app.ActionBarSettingsActionProviderActivity" android:enabled="@bool/atLeastIceCreamSandwich">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/action_bar_share_action_provider" android:progress_small_title=".app.ActionBarShareActionProviderActivity" android:enabled="@bool/atLeastIceCreamSandwich">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/accessibility_node_provider" android:progress_small_title=".accessibility.AccessibilityNodeProviderActivity" android:enabled="@bool/atLeastIceCreamSandwich">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <receiver android:progress_small_title=".app.AppUpdateReceiver">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+        <activity android:progress_large="@string/fragment_preferences" android:progress_small_title=".preference.FragmentPreferences" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/preference_with_headers" android:progress_small_title=".preference.PreferenceWithHeaders" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/preferences_from_xml" android:progress_small_title=".preference.PreferencesFromXml">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/preferences_from_code" android:progress_small_title=".preference.PreferencesFromCode">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/advanced_preferences" android:progress_small_title=".preference.AdvancedPreferences">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/launching_preferences" android:progress_small_title=".preference.LaunchingPreferences">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/preference_dependencies" android:progress_small_title=".preference.PreferenceDependencies">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/default_values" android:progress_small_title=".preference.DefaultValues">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/switch_preference" android:progress_small_title=".preference.SwitchPreference" android:enabled="@bool/atLeastIceCreamSandwich">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_clipboard" android:progress_small_title=".content.ClipboardSample" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_external_storage" android:progress_small_title=".content.ExternalStorage">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+                <category android:progress_small_title="android.intent.category.EMBED" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_styled_text" android:progress_small_title=".content.StyledText">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+                <category android:progress_small_title="android.intent.category.EMBED" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_resources_layout_reference" android:progress_small_title=".content.ResourcesLayoutReference">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+                <category android:progress_small_title="android.intent.category.EMBED" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_resources_width_and_height" android:progress_small_title=".content.ResourcesWidthAndHeight" android:enabled="@bool/atLeastHoneycombMR2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+                <category android:progress_small_title="android.intent.category.EMBED" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_resources_smallest_width" android:progress_small_title=".content.ResourcesSmallestWidth" android:enabled="@bool/atLeastHoneycombMR2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+                <category android:progress_small_title="android.intent.category.EMBED" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_read_asset" android:progress_small_title=".content.ReadAsset">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+                <category android:progress_small_title="android.intent.category.EMBED" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_resources" android:progress_small_title=".content.ResourcesSample">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_pick_contact" android:progress_small_title=".content.PickContact">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="@string/activity_install_apk" android:progress_small_title=".content.InstallApk" android:enabled="@bool/atLeastHoneycombMR2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <provider android:progress_small_title=".content.FileProvider" android:enabled="@bool/atLeastHoneycombMR2" android:authorities="io.appium.android.apis.content.FileProvider" />
+        <activity android:progress_large="OS/Morse Code" android:progress_small_title=".os.MorseCode">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="OS/Sensors" android:progress_small_title=".os.Sensors">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="OS/Rotation Vector" android:progress_small_title=".os.RotationVectorDemo" android:screenOrientation="5">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="OS/SMS Messaging" android:progress_small_title=".os.SmsMessagingDemo">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_small_title=".os.SmsReceivedDialog" android:launchMode="3" />
+        <receiver android:progress_small_title=".os.SmsMessageReceiver" android:enabled="false">
+            <intent-filter>
+                <action android:progress_small_title="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <activity android:progress_large="Animation/Loading" android:progress_small_title=".animation.AnimationLoading" android:enabled="@bool/atLeastHoneycomb" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Animation/Cloning" android:progress_small_title=".animation.AnimationCloning" android:enabled="@bool/atLeastHoneycomb" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Animation/Seeking" android:progress_small_title=".animation.AnimationSeeking" android:enabled="@bool/atLeastHoneycomb" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Animation/Events" android:progress_small_title=".animation.AnimatorEvents" android:enabled="@bool/atLeastHoneycomb" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Animation/Bouncing Balls" android:progress_small_title=".animation.BouncingBalls" android:enabled="@bool/atLeastHoneycomb" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Animation/Custom Evaluator" android:progress_small_title=".animation.CustomEvaluator" android:enabled="@bool/atLeastHoneycomb" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Animation/View Flip" android:progress_small_title=".animation.ListFlipper" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Animation/Reversing" android:progress_small_title=".animation.ReversingAnimation" android:enabled="@bool/atLeastHoneycomb" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Animation/Multiple Properties" android:progress_small_title=".animation.MultiPropertyAnimation" android:enabled="@bool/atLeastHoneycomb" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Animation/Layout Animations" android:progress_small_title=".animation.LayoutAnimations" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Animation/Hide-Show Animations" android:progress_small_title=".animation.LayoutAnimationsHideShow" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Animation/Default Layout Animations" android:progress_small_title=".animation.LayoutAnimationsByDefault" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Animation/3D Transition" android:progress_small_title=".animation.Transition3d">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/TextClock" android:progress_small_title=".view.TextClockDemo">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Chronometer" android:progress_small_title=".view.ChronometerDemo">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/WebView" android:progress_small_title=".view.WebView1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/RelativeLayout/1. Vertical" android:progress_small_title=".view.RelativeLayout1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/RelativeLayout/2. Simple Form" android:progress_small_title=".view.RelativeLayout2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/LinearLayout/1. Vertical" android:progress_small_title=".view.LinearLayout1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/LinearLayout/2. Vertical (Fill Screen)" android:progress_small_title=".view.LinearLayout2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/LinearLayout/3. Vertical (Padded)" android:progress_small_title=".view.LinearLayout3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/LinearLayout/4. Horizontal" android:progress_small_title=".view.LinearLayout4">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/LinearLayout/5. Simple Form" android:progress_small_title=".view.LinearLayout5">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/LinearLayout/6. Uniform Size" android:progress_small_title=".view.LinearLayout6">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/LinearLayout/7. Fill Parent" android:progress_small_title=".view.LinearLayout7">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/LinearLayout/8. Gravity" android:progress_small_title=".view.LinearLayout8">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/LinearLayout/9. Layout Weight" android:progress_small_title=".view.LinearLayout9">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/LinearLayout/10. Background Image" android:progress_small_title=".view.LinearLayout10">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Radio Group" android:progress_small_title=".view.RadioGroup1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/ScrollView/1. Short" android:progress_small_title=".view.ScrollView1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/ScrollView/2. Long" android:progress_small_title=".view.ScrollView2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/HorizontalScrollView" android:progress_small_title=".view.HorizontalScrollView1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Tabs/1. Content By Id" android:progress_small_title=".view.Tabs1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Tabs/2. Content By Factory" android:progress_small_title=".view.Tabs2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Tabs/3. Content By Intent" android:progress_small_title=".view.Tabs3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Views/Tabs/4. Non Holo theme" android:progress_small_title=".view.Tabs4">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Tabs/5. Scrollable" android:progress_small_title=".view.Tabs5">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Tabs/6. Right aligned" android:progress_small_title=".view.Tabs6">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/ScrollView/3. Internal Selection" android:progress_small_title=".view.InternalSelectionScroll">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/TableLayout/01. Basic" android:progress_small_title=".view.TableLayout1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/TableLayout/02. Empty Cells" android:progress_small_title=".view.TableLayout2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/TableLayout/03. Long Content" android:progress_small_title=".view.TableLayout3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/TableLayout/04. Stretchable" android:progress_small_title=".view.TableLayout4">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/TableLayout/05. Spanning and Stretchable" android:progress_small_title=".view.TableLayout5">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/TableLayout/06. More Spanning and Stretchable" android:progress_small_title=".view.TableLayout6">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/TableLayout/07. Column Collapse" android:progress_small_title=".view.TableLayout7">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/TableLayout/08. Toggle Stretch" android:progress_small_title=".view.TableLayout8">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/TableLayout/09. Toggle Shrink" android:progress_small_title=".view.TableLayout9">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/TableLayout/10. Simple Form" android:progress_small_title=".view.TableLayout10">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/TableLayout/11. Gravity" android:progress_small_title=".view.TableLayout11">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/TableLayout/12. Cell Spanning" android:progress_small_title=".view.TableLayout12">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/GridLayout/1. Simple Form" android:progress_small_title=".view.GridLayout1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/GridLayout/2. Form (XML)" android:progress_small_title=".view.GridLayout2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/GridLayout/3. Form (Java)" android:progress_small_title=".view.GridLayout3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/Baseline/1. Top" android:progress_small_title=".view.Baseline1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/Baseline/2. Bottom" android:progress_small_title=".view.Baseline2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/Baseline/3. Center" android:progress_small_title=".view.Baseline3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/Baseline/4. Everywhere" android:progress_small_title=".view.Baseline4">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/Baseline/5. Multi-line" android:progress_small_title=".view.Baseline6">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/Baseline/6. Relative" android:progress_small_title=".view.Baseline7">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/Baseline/Nested Example 1" android:progress_small_title=".view.BaselineNested1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/Baseline/Nested Example 2" android:progress_small_title=".view.BaselineNested2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layouts/Baseline/Nested Example 3" android:progress_small_title=".view.BaselineNested3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/ScrollBars/1. Basic" android:progress_small_title=".view.ScrollBar1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/ScrollBars/2. Fancy" android:progress_small_title=".view.ScrollBar2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/ScrollBars/3. Style" android:progress_small_title=".view.ScrollBar3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Visibility" android:progress_small_title=".view.Visibility1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/01. Array" android:progress_small_title=".view.List1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/02. Cursor (People)" android:progress_small_title=".view.List2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/03. Cursor (Phones)" android:progress_small_title=".view.List3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/04. ListAdapter" android:progress_small_title=".view.List4">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/05. Separators" android:progress_small_title=".view.List5">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/06. ListAdapter Collapsed" android:progress_small_title=".view.List6">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/07. Cursor (Phones)" android:progress_small_title=".view.List7">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/08. Photos" android:progress_small_title=".view.List8">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/09. Array (Overlay)" android:progress_small_title=".view.List9">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/10. Single choice list" android:progress_small_title=".view.List10">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/11. Multiple choice list" android:progress_small_title=".view.List11">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/12. Transcript" android:progress_small_title=".view.List12">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/13. Slow Adapter" android:progress_small_title=".view.List13">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/14. Efficient Adapter" android:progress_small_title=".view.List14">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/15. Selection Mode" android:progress_small_title=".view.List15">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/16. Border selection mode" android:progress_small_title=".view.List16">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Lists/17. Activate items" android:progress_small_title=".view.List17">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Expandable Lists/1. Custom Adapter" android:progress_small_title=".view.ExpandableList1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Expandable Lists/2. Cursor (People)" android:progress_small_title=".view.ExpandableList2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Expandable Lists/3. Simple Adapter" android:progress_small_title=".view.ExpandableList3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Views/Custom" android:progress_small_title=".view.CustomView1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Gallery/1. Photos" android:progress_small_title=".view.Gallery1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Gallery/2. People" android:progress_small_title=".view.Gallery2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Spinner" android:progress_small_title=".view.Spinner1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Grid/1. Icon Grid" android:progress_small_title=".view.Grid1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Grid/2. Photo Grid" android:progress_small_title=".view.Grid2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Grid/3. Selection Mode" android:progress_small_title=".view.Grid3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/ImageView" android:progress_small_title=".view.ImageView1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/ImageSwitcher" android:progress_small_title=".view.ImageSwitcher1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/TextSwitcher" android:progress_small_title=".view.TextSwitcher1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/ImageButton" android:progress_small_title=".view.ImageButton1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Animation/Shake" android:progress_small_title=".view.Animation1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Animation/Push" android:progress_small_title=".view.Animation2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Animation/Interpolators" android:progress_small_title=".view.Animation3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layout Animation/1. Grid Fade" android:progress_small_title=".view.LayoutAnimation1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layout Animation/2. List Cascade" android:progress_small_title=".view.LayoutAnimation2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layout Animation/3. Reverse Order" android:progress_small_title=".view.LayoutAnimation3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layout Animation/4. Randomize" android:progress_small_title=".view.LayoutAnimation4">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layout Animation/5. Grid Direction" android:progress_small_title=".view.LayoutAnimation5">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layout Animation/6. Wave Scale" android:progress_small_title=".view.LayoutAnimation6">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Layout Animation/7. Nested Animations" android:progress_small_title=".view.LayoutAnimation7">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Views/Controls/1. Light Theme" android:progress_small_title=".view.Controls1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Views/Controls/2. Dark Theme" android:progress_small_title=".view.Controls2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Views/Controls/3. Holo Light Theme" android:progress_small_title=".view.Controls3" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Views/Controls/4. Holo Dark Theme" android:progress_small_title=".view.Controls4" android:enabled="@bool/atLeastHoneycomb">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@style/CustomTheme" android:progress_large="Views/Controls/5. Custom Theme" android:progress_small_title=".view.Controls5">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@style/ThemeHolo" android:progress_large="Views/Controls/6. Holo or Old Theme" android:progress_small_title=".view.Controls6">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Buttons" android:progress_small_title=".view.Buttons1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Auto Complete/1. Screen Top" android:progress_small_title=".view.AutoComplete1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Auto Complete/2. Screen Bottom" android:progress_small_title=".view.AutoComplete2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Auto Complete/3. Scroll" android:progress_small_title=".view.AutoComplete3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Auto Complete/4. Contacts" android:progress_small_title=".view.AutoComplete4">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Auto Complete/5. Contacts with Hint" android:progress_small_title=".view.AutoComplete5">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Auto Complete/6. Multiple items" android:progress_small_title=".view.AutoComplete6">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Progress Bar/1. Incremental" android:progress_small_title=".view.ProgressBar1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Progress Bar/2. Smooth" android:progress_small_title=".view.ProgressBar2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Progress Bar/3. Dialogs" android:progress_small_title=".view.ProgressBar3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Progress Bar/4. In Title Bar" android:progress_small_title=".view.ProgressBar4">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Seek Bar" android:progress_small_title=".view.SeekBar1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Rating Bar" android:progress_small_title=".view.RatingBar1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Focus/1. Vertical" android:progress_small_title=".view.Focus1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Focus/2. Horizontal" android:progress_small_title=".view.Focus2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Focus/3. Circular" android:progress_small_title=".view.Focus3">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Focus/4. Internal Selection" android:progress_small_title=".view.InternalSelectionFocus">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Focus/5. Sequential (Tab Order)" android:progress_small_title=".view.Focus5">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Date Widgets/1. Dialog" android:progress_small_title=".view.DateWidgets1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Date Widgets/2. Inline" android:progress_small_title=".view.DateWidgets2">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Popup Menu" android:progress_small_title=".view.PopupMenu1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Views/Search View/Action Bar" android:progress_small_title=".view.SearchViewActionBar">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+            <meta-data android:progress_small_title="android.app.default_searchable" android:value=".app.SearchQueryResults" />
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Views/Search View/Always Expanded" android:progress_small_title=".view.SearchViewAlwaysVisible">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+            <meta-data android:progress_small_title="android.app.default_searchable" android:value=".app.SearchQueryResults" />
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Views/Search View/Filter" android:progress_small_title=".view.SearchViewFilterMode">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Rotating Button" android:progress_small_title=".view.RotatingButton">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Secure View" android:progress_small_title=".view.SecureView">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Splitting Touches across Views" android:progress_small_title=".view.SplitTouchView">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Drag and Drop" android:progress_small_title=".view.DragAndDropDemo" android:enabled="@bool/atLeastHoneycomb" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Game Controller Input" android:progress_small_title=".view.GameControllerInput">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Hover Events" android:progress_small_title=".view.Hover">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/System UI Visibility/System UI Modes" android:progress_small_title=".view.OverscanActivity" android:uiOptions="0x1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Views/System UI Visibility/Content Browser" android:progress_small_title=".view.ContentBrowserActivity" android:uiOptions="0x1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Views/System UI Visibility/Video Player" android:progress_small_title=".view.VideoPlayerActivity" android:uiOptions="0x1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Views/Switches" android:progress_small_title=".view.Switches">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/OpenGL ES/Kube" android:progress_small_title=".graphics.kube.Kube" android:configChanges="0xda0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Compass" android:progress_small_title=".graphics.Compass">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/CameraPreview" android:progress_small_title=".graphics.CameraPreview" android:screenOrientation="0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Graphics/OpenGL ES/Compressed Texture" android:progress_small_title=".graphics.CompressedTextureActivity" android:configChanges="0xda0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Graphics/OpenGL ES/Cube Map" android:progress_small_title=".graphics.CubeMapActivity" android:configChanges="0xda0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Graphics/OpenGL ES/Frame Buffer Object" android:progress_small_title=".graphics.FrameBufferObjectActivity" android:configChanges="0xda0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Graphics/OpenGL ES/GLSurfaceView" android:progress_small_title=".graphics.GLSurfaceViewActivity" android:configChanges="0xda0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Graphics/OpenGL ES/OpenGL ES 2.0" android:progress_small_title=".graphics.GLES20Activity" android:configChanges="0xda0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/OpenGL ES/Matrix Palette Skinning" android:progress_small_title=".graphics.MatrixPaletteActivity" android:configChanges="0xda0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@style/Theme.Translucent" android:progress_large="Graphics/OpenGL ES/Translucent GLSurfaceView" android:progress_small_title=".graphics.TranslucentGLSurfaceViewActivity" android:configChanges="0xda0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Graphics/OpenGL ES/Textured Triangle" android:progress_small_title=".graphics.TriangleActivity" android:configChanges="0xda0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Graphics/OpenGL ES/Sprite Text" android:progress_small_title=".graphics.spritetext.SpriteTextActivity" android:configChanges="0xda0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@null" android:progress_large="Graphics/OpenGL ES/Touch Rotate" android:progress_small_title=".graphics.TouchRotateActivity" android:configChanges="0xda0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/PolyToPoly" android:progress_small_title=".graphics.PolyToPoly">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/ScaleToFit" android:progress_small_title=".graphics.ScaleToFit">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/RoundRects" android:progress_small_title=".graphics.RoundRects">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Drawable/ShapeDrawable" android:progress_small_title=".graphics.ShapeDrawable1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/SurfaceView Overlay" android:progress_small_title=".graphics.SurfaceViewOverlay">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Surface Window" android:progress_small_title=".graphics.WindowSurface">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Text Align" android:progress_small_title=".graphics.TextAlign" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Arcs" android:progress_small_title=".graphics.Arcs">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Patterns" android:progress_small_title=".graphics.Patterns">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Clipping" android:progress_small_title=".graphics.Clipping" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Layers" android:progress_small_title=".graphics.Layers">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/UnicodeChart" android:progress_small_title=".graphics.UnicodeChart" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/PathFillTypes" android:progress_small_title=".graphics.PathFillTypes">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Pictures" android:progress_small_title=".graphics.Pictures" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Vertices" android:progress_small_title=".graphics.Vertices" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/AnimateDrawables" android:progress_small_title=".graphics.AnimateDrawables">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/SensorTest" android:progress_small_title=".graphics.SensorTest">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/AlphaBitmap" android:progress_small_title=".graphics.AlphaBitmap">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Regions" android:progress_small_title=".graphics.Regions">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Sweep" android:progress_small_title=".graphics.Sweep">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/BitmapMesh" android:progress_small_title=".graphics.BitmapMesh">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/MeasureText" android:progress_small_title=".graphics.MeasureText">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Typefaces" android:progress_small_title=".graphics.Typefaces">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/FingerPaint" android:progress_small_title=".graphics.FingerPaint">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/ColorMatrix" android:progress_small_title=".graphics.ColorMatrixSample">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/BitmapDecode" android:progress_small_title=".graphics.BitmapDecode" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/ColorFilters" android:progress_small_title=".graphics.ColorFilters">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/CreateBitmap" android:progress_small_title=".graphics.CreateBitmap">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Points" android:progress_small_title=".graphics.DrawPoints" android:hardwareAccelerated="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:realtabcontent="@style/Theme.Black" android:progress_large="Graphics/Touch Paint" android:progress_small_title=".graphics.TouchPaint" android:configChanges="0xdf0">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/BitmapPixels" android:progress_small_title=".graphics.BitmapPixels">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Xfermodes" android:progress_small_title=".graphics.Xfermodes">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/PathEffects" android:progress_small_title=".graphics.PathEffects">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/Drawable/GradientDrawable" android:progress_small_title=".graphics.GradientDrawable1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Graphics/PurgeableBitmap/NonPurgeable" android:progress_small_title=".graphics.PurgeableBitmap">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity-alias android:progress_large="Graphics/PurgeableBitmap/Purgeable" android:progress_small_title="Purgeable" android:targetActivity=".graphics.PurgeableBitmap">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity-alias>
+        <activity android:progress_large="Graphics/Density" android:progress_small_title=".graphics.DensityActivity">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Media/MediaPlayer" android:progress_small_title=".media.MediaPlayerDemo">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Media/MediaPlayer" android:progress_small_title=".media.MediaPlayerDemo_Audio">
+            <intent-filter>
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Media/MediaPlayer" android:progress_small_title=".media.MediaPlayerDemo_Video">
+            <intent-filter>
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Media/VideoView" android:progress_small_title=".media.VideoViewDemo">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Media/AudioFx" android:progress_small_title=".media.AudioFxDemo">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <receiver android:progress_small_title=".appwidget.ExampleAppWidgetProvider">
+            <meta-data android:progress_small_title="android.appwidget.provider" android:resource="@xml/appwidget_provider" />
+            <intent-filter>
+                <action android:progress_small_title="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+        <activity android:progress_small_title=".appwidget.ExampleAppWidgetConfigure">
+            <intent-filter>
+                <action android:progress_small_title="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+        <receiver android:progress_small_title=".appwidget.ExampleBroadcastReceiver" android:enabled="false">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.ACTION_TIMEZONE_CHANGED" />
+                <action android:progress_small_title="android.intent.ACTION_TIME" />
+            </intent-filter>
+        </receiver>
+        <activity android:progress_large="Text/Linkify" android:progress_small_title=".text.Link">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Text/Marquee" android:progress_small_title=".text.Marquee">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="Text/LogTextBox" android:progress_small_title=".text.LogTextBox1">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="NFC/ForegroundDispatch" android:progress_small_title=".nfc.ForegroundDispatch">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:progress_large="NFC/TechFilter" android:progress_small_title=".nfc.TechFilter">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:progress_small_title="android.nfc.action.TECH_DISCOVERED" />
+            </intent-filter>
+            <meta-data android:progress_small_title="android.nfc.action.TECH_DISCOVERED" android:resource="@xml/filter_nfc" />
+        </activity>
+        <activity android:progress_large="NFC/ForegroundNdefPush" android:progress_small_title=".nfc.ForegroundNdefPush">
+            <intent-filter>
+                <action android:progress_small_title="android.intent.action.MAIN" />
+                <category android:progress_small_title="appium.android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+    </application>
+    <instrumentation android:progress_large="Local Sample" android:progress_small_title=".app.LocalSampleInstrumentation" android:targetPackage="io.appium.android.apis" />
+</manifest>

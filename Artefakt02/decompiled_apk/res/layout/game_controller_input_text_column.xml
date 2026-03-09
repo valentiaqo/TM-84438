@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="0" android:padding="6.0dp" android:layout_width="-1" android:layout_height="-2"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:gravity="0x3" android:id="@id/label" android:layout_width="0.0dp" android:layout_height="-1" android:layout_weight="1.0" />
+    <TextView android:gravity="0x3" android:id="@id/content" android:layout_width="0.0dp" android:layout_height="-1" android:layout_weight="1.0" />
+</LinearLayout>

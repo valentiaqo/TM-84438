@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <view android:id="@id/content" android:layout_width="-1" android:layout_height="-1" class="io.appium.android.apis.view.ContentBrowserActivity$Content" />
+    <FrameLayout android:fitsSystemWindows="true" android:layout_width="-1" android:layout_height="-1" android:animateLayoutChanges="true">
+        <TextView android:textAppearance="@null" android:textColor="#ff000000" android:gravity="0x11" android:layout_gravity="0x31" android:id="@id/title" android:background="#c0ffffff" android:padding="16.0dp" android:layout_width="-1" android:layout_height="-2" android:text="A title goes here" android:contentDescription="A title goes here" />
+        <SeekBar android:layout_gravity="0x51" android:id="@id/seekbar" android:layout_width="-1" android:layout_height="-2" android:layout_marginBottom="16.0dp" />
+    </FrameLayout>
+</FrameLayout>

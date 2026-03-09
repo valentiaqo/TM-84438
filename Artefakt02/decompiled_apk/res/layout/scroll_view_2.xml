@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbars="0x0" android:layout_width="-1" android:layout_height="-2"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="1" android:id="@id/layout" android:layout_width="-1" android:layout_height="-2">
+        <TextView android:layout_width="-1" android:layout_height="-2" android:text="@string/scroll_view_2_text_1" android:contentDescription="@string/scroll_view_2_text_1" />
+        <Button android:layout_width="-1" android:layout_height="-2" android:text="@string/scroll_view_2_button_1" android:contentDescription="@string/scroll_view_2_button_1" />
+    </LinearLayout>
+</ScrollView>

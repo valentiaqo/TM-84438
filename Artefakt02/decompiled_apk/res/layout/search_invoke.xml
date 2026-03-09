@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="1" android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:paddingBottom="4.0dp" android:layout_width="-1" android:layout_height="-2" android:text="@string/msg_search" android:contentDescription="@string/msg_search" />
+    <TextView android:layout_width="-2" android:layout_height="-2" android:text="@string/search_sect_invocation" android:contentDescription="@string/search_sect_invocation" />
+    <Button android:id="@id/btn_start_search" android:layout_width="-2" android:layout_height="-2" android:text="@string/label_onsearchrequested" android:contentDescription="@string/label_onsearchrequested" />
+    <Spinner android:id="@id/spinner_menu_mode" android:layout_width="-1" android:layout_height="-2" android:drawSelectorOnTop="true" />
+    <TextView android:layout_width="-2" android:layout_height="-2" android:text="@string/search_sect_options" android:contentDescription="@string/search_sect_options" />
+    <LinearLayout android:orientation="0" android:layout_width="-1" android:layout_height="-2">
+        <LinearLayout android:gravity="0x1" android:orientation="0" android:layout_width="-1" android:layout_height="-2">
+            <TextView android:layout_width="-2" android:layout_height="-2" android:text="@string/label_search_query_prefill" android:contentDescription="@string/label_search_query_prefill" />
+            <EditText android:id="@id/txt_query_prefill" android:layout_width="-2" android:layout_height="-2" android:maxEms="10" android:minEms="10" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="0" android:layout_width="-1" android:layout_height="-2">
+        <LinearLayout android:gravity="0x1" android:orientation="0" android:layout_width="-1" android:layout_height="-2">
+            <TextView android:layout_width="-2" android:layout_height="-2" android:text="@string/label_search_query_appdata" android:contentDescription="@string/label_search_query_appdata" />
+            <EditText android:id="@id/txt_query_appdata" android:layout_width="-2" android:layout_height="-2" android:maxEms="10" android:minEms="10" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

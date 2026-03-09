@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="0" android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_gravity="0x10" android:layout_width="-2" android:layout_height="-2" android:layout_marginRight="3.0dp" android:text="@string/baseline_nested_1_label" android:contentDescription="@string/baseline_nested_1_label" />
+    <LinearLayout android:layout_gravity="0x10" android:orientation="1" android:layout_width="-2" android:layout_height="-2" android:baselineAlignedChildIndex="1">
+        <ImageView android:layout_width="-2" android:layout_height="-2" android:src="@drawable/arrow_up_float" />
+        <TextView android:layout_width="-2" android:layout_height="-2" android:layout_marginRight="5.0dp" android:text="@string/baseline_nested_1_label" android:contentDescription="@string/baseline_nested_1_label" />
+        <ImageView android:layout_width="-2" android:layout_height="-2" android:src="@drawable/arrow_down_float" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="0x10" android:orientation="1" android:layout_width="-2" android:layout_height="-2" android:baselineAlignedChildIndex="2">
+        <ImageView android:layout_width="-2" android:layout_height="-2" android:src="@drawable/arrow_up_float" />
+        <ImageView android:layout_width="-2" android:layout_height="-2" android:src="@drawable/arrow_up_float" />
+        <TextView android:layout_width="-2" android:layout_height="-2" android:layout_marginRight="5.0dp" android:text="@string/baseline_nested_1_label" android:contentDescription="@string/baseline_nested_1_label" />
+    </LinearLayout>
+    <TextView android:textSize="20.0sp" android:layout_gravity="0x10" android:layout_width="-2" android:layout_height="-2" android:text="@string/baseline_nested_1_label" android:contentDescription="@string/baseline_nested_1_label" />
+</LinearLayout>

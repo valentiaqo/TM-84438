@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="0" android:layout_width="-2" android:layout_height="-2"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="-2" android:layout_height="-2" android:src="@drawable/reslogo120dpi" />
+    <ImageView android:layout_width="-2" android:layout_height="-2" android:src="@drawable/reslogo160dpi" />
+    <ImageView android:layout_width="-2" android:layout_height="-2" android:src="@drawable/reslogo240dpi" />
+</LinearLayout>

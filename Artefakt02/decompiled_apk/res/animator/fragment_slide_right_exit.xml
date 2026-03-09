@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator android:interpolator="@null" android:duration="@null" android:valueFrom="0.0dp" android:valueTo="100.0dp" android:valueType="0" android:propertyName="translationX" />
+    <objectAnimator android:interpolator="@null" android:duration="@null" android:valueFrom="1.0" android:valueTo="0.0" android:valueType="0" android:propertyName="alpha" />
+</set>

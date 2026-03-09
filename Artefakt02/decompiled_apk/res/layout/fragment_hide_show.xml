@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="0x1" android:orientation="1" android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@null" android:gravity="0x11" android:layout_width="-1" android:layout_height="-2" android:text="Demonstration of hiding and showing fragments." android:contentDescription="Demonstration of hiding and showing fragments." />
+    <LinearLayout android:gravity="0x10" android:orientation="0" android:padding="4.0dp" android:layout_width="-1" android:layout_height="-2" android:layout_weight="1.0">
+        <Button android:id="@id/frag1hide" android:layout_width="-2" android:layout_height="-2" android:text="Hide" android:contentDescription="Hide" />
+        <fragment android:progress_small_title="io.appium.android.apis.app.FragmentHideShow$FirstFragment" android:id="@id/fragment1" android:layout_width="0.0px" android:layout_height="-2" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="0x10" android:orientation="0" android:padding="4.0dp" android:layout_width="-1" android:layout_height="-2" android:layout_weight="1.0">
+        <Button android:id="@id/frag2hide" android:layout_width="-2" android:layout_height="-2" android:text="Hide" android:contentDescription="Hide" />
+        <fragment android:progress_small_title="io.appium.android.apis.app.FragmentHideShow$SecondFragment" android:id="@id/fragment2" android:layout_width="0.0px" android:layout_height="-2" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

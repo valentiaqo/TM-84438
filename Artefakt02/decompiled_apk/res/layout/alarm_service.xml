@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="0x1" android:orientation="1" android:padding="4.0dp" android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@null" android:paddingBottom="4.0dp" android:layout_width="-1" android:layout_height="-2" android:text="@string/alarm_service" android:layout_weight="0.0" android:contentDescription="@string/alarm_service" />
+    <Button android:id="@id/start_alarm" android:layout_width="-2" android:layout_height="-2" android:text="@string/start_alarm_service" android:contentDescription="@string/start_alarm_service">
+        <requestFocus />
+    </Button>
+    <Button android:id="@id/stop_alarm" android:layout_width="-2" android:layout_height="-2" android:text="@string/stop_alarm_service" android:contentDescription="@string/stop_alarm_service" />
+</LinearLayout>

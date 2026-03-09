@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="0x1" android:orientation="1" android:padding="4.0dp" android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@null" android:gravity="0x31" android:layout_gravity="0x11" android:id="@id/text" android:padding="4.0dp" android:layout_width="-2" android:layout_height="-2" android:text="@string/fragment_arguments_msg" android:layout_weight="0.0" />
+    <LinearLayout android:orientation="0" android:padding="4.0dp" android:layout_width="-1" android:layout_height="-2">
+        <fragment android:progress_large="@string/fragment_arguments_embedded" android:id="@id/embedded" android:layout_width="0.0px" android:layout_height="-2" android:layout_weight="1.0" class="io.appium.android.apis.app.FragmentArguments$MyFragment" />
+        <FrameLayout android:id="@id/created" android:layout_width="0.0px" android:layout_height="-2" android:layout_weight="1.0" />
+    </LinearLayout>
+    <fragment android:progress_large="@string/fragment_arguments_embedded_land" android:id="@id/embedded_land" android:layout_width="-1" android:layout_height="-2" class="io.appium.android.apis.app.FragmentArguments$MyFragment" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="1" android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageButton android:layout_width="100.0dp" android:layout_height="50.0dp" android:src="@null" />
+    <ImageButton android:layout_width="-2" android:layout_height="-2" android:src="@null" />
+    <ImageButton android:layout_width="-2" android:layout_height="-2" android:src="@null" />
+</LinearLayout>

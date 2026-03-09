@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="1" android:id="@id/parent" android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="0" android:layout_width="-1" android:layout_height="-2">
+        <Button android:id="@id/addNewButton" android:layout_width="-2" android:layout_height="-2" android:text="Show Buttons" android:contentDescription="Show Buttons" />
+    </LinearLayout>
+    <LinearLayout android:orientation="0" android:layout_width="-1" android:layout_height="-2">
+        <CheckBox android:id="@id/customAnimCB" android:layout_width="-2" android:layout_height="-2" android:text="Custom Animations" android:contentDescription="Custom Animations" />
+        <CheckBox android:id="@id/hideGoneCB" android:layout_width="-2" android:layout_height="-2" android:text="Hide (GONE)" android:contentDescription="Hide (GONE)" />
+    </LinearLayout>
+</LinearLayout>

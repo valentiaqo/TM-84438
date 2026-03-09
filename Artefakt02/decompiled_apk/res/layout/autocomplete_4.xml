@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="1" android:layout_width="-1" android:layout_height="-2"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_width="-2" android:layout_height="-2" android:text="@string/autocomplete_4_instructions" android:contentDescription="@string/autocomplete_4_instructions" />
+    <LinearLayout android:orientation="0" android:layout_width="-1" android:layout_height="-2">
+        <TextView android:layout_width="-2" android:layout_height="-2" android:text="@string/autocomplete_4_name" android:contentDescription="@string/autocomplete_4_name" />
+        <AutoCompleteTextView android:id="@id/edit" android:layout_width="-1" android:layout_height="-2" android:completionThreshold="1" />
+    </LinearLayout>
+    <TextView android:layout_width="-2" android:layout_height="-2" android:text="@string/autocomplete_4_message" android:contentDescription="@string/autocomplete_4_message" />
+</LinearLayout>

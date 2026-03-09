@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomTheme" />
+    <style name="ThemeHolo" />
+    <style name="ThemeHoloDialog" />
+    <style name="Theme" />
+    <style name="BadTheme" />
+    <style name="Theme.PlainText" parent="@style/Theme" />
+    <style name="Theme.Black" parent="@style/Theme" />
+    <style name="Theme.CustomDialog" parent="" />
+    <style name="Theme.Wallpaper" parent="" />
+    <style name="Theme.Translucent" parent="" />
+    <style name="Theme.Transparent" parent="@style/Theme" />
+    <style name="ThemeDialogWhenLarge" />
+    <style name="TextAppearance.Theme.PlainText" parent="" />
+    <style name="ImageView120dpi" />
+    <style name="ImageView160dpi" />
+    <style name="ImageView240dpi" />
+</resources>

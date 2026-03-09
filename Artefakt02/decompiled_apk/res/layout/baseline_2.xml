@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="0" android:layout_width="-1" android:layout_height="-1"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_gravity="0x50" android:layout_width="-2" android:layout_height="-2" android:layout_marginRight="3.0dp" android:text="@string/baseline_2_label" android:contentDescription="@string/baseline_2_label" />
+    <Button android:layout_gravity="0x50" android:layout_width="-2" android:layout_height="-2" android:layout_marginRight="3.0dp" android:text="@string/baseline_2_button" android:contentDescription="@string/baseline_2_button" />
+    <TextView android:textSize="20.0sp" android:layout_gravity="0x50" android:layout_width="-2" android:layout_height="-2" android:text="@string/baseline_2_bigger" android:contentDescription="@string/baseline_2_bigger" />
+</LinearLayout>
