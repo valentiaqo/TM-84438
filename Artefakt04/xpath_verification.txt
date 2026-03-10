@@ -1,0 +1,4 @@
+PROJEKT SELEKTORA:
+ID: switcher
+TAG: ImageSwitcher
+STATUS: ZALICZONE
