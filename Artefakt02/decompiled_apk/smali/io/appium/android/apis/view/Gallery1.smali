@@ -15,11 +15,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 38
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 73
     return-void
 .end method
 
@@ -29,7 +27,6 @@
     .locals 3
     .param p1, "item"    # Landroid/view/MenuItem;
 
-    .prologue
     .line 68
     invoke-interface {p1}, Landroid/view/MenuItem;->getMenuInfo()Landroid/view/ContextMenu$ContextMenuInfo;
 
@@ -47,13 +44,9 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     iget v2, v0, Landroid/widget/AdapterView$AdapterContextMenuInfo;->position:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -77,19 +70,18 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 42
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 43
-    const v1, 0x7f030052
+    const v0, 0x7f0b006f
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Gallery1;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Gallery1;->setContentView(I)V
 
     .line 46
-    const v1, 0x7f0900ae
+    const v0, 0x7f0900d6
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Gallery1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Gallery1;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -123,9 +115,8 @@
     .param p2, "v"    # Landroid/view/View;
     .param p3, "menuInfo"    # Landroid/view/ContextMenu$ContextMenuInfo;
 
-    .prologue
     .line 63
-    const v0, 0x7f0c02a5
+    const v0, 0x7f0e0179
 
     invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(I)Landroid/view/MenuItem;
 

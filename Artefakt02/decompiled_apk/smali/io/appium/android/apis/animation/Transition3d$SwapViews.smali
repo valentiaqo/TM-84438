@@ -28,7 +28,6 @@
     .locals 0
     .param p2, "position"    # I
 
-    .prologue
     .line 144
     iput-object p1, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->this$0:Lio/appium/android/apis/animation/Transition3d;
 
@@ -44,36 +43,27 @@
 
 # virtual methods
 .method public run()V
-    .locals 9
-
-    .prologue
-    const/16 v8, 0x8
-
-    const/high16 v5, 0x439b0000    # 310.0f
-
-    const/high16 v1, 0x42b40000    # 90.0f
-
-    const/high16 v7, 0x40000000    # 2.0f
-
-    const/4 v6, 0x0
+    .locals 10
 
     .line 149
-    iget-object v2, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->this$0:Lio/appium/android/apis/animation/Transition3d;
+    iget-object v0, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->this$0:Lio/appium/android/apis/animation/Transition3d;
 
-    invoke-static {v2}, Lio/appium/android/apis/animation/Transition3d;->access$100(Lio/appium/android/apis/animation/Transition3d;)Landroid/view/ViewGroup;
+    invoke-static {v0}, Lio/appium/android/apis/animation/Transition3d;->access$100(Lio/appium/android/apis/animation/Transition3d;)Landroid/view/ViewGroup;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/view/ViewGroup;->getWidth()I
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getWidth()I
 
-    move-result v2
+    move-result v0
 
-    int-to-float v2, v2
+    int-to-float v0, v0
 
-    div-float v3, v2, v7
+    const/high16 v1, 0x40000000    # 2.0f
+
+    div-float/2addr v0, v1
 
     .line 150
-    .local v3, "centerX":F
+    .local v0, "centerX":F
     iget-object v2, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->this$0:Lio/appium/android/apis/animation/Transition3d;
 
     invoke-static {v2}, Lio/appium/android/apis/animation/Transition3d;->access$100(Lio/appium/android/apis/animation/Transition3d;)Landroid/view/ViewGroup;
@@ -86,15 +76,19 @@
 
     int-to-float v2, v2
 
-    div-float v4, v2, v7
+    div-float v1, v2, v1
 
     .line 153
-    .local v4, "centerY":F
+    .local v1, "centerY":F
     iget v2, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->mPosition:I
 
-    const/4 v7, -0x1
+    const/4 v3, 0x0
 
-    if-le v2, v7, :cond_0
+    const/16 v4, 0x8
+
+    const/4 v5, -0x1
+
+    if-le v2, v5, :cond_0
 
     .line 154
     iget-object v2, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->this$0:Lio/appium/android/apis/animation/Transition3d;
@@ -103,7 +97,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v8}, Landroid/widget/ListView;->setVisibility(I)V
+    invoke-virtual {v2, v4}, Landroid/widget/ListView;->setVisibility(I)V
 
     .line 155
     iget-object v2, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->this$0:Lio/appium/android/apis/animation/Transition3d;
@@ -112,7 +106,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 156
     iget-object v2, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->this$0:Lio/appium/android/apis/animation/Transition3d;
@@ -124,45 +118,27 @@
     invoke-virtual {v2}, Landroid/widget/ImageView;->requestFocus()Z
 
     .line 158
-    new-instance v0, Lio/appium/android/apis/animation/Rotate3dAnimation;
+    new-instance v9, Lio/appium/android/apis/animation/Rotate3dAnimation;
 
-    const/high16 v2, 0x43340000    # 180.0f
+    const/high16 v3, 0x42b40000    # 90.0f
 
-    invoke-direct/range {v0 .. v6}, Lio/appium/android/apis/animation/Rotate3dAnimation;-><init>(FFFFFZ)V
+    const/high16 v4, 0x43340000    # 180.0f
 
-    .line 167
-    .local v0, "rotation":Lio/appium/android/apis/animation/Rotate3dAnimation;
-    :goto_0
-    const-wide/16 v1, 0x1f4
+    const/high16 v7, 0x439b0000    # 310.0f
 
-    invoke-virtual {v0, v1, v2}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setDuration(J)V
+    const/4 v8, 0x0
 
-    .line 168
-    const/4 v1, 0x1
+    move-object v2, v9
 
-    invoke-virtual {v0, v1}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setFillAfter(Z)V
+    move v5, v0
 
-    .line 169
-    new-instance v1, Landroid/view/animation/DecelerateInterpolator;
+    move v6, v1
 
-    invoke-direct {v1}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+    invoke-direct/range {v2 .. v8}, Lio/appium/android/apis/animation/Rotate3dAnimation;-><init>(FFFFFZ)V
 
-    invoke-virtual {v0, v1}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
-
-    .line 171
-    iget-object v1, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->this$0:Lio/appium/android/apis/animation/Transition3d;
-
-    invoke-static {v1}, Lio/appium/android/apis/animation/Transition3d;->access$100(Lio/appium/android/apis/animation/Transition3d;)Landroid/view/ViewGroup;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->startAnimation(Landroid/view/animation/Animation;)V
-
-    .line 172
-    return-void
+    goto :goto_0
 
     .line 160
-    .end local v0    # "rotation":Lio/appium/android/apis/animation/Rotate3dAnimation;
     :cond_0
     iget-object v2, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->this$0:Lio/appium/android/apis/animation/Transition3d;
 
@@ -170,7 +146,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v8}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 161
     iget-object v2, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->this$0:Lio/appium/android/apis/animation/Transition3d;
@@ -179,7 +155,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v6}, Landroid/widget/ListView;->setVisibility(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/ListView;->setVisibility(I)V
 
     .line 162
     iget-object v2, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->this$0:Lio/appium/android/apis/animation/Transition3d;
@@ -191,12 +167,52 @@
     invoke-virtual {v2}, Landroid/widget/ListView;->requestFocus()Z
 
     .line 164
-    new-instance v0, Lio/appium/android/apis/animation/Rotate3dAnimation;
+    new-instance v9, Lio/appium/android/apis/animation/Rotate3dAnimation;
 
-    const/4 v2, 0x0
+    const/high16 v3, 0x42b40000    # 90.0f
 
-    invoke-direct/range {v0 .. v6}, Lio/appium/android/apis/animation/Rotate3dAnimation;-><init>(FFFFFZ)V
+    const/4 v4, 0x0
 
-    .restart local v0    # "rotation":Lio/appium/android/apis/animation/Rotate3dAnimation;
-    goto :goto_0
+    const/high16 v7, 0x439b0000    # 310.0f
+
+    const/4 v8, 0x0
+
+    move-object v2, v9
+
+    move v5, v0
+
+    move v6, v1
+
+    invoke-direct/range {v2 .. v8}, Lio/appium/android/apis/animation/Rotate3dAnimation;-><init>(FFFFFZ)V
+
+    .line 167
+    .local v2, "rotation":Lio/appium/android/apis/animation/Rotate3dAnimation;
+    :goto_0
+    const-wide/16 v3, 0x1f4
+
+    invoke-virtual {v2, v3, v4}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setDuration(J)V
+
+    .line 168
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v3}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setFillAfter(Z)V
+
+    .line 169
+    new-instance v3, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-direct {v3}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+
+    invoke-virtual {v2, v3}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+
+    .line 171
+    iget-object v3, p0, Lio/appium/android/apis/animation/Transition3d$SwapViews;->this$0:Lio/appium/android/apis/animation/Transition3d;
+
+    invoke-static {v3}, Lio/appium/android/apis/animation/Transition3d;->access$100(Lio/appium/android/apis/animation/Transition3d;)Landroid/view/ViewGroup;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Landroid/view/ViewGroup;->startAnimation(Landroid/view/animation/Animation;)V
+
+    .line 172
+    return-void
 .end method

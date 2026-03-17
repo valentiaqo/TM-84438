@@ -23,11 +23,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 42
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 81
     return-void
 .end method
 
@@ -35,7 +33,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/os/RotationVectorDemo;
 
-    .prologue
     .line 42
     iget-object v0, p0, Lio/appium/android/apis/os/RotationVectorDemo;->mSensorManager:Landroid/hardware/SensorManager;
 
@@ -48,7 +45,6 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 49
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -96,7 +92,6 @@
 .method protected onPause()V
     .locals 1
 
-    .prologue
     .line 75
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
@@ -117,7 +112,6 @@
 .method protected onResume()V
     .locals 1
 
-    .prologue
     .line 66
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 

@@ -16,7 +16,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 42
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -27,80 +26,86 @@
     .locals 7
     .param p1, "searchItem"    # Landroid/view/MenuItem;
 
-    .prologue
     .line 72
     invoke-virtual {p0}, Lio/appium/android/apis/view/SearchViewActionBar;->isAlwaysExpanded()Z
 
-    move-result v5
+    move-result v0
 
-    if-eqz v5, :cond_1
+    if-eqz v0, :cond_0
 
     .line 73
-    iget-object v5, p0, Lio/appium/android/apis/view/SearchViewActionBar;->mSearchView:Landroid/widget/SearchView;
+    iget-object v0, p0, Lio/appium/android/apis/view/SearchViewActionBar;->mSearchView:Landroid/widget/SearchView;
 
-    const/4 v6, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v5, v6}, Landroid/widget/SearchView;->setIconifiedByDefault(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/SearchView;->setIconifiedByDefault(Z)V
+
+    goto :goto_0
+
+    .line 75
+    :cond_0
+    const/16 v0, 0x9
+
+    invoke-interface {p1, v0}, Landroid/view/MenuItem;->setShowAsActionFlags(I)Landroid/view/MenuItem;
 
     .line 79
     :goto_0
-    const-string v5, "search"
+    const-string v0, "search"
 
-    invoke-virtual {p0, v5}, Lio/appium/android/apis/view/SearchViewActionBar;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/SearchViewActionBar;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Landroid/app/SearchManager;
+    check-cast v0, Landroid/app/SearchManager;
 
     .line 80
-    .local v3, "searchManager":Landroid/app/SearchManager;
-    if-eqz v3, :cond_3
+    .local v0, "searchManager":Landroid/app/SearchManager;
+    if-eqz v0, :cond_3
 
     .line 81
-    invoke-virtual {v3}, Landroid/app/SearchManager;->getSearchablesInGlobalSearch()Ljava/util/List;
+    invoke-virtual {v0}, Landroid/app/SearchManager;->getSearchablesInGlobalSearch()Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v1
 
     .line 84
-    .local v4, "searchables":Ljava/util/List;, "Ljava/util/List<Landroid/app/SearchableInfo;>;"
+    .local v1, "searchables":Ljava/util/List;, "Ljava/util/List<Landroid/app/SearchableInfo;>;"
     invoke-virtual {p0}, Lio/appium/android/apis/view/SearchViewActionBar;->getComponentName()Landroid/content/ComponentName;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v3, v5}, Landroid/app/SearchManager;->getSearchableInfo(Landroid/content/ComponentName;)Landroid/app/SearchableInfo;
+    invoke-virtual {v0, v2}, Landroid/app/SearchManager;->getSearchableInfo(Landroid/content/ComponentName;)Landroid/app/SearchableInfo;
 
     move-result-object v2
 
     .line 85
     .local v2, "info":Landroid/app/SearchableInfo;
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object v3
 
-    .local v0, "i$":Ljava/util/Iterator;
-    :cond_0
     :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_2
+    if-eqz v4, :cond_2
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v4
 
-    check-cast v1, Landroid/app/SearchableInfo;
+    check-cast v4, Landroid/app/SearchableInfo;
 
     .line 86
-    .local v1, "inf":Landroid/app/SearchableInfo;
-    invoke-virtual {v1}, Landroid/app/SearchableInfo;->getSuggestAuthority()Ljava/lang/String;
+    .local v4, "inf":Landroid/app/SearchableInfo;
+    invoke-virtual {v4}, Landroid/app/SearchableInfo;->getSuggestAuthority()Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
-    invoke-virtual {v1}, Landroid/app/SearchableInfo;->getSuggestAuthority()Ljava/lang/String;
+    .line 87
+    invoke-virtual {v4}, Landroid/app/SearchableInfo;->getSuggestAuthority()Ljava/lang/String;
 
     move-result-object v5
 
@@ -110,44 +115,29 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
     .line 88
-    move-object v2, v1
+    move-object v2, v4
 
+    .line 90
+    .end local v4    # "inf":Landroid/app/SearchableInfo;
+    :cond_1
     goto :goto_1
 
-    .line 75
-    .end local v0    # "i$":Ljava/util/Iterator;
-    .end local v1    # "inf":Landroid/app/SearchableInfo;
-    .end local v2    # "info":Landroid/app/SearchableInfo;
-    .end local v3    # "searchManager":Landroid/app/SearchManager;
-    .end local v4    # "searchables":Ljava/util/List;, "Ljava/util/List<Landroid/app/SearchableInfo;>;"
-    :cond_1
-    const/16 v5, 0x9
-
-    invoke-interface {p1, v5}, Landroid/view/MenuItem;->setShowAsActionFlags(I)Landroid/view/MenuItem;
-
-    goto :goto_0
-
     .line 91
-    .restart local v0    # "i$":Ljava/util/Iterator;
-    .restart local v2    # "info":Landroid/app/SearchableInfo;
-    .restart local v3    # "searchManager":Landroid/app/SearchManager;
-    .restart local v4    # "searchables":Ljava/util/List;, "Ljava/util/List<Landroid/app/SearchableInfo;>;"
     :cond_2
-    iget-object v5, p0, Lio/appium/android/apis/view/SearchViewActionBar;->mSearchView:Landroid/widget/SearchView;
+    iget-object v3, p0, Lio/appium/android/apis/view/SearchViewActionBar;->mSearchView:Landroid/widget/SearchView;
 
-    invoke-virtual {v5, v2}, Landroid/widget/SearchView;->setSearchableInfo(Landroid/app/SearchableInfo;)V
+    invoke-virtual {v3, v2}, Landroid/widget/SearchView;->setSearchableInfo(Landroid/app/SearchableInfo;)V
 
     .line 94
-    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "searchables":Ljava/util/List;, "Ljava/util/List<Landroid/app/SearchableInfo;>;"
     .end local v2    # "info":Landroid/app/SearchableInfo;
-    .end local v4    # "searchables":Ljava/util/List;, "Ljava/util/List<Landroid/app/SearchableInfo;>;"
     :cond_3
-    iget-object v5, p0, Lio/appium/android/apis/view/SearchViewActionBar;->mSearchView:Landroid/widget/SearchView;
+    iget-object v1, p0, Lio/appium/android/apis/view/SearchViewActionBar;->mSearchView:Landroid/widget/SearchView;
 
-    invoke-virtual {v5, p0}, Landroid/widget/SearchView;->setOnQueryTextListener(Landroid/widget/SearchView$OnQueryTextListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/SearchView;->setOnQueryTextListener(Landroid/widget/SearchView$OnQueryTextListener;)V
 
     .line 95
     return-void
@@ -158,7 +148,6 @@
 .method protected isAlwaysExpanded()Z
     .locals 1
 
-    .prologue
     .line 113
     const/4 v0, 0x0
 
@@ -168,7 +157,6 @@
 .method public onClose()Z
     .locals 2
 
-    .prologue
     .line 108
     iget-object v0, p0, Lio/appium/android/apis/view/SearchViewActionBar;->mStatusView:Landroid/widget/TextView;
 
@@ -186,7 +174,6 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 49
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -200,12 +187,12 @@
     invoke-virtual {v0, v1}, Landroid/view/Window;->requestFeature(I)Z
 
     .line 52
-    const v0, 0x7f0300c7
+    const v0, 0x7f0b00eb
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/SearchViewActionBar;->setContentView(I)V
 
     .line 54
-    const v0, 0x7f090148
+    const v0, 0x7f0901f4
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/SearchViewActionBar;->findViewById(I)Landroid/view/View;
 
@@ -223,7 +210,6 @@
     .locals 3
     .param p1, "menu"    # Landroid/view/Menu;
 
-    .prologue
     .line 59
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
@@ -234,14 +220,14 @@
 
     .line 62
     .local v0, "inflater":Landroid/view/MenuInflater;
-    const v2, 0x7f0e000e
+    const v1, 0x7f0c000e
 
-    invoke-virtual {v0, v2, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
+    invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
     .line 63
-    const v2, 0x7f09018b
+    const v1, 0x7f09001a
 
-    invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    invoke-interface {p1, v1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
@@ -268,7 +254,6 @@
     .locals 3
     .param p1, "newText"    # Ljava/lang/String;
 
-    .prologue
     .line 98
     iget-object v0, p0, Lio/appium/android/apis/view/SearchViewActionBar;->mStatusView:Landroid/widget/TextView;
 
@@ -280,11 +265,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -302,7 +283,6 @@
     .locals 3
     .param p1, "query"    # Ljava/lang/String;
 
-    .prologue
     .line 103
     iget-object v0, p0, Lio/appium/android/apis/view/SearchViewActionBar;->mStatusView:Landroid/widget/TextView;
 
@@ -314,17 +294,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, " : submitted"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

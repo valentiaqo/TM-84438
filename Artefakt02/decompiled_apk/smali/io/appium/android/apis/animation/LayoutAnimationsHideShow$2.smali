@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/animation/LayoutAnimationsHideShow;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
 
-    .prologue
     .line 80
     iput-object p1, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$2;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
 
@@ -40,28 +40,27 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 82
     const/4 v0, 0x0
 
     .local v0, "i":I
     :goto_0
-    iget-object v2, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$2;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
+    iget-object v1, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$2;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
 
-    iget-object v2, v2, Lio/appium/android/apis/animation/LayoutAnimationsHideShow;->container:Landroid/view/ViewGroup;
+    iget-object v1, v1, Lio/appium/android/apis/animation/LayoutAnimationsHideShow;->container:Landroid/view/ViewGroup;
 
-    invoke-virtual {v2}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 
-    move-result v2
+    move-result v1
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
     .line 83
-    iget-object v2, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$2;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
+    iget-object v1, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$2;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
 
-    iget-object v2, v2, Lio/appium/android/apis/animation/LayoutAnimationsHideShow;->container:Landroid/view/ViewGroup;
+    iget-object v1, v1, Lio/appium/android/apis/animation/LayoutAnimationsHideShow;->container:Landroid/view/ViewGroup;
 
-    invoke-virtual {v2, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -72,12 +71,13 @@
     invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 82
+    .end local v1    # "view":Landroid/view/View;
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 86
-    .end local v1    # "view":Landroid/view/View;
+    .end local v0    # "i":I
     :cond_0
     return-void
 .end method

@@ -26,7 +26,6 @@
     .locals 0
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -40,11 +39,8 @@
 
 # virtual methods
 .method public createTabContent(Ljava/lang/String;)Landroid/view/View;
-    .locals 3
+    .locals 2
     .param p1, "tag"    # Ljava/lang/String;
-
-    .prologue
-    const/4 v2, 0x0
 
     .line 120
     new-instance v0, Landroid/view/View;
@@ -55,10 +51,12 @@
 
     .line 121
     .local v0, "v":Landroid/view/View;
-    invoke-virtual {v0, v2}, Landroid/view/View;->setMinimumWidth(I)V
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setMinimumWidth(I)V
 
     .line 122
-    invoke-virtual {v0, v2}, Landroid/view/View;->setMinimumHeight(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setMinimumHeight(I)V
 
     .line 123
     return-object v0

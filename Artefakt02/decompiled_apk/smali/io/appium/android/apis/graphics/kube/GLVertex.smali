@@ -19,13 +19,12 @@
 .method constructor <init>()V
     .locals 1
 
-    .prologue
-    const/4 v0, 0x0
-
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 30
+    const/4 v0, 0x0
+
     iput v0, p0, Lio/appium/android/apis/graphics/kube/GLVertex;->x:F
 
     .line 31
@@ -50,7 +49,6 @@
     .param p3, "z"    # F
     .param p4, "index"    # I
 
-    .prologue
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -76,11 +74,10 @@
     .locals 1
     .param p0, "x"    # F
 
-    .prologue
     .line 53
     const/high16 v0, 0x47800000    # 65536.0f
 
-    mul-float/2addr v0, p0
+    mul-float v0, v0, p0
 
     float-to-int v0, v0
 
@@ -93,17 +90,16 @@
     .locals 4
     .param p1, "other"    # Ljava/lang/Object;
 
-    .prologue
+    .line 45
+    instance-of v0, p1, Lio/appium/android/apis/graphics/kube/GLVertex;
+
     const/4 v1, 0x0
 
-    .line 45
-    instance-of v2, p1, Lio/appium/android/apis/graphics/kube/GLVertex;
-
-    if-eqz v2, :cond_0
-
-    move-object v0, p1
+    if-eqz v0, :cond_1
 
     .line 46
+    move-object v0, p1
+
     check-cast v0, Lio/appium/android/apis/graphics/kube/GLVertex;
 
     .line 47
@@ -134,19 +130,19 @@
 
     const/4 v1, 0x1
 
+    :cond_0
+    return v1
+
     .line 49
     .end local v0    # "v":Lio/appium/android/apis/graphics/kube/GLVertex;
-    :cond_0
+    :cond_1
     return v1
 .end method
 
 .method public put(Ljava/nio/IntBuffer;Ljava/nio/IntBuffer;)V
-    .locals 2
+    .locals 1
     .param p1, "vertexBuffer"    # Ljava/nio/IntBuffer;
     .param p2, "colorBuffer"    # Ljava/nio/IntBuffer;
-
-    .prologue
-    const/4 v1, 0x0
 
     .line 57
     iget v0, p0, Lio/appium/android/apis/graphics/kube/GLVertex;->x:F
@@ -181,25 +177,23 @@
     if-nez v0, :cond_0
 
     .line 61
-    invoke-virtual {p2, v1}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
+    const/4 v0, 0x0
+
+    invoke-virtual {p2, v0}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
 
     .line 62
-    invoke-virtual {p2, v1}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
+    invoke-virtual {p2, v0}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
 
     .line 63
-    invoke-virtual {p2, v1}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
+    invoke-virtual {p2, v0}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
 
     .line 64
-    invoke-virtual {p2, v1}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
+    invoke-virtual {p2, v0}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
 
-    .line 71
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 66
     :cond_0
-    iget-object v0, p0, Lio/appium/android/apis/graphics/kube/GLVertex;->color:Lio/appium/android/apis/graphics/kube/GLColor;
-
     iget v0, v0, Lio/appium/android/apis/graphics/kube/GLColor;->red:I
 
     invoke-virtual {p2, v0}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
@@ -225,7 +219,9 @@
 
     invoke-virtual {p2, v0}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
 
-    goto :goto_0
+    .line 71
+    :goto_0
+    return-void
 .end method
 
 .method public update(Ljava/nio/IntBuffer;Lio/appium/android/apis/graphics/kube/M4;)V
@@ -233,47 +229,44 @@
     .param p1, "vertexBuffer"    # Ljava/nio/IntBuffer;
     .param p2, "transform"    # Lio/appium/android/apis/graphics/kube/M4;
 
-    .prologue
     .line 75
-    iget-short v1, p0, Lio/appium/android/apis/graphics/kube/GLVertex;->index:S
+    iget-short v0, p0, Lio/appium/android/apis/graphics/kube/GLVertex;->index:S
 
-    mul-int/lit8 v1, v1, 0x3
+    mul-int/lit8 v0, v0, 0x3
 
-    invoke-virtual {p1, v1}, Ljava/nio/IntBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/IntBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 77
     if-nez p2, :cond_0
 
     .line 78
-    iget v1, p0, Lio/appium/android/apis/graphics/kube/GLVertex;->x:F
+    iget v0, p0, Lio/appium/android/apis/graphics/kube/GLVertex;->x:F
 
-    invoke-static {v1}, Lio/appium/android/apis/graphics/kube/GLVertex;->toFixed(F)I
+    invoke-static {v0}, Lio/appium/android/apis/graphics/kube/GLVertex;->toFixed(F)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p1, v1}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
+    invoke-virtual {p1, v0}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
 
     .line 79
-    iget v1, p0, Lio/appium/android/apis/graphics/kube/GLVertex;->y:F
+    iget v0, p0, Lio/appium/android/apis/graphics/kube/GLVertex;->y:F
 
-    invoke-static {v1}, Lio/appium/android/apis/graphics/kube/GLVertex;->toFixed(F)I
+    invoke-static {v0}, Lio/appium/android/apis/graphics/kube/GLVertex;->toFixed(F)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p1, v1}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
+    invoke-virtual {p1, v0}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
 
     .line 80
-    iget v1, p0, Lio/appium/android/apis/graphics/kube/GLVertex;->z:F
+    iget v0, p0, Lio/appium/android/apis/graphics/kube/GLVertex;->z:F
 
-    invoke-static {v1}, Lio/appium/android/apis/graphics/kube/GLVertex;->toFixed(F)I
+    invoke-static {v0}, Lio/appium/android/apis/graphics/kube/GLVertex;->toFixed(F)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p1, v1}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
+    invoke-virtual {p1, v0}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
 
-    .line 88
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 82
     :cond_0
@@ -312,5 +305,8 @@
 
     invoke-virtual {p1, v1}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
 
-    goto :goto_0
+    .line 88
+    .end local v0    # "temp":Lio/appium/android/apis/graphics/kube/GLVertex;
+    :goto_0
+    return-void
 .end method

@@ -21,9 +21,9 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/AlarmService_Service;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/AlarmService_Service;
 
-    .prologue
-    .line 123
+    .line 124
     iput-object p1, p0, Lio/appium/android/apis/app/AlarmService_Service$2;->this$0:Lio/appium/android/apis/app/AlarmService_Service;
 
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
@@ -45,8 +45,7 @@
         }
     .end annotation
 
-    .prologue
-    .line 127
+    .line 128
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0

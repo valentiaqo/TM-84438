@@ -26,8 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/animation/AnimationLoading;Lio/appium/android/apis/animation/AnimationLoading$MyAnimationView;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/AnimationLoading;
 
-    .prologue
     .line 61
     iput-object p1, p0, Lio/appium/android/apis/animation/AnimationLoading$1;->this$0:Lio/appium/android/apis/animation/AnimationLoading;
 
@@ -44,7 +44,6 @@
     .locals 1
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 63
     iget-object v0, p0, Lio/appium/android/apis/animation/AnimationLoading$1;->val$animView:Lio/appium/android/apis/animation/AnimationLoading$MyAnimationView;
 

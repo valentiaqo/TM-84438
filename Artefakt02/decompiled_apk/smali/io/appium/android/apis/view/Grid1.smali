@@ -15,8 +15,7 @@
 .field private mApps:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Landroid/content/pm/ResolveInfo;",
             ">;"
         }
@@ -30,11 +29,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 36
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 60
     return-void
 .end method
 
@@ -42,7 +39,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/view/Grid1;
 
-    .prologue
     .line 36
     iget-object v0, p0, Lio/appium/android/apis/view/Grid1;->mApps:Ljava/util/List;
 
@@ -52,7 +48,6 @@
 .method private loadApps()V
     .locals 3
 
-    .prologue
     .line 54
     new-instance v0, Landroid/content/Intent;
 
@@ -91,7 +86,6 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 42
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -99,12 +93,12 @@
     invoke-direct {p0}, Lio/appium/android/apis/view/Grid1;->loadApps()V
 
     .line 46
-    const v0, 0x7f030058
+    const v0, 0x7f0b0075
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Grid1;->setContentView(I)V
 
     .line 47
-    const v0, 0x7f0900b7
+    const v0, 0x7f090138
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Grid1;->findViewById(I)Landroid/view/View;
 

@@ -26,7 +26,6 @@
     .locals 0
     .param p1, "_activity"    # Landroid/app/Activity;
 
-    .prologue
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

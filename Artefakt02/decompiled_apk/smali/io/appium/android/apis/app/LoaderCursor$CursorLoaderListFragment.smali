@@ -21,8 +21,7 @@
     value = {
         "Landroid/app/ListFragment;",
         "Landroid/widget/SearchView$OnQueryTextListener;",
-        "Landroid/app/LoaderManager$LoaderCallbacks",
-        "<",
+        "Landroid/app/LoaderManager$LoaderCallbacks<",
         "Landroid/database/Cursor;",
         ">;"
     }
@@ -43,47 +42,46 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
     .line 134
     const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const-string v1, "_id"
 
-    const-string v2, "_id"
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    const-string v1, "display_name"
 
-    const-string v2, "display_name"
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x2
+    const-string v1, "contact_status"
 
-    const-string v2, "contact_status"
+    const/4 v2, 0x2
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x3
+    const-string v1, "contact_presence"
 
-    const-string v2, "contact_presence"
+    const/4 v2, 0x3
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x4
+    const-string v1, "photo_id"
 
-    const-string v2, "photo_id"
+    const/4 v2, 0x4
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x5
+    const-string v1, "lookup"
 
-    const-string v2, "lookup"
+    const/4 v2, 0x5
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     sput-object v0, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->CONTACTS_SUMMARY_PROJECTION:[Ljava/lang/String;
 
@@ -93,7 +91,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 60
     invoke-direct {p0}, Landroid/app/ListFragment;-><init>()V
 
@@ -103,17 +100,8 @@
 
 # virtual methods
 .method public onActivityCreated(Landroid/os/Bundle;)V
-    .locals 9
+    .locals 10
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v3, 0x0
-
-    const/4 v8, 0x2
-
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
 
     .line 70
     invoke-super {p0, p1}, Landroid/app/ListFragment;->onActivityCreated(Landroid/os/Bundle;)V
@@ -124,34 +112,46 @@
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->setEmptyText(Ljava/lang/CharSequence;)V
 
     .line 77
-    invoke-virtual {p0, v7}, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->setHasOptionsMenu(Z)V
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->setHasOptionsMenu(Z)V
 
     .line 80
-    new-instance v0, Landroid/widget/SimpleCursorAdapter;
+    new-instance v8, Landroid/widget/SimpleCursorAdapter;
 
     invoke-virtual {p0}, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object v2
 
-    const v2, 0x1090004
+    const/4 v1, 0x2
 
-    new-array v4, v8, [Ljava/lang/String;
+    new-array v5, v1, [Ljava/lang/String;
 
-    const-string v5, "display_name"
+    const-string v3, "display_name"
 
-    aput-object v5, v4, v6
+    const/4 v9, 0x0
 
-    const-string v5, "contact_status"
+    aput-object v3, v5, v9
 
-    aput-object v5, v4, v7
+    const-string v3, "contact_status"
 
-    new-array v5, v8, [I
+    aput-object v3, v5, v0
 
-    fill-array-data v5, :array_0
+    new-array v6, v1, [I
 
-    invoke-direct/range {v0 .. v6}, Landroid/widget/SimpleCursorAdapter;-><init>(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[II)V
+    fill-array-data v6, :array_0
 
-    iput-object v0, p0, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->mAdapter:Landroid/widget/SimpleCursorAdapter;
+    const v3, 0x1090004
+
+    const/4 v4, 0x0
+
+    const/4 v7, 0x0
+
+    move-object v1, v8
+
+    invoke-direct/range {v1 .. v7}, Landroid/widget/SimpleCursorAdapter;-><init>(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[II)V
+
+    iput-object v8, p0, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->mAdapter:Landroid/widget/SimpleCursorAdapter;
 
     .line 84
     iget-object v0, p0, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->mAdapter:Landroid/widget/SimpleCursorAdapter;
@@ -159,19 +159,22 @@
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->setListAdapter(Landroid/widget/ListAdapter;)V
 
     .line 87
-    invoke-virtual {p0, v6}, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->setListShown(Z)V
+    invoke-virtual {p0, v9}, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->setListShown(Z)V
 
     .line 91
     invoke-virtual {p0}, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->getLoaderManager()Landroid/app/LoaderManager;
 
     move-result-object v0
 
-    invoke-virtual {v0, v6, v3, p0}, Landroid/app/LoaderManager;->initLoader(ILandroid/os/Bundle;Landroid/app/LoaderManager$LoaderCallbacks;)Landroid/content/Loader;
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v9, v1, p0}, Landroid/app/LoaderManager;->initLoader(ILandroid/os/Bundle;Landroid/app/LoaderManager$LoaderCallbacks;)Landroid/content/Loader;
 
     .line 92
     return-void
 
-    .line 80
+    nop
+
     :array_0
     .array-data 4
         0x1020014
@@ -180,7 +183,7 @@
 .end method
 
 .method public onCreateLoader(ILandroid/os/Bundle;)Landroid/content/Loader;
-    .locals 7
+    .locals 10
     .param p1, "id"    # I
     .param p2, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Signature;
@@ -188,14 +191,12 @@
             "(I",
             "Landroid/os/Bundle;",
             ")",
-            "Landroid/content/Loader",
-            "<",
+            "Landroid/content/Loader<",
             "Landroid/database/Cursor;",
             ">;"
         }
     .end annotation
 
-    .prologue
     .line 149
     iget-object v0, p0, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->mCurFilter:Ljava/lang/String;
 
@@ -206,45 +207,50 @@
 
     iget-object v1, p0, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->mCurFilter:Ljava/lang/String;
 
+    .line 151
     invoke-static {v1}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 150
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v2
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 153
+    :cond_0
+    sget-object v0, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
 
     .line 158
-    .local v2, "baseUri":Landroid/net/Uri;
+    .local v0, "baseUri":Landroid/net/Uri;
     :goto_0
-    const-string v4, "((display_name NOTNULL) AND (has_phone_number=1) AND (display_name != \'\' ))"
+    const-string v8, "((display_name NOTNULL) AND (has_phone_number=1) AND (display_name != \'\' ))"
 
     .line 161
-    .local v4, "select":Ljava/lang/String;
-    new-instance v0, Landroid/content/CursorLoader;
+    .local v8, "select":Ljava/lang/String;
+    new-instance v9, Landroid/content/CursorLoader;
 
     invoke-virtual {p0}, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object v2
 
-    sget-object v3, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->CONTACTS_SUMMARY_PROJECTION:[Ljava/lang/String;
+    sget-object v4, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->CONTACTS_SUMMARY_PROJECTION:[Ljava/lang/String;
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    const-string v6, "display_name COLLATE LOCALIZED ASC"
+    const-string v7, "display_name COLLATE LOCALIZED ASC"
 
-    invoke-direct/range {v0 .. v6}, Landroid/content/CursorLoader;-><init>(Landroid/content/Context;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
+    move-object v1, v9
 
-    return-object v0
+    move-object v3, v0
 
-    .line 153
-    .end local v2    # "baseUri":Landroid/net/Uri;
-    .end local v4    # "select":Ljava/lang/String;
-    :cond_0
-    sget-object v2, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
+    move-object v5, v8
 
-    .restart local v2    # "baseUri":Landroid/net/Uri;
-    goto :goto_0
+    invoke-direct/range {v1 .. v7}, Landroid/content/CursorLoader;-><init>(Landroid/content/Context;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v9
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
@@ -252,24 +258,23 @@
     .param p1, "menu"    # Landroid/view/Menu;
     .param p2, "inflater"    # Landroid/view/MenuInflater;
 
-    .prologue
     .line 96
-    const-string v2, "Search"
+    const-string v0, "Search"
 
-    invoke-interface {p1, v2}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {p1, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
 
     .line 97
     .local v0, "item":Landroid/view/MenuItem;
-    const v2, 0x108004f
+    const v1, 0x108004f
 
-    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     .line 98
-    const/16 v2, 0x9
+    const/16 v1, 0x9
 
-    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 100
     new-instance v1, Landroid/widget/SearchView;
@@ -298,7 +303,6 @@
     .param p3, "position"    # I
     .param p4, "id"    # J
 
-    .prologue
     .line 130
     const-string v0, "FragmentComplexList"
 
@@ -310,11 +314,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p4, p5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -332,8 +332,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/content/Loader",
-            "<",
+            "Landroid/content/Loader<",
             "Landroid/database/Cursor;",
             ">;",
             "Landroid/database/Cursor;",
@@ -341,11 +340,8 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "loader":Landroid/content/Loader;, "Landroid/content/Loader<Landroid/database/Cursor;>;"
-    const/4 v1, 0x1
-
     .line 169
+    .local p1, "loader":Landroid/content/Loader;, "Landroid/content/Loader<Landroid/database/Cursor;>;"
     iget-object v0, p0, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->mAdapter:Landroid/widget/SimpleCursorAdapter;
 
     invoke-virtual {v0, p2}, Landroid/widget/SimpleCursorAdapter;->swapCursor(Landroid/database/Cursor;)Landroid/database/Cursor;
@@ -355,32 +351,30 @@
 
     move-result v0
 
+    const/4 v1, 0x1
+
     if-eqz v0, :cond_0
 
     .line 173
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->setListShown(Z)V
 
-    .line 177
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 175
     :cond_0
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->setListShownNoAnimation(Z)V
 
-    goto :goto_0
+    .line 177
+    :goto_0
+    return-void
 .end method
 
 .method public bridge synthetic onLoadFinished(Landroid/content/Loader;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "x0"    # Landroid/content/Loader;
-    .param p2, "x1"    # Ljava/lang/Object;
 
-    .prologue
     .line 60
     check-cast p2, Landroid/database/Cursor;
 
-    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->onLoadFinished(Landroid/content/Loader;Landroid/database/Cursor;)V
 
     return-void
@@ -391,14 +385,12 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/content/Loader",
-            "<",
+            "Landroid/content/Loader<",
             "Landroid/database/Cursor;",
             ">;)V"
         }
     .end annotation
 
-    .prologue
     .line 183
     .local p1, "loader":Landroid/content/Loader;, "Landroid/content/Loader<Landroid/database/Cursor;>;"
     iget-object v0, p0, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->mAdapter:Landroid/widget/SimpleCursorAdapter;
@@ -415,58 +407,53 @@
     .locals 5
     .param p1, "newText"    # Ljava/lang/String;
 
-    .prologue
-    const/4 v1, 0x0
-
-    const/4 v4, 0x1
-
     .line 109
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_1
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
 
     move-object v0, p1
+
+    goto :goto_0
+
+    :cond_0
+    move-object v0, v1
 
     .line 112
     .local v0, "newFilter":Ljava/lang/String;
     :goto_0
     iget-object v2, p0, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->mCurFilter:Ljava/lang/String;
 
-    if-nez v2, :cond_2
+    const/4 v3, 0x1
 
-    if-nez v0, :cond_2
+    if-nez v2, :cond_1
 
-    .line 120
-    :cond_0
-    :goto_1
-    return v4
+    if-nez v0, :cond_1
 
-    .end local v0    # "newFilter":Ljava/lang/String;
-    :cond_1
-    move-object v0, v1
-
-    .line 109
-    goto :goto_0
+    .line 113
+    return v3
 
     .line 115
-    .restart local v0    # "newFilter":Ljava/lang/String;
-    :cond_2
+    :cond_1
     iget-object v2, p0, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->mCurFilter:Ljava/lang/String;
 
-    if-eqz v2, :cond_3
-
-    iget-object v2, p0, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->mCurFilter:Ljava/lang/String;
+    if-eqz v2, :cond_2
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_2
+
+    .line 116
+    return v3
 
     .line 118
-    :cond_3
+    :cond_2
     iput-object v0, p0, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;->mCurFilter:Ljava/lang/String;
 
     .line 119
@@ -474,18 +461,18 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v2, v3, v1, p0}, Landroid/app/LoaderManager;->restartLoader(ILandroid/os/Bundle;Landroid/app/LoaderManager$LoaderCallbacks;)Landroid/content/Loader;
+    invoke-virtual {v2, v4, v1, p0}, Landroid/app/LoaderManager;->restartLoader(ILandroid/os/Bundle;Landroid/app/LoaderManager$LoaderCallbacks;)Landroid/content/Loader;
 
-    goto :goto_1
+    .line 120
+    return v3
 .end method
 
 .method public onQueryTextSubmit(Ljava/lang/String;)Z
     .locals 1
     .param p1, "query"    # Ljava/lang/String;
 
-    .prologue
     .line 125
     const/4 v0, 0x1
 

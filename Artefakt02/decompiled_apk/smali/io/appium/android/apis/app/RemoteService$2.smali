@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/RemoteService;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/RemoteService;
 
-    .prologue
     .line 128
     iput-object p1, p0, Lio/appium/android/apis/app/RemoteService$2;->this$0:Lio/appium/android/apis/app/RemoteService;
 
@@ -42,7 +42,6 @@
     .param p6, "aDouble"    # D
     .param p8, "aString"    # Ljava/lang/String;
 
-    .prologue
     .line 134
     return-void
 .end method
@@ -50,7 +49,6 @@
 .method public getPid()I
     .locals 1
 
-    .prologue
     .line 130
     invoke-static {}, Landroid/os/Process;->myPid()I
 

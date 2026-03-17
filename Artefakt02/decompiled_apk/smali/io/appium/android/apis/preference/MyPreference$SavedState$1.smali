@@ -19,8 +19,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Landroid/os/Parcelable$Creator",
-        "<",
+        "Landroid/os/Parcelable$Creator<",
         "Lio/appium/android/apis/preference/MyPreference$SavedState;",
         ">;"
     }
@@ -31,7 +30,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
     .line 160
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,7 +42,6 @@
     .locals 1
     .param p1, "in"    # Landroid/os/Parcel;
 
-    .prologue
     .line 162
     new-instance v0, Lio/appium/android/apis/preference/MyPreference$SavedState;
 
@@ -54,23 +51,20 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Landroid/os/Parcel;
+    .locals 0
 
-    .prologue
     .line 160
     invoke-virtual {p0, p1}, Lio/appium/android/apis/preference/MyPreference$SavedState$1;->createFromParcel(Landroid/os/Parcel;)Lio/appium/android/apis/preference/MyPreference$SavedState;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public newArray(I)[Lio/appium/android/apis/preference/MyPreference$SavedState;
     .locals 1
     .param p1, "size"    # I
 
-    .prologue
     .line 166
     new-array v0, p1, [Lio/appium/android/apis/preference/MyPreference$SavedState;
 
@@ -78,14 +72,12 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # I
+    .locals 0
 
-    .prologue
     .line 160
     invoke-virtual {p0, p1}, Lio/appium/android/apis/preference/MyPreference$SavedState$1;->newArray(I)[Lio/appium/android/apis/preference/MyPreference$SavedState;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -20,7 +20,6 @@
     .param p2, "green"    # I
     .param p3, "blue"    # I
 
-    .prologue
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,7 +48,6 @@
     .param p3, "blue"    # I
     .param p4, "alpha"    # I
 
-    .prologue
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -75,17 +73,16 @@
     .locals 4
     .param p1, "other"    # Ljava/lang/Object;
 
-    .prologue
+    .line 42
+    instance-of v0, p1, Lio/appium/android/apis/graphics/kube/GLColor;
+
     const/4 v1, 0x0
 
-    .line 42
-    instance-of v2, p1, Lio/appium/android/apis/graphics/kube/GLColor;
-
-    if-eqz v2, :cond_0
-
-    move-object v0, p1
+    if-eqz v0, :cond_1
 
     .line 43
+    move-object v0, p1
+
     check-cast v0, Lio/appium/android/apis/graphics/kube/GLColor;
 
     .line 44
@@ -116,8 +113,11 @@
 
     const/4 v1, 0x1
 
+    :cond_0
+    return v1
+
     .line 49
     .end local v0    # "color":Lio/appium/android/apis/graphics/kube/GLColor;
-    :cond_0
+    :cond_1
     return v1
 .end method

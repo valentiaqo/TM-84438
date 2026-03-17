@@ -28,9 +28,8 @@
     .param p1, "itemId"    # I
     .param p2, "label"    # Ljava/lang/String;
 
-    .prologue
     .line 502
-    const v0, 0x7f030056
+    const v0, 0x7f0b0073
 
     invoke-direct {p0, p1, v0}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;-><init>(II)V
 
@@ -47,11 +46,10 @@
     .locals 2
     .param p1, "view"    # Landroid/view/View;
 
-    .prologue
     .line 512
-    const v1, 0x7f090082
+    const v0, 0x7f090102
 
-    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -64,7 +62,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 515
-    const v1, 0x7f090061
+    const v1, 0x7f090074
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -82,7 +80,6 @@
     .locals 0
     .param p1, "content"    # Ljava/lang/String;
 
-    .prologue
     .line 507
     iput-object p1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;->mContent:Ljava/lang/String;
 
@@ -94,7 +91,6 @@
     .locals 2
     .param p1, "view"    # Landroid/view/View;
 
-    .prologue
     .line 520
     iget-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;->mContentView:Landroid/widget/TextView;
 

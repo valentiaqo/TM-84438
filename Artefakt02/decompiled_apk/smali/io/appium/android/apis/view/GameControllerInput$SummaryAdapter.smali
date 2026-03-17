@@ -40,8 +40,7 @@
 .field private final mDataItems:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/util/SparseArray",
-            "<",
+            "Landroid/util/SparseArray<",
             "Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;",
             ">;"
         }
@@ -61,8 +60,7 @@
 .field private final mVisibleItems:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList",
-            "<",
+            "Ljava/util/ArrayList<",
             "Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;",
             ">;"
         }
@@ -72,11 +70,10 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/content/res/Resources;)V
-    .locals 4
+    .locals 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "resources"    # Landroid/content/res/Resources;
 
-    .prologue
     .line 356
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
@@ -103,68 +100,72 @@
     .line 360
     new-instance v0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;
 
-    const/16 v1, 0x400
+    iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mResources:Landroid/content/res/Resources;
 
-    iget-object v2, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mResources:Landroid/content/res/Resources;
+    .line 361
+    const v2, 0x7f0e017c
 
-    const v3, 0x7f0c024b
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    const/16 v2, 0x400
 
-    invoke-direct {v0, v1, v2}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;-><init>(ILjava/lang/String;)V
+    invoke-direct {v0, v2, v1}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;-><init>(ILjava/lang/String;)V
 
     iput-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDeviceHeading:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;
 
     .line 362
     new-instance v0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
 
-    const/16 v1, 0x800
+    iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mResources:Landroid/content/res/Resources;
 
-    iget-object v2, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mResources:Landroid/content/res/Resources;
+    .line 363
+    const v2, 0x7f0e0180
 
-    const v3, 0x7f0c024e
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    const/16 v2, 0x800
 
-    invoke-direct {v0, v1, v2}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;-><init>(ILjava/lang/String;)V
+    invoke-direct {v0, v2, v1}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;-><init>(ILjava/lang/String;)V
 
     iput-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDeviceNameTextColumn:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
 
     .line 365
     new-instance v0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;
 
-    const/16 v1, 0x401
+    iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mResources:Landroid/content/res/Resources;
 
-    iget-object v2, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mResources:Landroid/content/res/Resources;
+    .line 366
+    const v2, 0x7f0e017b
 
-    const v3, 0x7f0c024c
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    const/16 v2, 0x401
 
-    invoke-direct {v0, v1, v2}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;-><init>(ILjava/lang/String;)V
+    invoke-direct {v0, v2, v1}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;-><init>(ILjava/lang/String;)V
 
     iput-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mAxesHeading:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;
 
     .line 367
     new-instance v0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;
 
-    const/16 v1, 0x402
+    iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mResources:Landroid/content/res/Resources;
 
-    iget-object v2, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mResources:Landroid/content/res/Resources;
+    .line 368
+    const v2, 0x7f0e017d
 
-    const v3, 0x7f0c024d
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    const/16 v2, 0x402
 
-    invoke-direct {v0, v1, v2}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;-><init>(ILjava/lang/String;)V
+    invoke-direct {v0, v2, v1}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;-><init>(ILjava/lang/String;)V
 
     iput-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mKeysHeading:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;
 
@@ -177,7 +178,6 @@
 .method public getCount()I
     .locals 1
 
-    .prologue
     .line 430
     iget-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
 
@@ -192,7 +192,6 @@
     .locals 1
     .param p1, "position"    # I
 
-    .prologue
     .line 435
     iget-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
 
@@ -206,23 +205,20 @@
 .end method
 
 .method public bridge synthetic getItem(I)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # I
+    .locals 0
 
-    .prologue
     .line 336
     invoke-virtual {p0, p1}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->getItem(I)Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getItemId(I)J
     .locals 2
     .param p1, "position"    # I
 
-    .prologue
     .line 440
     invoke-virtual {p0, p1}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->getItem(I)Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;
 
@@ -241,7 +237,6 @@
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
     .line 445
     invoke-virtual {p0, p1}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->getItem(I)Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;
 
@@ -257,7 +252,6 @@
 .method public hasStableIds()Z
     .locals 1
 
-    .prologue
     .line 425
     const/4 v0, 0x1
 
@@ -265,31 +259,30 @@
 .end method
 
 .method public onItemClick(I)V
-    .locals 4
+    .locals 3
     .param p1, "position"    # I
 
-    .prologue
     .line 372
-    iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mState:Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mState:Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 373
     iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mState:Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;
+    .line 374
+    invoke-virtual {v0}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->getDevice()Landroid/view/InputDevice;
 
-    invoke-virtual {v2}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->getDevice()Landroid/view/InputDevice;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {v0}, Landroid/view/InputDevice;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Landroid/view/InputDevice;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
-
-    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    .line 373
+    invoke-static {v1, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v0
 
@@ -304,227 +297,228 @@
 .end method
 
 .method public show(Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;)V
-    .locals 9
+    .locals 8
     .param p1, "state"    # Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;
 
-    .prologue
     .line 380
     iput-object p1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mState:Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;
 
     .line 381
-    iget-object v7, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     .line 384
-    iget-object v7, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
 
-    iget-object v8, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDeviceHeading:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;
+    iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDeviceHeading:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;
 
-    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 385
-    iget-object v7, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDeviceNameTextColumn:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDeviceNameTextColumn:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
 
     invoke-virtual {p1}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->getDevice()Landroid/view/InputDevice;
 
-    move-result-object v8
+    move-result-object v1
 
-    invoke-virtual {v8}, Landroid/view/InputDevice;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Landroid/view/InputDevice;->getName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v1
 
-    invoke-virtual {v7, v8}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;->setContent(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;->setContent(Ljava/lang/String;)V
 
     .line 386
-    iget-object v7, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
 
-    iget-object v8, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDeviceNameTextColumn:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
+    iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDeviceNameTextColumn:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
 
-    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 389
-    iget-object v7, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
 
-    iget-object v8, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mAxesHeading:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;
+    iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mAxesHeading:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;
 
-    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 390
     invoke-virtual {p1}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->getAxisCount()I
 
-    move-result v1
-
-    .line 391
-    .local v1, "axisCount":I
-    const/4 v3, 0x0
-
-    .local v3, "i":I
-    :goto_0
-    if-ge v3, v1, :cond_1
-
-    .line 392
-    invoke-virtual {p1, v3}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->getAxis(I)I
-
     move-result v0
 
+    .line 391
+    .local v0, "axisCount":I
+    const/4 v1, 0x0
+
+    .local v1, "i":I
+    :goto_0
+    if-ge v1, v0, :cond_1
+
+    .line 392
+    invoke-virtual {p1, v1}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->getAxis(I)I
+
+    move-result v2
+
     .line 393
-    .local v0, "axis":I
-    or-int/lit16 v4, v0, 0xc00
+    .local v2, "axis":I
+    or-int/lit16 v3, v2, 0xc00
 
     .line 394
-    .local v4, "id":I
-    iget-object v7, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDataItems:Landroid/util/SparseArray;
+    .local v3, "id":I
+    iget-object v4, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDataItems:Landroid/util/SparseArray;
 
-    invoke-virtual {v7, v4}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v4
 
-    check-cast v2, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
+    check-cast v4, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
 
     .line 395
-    .local v2, "column":Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
-    if-nez v2, :cond_0
+    .local v4, "column":Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
+    if-nez v4, :cond_0
 
     .line 396
-    new-instance v2, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
+    new-instance v5, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
 
-    .end local v2    # "column":Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
-    invoke-static {v0}, Landroid/view/MotionEvent;->axisToString(I)Ljava/lang/String;
+    invoke-static {v2}, Landroid/view/MotionEvent;->axisToString(I)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-direct {v2, v4, v7}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;-><init>(ILjava/lang/String;)V
+    invoke-direct {v5, v3, v6}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;-><init>(ILjava/lang/String;)V
+
+    move-object v4, v5
 
     .line 397
-    .restart local v2    # "column":Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
-    iget-object v7, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDataItems:Landroid/util/SparseArray;
+    iget-object v5, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDataItems:Landroid/util/SparseArray;
 
-    invoke-virtual {v7, v4, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v5, v3, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 399
     :cond_0
-    invoke-virtual {p1, v3}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->getAxisValue(I)F
+    invoke-virtual {p1, v1}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->getAxisValue(I)F
 
-    move-result v7
+    move-result v5
 
-    invoke-static {v7}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
+    invoke-static {v5}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-virtual {v2, v7}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;->setContent(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;->setContent(Ljava/lang/String;)V
 
     .line 400
-    iget-object v7, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
+    iget-object v5, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
 
-    invoke-virtual {v7, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 391
-    add-int/lit8 v3, v3, 0x1
+    .end local v2    # "axis":I
+    .end local v3    # "id":I
+    .end local v4    # "column":Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 404
-    .end local v0    # "axis":I
-    .end local v2    # "column":Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
-    .end local v4    # "id":I
+    .end local v1    # "i":I
     :cond_1
-    iget-object v7, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
+    iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
 
-    iget-object v8, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mKeysHeading:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;
+    iget-object v2, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mKeysHeading:Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Heading;
 
-    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 405
     invoke-virtual {p1}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->getKeyCount()I
 
-    move-result v6
+    move-result v1
 
     .line 406
-    .local v6, "keyCount":I
-    const/4 v3, 0x0
+    .local v1, "keyCount":I
+    const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_1
-    if-ge v3, v6, :cond_4
+    if-ge v2, v1, :cond_4
 
     .line 407
-    invoke-virtual {p1, v3}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->getKeyCode(I)I
+    invoke-virtual {p1, v2}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->getKeyCode(I)I
 
-    move-result v5
+    move-result v3
 
     .line 408
-    .local v5, "keyCode":I
-    or-int/lit16 v4, v5, 0x1000
+    .local v3, "keyCode":I
+    or-int/lit16 v4, v3, 0x1000
 
     .line 409
-    .restart local v4    # "id":I
-    iget-object v7, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDataItems:Landroid/util/SparseArray;
+    .local v4, "id":I
+    iget-object v5, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDataItems:Landroid/util/SparseArray;
 
-    invoke-virtual {v7, v4}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v4}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v5
 
-    check-cast v2, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
+    check-cast v5, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
 
     .line 410
-    .restart local v2    # "column":Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
-    if-nez v2, :cond_2
+    .local v5, "column":Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
+    if-nez v5, :cond_2
 
     .line 411
-    new-instance v2, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
+    new-instance v6, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
 
-    .end local v2    # "column":Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
-    invoke-static {v5}, Landroid/view/KeyEvent;->keyCodeToString(I)Ljava/lang/String;
+    invoke-static {v3}, Landroid/view/KeyEvent;->keyCodeToString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-direct {v2, v4, v7}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;-><init>(ILjava/lang/String;)V
+    invoke-direct {v6, v4, v7}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;-><init>(ILjava/lang/String;)V
+
+    move-object v5, v6
 
     .line 412
-    .restart local v2    # "column":Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
-    iget-object v7, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDataItems:Landroid/util/SparseArray;
+    iget-object v6, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mDataItems:Landroid/util/SparseArray;
 
-    invoke-virtual {v7, v4, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v6, v4, v5}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 414
     :cond_2
-    iget-object v8, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mResources:Landroid/content/res/Resources;
+    iget-object v6, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mResources:Landroid/content/res/Resources;
 
-    invoke-virtual {p1, v3}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->isKeyPressed(I)Z
+    invoke-virtual {p1, v2}, Lio/appium/android/apis/view/GameControllerInput$InputDeviceState;->isKeyPressed(I)Z
 
     move-result v7
 
     if-eqz v7, :cond_3
 
-    const v7, 0x7f0c024f
-
-    :goto_2
-    invoke-virtual {v8, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v2, v7}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;->setContent(Ljava/lang/String;)V
-
-    .line 417
-    iget-object v7, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
-
-    invoke-virtual {v7, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 406
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_1
-
-    .line 414
-    :cond_3
-    const v7, 0x7f0c0250
+    const v7, 0x7f0e017e
 
     goto :goto_2
 
-    .line 420
-    .end local v2    # "column":Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
+    :cond_3
+    const v7, 0x7f0e017f
+
+    :goto_2
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;->setContent(Ljava/lang/String;)V
+
+    .line 417
+    iget-object v6, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->mVisibleItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 406
+    .end local v3    # "keyCode":I
     .end local v4    # "id":I
-    .end local v5    # "keyCode":I
+    .end local v5    # "column":Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$TextColumn;
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    .line 420
+    .end local v2    # "i":I
     :cond_4
     invoke-virtual {p0}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter;->notifyDataSetChanged()V
 

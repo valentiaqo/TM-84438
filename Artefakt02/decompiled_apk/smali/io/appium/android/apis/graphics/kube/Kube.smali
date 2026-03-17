@@ -56,85 +56,84 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
-    const/16 v3, 0x1b
-
     .line 295
     const/16 v0, 0x9
 
     new-array v0, v0, [[I
 
-    const/4 v1, 0x0
+    const/16 v1, 0x1b
 
-    new-array v2, v3, [I
+    new-array v2, v1, [I
 
     fill-array-data v2, :array_0
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x0
 
-    const/4 v1, 0x1
+    aput-object v2, v0, v3
 
-    new-array v2, v3, [I
+    new-array v2, v1, [I
 
     fill-array-data v2, :array_1
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x1
 
-    const/4 v1, 0x2
+    aput-object v2, v0, v3
 
-    new-array v2, v3, [I
+    new-array v2, v1, [I
 
     fill-array-data v2, :array_2
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x2
 
-    const/4 v1, 0x3
+    aput-object v2, v0, v3
 
-    new-array v2, v3, [I
+    new-array v2, v1, [I
 
     fill-array-data v2, :array_3
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x3
 
-    const/4 v1, 0x4
+    aput-object v2, v0, v3
 
-    new-array v2, v3, [I
+    new-array v2, v1, [I
 
     fill-array-data v2, :array_4
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x4
 
-    const/4 v1, 0x5
+    aput-object v2, v0, v3
 
-    new-array v2, v3, [I
+    new-array v2, v1, [I
 
     fill-array-data v2, :array_5
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x5
 
-    const/4 v1, 0x6
+    aput-object v2, v0, v3
 
-    new-array v2, v3, [I
+    new-array v2, v1, [I
 
     fill-array-data v2, :array_6
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x6
 
-    const/4 v1, 0x7
+    aput-object v2, v0, v3
 
-    new-array v2, v3, [I
+    new-array v2, v1, [I
 
     fill-array-data v2, :array_7
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x7
 
-    const/16 v1, 0x8
+    aput-object v2, v0, v3
 
-    new-array v2, v3, [I
+    new-array v1, v1, [I
 
-    fill-array-data v2, :array_8
+    fill-array-data v1, :array_8
 
-    aput-object v2, v0, v1
+    const/16 v2, 0x8
+
+    aput-object v1, v0, v2
 
     sput-object v0, Lio/appium/android/apis/graphics/kube/Kube;->mLayerPermutations:[[I
 
@@ -423,7 +422,6 @@
 .method public constructor <init>()V
     .locals 3
 
-    .prologue
     .line 27
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -463,19 +461,16 @@
 .method private createLayers()V
     .locals 6
 
-    .prologue
-    const/4 v5, 0x2
-
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
-
     .line 138
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
     new-instance v1, Lio/appium/android/apis/graphics/kube/Layer;
 
-    invoke-direct {v1, v4}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
+    const/4 v2, 0x1
+
+    invoke-direct {v1, v2}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
+
+    const/4 v3, 0x0
 
     aput-object v1, v0, v3
 
@@ -484,9 +479,9 @@
 
     new-instance v1, Lio/appium/android/apis/graphics/kube/Layer;
 
-    invoke-direct {v1, v4}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
+    invoke-direct {v1, v2}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v2
 
     .line 140
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
@@ -495,1770 +490,1623 @@
 
     invoke-direct {v1, v3}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
 
-    aput-object v1, v0, v5
+    const/4 v4, 0x2
+
+    aput-object v1, v0, v4
 
     .line 141
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/4 v1, 0x3
+    new-instance v1, Lio/appium/android/apis/graphics/kube/Layer;
 
-    new-instance v2, Lio/appium/android/apis/graphics/kube/Layer;
+    invoke-direct {v1, v3}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
 
-    invoke-direct {v2, v3}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
+    const/4 v5, 0x3
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v5
 
     .line 142
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/4 v1, 0x4
+    new-instance v1, Lio/appium/android/apis/graphics/kube/Layer;
 
-    new-instance v2, Lio/appium/android/apis/graphics/kube/Layer;
+    invoke-direct {v1, v4}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
 
-    invoke-direct {v2, v5}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
+    const/4 v5, 0x4
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v5
 
     .line 143
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/4 v1, 0x5
+    new-instance v1, Lio/appium/android/apis/graphics/kube/Layer;
 
-    new-instance v2, Lio/appium/android/apis/graphics/kube/Layer;
+    invoke-direct {v1, v4}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
 
-    invoke-direct {v2, v5}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
+    const/4 v5, 0x5
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v5
 
     .line 144
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/4 v1, 0x6
+    new-instance v1, Lio/appium/android/apis/graphics/kube/Layer;
 
-    new-instance v2, Lio/appium/android/apis/graphics/kube/Layer;
+    invoke-direct {v1, v3}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
 
-    invoke-direct {v2, v3}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
+    const/4 v3, 0x6
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v3
 
     .line 145
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/4 v1, 0x7
+    new-instance v1, Lio/appium/android/apis/graphics/kube/Layer;
 
-    new-instance v2, Lio/appium/android/apis/graphics/kube/Layer;
+    invoke-direct {v1, v2}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
 
-    invoke-direct {v2, v4}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
+    const/4 v2, 0x7
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     .line 146
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/16 v1, 0x8
+    new-instance v1, Lio/appium/android/apis/graphics/kube/Layer;
 
-    new-instance v2, Lio/appium/android/apis/graphics/kube/Layer;
+    invoke-direct {v1, v4}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
 
-    invoke-direct {v2, v5}, Lio/appium/android/apis/graphics/kube/Layer;-><init>(I)V
+    const/16 v2, 0x8
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     .line 147
     return-void
 .end method
 
 .method private makeGLWorld()Lio/appium/android/apis/graphics/kube/GLWorld;
-    .locals 37
+    .locals 28
 
-    .prologue
     .line 31
-    new-instance v5, Lio/appium/android/apis/graphics/kube/GLWorld;
+    move-object/from16 v0, p0
 
-    invoke-direct {v5}, Lio/appium/android/apis/graphics/kube/GLWorld;-><init>()V
+    new-instance v1, Lio/appium/android/apis/graphics/kube/GLWorld;
+
+    invoke-direct {v1}, Lio/appium/android/apis/graphics/kube/GLWorld;-><init>()V
 
     .line 33
-    .local v5, "world":Lio/appium/android/apis/graphics/kube/GLWorld;
-    const/high16 v32, 0x10000
+    .local v1, "world":Lio/appium/android/apis/graphics/kube/GLWorld;
+    const/high16 v10, 0x10000
 
     .line 34
-    .local v32, "one":I
-    const v29, 0x8000
+    .local v10, "one":I
+    const v11, 0x8000
 
     .line 35
-    .local v29, "half":I
-    new-instance v34, Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v11, "half":I
+    new-instance v2, Lio/appium/android/apis/graphics/kube/GLColor;
 
-    const/4 v4, 0x0
+    const/4 v12, 0x0
 
-    const/4 v8, 0x0
+    invoke-direct {v2, v10, v12, v12}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
 
-    move-object/from16 v0, v34
-
-    move/from16 v1, v32
-
-    invoke-direct {v0, v1, v4, v8}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
+    move-object v13, v2
 
     .line 36
-    .local v34, "red":Lio/appium/android/apis/graphics/kube/GLColor;
-    new-instance v28, Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v13, "red":Lio/appium/android/apis/graphics/kube/GLColor;
+    new-instance v2, Lio/appium/android/apis/graphics/kube/GLColor;
 
-    const/4 v4, 0x0
+    invoke-direct {v2, v12, v10, v12}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
 
-    const/4 v8, 0x0
-
-    move-object/from16 v0, v28
-
-    move/from16 v1, v32
-
-    invoke-direct {v0, v4, v1, v8}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
+    move-object v14, v2
 
     .line 37
-    .local v28, "green":Lio/appium/android/apis/graphics/kube/GLColor;
-    new-instance v26, Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v14, "green":Lio/appium/android/apis/graphics/kube/GLColor;
+    new-instance v2, Lio/appium/android/apis/graphics/kube/GLColor;
 
-    const/4 v4, 0x0
+    invoke-direct {v2, v12, v12, v10}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
 
-    const/4 v8, 0x0
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v32
-
-    invoke-direct {v0, v4, v8, v1}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
+    move-object v15, v2
 
     .line 38
-    .local v26, "blue":Lio/appium/android/apis/graphics/kube/GLColor;
-    new-instance v36, Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v15, "blue":Lio/appium/android/apis/graphics/kube/GLColor;
+    new-instance v2, Lio/appium/android/apis/graphics/kube/GLColor;
 
-    const/4 v4, 0x0
+    invoke-direct {v2, v10, v10, v12}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
 
-    move-object/from16 v0, v36
-
-    move/from16 v1, v32
-
-    move/from16 v2, v32
-
-    invoke-direct {v0, v1, v2, v4}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
+    move-object v9, v2
 
     .line 39
-    .local v36, "yellow":Lio/appium/android/apis/graphics/kube/GLColor;
-    new-instance v33, Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v9, "yellow":Lio/appium/android/apis/graphics/kube/GLColor;
+    new-instance v2, Lio/appium/android/apis/graphics/kube/GLColor;
 
-    const/4 v4, 0x0
+    invoke-direct {v2, v10, v11, v12}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
 
-    move-object/from16 v0, v33
-
-    move/from16 v1, v32
-
-    move/from16 v2, v29
-
-    invoke-direct {v0, v1, v2, v4}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
+    move-object v8, v2
 
     .line 40
-    .local v33, "orange":Lio/appium/android/apis/graphics/kube/GLColor;
-    new-instance v35, Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v8, "orange":Lio/appium/android/apis/graphics/kube/GLColor;
+    new-instance v2, Lio/appium/android/apis/graphics/kube/GLColor;
 
-    move-object/from16 v0, v35
+    invoke-direct {v2, v10, v10, v10}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
 
-    move/from16 v1, v32
-
-    move/from16 v2, v32
-
-    move/from16 v3, v32
-
-    invoke-direct {v0, v1, v2, v3}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
+    move-object v7, v2
 
     .line 41
-    .local v35, "white":Lio/appium/android/apis/graphics/kube/GLColor;
-    new-instance v25, Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v7, "white":Lio/appium/android/apis/graphics/kube/GLColor;
+    new-instance v2, Lio/appium/android/apis/graphics/kube/GLColor;
 
-    const/4 v4, 0x0
+    invoke-direct {v2, v12, v12, v12}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
 
-    const/4 v8, 0x0
-
-    const/4 v11, 0x0
-
-    move-object/from16 v0, v25
-
-    invoke-direct {v0, v4, v8, v11}, Lio/appium/android/apis/graphics/kube/GLColor;-><init>(III)V
+    move-object v6, v2
 
     .line 44
-    .local v25, "black":Lio/appium/android/apis/graphics/kube/GLColor;
-    const/high16 v6, -0x40800000    # -1.0f
+    .local v6, "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    const/high16 v16, -0x40800000    # -1.0f
 
     .line 45
-    .local v6, "c0":F
-    const v9, -0x413d70a4    # -0.38f
+    .local v16, "c0":F
+    const v17, -0x413d70a4    # -0.38f
 
     .line 46
-    .local v9, "c1":F
-    const v13, -0x415c28f6    # -0.32f
+    .local v17, "c1":F
+    const v18, -0x415c28f6    # -0.32f
 
     .line 47
-    .local v13, "c2":F
-    const v16, 0x3ea3d70a    # 0.32f
+    .local v18, "c2":F
+    const v19, 0x3ea3d70a    # 0.32f
 
     .line 48
-    .local v16, "c3":F
-    const v7, 0x3ec28f5c    # 0.38f
+    .local v19, "c3":F
+    const v20, 0x3ec28f5c    # 0.38f
 
     .line 49
-    .local v7, "c4":F
-    const/high16 v10, 0x3f800000    # 1.0f
+    .local v20, "c4":F
+    const/high16 v21, 0x3f800000    # 1.0f
 
     .line 52
-    .local v10, "c5":F
-    move-object/from16 v0, p0
+    .local v21, "c5":F
+    iget-object v5, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v12, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/4 v14, 0x0
+    move-object/from16 v2, v22
 
-    new-instance v4, Lio/appium/android/apis/graphics/kube/Cube;
+    move-object v3, v1
 
-    move v8, v6
+    move/from16 v4, v16
 
-    move v11, v9
+    move-object/from16 v23, v5
 
-    invoke-direct/range {v4 .. v11}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
+    move/from16 v5, v20
 
-    aput-object v4, v12, v14
+    move-object/from16 v24, v6
+
+    .end local v6    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v24, "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    move/from16 v6, v16
+
+    move-object/from16 v25, v7
+
+    .end local v7    # "white":Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v25, "white":Lio/appium/android/apis/graphics/kube/GLColor;
+    move/from16 v7, v17
+
+    move-object/from16 v26, v8
+
+    .end local v8    # "orange":Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v26, "orange":Lio/appium/android/apis/graphics/kube/GLColor;
+    move/from16 v8, v21
+
+    move-object/from16 v27, v9
+
+    .end local v9    # "yellow":Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v27, "yellow":Lio/appium/android/apis/graphics/kube/GLColor;
+    move/from16 v9, v17
+
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
+
+    aput-object v22, v23, v12
 
     .line 53
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/4 v8, 0x1
+    move-object/from16 v2, v22
 
-    new-instance v11, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v18
 
-    move-object v12, v5
+    move/from16 v7, v19
 
-    move v14, v7
+    move-object/from16 v23, v9
 
-    move v15, v6
+    move/from16 v9, v17
 
-    move/from16 v17, v10
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v18, v9
+    const/4 v9, 0x1
 
-    invoke-direct/range {v11 .. v18}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v11, v4, v8
+    aput-object v22, v23, v9
 
     .line 54
-    move-object/from16 v0, p0
+    iget-object v8, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/4 v8, 0x2
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v20
 
-    move-object/from16 v18, v5
+    move/from16 v7, v21
 
-    move/from16 v19, v7
+    move-object/from16 v23, v8
 
-    move/from16 v20, v7
+    move/from16 v8, v21
 
-    move/from16 v21, v6
+    move/from16 v9, v17
 
-    move/from16 v22, v10
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v23, v10
+    const/4 v9, 0x2
 
-    move/from16 v24, v9
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v9
 
     .line 56
-    move-object/from16 v0, p0
+    iget-object v8, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v12, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/4 v14, 0x3
+    move-object/from16 v2, v22
 
-    new-instance v4, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v16
 
-    move v8, v13
+    move/from16 v6, v18
 
-    move/from16 v11, v16
+    move/from16 v7, v17
 
-    invoke-direct/range {v4 .. v11}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
+    move-object/from16 v23, v8
 
-    aput-object v4, v12, v14
+    move/from16 v8, v21
+
+    move/from16 v9, v19
+
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
+
+    const/4 v9, 0x3
+
+    aput-object v22, v23, v9
 
     .line 57
-    move-object/from16 v0, p0
+    iget-object v8, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/4 v8, 0x4
+    move-object/from16 v2, v22
 
-    new-instance v11, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v18
 
-    move-object v12, v5
+    move/from16 v7, v19
 
-    move v14, v7
+    move-object/from16 v23, v8
 
-    move v15, v13
+    move/from16 v8, v21
 
-    move/from16 v17, v10
+    move/from16 v9, v19
 
-    move/from16 v18, v16
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    invoke-direct/range {v11 .. v18}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
+    const/4 v9, 0x4
 
-    aput-object v11, v4, v8
+    aput-object v22, v23, v9
 
     .line 58
-    move-object/from16 v0, p0
+    iget-object v8, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/4 v8, 0x5
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v20
 
-    move-object/from16 v18, v5
+    move/from16 v7, v21
 
-    move/from16 v19, v7
+    move-object/from16 v23, v8
 
-    move/from16 v20, v7
+    move/from16 v8, v21
 
-    move/from16 v21, v13
+    move/from16 v9, v19
 
-    move/from16 v22, v10
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v23, v10
+    const/4 v9, 0x5
 
-    move/from16 v24, v16
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v9
 
     .line 60
-    move-object/from16 v0, p0
+    iget-object v8, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v12, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/4 v14, 0x6
+    move-object/from16 v2, v22
 
-    new-instance v4, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v16
 
-    move v8, v7
+    move/from16 v6, v20
 
-    move v11, v10
+    move/from16 v7, v17
 
-    invoke-direct/range {v4 .. v11}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
+    move-object/from16 v23, v8
 
-    aput-object v4, v12, v14
+    move/from16 v8, v21
+
+    const/4 v12, 0x5
+
+    move/from16 v9, v21
+
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
+
+    const/4 v9, 0x6
+
+    aput-object v22, v23, v9
 
     .line 61
-    move-object/from16 v0, p0
+    iget-object v8, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/4 v8, 0x7
+    move-object/from16 v2, v22
 
-    new-instance v11, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v18
 
-    move-object v12, v5
+    move/from16 v7, v19
 
-    move v14, v7
+    move-object/from16 v23, v8
 
-    move v15, v7
+    move/from16 v8, v21
 
-    move/from16 v17, v10
+    const/4 v12, 0x6
 
-    move/from16 v18, v10
+    move/from16 v9, v21
 
-    invoke-direct/range {v11 .. v18}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    aput-object v11, v4, v8
+    const/4 v2, 0x7
+
+    aput-object v22, v23, v2
 
     .line 62
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x8
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v20
 
-    move-object/from16 v18, v5
+    move/from16 v7, v21
 
-    move/from16 v19, v7
+    move-object/from16 v23, v9
 
-    move/from16 v20, v7
+    move/from16 v9, v21
 
-    move/from16 v21, v7
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v22, v10
+    const/16 v2, 0x8
 
-    move/from16 v23, v10
-
-    move/from16 v24, v10
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v2
 
     .line 64
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x9
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v16
 
-    move-object/from16 v18, v5
+    move/from16 v5, v18
 
-    move/from16 v19, v6
+    move/from16 v6, v16
 
-    move/from16 v20, v13
+    move/from16 v7, v17
 
-    move/from16 v21, v6
+    move/from16 v8, v19
 
-    move/from16 v22, v9
+    move-object/from16 v23, v9
 
-    move/from16 v23, v16
+    move/from16 v9, v17
 
-    move/from16 v24, v9
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
+    const/16 v9, 0x9
 
-    aput-object v17, v4, v8
+    aput-object v22, v23, v9
 
     .line 65
-    move-object/from16 v0, p0
+    iget-object v8, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0xa
+    move-object/from16 v2, v22
 
-    new-instance v11, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v18
 
-    move-object v12, v5
+    move/from16 v7, v19
 
-    move v14, v13
+    move-object/from16 v23, v8
 
-    move v15, v6
+    move/from16 v8, v19
 
-    move/from16 v17, v16
+    move/from16 v9, v17
 
-    move/from16 v18, v9
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    invoke-direct/range {v11 .. v18}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
+    const/16 v2, 0xa
 
-    aput-object v11, v4, v8
+    aput-object v22, v23, v2
 
     .line 66
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0xb
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v20
 
-    move-object/from16 v18, v5
+    move/from16 v7, v21
 
-    move/from16 v19, v7
+    move-object/from16 v23, v9
 
-    move/from16 v20, v13
+    move/from16 v9, v17
 
-    move/from16 v21, v6
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v22, v10
+    const/16 v2, 0xb
 
-    move/from16 v23, v16
-
-    move/from16 v24, v9
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v2
 
     .line 68
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0xc
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v16
 
-    move-object/from16 v18, v5
+    move/from16 v6, v18
 
-    move/from16 v19, v6
+    move/from16 v7, v17
 
-    move/from16 v20, v13
+    move-object/from16 v23, v9
 
-    move/from16 v21, v13
+    move/from16 v9, v19
 
-    move/from16 v22, v9
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v23, v16
+    const/16 v2, 0xc
 
-    move/from16 v24, v16
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v2
 
     .line 69
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    const/16 v2, 0xd
 
-    const/16 v8, 0xd
+    const/4 v3, 0x0
 
-    const/4 v11, 0x0
-
-    aput-object v11, v4, v8
+    aput-object v3, v9, v2
 
     .line 70
-    move-object/from16 v0, p0
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    move-object/from16 v2, v22
 
-    const/16 v8, 0xe
+    move-object v3, v1
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v20
 
-    move-object/from16 v18, v5
+    move/from16 v7, v21
 
-    move/from16 v19, v7
+    move-object/from16 v23, v9
 
-    move/from16 v20, v13
+    move/from16 v9, v19
 
-    move/from16 v21, v13
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v22, v10
+    const/16 v2, 0xe
 
-    move/from16 v23, v16
-
-    move/from16 v24, v16
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v2
 
     .line 72
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0xf
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v16
 
-    move-object/from16 v18, v5
+    move/from16 v6, v20
 
-    move/from16 v19, v6
+    move/from16 v7, v17
 
-    move/from16 v20, v13
+    move-object/from16 v23, v9
 
-    move/from16 v21, v7
+    move/from16 v9, v21
 
-    move/from16 v22, v9
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v23, v16
+    const/16 v2, 0xf
 
-    move/from16 v24, v10
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v2
 
     .line 73
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x10
+    move-object/from16 v2, v22
 
-    new-instance v11, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v18
 
-    move-object v12, v5
+    move/from16 v7, v19
 
-    move v14, v13
+    move-object/from16 v23, v9
 
-    move v15, v7
+    move/from16 v9, v21
 
-    move/from16 v17, v16
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v18, v10
+    const/16 v2, 0x10
 
-    invoke-direct/range {v11 .. v18}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v11, v4, v8
+    aput-object v22, v23, v2
 
     .line 74
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x11
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v20
 
-    move-object/from16 v18, v5
+    move/from16 v7, v21
 
-    move/from16 v19, v7
+    move-object/from16 v23, v9
 
-    move/from16 v20, v13
+    move/from16 v9, v21
 
-    move/from16 v21, v7
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v22, v10
+    const/16 v2, 0x11
 
-    move/from16 v23, v16
-
-    move/from16 v24, v10
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v2
 
     .line 76
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x12
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v16
 
-    move-object/from16 v18, v5
+    move/from16 v5, v16
 
-    move/from16 v19, v6
+    move/from16 v6, v16
 
-    move/from16 v20, v6
+    move/from16 v7, v17
 
-    move/from16 v21, v6
+    move/from16 v8, v17
 
-    move/from16 v22, v9
+    move-object/from16 v23, v9
 
-    move/from16 v23, v9
+    move/from16 v9, v17
 
-    move/from16 v24, v9
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
+    const/16 v2, 0x12
 
-    aput-object v17, v4, v8
+    aput-object v22, v23, v2
 
     .line 77
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x13
+    move-object/from16 v2, v22
 
-    new-instance v11, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v18
 
-    move-object v12, v5
+    move/from16 v7, v19
 
-    move v14, v6
+    move-object/from16 v23, v9
 
-    move v15, v6
+    move/from16 v9, v17
 
-    move/from16 v17, v9
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v18, v9
+    const/16 v2, 0x13
 
-    invoke-direct/range {v11 .. v18}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v11, v4, v8
+    aput-object v22, v23, v2
 
     .line 78
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x14
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v20
 
-    move-object/from16 v18, v5
+    move/from16 v7, v21
 
-    move/from16 v19, v7
+    move-object/from16 v23, v9
 
-    move/from16 v20, v6
+    move/from16 v9, v17
 
-    move/from16 v21, v6
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v22, v10
+    const/16 v2, 0x14
 
-    move/from16 v23, v9
-
-    move/from16 v24, v9
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v2
 
     .line 80
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x15
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v16
 
-    move-object/from16 v18, v5
+    move/from16 v6, v18
 
-    move/from16 v19, v6
+    move/from16 v7, v17
 
-    move/from16 v20, v6
+    move-object/from16 v23, v9
 
-    move/from16 v21, v13
+    move/from16 v9, v19
 
-    move/from16 v22, v9
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v23, v9
+    const/16 v2, 0x15
 
-    move/from16 v24, v16
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v2
 
     .line 81
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x16
+    move-object/from16 v2, v22
 
-    new-instance v11, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v18
 
-    move-object v12, v5
+    move/from16 v7, v19
 
-    move v14, v6
+    move-object/from16 v23, v9
 
-    move v15, v13
+    move/from16 v9, v19
 
-    move/from16 v17, v9
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v18, v16
+    const/16 v2, 0x16
 
-    invoke-direct/range {v11 .. v18}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v11, v4, v8
+    aput-object v22, v23, v2
 
     .line 82
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x17
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v20
 
-    move-object/from16 v18, v5
+    move/from16 v7, v21
 
-    move/from16 v19, v7
+    move-object/from16 v23, v9
 
-    move/from16 v20, v6
+    move/from16 v9, v19
 
-    move/from16 v21, v13
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v22, v10
+    const/16 v2, 0x17
 
-    move/from16 v23, v9
-
-    move/from16 v24, v16
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v2
 
     .line 84
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x18
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v16
 
-    move-object/from16 v18, v5
+    move/from16 v6, v20
 
-    move/from16 v19, v6
+    move/from16 v7, v17
 
-    move/from16 v20, v6
+    move-object/from16 v23, v9
 
-    move/from16 v21, v7
+    move/from16 v9, v21
 
-    move/from16 v22, v9
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v23, v9
+    const/16 v2, 0x18
 
-    move/from16 v24, v10
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v2
 
     .line 85
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x19
+    move-object/from16 v2, v22
 
-    new-instance v11, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v18
 
-    move-object v12, v5
+    move/from16 v7, v19
 
-    move v14, v6
+    move-object/from16 v23, v9
 
-    move v15, v7
+    move/from16 v9, v21
 
-    move/from16 v17, v9
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v18, v10
+    const/16 v2, 0x19
 
-    invoke-direct/range {v11 .. v18}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v11, v4, v8
+    aput-object v22, v23, v2
 
     .line 86
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    new-instance v22, Lio/appium/android/apis/graphics/kube/Cube;
 
-    const/16 v8, 0x1a
+    move-object/from16 v2, v22
 
-    new-instance v17, Lio/appium/android/apis/graphics/kube/Cube;
+    move/from16 v4, v20
 
-    move-object/from16 v18, v5
+    move/from16 v7, v21
 
-    move/from16 v19, v7
+    move-object/from16 v23, v9
 
-    move/from16 v20, v6
+    move/from16 v9, v21
 
-    move/from16 v21, v7
+    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
 
-    move/from16 v22, v10
+    const/16 v2, 0x1a
 
-    move/from16 v23, v9
-
-    move/from16 v24, v10
-
-    invoke-direct/range {v17 .. v24}, Lio/appium/android/apis/graphics/kube/Cube;-><init>(Lio/appium/android/apis/graphics/kube/GLWorld;FFFFFF)V
-
-    aput-object v17, v4, v8
+    aput-object v22, v23, v2
 
     .line 91
-    const/16 v30, 0x0
+    const/4 v2, 0x0
 
-    .local v30, "i":I
+    .local v2, "i":I
     :goto_0
-    const/16 v4, 0x1b
+    const/16 v3, 0x1b
 
-    move/from16 v0, v30
-
-    if-ge v0, v4, :cond_1
+    if-ge v2, v3, :cond_2
 
     .line 92
-    move-object/from16 v0, p0
+    iget-object v3, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
-
-    aget-object v27, v4, v30
+    aget-object v3, v3, v2
 
     .line 93
-    .local v27, "cube":Lio/appium/android/apis/graphics/kube/Cube;
-    if-eqz v27, :cond_0
+    .local v3, "cube":Lio/appium/android/apis/graphics/kube/Cube;
+    if-eqz v3, :cond_1
 
     .line 94
-    const/16 v31, 0x0
+    const/4 v4, 0x0
 
-    .local v31, "j":I
+    .local v4, "j":I
     :goto_1
-    const/4 v4, 0x6
-
-    move/from16 v0, v31
-
-    if-ge v0, v4, :cond_0
+    if-ge v4, v12, :cond_0
 
     .line 95
-    move-object/from16 v0, v27
+    move-object/from16 v5, v24
 
-    move/from16 v1, v31
-
-    move-object/from16 v2, v25
-
-    invoke-virtual {v0, v1, v2}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
+    .end local v24    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v5, "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    invoke-virtual {v3, v4, v5}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
 
     .line 94
-    add-int/lit8 v31, v31, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
-    .line 91
-    .end local v31    # "j":I
+    .end local v5    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    .restart local v24    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
     :cond_0
-    add-int/lit8 v30, v30, 0x1
+    move-object/from16 v5, v24
+
+    .end local v24    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    .restart local v5    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    goto :goto_2
+
+    .line 93
+    .end local v4    # "j":I
+    .end local v5    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    .restart local v24    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    :cond_1
+    move-object/from16 v5, v24
+
+    .line 91
+    .end local v3    # "cube":Lio/appium/android/apis/graphics/kube/Cube;
+    .end local v24    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    .restart local v5    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    :goto_2
+    add-int/lit8 v2, v2, 0x1
+
+    move-object/from16 v24, v5
 
     goto :goto_0
 
     .line 100
-    .end local v27    # "cube":Lio/appium/android/apis/graphics/kube/Cube;
-    :cond_1
-    const/16 v30, 0x0
+    .end local v5    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    .restart local v24    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    :cond_2
+    move-object/from16 v5, v24
 
-    :goto_2
+    .end local v24    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    .restart local v5    # "black":Lio/appium/android/apis/graphics/kube/GLColor;
+    const/4 v2, 0x0
+
+    :goto_3
     const/16 v4, 0x9
 
-    move/from16 v0, v30
-
-    if-ge v0, v4, :cond_2
+    if-ge v2, v4, :cond_3
 
     .line 101
-    move-object/from16 v0, p0
+    iget-object v6, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    aget-object v6, v6, v2
 
-    aget-object v4, v4, v30
+    move-object/from16 v7, v26
 
     const/4 v8, 0x5
 
-    move-object/from16 v0, v33
-
-    invoke-virtual {v4, v8, v0}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
+    .end local v26    # "orange":Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v7, "orange":Lio/appium/android/apis/graphics/kube/GLColor;
+    invoke-virtual {v6, v8, v7}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
 
     .line 100
-    add-int/lit8 v30, v30, 0x1
-
-    goto :goto_2
-
-    .line 103
-    :cond_2
-    const/16 v30, 0x12
-
-    :goto_3
-    const/16 v4, 0x1b
-
-    move/from16 v0, v30
-
-    if-ge v0, v4, :cond_3
-
-    .line 104
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
-
-    aget-object v4, v4, v30
-
-    const/4 v8, 0x0
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v4, v8, v0}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
-
-    .line 103
-    add-int/lit8 v30, v30, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_3
 
-    .line 106
+    .line 103
+    .end local v7    # "orange":Lio/appium/android/apis/graphics/kube/GLColor;
+    .restart local v26    # "orange":Lio/appium/android/apis/graphics/kube/GLColor;
     :cond_3
-    const/16 v30, 0x0
+    move-object/from16 v7, v26
+
+    .end local v26    # "orange":Lio/appium/android/apis/graphics/kube/GLColor;
+    .restart local v7    # "orange":Lio/appium/android/apis/graphics/kube/GLColor;
+    const/16 v2, 0x12
 
     :goto_4
-    const/16 v4, 0x1b
+    if-ge v2, v3, :cond_4
 
-    move/from16 v0, v30
-
-    if-ge v0, v4, :cond_4
-
-    .line 107
-    move-object/from16 v0, p0
-
+    .line 104
     iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    aget-object v4, v4, v30
+    aget-object v4, v4, v2
 
-    const/4 v8, 0x2
+    const/4 v6, 0x0
 
-    move-object/from16 v0, v36
+    invoke-virtual {v4, v6, v13}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
 
-    invoke-virtual {v4, v8, v0}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
-
-    .line 106
-    add-int/lit8 v30, v30, 0x3
+    .line 103
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_4
 
-    .line 109
+    .line 106
     :cond_4
-    const/16 v30, 0x2
+    const/4 v2, 0x0
 
     :goto_5
-    const/16 v4, 0x1b
+    if-ge v2, v3, :cond_5
 
-    move/from16 v0, v30
-
-    if-ge v0, v4, :cond_5
-
-    .line 110
-    move-object/from16 v0, p0
-
+    .line 107
     iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    aget-object v4, v4, v30
+    aget-object v4, v4, v2
 
-    const/4 v8, 0x3
+    move-object/from16 v6, v27
 
-    move-object/from16 v0, v35
+    const/4 v8, 0x2
 
-    invoke-virtual {v4, v8, v0}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
+    .end local v27    # "yellow":Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v6, "yellow":Lio/appium/android/apis/graphics/kube/GLColor;
+    invoke-virtual {v4, v8, v6}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
 
-    .line 109
-    add-int/lit8 v30, v30, 0x3
+    .line 106
+    add-int/lit8 v2, v2, 0x3
 
     goto :goto_5
 
-    .line 112
+    .line 109
+    .end local v6    # "yellow":Lio/appium/android/apis/graphics/kube/GLColor;
+    .restart local v27    # "yellow":Lio/appium/android/apis/graphics/kube/GLColor;
     :cond_5
-    const/16 v30, 0x0
+    move-object/from16 v6, v27
+
+    .end local v27    # "yellow":Lio/appium/android/apis/graphics/kube/GLColor;
+    .restart local v6    # "yellow":Lio/appium/android/apis/graphics/kube/GLColor;
+    const/4 v2, 0x2
 
     :goto_6
-    const/16 v4, 0x1b
+    if-ge v2, v3, :cond_6
 
-    move/from16 v0, v30
-
-    if-ge v0, v4, :cond_7
-
-    .line 113
-    const/16 v31, 0x0
-
-    .restart local v31    # "j":I
-    :goto_7
-    const/4 v4, 0x3
-
-    move/from16 v0, v31
-
-    if-ge v0, v4, :cond_6
-
-    .line 114
-    move-object/from16 v0, p0
-
+    .line 110
     iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    add-int v8, v30, v31
+    aget-object v4, v4, v2
 
-    aget-object v4, v4, v8
+    move-object/from16 v8, v25
 
-    const/4 v8, 0x4
+    const/4 v9, 0x3
 
-    move-object/from16 v0, v26
+    .end local v25    # "white":Lio/appium/android/apis/graphics/kube/GLColor;
+    .local v8, "white":Lio/appium/android/apis/graphics/kube/GLColor;
+    invoke-virtual {v4, v9, v8}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
 
-    invoke-virtual {v4, v8, v0}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
-
-    .line 113
-    add-int/lit8 v31, v31, 0x1
-
-    goto :goto_7
-
-    .line 112
-    :cond_6
-    add-int/lit8 v30, v30, 0x9
+    .line 109
+    add-int/lit8 v2, v2, 0x3
 
     goto :goto_6
 
-    .line 116
-    .end local v31    # "j":I
-    :cond_7
-    const/16 v30, 0x6
+    .line 112
+    .end local v8    # "white":Lio/appium/android/apis/graphics/kube/GLColor;
+    .restart local v25    # "white":Lio/appium/android/apis/graphics/kube/GLColor;
+    :cond_6
+    move-object/from16 v8, v25
 
+    const/4 v9, 0x3
+
+    .end local v25    # "white":Lio/appium/android/apis/graphics/kube/GLColor;
+    .restart local v8    # "white":Lio/appium/android/apis/graphics/kube/GLColor;
+    const/4 v2, 0x0
+
+    :goto_7
+    if-ge v2, v3, :cond_8
+
+    .line 113
+    const/4 v4, 0x0
+
+    .restart local v4    # "j":I
     :goto_8
-    const/16 v4, 0x1b
+    if-ge v4, v9, :cond_7
 
-    move/from16 v0, v30
+    .line 114
+    iget-object v12, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    if-ge v0, v4, :cond_9
+    add-int v22, v2, v4
 
-    .line 117
-    const/16 v31, 0x0
+    aget-object v12, v12, v22
 
-    .restart local v31    # "j":I
-    :goto_9
-    const/4 v4, 0x3
+    const/4 v9, 0x4
 
-    move/from16 v0, v31
+    invoke-virtual {v12, v9, v15}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
 
-    if-ge v0, v4, :cond_8
+    .line 113
+    add-int/lit8 v4, v4, 0x1
 
-    .line 118
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
-
-    add-int v8, v30, v31
-
-    aget-object v4, v4, v8
-
-    const/4 v8, 0x1
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v4, v8, v0}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
-
-    .line 117
-    add-int/lit8 v31, v31, 0x1
-
-    goto :goto_9
-
-    .line 116
-    :cond_8
-    add-int/lit8 v30, v30, 0x9
+    const/4 v9, 0x3
 
     goto :goto_8
 
-    .line 120
-    .end local v31    # "j":I
-    :cond_9
-    const/16 v30, 0x0
+    .line 112
+    :cond_7
+    const/4 v9, 0x4
 
+    add-int/lit8 v2, v2, 0x9
+
+    const/4 v9, 0x3
+
+    goto :goto_7
+
+    .line 116
+    .end local v4    # "j":I
+    :cond_8
+    const/4 v2, 0x6
+
+    :goto_9
+    if-ge v2, v3, :cond_a
+
+    .line 117
+    const/4 v4, 0x0
+
+    .restart local v4    # "j":I
     :goto_a
-    const/16 v4, 0x1b
+    const/4 v9, 0x3
 
-    move/from16 v0, v30
+    if-ge v4, v9, :cond_9
 
-    if-ge v0, v4, :cond_b
+    .line 118
+    iget-object v12, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    .line 121
-    move-object/from16 v0, p0
+    add-int v22, v2, v4
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    aget-object v12, v12, v22
 
-    aget-object v4, v4, v30
+    const/4 v9, 0x1
 
-    if-eqz v4, :cond_a
+    invoke-virtual {v12, v9, v14}, Lio/appium/android/apis/graphics/kube/Cube;->setFaceColor(ILio/appium/android/apis/graphics/kube/GLColor;)V
 
-    .line 122
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
-
-    aget-object v4, v4, v30
-
-    invoke-virtual {v5, v4}, Lio/appium/android/apis/graphics/kube/GLWorld;->addShape(Lio/appium/android/apis/graphics/kube/GLShape;)V
-
-    .line 120
-    :cond_a
-    add-int/lit8 v30, v30, 0x1
+    .line 117
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_a
 
-    .line 125
-    :cond_b
-    const/16 v4, 0x1b
+    .line 116
+    :cond_9
+    const/4 v9, 0x1
 
-    new-array v4, v4, [I
+    add-int/lit8 v2, v2, 0x9
 
-    move-object/from16 v0, p0
+    goto :goto_9
 
-    iput-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
-
-    .line 126
-    const/16 v30, 0x0
+    .line 120
+    .end local v4    # "j":I
+    :cond_a
+    const/4 v2, 0x0
 
     :goto_b
-    move-object/from16 v0, p0
+    if-ge v2, v3, :cond_c
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+    .line 121
+    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    array-length v4, v4
+    aget-object v9, v4, v2
 
-    move/from16 v0, v30
+    if-eqz v9, :cond_b
 
-    if-ge v0, v4, :cond_c
+    .line 122
+    aget-object v4, v4, v2
 
-    .line 127
-    move-object/from16 v0, p0
+    invoke-virtual {v1, v4}, Lio/appium/android/apis/graphics/kube/GLWorld;->addShape(Lio/appium/android/apis/graphics/kube/GLShape;)V
 
-    iget-object v4, v0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
-
-    aput v30, v4, v30
-
-    .line 126
-    add-int/lit8 v30, v30, 0x1
+    .line 120
+    :cond_b
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_b
 
-    .line 129
+    .line 125
     :cond_c
+    new-array v3, v3, [I
+
+    iput-object v3, v0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+
+    .line 126
+    const/4 v2, 0x0
+
+    :goto_c
+    iget-object v3, v0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+
+    array-length v4, v3
+
+    if-ge v2, v4, :cond_d
+
+    .line 127
+    aput v2, v3, v2
+
+    .line 126
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_c
+
+    .line 129
+    :cond_d
     invoke-direct/range {p0 .. p0}, Lio/appium/android/apis/graphics/kube/Kube;->createLayers()V
 
     .line 130
     invoke-direct/range {p0 .. p0}, Lio/appium/android/apis/graphics/kube/Kube;->updateLayers()V
 
     .line 132
-    invoke-virtual {v5}, Lio/appium/android/apis/graphics/kube/GLWorld;->generate()V
+    invoke-virtual {v1}, Lio/appium/android/apis/graphics/kube/GLWorld;->generate()V
 
     .line 134
-    return-object v5
+    return-object v1
 .end method
 
 .method private updateLayers()V
     .locals 12
 
-    .prologue
-    const/16 v11, 0x9
-
-    const/4 v10, 0x3
-
-    const/16 v9, 0x1b
-
     .line 155
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/4 v7, 0x0
+    const/4 v1, 0x0
 
-    aget-object v4, v6, v7
+    aget-object v0, v0, v1
 
     .line 156
-    .local v4, "layer":Lio/appium/android/apis/graphics/kube/Layer;
-    iget-object v5, v4, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
+    .local v0, "layer":Lio/appium/android/apis/graphics/kube/Layer;
+    iget-object v1, v0, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
 
     .line 157
-    .local v5, "shapes":[Lio/appium/android/apis/graphics/kube/GLShape;
-    const/4 v0, 0x0
+    .local v1, "shapes":[Lio/appium/android/apis/graphics/kube/GLShape;
+    const/4 v2, 0x0
 
-    .local v0, "i":I
+    .local v2, "i":I
     :goto_0
-    if-ge v0, v11, :cond_0
+    const/16 v3, 0x9
+
+    if-ge v2, v3, :cond_0
 
     .line 158
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    iget-object v3, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v7, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+    iget-object v4, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
 
-    aget v7, v7, v0
+    aget v4, v4, v2
 
-    aget-object v6, v6, v7
+    aget-object v3, v3, v4
 
-    aput-object v6, v5, v0
+    aput-object v3, v1, v2
 
     .line 157
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 161
     :cond_0
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
+    iget-object v4, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/4 v7, 0x1
+    const/4 v5, 0x1
 
-    aget-object v4, v6, v7
+    aget-object v0, v4, v5
 
     .line 162
-    iget-object v5, v4, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
+    iget-object v1, v0, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
 
     .line 163
-    const/16 v0, 0x12
+    const/16 v2, 0x12
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    .local v2, "k":I
-    move v3, v2
-
-    .end local v2    # "k":I
-    .local v3, "k":I
+    .local v4, "k":I
     :goto_1
-    if-ge v0, v9, :cond_1
+    const/16 v5, 0x1b
+
+    if-ge v2, v5, :cond_1
 
     .line 164
-    add-int/lit8 v2, v3, 0x1
+    add-int/lit8 v5, v4, 0x1
 
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
+    .end local v4    # "k":I
+    .local v5, "k":I
     iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
     iget-object v7, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
 
-    aget v7, v7, v0
+    aget v7, v7, v2
 
     aget-object v6, v6, v7
 
-    aput-object v6, v5, v3
+    aput-object v6, v1, v4
 
     .line 163
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    move v3, v2
+    move v4, v5
 
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
     goto :goto_1
 
     .line 167
+    .end local v5    # "k":I
+    .restart local v4    # "k":I
     :cond_1
     iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
     const/4 v7, 0x2
 
-    aget-object v4, v6, v7
+    aget-object v0, v6, v7
 
     .line 168
-    iget-object v5, v4, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
+    iget-object v1, v0, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
 
     .line 169
-    const/4 v0, 0x0
-
     const/4 v2, 0x0
 
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
+    const/4 v4, 0x0
+
     :goto_2
-    if-ge v0, v9, :cond_3
+    if-ge v2, v5, :cond_3
 
     .line 170
-    const/4 v1, 0x0
+    const/4 v6, 0x0
 
-    .local v1, "j":I
-    move v3, v2
-
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
+    .local v6, "j":I
     :goto_3
-    if-ge v1, v11, :cond_2
+    if-ge v6, v3, :cond_2
 
     .line 171
-    add-int/lit8 v2, v3, 0x1
+    add-int/lit8 v7, v4, 0x1
 
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    .end local v4    # "k":I
+    .local v7, "k":I
+    iget-object v8, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v7, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+    iget-object v9, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
 
-    add-int v8, v0, v1
+    add-int v10, v2, v6
 
-    aget v7, v7, v8
+    aget v9, v9, v10
 
-    aget-object v6, v6, v7
+    aget-object v8, v8, v9
 
-    aput-object v6, v5, v3
+    aput-object v8, v1, v4
 
     .line 170
-    add-int/lit8 v1, v1, 0x3
+    add-int/lit8 v6, v6, 0x3
 
-    move v3, v2
+    move v4, v7
 
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
     goto :goto_3
 
     .line 169
+    .end local v7    # "k":I
+    .restart local v4    # "k":I
     :cond_2
-    add-int/lit8 v0, v0, 0x9
+    add-int/lit8 v2, v2, 0x9
 
-    move v2, v3
-
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
     goto :goto_2
 
     .line 174
-    .end local v1    # "j":I
+    .end local v6    # "j":I
     :cond_3
     iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    aget-object v4, v6, v10
+    const/4 v7, 0x3
+
+    aget-object v0, v6, v7
 
     .line 175
-    iget-object v5, v4, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
+    iget-object v1, v0, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
 
     .line 176
-    const/4 v0, 0x2
+    const/4 v2, 0x2
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     :goto_4
-    if-ge v0, v9, :cond_5
+    if-ge v2, v5, :cond_5
 
     .line 177
-    const/4 v1, 0x0
+    const/4 v6, 0x0
 
-    .restart local v1    # "j":I
-    move v3, v2
-
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
+    .restart local v6    # "j":I
     :goto_5
-    if-ge v1, v11, :cond_4
+    if-ge v6, v3, :cond_4
 
     .line 178
-    add-int/lit8 v2, v3, 0x1
+    add-int/lit8 v8, v4, 0x1
 
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    .end local v4    # "k":I
+    .local v8, "k":I
+    iget-object v9, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v7, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+    iget-object v10, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
 
-    add-int v8, v0, v1
+    add-int v11, v2, v6
 
-    aget v7, v7, v8
+    aget v10, v10, v11
 
-    aget-object v6, v6, v7
+    aget-object v9, v9, v10
 
-    aput-object v6, v5, v3
+    aput-object v9, v1, v4
 
     .line 177
-    add-int/lit8 v1, v1, 0x3
+    add-int/lit8 v6, v6, 0x3
 
-    move v3, v2
+    move v4, v8
 
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
     goto :goto_5
 
     .line 176
+    .end local v8    # "k":I
+    .restart local v4    # "k":I
     :cond_4
-    add-int/lit8 v0, v0, 0x9
+    add-int/lit8 v2, v2, 0x9
 
-    move v2, v3
-
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
     goto :goto_4
 
     .line 181
-    .end local v1    # "j":I
+    .end local v6    # "j":I
     :cond_5
     iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/4 v7, 0x4
+    const/4 v8, 0x4
 
-    aget-object v4, v6, v7
+    aget-object v0, v6, v8
 
     .line 182
-    iget-object v5, v4, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
+    iget-object v1, v0, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
 
     .line 183
-    const/4 v0, 0x6
+    const/4 v2, 0x6
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     :goto_6
-    if-ge v0, v9, :cond_7
+    if-ge v2, v5, :cond_7
 
     .line 184
-    const/4 v1, 0x0
+    const/4 v6, 0x0
 
-    .restart local v1    # "j":I
-    move v3, v2
-
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
+    .restart local v6    # "j":I
     :goto_7
-    if-ge v1, v10, :cond_6
+    if-ge v6, v7, :cond_6
 
     .line 185
-    add-int/lit8 v2, v3, 0x1
+    add-int/lit8 v8, v4, 0x1
 
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    .end local v4    # "k":I
+    .restart local v8    # "k":I
+    iget-object v9, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v7, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+    iget-object v10, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
 
-    add-int v8, v0, v1
+    add-int v11, v2, v6
 
-    aget v7, v7, v8
+    aget v10, v10, v11
 
-    aget-object v6, v6, v7
+    aget-object v9, v9, v10
 
-    aput-object v6, v5, v3
+    aput-object v9, v1, v4
 
     .line 184
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v6, v6, 0x1
 
-    move v3, v2
+    move v4, v8
 
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
     goto :goto_7
 
     .line 183
+    .end local v8    # "k":I
+    .restart local v4    # "k":I
     :cond_6
-    add-int/lit8 v0, v0, 0x9
+    add-int/lit8 v2, v2, 0x9
 
-    move v2, v3
-
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
     goto :goto_6
 
     .line 188
-    .end local v1    # "j":I
+    .end local v6    # "j":I
     :cond_7
     iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/4 v7, 0x5
+    const/4 v8, 0x5
 
-    aget-object v4, v6, v7
+    aget-object v0, v6, v8
 
     .line 189
-    iget-object v5, v4, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
+    iget-object v1, v0, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
 
     .line 190
-    const/4 v0, 0x0
-
     const/4 v2, 0x0
 
+    const/4 v4, 0x0
+
     :goto_8
-    if-ge v0, v9, :cond_9
+    if-ge v2, v5, :cond_9
 
     .line 191
-    const/4 v1, 0x0
+    const/4 v6, 0x0
 
-    .restart local v1    # "j":I
-    move v3, v2
-
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
+    .restart local v6    # "j":I
     :goto_9
-    if-ge v1, v10, :cond_8
+    if-ge v6, v7, :cond_8
 
     .line 192
-    add-int/lit8 v2, v3, 0x1
+    add-int/lit8 v8, v4, 0x1
 
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    .end local v4    # "k":I
+    .restart local v8    # "k":I
+    iget-object v9, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v7, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+    iget-object v10, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
 
-    add-int v8, v0, v1
+    add-int v11, v2, v6
 
-    aget v7, v7, v8
+    aget v10, v10, v11
 
-    aget-object v6, v6, v7
+    aget-object v9, v9, v10
 
-    aput-object v6, v5, v3
+    aput-object v9, v1, v4
 
     .line 191
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v6, v6, 0x1
 
-    move v3, v2
+    move v4, v8
 
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
     goto :goto_9
 
     .line 190
+    .end local v8    # "k":I
+    .restart local v4    # "k":I
     :cond_8
-    add-int/lit8 v0, v0, 0x9
+    add-int/lit8 v2, v2, 0x9
 
-    move v2, v3
-
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
     goto :goto_8
 
     .line 195
-    .end local v1    # "j":I
+    .end local v6    # "j":I
     :cond_9
     iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/4 v7, 0x6
+    const/4 v8, 0x6
 
-    aget-object v4, v6, v7
+    aget-object v0, v6, v8
 
     .line 196
-    iget-object v5, v4, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
+    iget-object v1, v0, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
 
     .line 197
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     :goto_a
-    if-ge v0, v9, :cond_b
+    if-ge v2, v5, :cond_b
 
     .line 198
-    const/4 v1, 0x0
+    const/4 v6, 0x0
 
-    .restart local v1    # "j":I
-    move v3, v2
-
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
+    .restart local v6    # "j":I
     :goto_b
-    if-ge v1, v11, :cond_a
+    if-ge v6, v3, :cond_a
 
     .line 199
-    add-int/lit8 v2, v3, 0x1
+    add-int/lit8 v8, v4, 0x1
 
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    .end local v4    # "k":I
+    .restart local v8    # "k":I
+    iget-object v9, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v7, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+    iget-object v10, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
 
-    add-int v8, v0, v1
+    add-int v11, v2, v6
 
-    aget v7, v7, v8
+    aget v10, v10, v11
 
-    aget-object v6, v6, v7
+    aget-object v9, v9, v10
 
-    aput-object v6, v5, v3
+    aput-object v9, v1, v4
 
     .line 198
-    add-int/lit8 v1, v1, 0x3
+    add-int/lit8 v6, v6, 0x3
 
-    move v3, v2
+    move v4, v8
 
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
     goto :goto_b
 
     .line 197
+    .end local v8    # "k":I
+    .restart local v4    # "k":I
     :cond_a
-    add-int/lit8 v0, v0, 0x9
+    add-int/lit8 v2, v2, 0x9
 
-    move v2, v3
-
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
     goto :goto_a
 
     .line 202
-    .end local v1    # "j":I
+    .end local v6    # "j":I
     :cond_b
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
+    iget-object v3, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/4 v7, 0x7
+    const/4 v6, 0x7
 
-    aget-object v4, v6, v7
+    aget-object v0, v3, v6
 
     .line 203
-    iget-object v5, v4, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
+    iget-object v1, v0, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
 
     .line 204
-    const/16 v0, 0x9
+    const/16 v2, 0x9
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    move v3, v2
-
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
+    .end local v4    # "k":I
+    .local v3, "k":I
     :goto_c
-    const/16 v6, 0x12
+    const/16 v4, 0x12
 
-    if-ge v0, v6, :cond_c
+    if-ge v2, v4, :cond_c
 
     .line 205
-    add-int/lit8 v2, v3, 0x1
+    add-int/lit8 v4, v3, 0x1
 
     .end local v3    # "k":I
-    .restart local v2    # "k":I
+    .restart local v4    # "k":I
     iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v7, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+    iget-object v8, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
 
-    aget v7, v7, v0
+    aget v8, v8, v2
 
-    aget-object v6, v6, v7
+    aget-object v6, v6, v8
 
-    aput-object v6, v5, v3
+    aput-object v6, v1, v3
 
     .line 204
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    move v3, v2
+    move v3, v4
 
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
     goto :goto_c
 
     .line 208
+    .end local v4    # "k":I
+    .restart local v3    # "k":I
     :cond_c
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
+    iget-object v4, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
 
-    const/16 v7, 0x8
+    const/16 v6, 0x8
 
-    aget-object v4, v6, v7
+    aget-object v0, v4, v6
 
     .line 209
-    iget-object v5, v4, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
+    iget-object v1, v0, Lio/appium/android/apis/graphics/kube/Layer;->mShapes:[Lio/appium/android/apis/graphics/kube/GLShape;
 
     .line 210
-    const/4 v0, 0x3
+    const/4 v2, 0x3
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
     :goto_d
-    if-ge v0, v9, :cond_e
+    if-ge v2, v5, :cond_e
 
     .line 211
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    .restart local v1    # "j":I
-    move v3, v2
-
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
+    .local v4, "j":I
     :goto_e
-    if-ge v1, v10, :cond_d
+    if-ge v4, v7, :cond_d
 
     .line 212
-    add-int/lit8 v2, v3, 0x1
+    add-int/lit8 v6, v3, 0x1
 
     .end local v3    # "k":I
-    .restart local v2    # "k":I
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
+    .local v6, "k":I
+    iget-object v8, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCubes:[Lio/appium/android/apis/graphics/kube/Cube;
 
-    iget-object v7, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+    iget-object v9, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
 
-    add-int v8, v0, v1
+    add-int v10, v2, v4
 
-    aget v7, v7, v8
+    aget v9, v9, v10
 
-    aget-object v6, v6, v7
+    aget-object v8, v8, v9
 
-    aput-object v6, v5, v3
+    aput-object v8, v1, v3
 
     .line 211
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v4, v4, 0x1
 
-    move v3, v2
+    move v3, v6
 
-    .end local v2    # "k":I
-    .restart local v3    # "k":I
     goto :goto_e
 
     .line 210
+    .end local v6    # "k":I
+    .restart local v3    # "k":I
     :cond_d
-    add-int/lit8 v0, v0, 0x9
+    add-int/lit8 v2, v2, 0x9
 
-    move v2, v3
-
-    .end local v3    # "k":I
-    .restart local v2    # "k":I
     goto :goto_d
 
     .line 213
-    .end local v1    # "j":I
+    .end local v4    # "j":I
     :cond_e
     return-void
 .end method
@@ -2266,265 +2114,250 @@
 
 # virtual methods
 .method public animate()V
-    .locals 12
-
-    .prologue
-    const/16 v11, 0x1b
-
-    const v10, 0x40490fdb    # (float)Math.PI
-
-    const/high16 v9, 0x40000000    # 2.0f
-
-    const/4 v8, 0x0
+    .locals 8
 
     .line 245
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mRenderer:Lio/appium/android/apis/graphics/kube/KubeRenderer;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mRenderer:Lio/appium/android/apis/graphics/kube/KubeRenderer;
 
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mRenderer:Lio/appium/android/apis/graphics/kube/KubeRenderer;
-
-    invoke-virtual {v6}, Lio/appium/android/apis/graphics/kube/KubeRenderer;->getAngle()F
-
-    move-result v6
-
-    const v7, 0x3f99999a    # 1.2f
-
-    add-float/2addr v6, v7
-
-    invoke-virtual {v5, v6}, Lio/appium/android/apis/graphics/kube/KubeRenderer;->setAngle(F)V
-
-    .line 247
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
-
-    if-nez v5, :cond_0
-
-    .line 248
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mRandom:Ljava/util/Random;
-
-    const/16 v6, 0x9
-
-    invoke-virtual {v5, v6}, Ljava/util/Random;->nextInt(I)I
-
-    move-result v3
-
-    .line 249
-    .local v3, "layerID":I
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
-
-    aget-object v5, v5, v3
-
-    iput-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
-
-    .line 250
-    sget-object v5, Lio/appium/android/apis/graphics/kube/Kube;->mLayerPermutations:[[I
-
-    aget-object v5, v5, v3
-
-    iput-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayerPermutation:[I
-
-    .line 251
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
-
-    invoke-virtual {v5}, Lio/appium/android/apis/graphics/kube/Layer;->startAnimation()V
-
-    .line 252
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mRandom:Ljava/util/Random;
-
-    invoke-virtual {v5}, Ljava/util/Random;->nextBoolean()Z
+    invoke-virtual {v0}, Lio/appium/android/apis/graphics/kube/KubeRenderer;->getAngle()F
 
     move-result v1
 
-    .line 253
-    .local v1, "direction":Z
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mRandom:Ljava/util/Random;
+    const v2, 0x3f99999a    # 1.2f
 
-    const/4 v6, 0x3
+    add-float/2addr v1, v2
 
-    invoke-virtual {v5, v6}, Ljava/util/Random;->nextInt(I)I
+    invoke-virtual {v0, v1}, Lio/appium/android/apis/graphics/kube/KubeRenderer;->setAngle(F)V
 
-    move-result v5
+    .line 247
+    iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
 
-    add-int/lit8 v0, v5, 0x1
-
-    .line 255
-    .local v0, "count":I
-    const/4 v0, 0x1
-
-    .line 256
     const/4 v1, 0x0
 
+    if-nez v0, :cond_1
+
+    .line 248
+    iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mRandom:Ljava/util/Random;
+
+    const/16 v2, 0x9
+
+    invoke-virtual {v0, v2}, Ljava/util/Random;->nextInt(I)I
+
+    move-result v0
+
+    .line 249
+    .local v0, "layerID":I
+    iget-object v2, p0, Lio/appium/android/apis/graphics/kube/Kube;->mLayers:[Lio/appium/android/apis/graphics/kube/Layer;
+
+    aget-object v2, v2, v0
+
+    iput-object v2, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
+
+    .line 250
+    sget-object v2, Lio/appium/android/apis/graphics/kube/Kube;->mLayerPermutations:[[I
+
+    aget-object v2, v2, v0
+
+    iput-object v2, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayerPermutation:[I
+
+    .line 251
+    iget-object v2, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
+
+    invoke-virtual {v2}, Lio/appium/android/apis/graphics/kube/Layer;->startAnimation()V
+
+    .line 252
+    iget-object v2, p0, Lio/appium/android/apis/graphics/kube/Kube;->mRandom:Ljava/util/Random;
+
+    invoke-virtual {v2}, Ljava/util/Random;->nextBoolean()Z
+
+    move-result v2
+
+    .line 253
+    .local v2, "direction":Z
+    iget-object v3, p0, Lio/appium/android/apis/graphics/kube/Kube;->mRandom:Ljava/util/Random;
+
+    const/4 v4, 0x3
+
+    invoke-virtual {v3, v4}, Ljava/util/Random;->nextInt(I)I
+
+    move-result v3
+
+    add-int/lit8 v3, v3, 0x1
+
+    .line 255
+    .local v3, "count":I
+    const/4 v3, 0x1
+
+    .line 256
+    const/4 v2, 0x0
+
     .line 257
-    iput v8, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
+    iput v1, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
 
     .line 258
-    if-eqz v1, :cond_3
+    const/high16 v4, 0x40000000    # 2.0f
+
+    const v5, 0x40490fdb    # (float)Math.PI
+
+    if-eqz v2, :cond_0
 
     .line 259
-    const v5, 0x3d80adfd
+    const v6, 0x3d80adfd
 
-    iput v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mAngleIncrement:F
+    iput v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mAngleIncrement:F
 
     .line 260
-    iget v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
+    iget v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
 
-    int-to-float v6, v0
+    int-to-float v7, v3
 
-    mul-float/2addr v6, v10
+    mul-float v7, v7, v5
 
-    div-float/2addr v6, v9
+    div-float/2addr v7, v4
 
-    add-float/2addr v5, v6
+    add-float/2addr v6, v7
 
-    iput v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mEndAngle:F
+    iput v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mEndAngle:F
+
+    goto :goto_0
+
+    .line 262
+    :cond_0
+    const v6, -0x427f5203
+
+    iput v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mAngleIncrement:F
+
+    .line 263
+    iget v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
+
+    int-to-float v7, v3
+
+    mul-float v7, v7, v5
+
+    div-float/2addr v7, v4
+
+    sub-float/2addr v6, v7
+
+    iput v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mEndAngle:F
 
     .line 267
-    .end local v0    # "count":I
-    .end local v1    # "direction":Z
-    .end local v3    # "layerID":I
-    :cond_0
+    .end local v0    # "layerID":I
+    .end local v2    # "direction":Z
+    .end local v3    # "count":I
+    :cond_1
     :goto_0
-    iget v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
+    iget v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
 
-    iget v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mAngleIncrement:F
+    iget v2, p0, Lio/appium/android/apis/graphics/kube/Kube;->mAngleIncrement:F
 
-    add-float/2addr v5, v6
+    add-float/2addr v0, v2
 
-    iput v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
+    iput v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
 
     .line 269
-    iget v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mAngleIncrement:F
+    cmpl-float v0, v2, v1
 
-    cmpl-float v5, v5, v8
+    if-lez v0, :cond_2
 
-    if-lez v5, :cond_1
+    iget v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
 
-    iget v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
+    iget v2, p0, Lio/appium/android/apis/graphics/kube/Kube;->mEndAngle:F
 
-    iget v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mEndAngle:F
+    cmpl-float v0, v0, v2
 
-    cmpl-float v5, v5, v6
+    if-gez v0, :cond_3
 
-    if-gez v5, :cond_2
+    :cond_2
+    iget v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mAngleIncrement:F
 
-    :cond_1
-    iget v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mAngleIncrement:F
+    cmpg-float v0, v0, v1
 
-    cmpg-float v5, v5, v8
+    if-gez v0, :cond_5
 
-    if-gez v5, :cond_5
+    iget v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
 
-    iget v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
+    iget v1, p0, Lio/appium/android/apis/graphics/kube/Kube;->mEndAngle:F
 
-    iget v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mEndAngle:F
+    cmpg-float v0, v0, v1
 
-    cmpg-float v5, v5, v6
-
-    if-gtz v5, :cond_5
+    if-gtz v0, :cond_5
 
     .line 271
-    :cond_2
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
+    :cond_3
+    iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
 
-    iget v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mEndAngle:F
+    iget v1, p0, Lio/appium/android/apis/graphics/kube/Kube;->mEndAngle:F
 
-    invoke-virtual {v5, v6}, Lio/appium/android/apis/graphics/kube/Layer;->setAngle(F)V
+    invoke-virtual {v0, v1}, Lio/appium/android/apis/graphics/kube/Layer;->setAngle(F)V
 
     .line 272
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
 
-    invoke-virtual {v5}, Lio/appium/android/apis/graphics/kube/Layer;->endAnimation()V
+    invoke-virtual {v0}, Lio/appium/android/apis/graphics/kube/Layer;->endAnimation()V
 
     .line 273
-    const/4 v5, 0x0
+    const/4 v0, 0x0
 
-    iput-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
+    iput-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
 
     .line 276
-    new-array v4, v11, [I
+    const/16 v0, 0x1b
+
+    new-array v1, v0, [I
 
     .line 277
-    .local v4, "newPermutation":[I
+    .local v1, "newPermutation":[I
     const/4 v2, 0x0
 
     .local v2, "i":I
     :goto_1
-    if-ge v2, v11, :cond_4
+    if-ge v2, v0, :cond_4
 
     .line 278
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+    iget-object v3, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
 
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayerPermutation:[I
+    iget-object v4, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayerPermutation:[I
 
-    aget v6, v6, v2
+    aget v4, v4, v2
 
-    aget v5, v5, v6
+    aget v3, v3, v4
 
-    aput v5, v4, v2
+    aput v3, v1, v2
 
     .line 277
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 262
-    .end local v2    # "i":I
-    .end local v4    # "newPermutation":[I
-    .restart local v0    # "count":I
-    .restart local v1    # "direction":Z
-    .restart local v3    # "layerID":I
-    :cond_3
-    const v5, -0x427f5203
-
-    iput v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mAngleIncrement:F
-
-    .line 263
-    iget v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
-
-    int-to-float v6, v0
-
-    mul-float/2addr v6, v10
-
-    div-float/2addr v6, v9
-
-    sub-float/2addr v5, v6
-
-    iput v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mEndAngle:F
-
-    goto :goto_0
-
     .line 281
-    .end local v0    # "count":I
-    .end local v1    # "direction":Z
-    .end local v3    # "layerID":I
-    .restart local v2    # "i":I
-    .restart local v4    # "newPermutation":[I
+    .end local v2    # "i":I
     :cond_4
-    iput-object v4, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
+    iput-object v1, p0, Lio/appium/android/apis/graphics/kube/Kube;->mPermutation:[I
 
     .line 282
     invoke-direct {p0}, Lio/appium/android/apis/graphics/kube/Kube;->updateLayers()V
 
-    .line 287
-    .end local v2    # "i":I
-    .end local v4    # "newPermutation":[I
-    :goto_2
-    return-void
+    .line 284
+    .end local v1    # "newPermutation":[I
+    goto :goto_2
 
     .line 285
     :cond_5
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentLayer:Lio/appium/android/apis/graphics/kube/Layer;
 
-    iget v6, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
+    iget v1, p0, Lio/appium/android/apis/graphics/kube/Kube;->mCurrentAngle:F
 
-    invoke-virtual {v5, v6}, Lio/appium/android/apis/graphics/kube/Layer;->setAngle(F)V
+    invoke-virtual {v0, v1}, Lio/appium/android/apis/graphics/kube/Layer;->setAngle(F)V
 
-    goto :goto_2
+    .line 287
+    :goto_2
+    return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 218
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -2574,7 +2407,6 @@
 .method protected onPause()V
     .locals 1
 
-    .prologue
     .line 239
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
@@ -2590,7 +2422,6 @@
 .method protected onResume()V
     .locals 1
 
-    .prologue
     .line 232
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 

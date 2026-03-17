@@ -21,23 +21,22 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
     .line 97
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const-string v1, "_id"
 
-    const-string v2, "_id"
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    const-string v1, "display_name"
 
-    const-string v2, "display_name"
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     sput-object v0, Lio/appium/android/apis/view/AutoComplete4;->CONTACT_PROJECTION:[Ljava/lang/String;
 
@@ -47,30 +46,25 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 37
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 56
     return-void
 .end method
 
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 9
+    .locals 7
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v3, 0x0
 
     .line 40
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 41
-    const v1, 0x7f03001f
+    const v0, 0x7f0b003b
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/AutoComplete4;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/AutoComplete4;->setContentView(I)V
 
     .line 43
     invoke-virtual {p0}, Lio/appium/android/apis/view/AutoComplete4;->getContentResolver()Landroid/content/ContentResolver;
@@ -79,37 +73,44 @@
 
     .line 44
     .local v0, "content":Landroid/content/ContentResolver;
-    sget-object v1, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
+    sget-object v2, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
 
-    sget-object v2, Lio/appium/android/apis/view/AutoComplete4;->CONTACT_PROJECTION:[Ljava/lang/String;
+    sget-object v3, Lio/appium/android/apis/view/AutoComplete4;->CONTACT_PROJECTION:[Ljava/lang/String;
 
-    move-object v4, v3
+    const/4 v4, 0x0
 
-    move-object v5, v3
+    const/4 v5, 0x0
 
-    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    const/4 v6, 0x0
 
-    move-result-object v7
+    move-object v1, v0
+
+    invoke-virtual/range {v1 .. v6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v1
 
     .line 47
-    .local v7, "cursor":Landroid/database/Cursor;
-    new-instance v6, Lio/appium/android/apis/view/AutoComplete4$ContactListAdapter;
+    .local v1, "cursor":Landroid/database/Cursor;
+    new-instance v2, Lio/appium/android/apis/view/AutoComplete4$ContactListAdapter;
 
-    invoke-direct {v6, p0, v7}, Lio/appium/android/apis/view/AutoComplete4$ContactListAdapter;-><init>(Landroid/content/Context;Landroid/database/Cursor;)V
+    invoke-direct {v2, p0, v1}, Lio/appium/android/apis/view/AutoComplete4$ContactListAdapter;-><init>(Landroid/content/Context;Landroid/database/Cursor;)V
 
     .line 49
-    .local v6, "adapter":Lio/appium/android/apis/view/AutoComplete4$ContactListAdapter;
-    const v1, 0x7f090049
+    .local v2, "adapter":Lio/appium/android/apis/view/AutoComplete4$ContactListAdapter;
+    nop
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/AutoComplete4;->findViewById(I)Landroid/view/View;
+    .line 50
+    const v3, 0x7f0900a4
 
-    move-result-object v8
+    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/AutoComplete4;->findViewById(I)Landroid/view/View;
 
-    check-cast v8, Landroid/widget/AutoCompleteTextView;
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/AutoCompleteTextView;
 
     .line 51
-    .local v8, "textView":Landroid/widget/AutoCompleteTextView;
-    invoke-virtual {v8, v6}, Landroid/widget/AutoCompleteTextView;->setAdapter(Landroid/widget/ListAdapter;)V
+    .local v3, "textView":Landroid/widget/AutoCompleteTextView;
+    invoke-virtual {v3, v2}, Landroid/widget/AutoCompleteTextView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 52
     return-void

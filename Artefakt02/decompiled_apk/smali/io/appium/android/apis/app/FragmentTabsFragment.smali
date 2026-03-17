@@ -19,11 +19,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 35
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
-    .line 88
     return-void
 .end method
 
@@ -33,7 +31,6 @@
     .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 40
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -48,7 +45,7 @@
 
     move-result-object v2
 
-    const/high16 v3, 0x1010000
+    const v3, 0x7f090179
 
     invoke-direct {v0, v1, v2, v3}, Lio/appium/android/apis/app/FragmentTabsFragment$TabManager;-><init>(Landroid/content/Context;Landroid/app/FragmentManager;I)V
 
@@ -64,33 +61,30 @@
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
-    const/4 v5, 0x0
-
     .line 48
-    const v2, 0x7f030051
+    const v0, 0x7f0b006e
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v2, p2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v1
-
-    .line 49
-    .local v1, "v":Landroid/view/View;
-    iget-object v2, p0, Lio/appium/android/apis/app/FragmentTabsFragment;->mTabManager:Lio/appium/android/apis/app/FragmentTabsFragment$TabManager;
-
-    invoke-virtual {v2, v1}, Lio/appium/android/apis/app/FragmentTabsFragment$TabManager;->handleCreateView(Landroid/view/View;)Landroid/widget/TabHost;
+    invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
+    .line 49
+    .local v0, "v":Landroid/view/View;
+    iget-object v1, p0, Lio/appium/android/apis/app/FragmentTabsFragment;->mTabManager:Lio/appium/android/apis/app/FragmentTabsFragment$TabManager;
+
+    invoke-virtual {v1, v0}, Lio/appium/android/apis/app/FragmentTabsFragment$TabManager;->handleCreateView(Landroid/view/View;)Landroid/widget/TabHost;
+
+    move-result-object v1
+
     .line 51
-    .local v0, "host":Landroid/widget/TabHost;
+    .local v1, "host":Landroid/widget/TabHost;
     iget-object v2, p0, Lio/appium/android/apis/app/FragmentTabsFragment;->mTabManager:Lio/appium/android/apis/app/FragmentTabsFragment$TabManager;
 
     const-string v3, "result"
 
-    invoke-virtual {v0, v3}, Landroid/widget/TabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
+    invoke-virtual {v1, v3}, Landroid/widget/TabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v3
 
@@ -102,6 +96,8 @@
 
     const-class v4, Lio/appium/android/apis/app/FragmentReceiveResult$ReceiveResultFragment;
 
+    const/4 v5, 0x0
+
     invoke-virtual {v2, v3, v4, v5}, Lio/appium/android/apis/app/FragmentTabsFragment$TabManager;->addTab(Landroid/widget/TabHost$TabSpec;Ljava/lang/Class;Landroid/os/Bundle;)V
 
     .line 53
@@ -109,7 +105,7 @@
 
     const-string v3, "contacts"
 
-    invoke-virtual {v0, v3}, Landroid/widget/TabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
+    invoke-virtual {v1, v3}, Landroid/widget/TabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v3
 
@@ -128,7 +124,7 @@
 
     const-string v3, "apps"
 
-    invoke-virtual {v0, v3}, Landroid/widget/TabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
+    invoke-virtual {v1, v3}, Landroid/widget/TabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v3
 
@@ -147,7 +143,7 @@
 
     const-string v3, "throttle"
 
-    invoke-virtual {v0, v3}, Landroid/widget/TabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
+    invoke-virtual {v1, v3}, Landroid/widget/TabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v3
 
@@ -162,13 +158,12 @@
     invoke-virtual {v2, v3, v4, v5}, Lio/appium/android/apis/app/FragmentTabsFragment$TabManager;->addTab(Landroid/widget/TabHost$TabSpec;Ljava/lang/Class;Landroid/os/Bundle;)V
 
     .line 60
-    return-object v1
+    return-object v0
 .end method
 
 .method public onDestroyView()V
     .locals 1
 
-    .prologue
     .line 71
     invoke-super {p0}, Landroid/app/Fragment;->onDestroyView()V
 
@@ -185,7 +180,6 @@
     .locals 1
     .param p1, "outState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 77
     invoke-super {p0, p1}, Landroid/app/Fragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
@@ -202,7 +196,6 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 65
     invoke-super {p0, p1}, Landroid/app/Fragment;->onViewStateRestored(Landroid/os/Bundle;)V
 

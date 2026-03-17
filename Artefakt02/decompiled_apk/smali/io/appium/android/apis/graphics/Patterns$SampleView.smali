@@ -36,61 +36,60 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 5
+    .locals 4
     .param p1, "context"    # Landroid/content/Context;
-
-    .prologue
-    const/4 v1, 0x1
 
     .line 66
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
     .line 67
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/graphics/Patterns$SampleView;->setFocusable(Z)V
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/graphics/Patterns$SampleView;->setFocusable(Z)V
 
     .line 68
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/graphics/Patterns$SampleView;->setFocusableInTouchMode(Z)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/graphics/Patterns$SampleView;->setFocusableInTouchMode(Z)V
 
     .line 70
-    new-instance v1, Landroid/graphics/PaintFlagsDrawFilter;
+    new-instance v0, Landroid/graphics/PaintFlagsDrawFilter;
 
-    const/4 v2, 0x6
+    const/4 v1, 0x6
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-direct {v1, v2, v3}, Landroid/graphics/PaintFlagsDrawFilter;-><init>(II)V
+    invoke-direct {v0, v1, v2}, Landroid/graphics/PaintFlagsDrawFilter;-><init>(II)V
 
-    iput-object v1, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mFastDF:Landroid/graphics/DrawFilter;
+    iput-object v0, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mFastDF:Landroid/graphics/DrawFilter;
 
     .line 74
-    new-instance v1, Landroid/graphics/BitmapShader;
+    new-instance v0, Landroid/graphics/BitmapShader;
 
     invoke-static {}, Lio/appium/android/apis/graphics/Patterns;->access$000()Landroid/graphics/Bitmap;
 
-    move-result-object v2
+    move-result-object v1
+
+    sget-object v2, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
 
     sget-object v3, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
 
-    sget-object v4, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
+    invoke-direct {v0, v1, v2, v3}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
 
-    invoke-direct {v1, v2, v3, v4}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
-
-    iput-object v1, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mShader1:Landroid/graphics/Shader;
+    iput-object v0, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mShader1:Landroid/graphics/Shader;
 
     .line 76
-    new-instance v1, Landroid/graphics/BitmapShader;
+    new-instance v0, Landroid/graphics/BitmapShader;
 
     invoke-static {}, Lio/appium/android/apis/graphics/Patterns;->access$100()Landroid/graphics/Bitmap;
 
-    move-result-object v2
+    move-result-object v1
+
+    sget-object v2, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
 
     sget-object v3, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
 
-    sget-object v4, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
+    invoke-direct {v0, v1, v2, v3}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
 
-    invoke-direct {v1, v2, v3, v4}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
-
-    iput-object v1, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mShader2:Landroid/graphics/Shader;
+    iput-object v0, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mShader2:Landroid/graphics/Shader;
 
     .line 79
     new-instance v0, Landroid/graphics/Matrix;
@@ -127,7 +126,6 @@
     .locals 3
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
     .line 87
     iget-object v0, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mDF:Landroid/graphics/DrawFilter;
 
@@ -180,7 +178,6 @@
     .locals 3
     .param p1, "event"    # Landroid/view/MotionEvent;
 
-    .prologue
     .line 101
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -200,14 +197,34 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 121
-    :goto_0
-    const/4 v2, 0x1
+    goto :goto_0
 
-    return v2
+    .line 112
+    :pswitch_0
+    iput v0, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mTouchCurrX:F
+
+    .line 113
+    iput v1, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mTouchCurrY:F
+
+    .line 114
+    invoke-virtual {p0}, Lio/appium/android/apis/graphics/Patterns$SampleView;->invalidate()V
+
+    .line 115
+    goto :goto_0
+
+    .line 117
+    :pswitch_1
+    const/4 v2, 0x0
+
+    iput-object v2, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mDF:Landroid/graphics/DrawFilter;
+
+    .line 118
+    invoke-virtual {p0}, Lio/appium/android/apis/graphics/Patterns$SampleView;->invalidate()V
+
+    goto :goto_0
 
     .line 106
-    :pswitch_0
+    :pswitch_2
     iput v0, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mTouchCurrX:F
 
     iput v0, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mTouchStartX:F
@@ -225,36 +242,21 @@
     .line 109
     invoke-virtual {p0}, Lio/appium/android/apis/graphics/Patterns$SampleView;->invalidate()V
 
-    goto :goto_0
+    .line 110
+    nop
 
-    .line 112
-    :pswitch_1
-    iput v0, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mTouchCurrX:F
+    .line 121
+    :goto_0
+    const/4 v2, 0x1
 
-    .line 113
-    iput v1, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mTouchCurrY:F
+    return v2
 
-    .line 114
-    invoke-virtual {p0}, Lio/appium/android/apis/graphics/Patterns$SampleView;->invalidate()V
+    nop
 
-    goto :goto_0
-
-    .line 117
-    :pswitch_2
-    const/4 v2, 0x0
-
-    iput-object v2, p0, Lio/appium/android/apis/graphics/Patterns$SampleView;->mDF:Landroid/graphics/DrawFilter;
-
-    .line 118
-    invoke-virtual {p0}, Lio/appium/android/apis/graphics/Patterns$SampleView;->invalidate()V
-
-    goto :goto_0
-
-    .line 104
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_0
         :pswitch_2
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method

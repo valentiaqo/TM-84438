@@ -7,7 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 27
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -17,32 +16,34 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 31
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 32
-    const v2, 0x7f03001e
+    const v0, 0x7f0b003a
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/AutoComplete3;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/AutoComplete3;->setContentView(I)V
 
     .line 34
     new-instance v0, Landroid/widget/ArrayAdapter;
 
+    sget-object v1, Lio/appium/android/apis/view/AutoComplete1;->COUNTRIES:[Ljava/lang/String;
+
     const v2, 0x109000a
 
-    sget-object v3, Lio/appium/android/apis/view/AutoComplete1;->COUNTRIES:[Ljava/lang/String;
-
-    invoke-direct {v0, p0, v2, v3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
+    invoke-direct {v0, p0, v2, v1}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
     .line 37
     .local v0, "adapter":Landroid/widget/ArrayAdapter;, "Landroid/widget/ArrayAdapter<Ljava/lang/String;>;"
-    const v2, 0x7f090049
+    nop
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/AutoComplete3;->findViewById(I)Landroid/view/View;
+    .line 38
+    const v1, 0x7f0900a4
+
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/AutoComplete3;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -53,17 +54,17 @@
     invoke-virtual {v1, v0}, Landroid/widget/AutoCompleteTextView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 40
-    const v2, 0x7f09004a
+    const v2, 0x7f0900a7
 
     invoke-virtual {p0, v2}, Lio/appium/android/apis/view/AutoComplete3;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v2
 
-    .end local v1    # "textView":Landroid/widget/AutoCompleteTextView;
+    move-object v1, v2
+
     check-cast v1, Landroid/widget/AutoCompleteTextView;
 
     .line 41
-    .restart local v1    # "textView":Landroid/widget/AutoCompleteTextView;
     invoke-virtual {v1, v0}, Landroid/widget/AutoCompleteTextView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 42

@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/FragmentReceiveResult$ReceiveResultFragment;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/FragmentReceiveResult$ReceiveResultFragment;
 
-    .prologue
     .line 61
     iput-object p1, p0, Lio/appium/android/apis/app/FragmentReceiveResult$ReceiveResultFragment$1;->this$0:Lio/appium/android/apis/app/FragmentReceiveResult$ReceiveResultFragment;
 
@@ -40,7 +40,6 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 65
     new-instance v0, Landroid/content/Intent;
 

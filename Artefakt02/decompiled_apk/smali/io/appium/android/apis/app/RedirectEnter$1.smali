@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/RedirectEnter;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/RedirectEnter;
 
-    .prologue
     .line 49
     iput-object p1, p0, Lio/appium/android/apis/app/RedirectEnter$1;->this$0:Lio/appium/android/apis/app/RedirectEnter;
 
@@ -40,7 +40,6 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 54
     new-instance v0, Landroid/content/Intent;
 

@@ -25,7 +25,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 51
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -72,7 +71,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/content/InstallApk;
     .param p1, "x1"    # Ljava/lang/String;
 
-    .prologue
     .line 51
     invoke-direct {p0, p1}, Lio/appium/android/apis/content/InstallApk;->prepareApk(Ljava/lang/String;)Ljava/io/File;
 
@@ -82,21 +80,20 @@
 .end method
 
 .method private prepareApk(Ljava/lang/String;)Ljava/io/File;
-    .locals 7
+    .locals 6
     .param p1, "assetName"    # Ljava/lang/String;
 
-    .prologue
     .line 150
-    const/16 v5, 0x2000
+    const/16 v0, 0x2000
 
-    new-array v0, v5, [B
+    new-array v0, v0, [B
 
     .line 151
     .local v0, "buffer":[B
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
     .line 152
-    .local v3, "is":Ljava/io/InputStream;
+    .local v1, "is":Ljava/io/InputStream;
     const/4 v2, 0x0
 
     .line 154
@@ -104,103 +101,141 @@
     :try_start_0
     invoke-virtual {p0}, Lio/appium/android/apis/content/InstallApk;->getAssets()Landroid/content/res/AssetManager;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5, p1}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
+    invoke-virtual {v3, p1}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
 
     move-result-object v3
 
+    move-object v1, v3
+
     .line 155
-    const-string v5, "tmp.apk"
+    const-string v3, "tmp.apk"
 
-    const/4 v6, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {p0, v5, v6}, Lio/appium/android/apis/content/InstallApk;->openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;
+    invoke-virtual {p0, v3, v4}, Lio/appium/android/apis/content/InstallApk;->openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;
 
-    move-result-object v2
+    move-result-object v3
+
+    move-object v2, v3
 
     .line 157
     :goto_0
-    invoke-virtual {v3, v0}, Ljava/io/InputStream;->read([B)I
+    invoke-virtual {v1, v0}, Ljava/io/InputStream;->read([B)I
 
-    move-result v4
+    move-result v3
+
+    move v4, v3
 
     .local v4, "n":I
-    if-ltz v4, :cond_2
+    if-ltz v3, :cond_0
 
     .line 158
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v2, v0, v5, v4}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v2, v0, v3, v4}, Ljava/io/FileOutputStream;->write([BII)V
     :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    .line 160
-    .end local v4    # "n":I
-    :catch_0
-    move-exception v1
-
-    .line 161
-    .local v1, "e":Ljava/io/IOException;
-    :try_start_1
-    const-string v5, "InstallApk"
-
-    const-string v6, "Failed transferring"
-
-    invoke-static {v5, v6, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
     .line 164
-    if-eqz v3, :cond_0
+    .end local v4    # "n":I
+    :cond_0
+    if-eqz v1, :cond_1
 
     .line 165
-    :try_start_2
-    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
+    :try_start_1
+    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_1
+
+    .line 167
+    :catch_0
+    move-exception v3
+
+    goto :goto_2
+
+    .line 168
+    :cond_1
+    :goto_1
+    nop
 
     .line 170
-    :cond_0
-    :goto_1
-    if-eqz v2, :cond_1
+    :goto_2
+    if-eqz v2, :cond_2
 
     .line 171
-    :try_start_3
+    :try_start_2
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+
+    goto :goto_3
+
+    .line 173
+    :catch_1
+    move-exception v3
+
+    .line 175
+    goto :goto_6
+
+    .line 174
+    :cond_2
+    :goto_3
+    goto :goto_6
+
+    .line 163
+    :catchall_0
+    move-exception v3
+
+    goto :goto_7
+
+    .line 160
+    :catch_2
+    move-exception v3
+
+    .line 161
+    .local v3, "e":Ljava/io/IOException;
+    :try_start_3
+    const-string v4, "InstallApk"
+
+    const-string v5, "Failed transferring"
+
+    invoke-static {v4, v5, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_4
-
-    .line 177
-    .end local v1    # "e":Ljava/io/IOException;
-    :cond_1
-    :goto_2
-    const-string v5, "tmp.apk"
-
-    invoke-virtual {p0, v5}, Lio/appium/android/apis/content/InstallApk;->getFileStreamPath(Ljava/lang/String;)Ljava/io/File;
-
-    move-result-object v5
-
-    return-object v5
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 164
-    .restart local v4    # "n":I
-    :cond_2
-    if-eqz v3, :cond_3
+    .end local v3    # "e":Ljava/io/IOException;
+    if-eqz v1, :cond_3
 
     .line 165
     :try_start_4
-    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
     :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+
+    goto :goto_4
+
+    .line 167
+    :catch_3
+    move-exception v3
+
+    goto :goto_5
+
+    .line 168
+    :cond_3
+    :goto_4
+    nop
 
     .line 170
-    :cond_3
-    :goto_3
-    if-eqz v2, :cond_1
+    :goto_5
+    if-eqz v2, :cond_2
 
     .line 171
     :try_start_5
@@ -208,76 +243,68 @@
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
 
-    goto :goto_2
+    goto :goto_3
 
-    .line 173
-    :catch_1
-    move-exception v5
+    .line 177
+    :goto_6
+    const-string v3, "tmp.apk"
 
-    goto :goto_2
+    invoke-virtual {p0, v3}, Lio/appium/android/apis/content/InstallApk;->getFileStreamPath(Ljava/lang/String;)Ljava/io/File;
 
-    .line 163
-    .end local v4    # "n":I
-    :catchall_0
-    move-exception v5
+    move-result-object v3
+
+    return-object v3
 
     .line 164
-    if-eqz v3, :cond_4
+    :goto_7
+    if-eqz v1, :cond_4
 
     .line 165
     :try_start_6
-    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
     :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_5
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_4
+
+    goto :goto_8
+
+    .line 167
+    :catch_4
+    move-exception v4
+
+    goto :goto_9
+
+    .line 168
+    :cond_4
+    :goto_8
+    nop
 
     .line 170
-    :cond_4
-    :goto_4
+    :goto_9
     if-eqz v2, :cond_5
 
     .line 171
     :try_start_7
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_7
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_6
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_5
+
+    goto :goto_a
+
+    .line 173
+    :catch_5
+    move-exception v4
+
+    goto :goto_b
 
     .line 174
     :cond_5
-    :goto_5
-    throw v5
+    :goto_a
+    nop
 
-    .line 167
-    .restart local v4    # "n":I
-    :catch_2
-    move-exception v5
+    :goto_b
+    throw v3
 
-    goto :goto_3
-
-    .end local v4    # "n":I
-    .restart local v1    # "e":Ljava/io/IOException;
-    :catch_3
-    move-exception v5
-
-    goto :goto_1
-
-    .line 173
-    :catch_4
-    move-exception v5
-
-    goto :goto_2
-
-    .line 167
-    .end local v1    # "e":Ljava/io/IOException;
-    :catch_5
-    move-exception v6
-
-    goto :goto_4
-
-    .line 173
-    :catch_6
-    move-exception v6
-
-    goto :goto_5
+    return-void
 .end method
 
 
@@ -288,18 +315,17 @@
     .param p2, "resultCode"    # I
     .param p3, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    const/4 v2, -0x1
+    .line 76
+    const/4 v0, -0x1
 
     const/4 v1, 0x0
 
-    .line 76
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v2, :cond_2
 
     .line 77
-    if-ne p2, v2, :cond_1
+    if-ne p2, v0, :cond_0
 
     .line 78
     const-string v0, "Install succeeded!"
@@ -310,14 +336,11 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 93
-    :cond_0
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 79
-    :cond_1
-    if-nez p2, :cond_2
+    :cond_0
+    if-nez p2, :cond_1
 
     .line 80
     const-string v0, "Install canceled!"
@@ -331,7 +354,7 @@
     goto :goto_0
 
     .line 82
-    :cond_2
+    :cond_1
     const-string v0, "Install Failed!"
 
     invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -343,13 +366,13 @@
     goto :goto_0
 
     .line 84
-    :cond_3
-    const/4 v0, 0x2
+    :cond_2
+    const/4 v2, 0x2
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v2, :cond_5
 
     .line 85
-    if-ne p2, v2, :cond_4
+    if-ne p2, v0, :cond_3
 
     .line 86
     const-string v0, "Uninstall succeeded!"
@@ -363,8 +386,8 @@
     goto :goto_0
 
     .line 87
-    :cond_4
-    if-nez p2, :cond_5
+    :cond_3
+    if-nez p2, :cond_4
 
     .line 88
     const-string v0, "Uninstall canceled!"
@@ -378,7 +401,7 @@
     goto :goto_0
 
     .line 90
-    :cond_5
+    :cond_4
     const-string v0, "Uninstall Failed!"
 
     invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -387,26 +410,28 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    goto :goto_0
+    .line 93
+    :cond_5
+    :goto_0
+    return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 57
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 59
-    const v1, 0x7f030067
+    const v0, 0x7f0b0084
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/content/InstallApk;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/content/InstallApk;->setContentView(I)V
 
     .line 62
-    const v1, 0x7f0900c0
+    const v0, 0x7f09023b
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/content/InstallApk;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/content/InstallApk;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -419,65 +444,65 @@
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 64
-    const v1, 0x7f0900c1
+    const v1, 0x7f090139
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/content/InstallApk;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
     .line 65
-    .restart local v0    # "button":Landroid/widget/Button;
     iget-object v1, p0, Lio/appium/android/apis/content/InstallApk;->mMySourceListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 66
-    const v1, 0x7f0900c2
+    const v1, 0x7f090183
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/content/InstallApk;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
     .line 67
-    .restart local v0    # "button":Landroid/widget/Button;
     iget-object v1, p0, Lio/appium/android/apis/content/InstallApk;->mReplaceListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 68
-    const v1, 0x7f0900c3
+    const v1, 0x7f090239
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/content/InstallApk;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
     .line 69
-    .restart local v0    # "button":Landroid/widget/Button;
     iget-object v1, p0, Lio/appium/android/apis/content/InstallApk;->mUninstallListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 70
-    const v1, 0x7f0900c4
+    const v1, 0x7f09023a
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/content/InstallApk;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
     .line 71
-    .restart local v0    # "button":Landroid/widget/Button;
     iget-object v1, p0, Lio/appium/android/apis/content/InstallApk;->mUninstallResultListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V

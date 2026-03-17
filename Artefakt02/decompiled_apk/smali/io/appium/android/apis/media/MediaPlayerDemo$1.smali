@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/media/MediaPlayerDemo;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/media/MediaPlayerDemo;
 
-    .prologue
     .line 58
     iput-object p1, p0, Lio/appium/android/apis/media/MediaPlayerDemo$1;->this$0:Lio/appium/android/apis/media/MediaPlayerDemo;
 
@@ -40,12 +40,12 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 60
     new-instance v0, Landroid/content/Intent;
 
     iget-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo$1;->this$0:Lio/appium/android/apis/media/MediaPlayerDemo;
 
+    .line 61
     invoke-virtual {v1}, Lio/appium/android/apis/media/MediaPlayerDemo;->getApplication()Landroid/app/Application;
 
     move-result-object v1

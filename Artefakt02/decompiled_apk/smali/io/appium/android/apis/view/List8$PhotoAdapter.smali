@@ -22,8 +22,7 @@
 .field private mPhotos:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList",
-            "<",
+            "Ljava/util/ArrayList<",
             "Ljava/lang/Integer;",
             ">;"
         }
@@ -36,9 +35,9 @@
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/view/List8;Landroid/content/Context;)V
     .locals 3
+    .param p1, "this$0"    # Lio/appium/android/apis/view/List8;
     .param p2, "c"    # Landroid/content/Context;
 
-    .prologue
     .line 89
     iput-object p1, p0, Lio/appium/android/apis/view/List8$PhotoAdapter;->this$0:Lio/appium/android/apis/view/List8;
 
@@ -49,85 +48,88 @@
 
     new-array v0, v0, [Ljava/lang/Integer;
 
-    const/4 v1, 0x0
+    .line 83
+    const v1, 0x7f0800a9
 
-    const v2, 0x7f020046
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    const v1, 0x7f0800aa
 
-    const v2, 0x7f020047
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x2
+    const v1, 0x7f0800ab
 
-    const v2, 0x7f020048
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x2
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x3
+    .line 84
+    const v1, 0x7f0800ac
 
-    const v2, 0x7f020049
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x3
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x4
+    const v1, 0x7f0800ad
 
-    const v2, 0x7f02004a
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x4
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x5
+    const v1, 0x7f0800ae
 
-    const v2, 0x7f02004b
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x5
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x6
+    .line 85
+    const v1, 0x7f0800af
 
-    const v2, 0x7f02004c
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x6
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x7
+    const v1, 0x7f0800b0
 
-    const v2, 0x7f02004d
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x7
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     iput-object v0, p0, Lio/appium/android/apis/view/List8$PhotoAdapter;->mPhotoPool:[Ljava/lang/Integer;
 
@@ -148,37 +150,38 @@
 
 # virtual methods
 .method public addPhotos()V
-    .locals 6
+    .locals 4
 
-    .prologue
     .line 126
     invoke-static {}, Ljava/lang/Math;->random()D
 
-    move-result-wide v2
+    move-result-wide v0
 
-    iget-object v4, p0, Lio/appium/android/apis/view/List8$PhotoAdapter;->mPhotoPool:[Ljava/lang/Integer;
+    iget-object v2, p0, Lio/appium/android/apis/view/List8$PhotoAdapter;->mPhotoPool:[Ljava/lang/Integer;
 
-    array-length v4, v4
+    array-length v2, v2
 
-    add-int/lit8 v4, v4, -0x1
+    add-int/lit8 v2, v2, -0x1
 
-    int-to-double v4, v4
+    int-to-double v2, v2
 
-    mul-double/2addr v2, v4
+    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->round(D)J
+    mul-double v0, v0, v2
 
-    move-result-wide v2
+    invoke-static {v0, v1}, Ljava/lang/Math;->round(D)J
 
-    long-to-int v1, v2
+    move-result-wide v0
+
+    long-to-int v1, v0
 
     .line 127
     .local v1, "whichPhoto":I
-    iget-object v2, p0, Lio/appium/android/apis/view/List8$PhotoAdapter;->mPhotoPool:[Ljava/lang/Integer;
+    iget-object v0, p0, Lio/appium/android/apis/view/List8$PhotoAdapter;->mPhotoPool:[Ljava/lang/Integer;
 
-    aget-object v2, v2, v1
+    aget-object v0, v0, v1
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
@@ -202,7 +205,6 @@
 .method public clearPhotos()V
     .locals 1
 
-    .prologue
     .line 121
     iget-object v0, p0, Lio/appium/android/apis/view/List8$PhotoAdapter;->mPhotos:Ljava/util/ArrayList;
 
@@ -218,7 +220,6 @@
 .method public getCount()I
     .locals 1
 
-    .prologue
     .line 94
     iget-object v0, p0, Lio/appium/android/apis/view/List8$PhotoAdapter;->mPhotos:Ljava/util/ArrayList;
 
@@ -233,7 +234,6 @@
     .locals 1
     .param p1, "position"    # I
 
-    .prologue
     .line 98
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -246,7 +246,6 @@
     .locals 2
     .param p1, "position"    # I
 
-    .prologue
     .line 102
     int-to-long v0, p1
 
@@ -258,9 +257,6 @@
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
-
-    .prologue
-    const/4 v2, -0x2
 
     .line 107
     new-instance v0, Landroid/widget/ImageView;
@@ -293,12 +289,14 @@
     .line 111
     new-instance v1, Landroid/widget/AbsListView$LayoutParams;
 
+    const/4 v2, -0x2
+
     invoke-direct {v1, v2, v2}, Landroid/widget/AbsListView$LayoutParams;-><init>(II)V
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 114
-    const v1, 0x7f020038
+    const v1, 0x7f08009a
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

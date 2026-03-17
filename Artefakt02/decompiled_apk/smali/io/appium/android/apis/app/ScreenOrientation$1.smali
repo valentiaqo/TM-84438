@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/ScreenOrientation;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/ScreenOrientation;
 
-    .prologue
     .line 62
     iput-object p1, p0, Lio/appium/android/apis/app/ScreenOrientation$1;->this$0:Lio/appium/android/apis/app/ScreenOrientation;
 
@@ -44,14 +44,13 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView",
-            "<*>;",
+            "Landroid/widget/AdapterView<",
+            "*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
-    .prologue
     .line 65
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lio/appium/android/apis/app/ScreenOrientation$1;->this$0:Lio/appium/android/apis/app/ScreenOrientation;
@@ -71,12 +70,11 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView",
-            "<*>;)V"
+            "Landroid/widget/AdapterView<",
+            "*>;)V"
         }
     .end annotation
 
-    .prologue
     .line 69
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lio/appium/android/apis/app/ScreenOrientation$1;->this$0:Lio/appium/android/apis/app/ScreenOrientation;

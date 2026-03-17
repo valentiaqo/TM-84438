@@ -11,7 +11,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 34
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -27,7 +26,6 @@
     .locals 2
     .param p0, "x0"    # Lio/appium/android/apis/animation/LayoutAnimationsByDefault;
 
-    .prologue
     .line 34
     iget v0, p0, Lio/appium/android/apis/animation/LayoutAnimationsByDefault;->numButtons:I
 
@@ -44,41 +42,40 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 41
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 42
-    const v2, 0x7f030074
+    const v0, 0x7f0b0092
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/animation/LayoutAnimationsByDefault;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/animation/LayoutAnimationsByDefault;->setContentView(I)V
 
     .line 44
-    const v2, 0x7f0900db
+    const v0, 0x7f0900de
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/animation/LayoutAnimationsByDefault;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/GridLayout;
-
-    .line 46
-    .local v1, "gridContainer":Landroid/widget/GridLayout;
-    const v2, 0x7f0900d5
-
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/animation/LayoutAnimationsByDefault;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/animation/LayoutAnimationsByDefault;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v0, Landroid/widget/GridLayout;
+
+    .line 46
+    .local v0, "gridContainer":Landroid/widget/GridLayout;
+    const v1, 0x7f090023
+
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/animation/LayoutAnimationsByDefault;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/Button;
 
     .line 47
-    .local v0, "addButton":Landroid/widget/Button;
+    .local v1, "addButton":Landroid/widget/Button;
     new-instance v2, Lio/appium/android/apis/animation/LayoutAnimationsByDefault$1;
 
-    invoke-direct {v2, p0, v1}, Lio/appium/android/apis/animation/LayoutAnimationsByDefault$1;-><init>(Lio/appium/android/apis/animation/LayoutAnimationsByDefault;Landroid/widget/GridLayout;)V
+    invoke-direct {v2, p0, v0}, Lio/appium/android/apis/animation/LayoutAnimationsByDefault$1;-><init>(Lio/appium/android/apis/animation/LayoutAnimationsByDefault;Landroid/widget/GridLayout;)V
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 59
     return-void

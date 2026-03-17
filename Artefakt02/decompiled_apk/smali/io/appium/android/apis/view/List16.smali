@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lio/appium/android/apis/view/List16$1;,
         Lio/appium/android/apis/view/List16$ModeCallback;
     }
 .end annotation
@@ -16,11 +15,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 35
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
-    .line 52
     return-void
 .end method
 
@@ -30,7 +27,6 @@
     .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 38
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -57,11 +53,11 @@
     .line 42
     new-instance v1, Landroid/widget/ArrayAdapter;
 
-    const v2, 0x1090016
+    sget-object v2, Lio/appium/android/apis/view/Cheeses;->sCheeseStrings:[Ljava/lang/String;
 
-    sget-object v3, Lio/appium/android/apis/view/Cheeses;->sCheeseStrings:[Ljava/lang/String;
+    const v3, 0x1090016
 
-    invoke-direct {v1, p0, v2, v3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
+    invoke-direct {v1, p0, v3, v2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/view/List16;->setListAdapter(Landroid/widget/ListAdapter;)V
 
@@ -73,7 +69,6 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 48
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onPostCreate(Landroid/os/Bundle;)V
 

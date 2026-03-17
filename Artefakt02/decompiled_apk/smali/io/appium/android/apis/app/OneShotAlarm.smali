@@ -7,7 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 34
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
@@ -21,9 +20,8 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 39
-    const v0, 0x7f0c00b6
+    const v0, 0x7f0e0224
 
     const/4 v1, 0x0
 

@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/RemoteService$BindingOptions;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/RemoteService$BindingOptions;
 
-    .prologue
     .line 544
     iput-object p1, p0, Lio/appium/android/apis/app/RemoteService$BindingOptions$1;->this$0:Lio/appium/android/apis/app/RemoteService$BindingOptions;
 
@@ -40,29 +40,26 @@
     .locals 4
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 546
-    iget-object v1, p0, Lio/appium/android/apis/app/RemoteService$BindingOptions$1;->this$0:Lio/appium/android/apis/app/RemoteService$BindingOptions;
+    iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$BindingOptions$1;->this$0:Lio/appium/android/apis/app/RemoteService$BindingOptions;
 
-    iget-object v1, v1, Lio/appium/android/apis/app/RemoteService$BindingOptions;->mCurConnection:Landroid/content/ServiceConnection;
+    iget-object v0, v0, Lio/appium/android/apis/app/RemoteService$BindingOptions;->mCurConnection:Landroid/content/ServiceConnection;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 547
-    iget-object v1, p0, Lio/appium/android/apis/app/RemoteService$BindingOptions$1;->this$0:Lio/appium/android/apis/app/RemoteService$BindingOptions;
+    iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$BindingOptions$1;->this$0:Lio/appium/android/apis/app/RemoteService$BindingOptions;
 
-    iget-object v2, p0, Lio/appium/android/apis/app/RemoteService$BindingOptions$1;->this$0:Lio/appium/android/apis/app/RemoteService$BindingOptions;
+    iget-object v1, v0, Lio/appium/android/apis/app/RemoteService$BindingOptions;->mCurConnection:Landroid/content/ServiceConnection;
 
-    iget-object v2, v2, Lio/appium/android/apis/app/RemoteService$BindingOptions;->mCurConnection:Landroid/content/ServiceConnection;
-
-    invoke-virtual {v1, v2}, Lio/appium/android/apis/app/RemoteService$BindingOptions;->unbindService(Landroid/content/ServiceConnection;)V
+    invoke-virtual {v0, v1}, Lio/appium/android/apis/app/RemoteService$BindingOptions;->unbindService(Landroid/content/ServiceConnection;)V
 
     .line 548
-    iget-object v1, p0, Lio/appium/android/apis/app/RemoteService$BindingOptions$1;->this$0:Lio/appium/android/apis/app/RemoteService$BindingOptions;
+    iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$BindingOptions$1;->this$0:Lio/appium/android/apis/app/RemoteService$BindingOptions;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    iput-object v2, v1, Lio/appium/android/apis/app/RemoteService$BindingOptions;->mCurConnection:Landroid/content/ServiceConnection;
+    iput-object v1, v0, Lio/appium/android/apis/app/RemoteService$BindingOptions;->mCurConnection:Landroid/content/ServiceConnection;
 
     .line 550
     :cond_0

@@ -3,7 +3,7 @@
 .source "DateWidgets1.java"
 
 # interfaces
-.implements Landroid/app/TimePickerDialog$OnTimeSetListener;
+.implements Landroid/app/DatePickerDialog$OnDateSetListener;
 
 
 # annotations
@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/DateWidgets1;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/DateWidgets1;
 
-    .prologue
-    .line 141
+    .line 144
     iput-object p1, p0, Lio/appium/android/apis/view/DateWidgets1$4;->this$0:Lio/appium/android/apis/view/DateWidgets1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,28 +36,33 @@
 
 
 # virtual methods
-.method public onTimeSet(Landroid/widget/TimePicker;II)V
+.method public onDateSet(Landroid/widget/DatePicker;III)V
     .locals 1
-    .param p1, "view"    # Landroid/widget/TimePicker;
-    .param p2, "hourOfDay"    # I
-    .param p3, "minute"    # I
+    .param p1, "view"    # Landroid/widget/DatePicker;
+    .param p2, "year"    # I
+    .param p3, "monthOfYear"    # I
+    .param p4, "dayOfMonth"    # I
 
-    .prologue
-    .line 144
+    .line 148
     iget-object v0, p0, Lio/appium/android/apis/view/DateWidgets1$4;->this$0:Lio/appium/android/apis/view/DateWidgets1;
 
-    invoke-static {v0, p2}, Lio/appium/android/apis/view/DateWidgets1;->access$402(Lio/appium/android/apis/view/DateWidgets1;I)I
+    invoke-static {v0, p2}, Lio/appium/android/apis/view/DateWidgets1;->access$002(Lio/appium/android/apis/view/DateWidgets1;I)I
 
-    .line 145
+    .line 149
     iget-object v0, p0, Lio/appium/android/apis/view/DateWidgets1$4;->this$0:Lio/appium/android/apis/view/DateWidgets1;
 
-    invoke-static {v0, p3}, Lio/appium/android/apis/view/DateWidgets1;->access$502(Lio/appium/android/apis/view/DateWidgets1;I)I
+    invoke-static {v0, p3}, Lio/appium/android/apis/view/DateWidgets1;->access$102(Lio/appium/android/apis/view/DateWidgets1;I)I
 
-    .line 146
+    .line 150
+    iget-object v0, p0, Lio/appium/android/apis/view/DateWidgets1$4;->this$0:Lio/appium/android/apis/view/DateWidgets1;
+
+    invoke-static {v0, p4}, Lio/appium/android/apis/view/DateWidgets1;->access$202(Lio/appium/android/apis/view/DateWidgets1;I)I
+
+    .line 151
     iget-object v0, p0, Lio/appium/android/apis/view/DateWidgets1$4;->this$0:Lio/appium/android/apis/view/DateWidgets1;
 
     invoke-static {v0}, Lio/appium/android/apis/view/DateWidgets1;->access$300(Lio/appium/android/apis/view/DateWidgets1;)V
 
-    .line 147
+    .line 152
     return-void
 .end method

@@ -11,8 +11,7 @@
 .field private mAdapter:Landroid/widget/ArrayAdapter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/widget/ArrayAdapter",
-            "<",
+            "Landroid/widget/ArrayAdapter<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -22,8 +21,7 @@
 .field private mStrings:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList",
-            "<",
+            "Ljava/util/ArrayList<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -37,7 +35,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 36
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
@@ -54,15 +51,14 @@
 .method private sendText()V
     .locals 3
 
-    .prologue
     .line 65
-    iget-object v1, p0, Lio/appium/android/apis/view/List12;->mUserText:Landroid/widget/EditText;
+    iget-object v0, p0, Lio/appium/android/apis/view/List12;->mUserText:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -89,7 +85,6 @@
     .locals 0
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 61
     invoke-direct {p0}, Lio/appium/android/apis/view/List12;->sendText()V
 
@@ -101,23 +96,22 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 46
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 48
-    const v0, 0x7f030081
+    const v0, 0x7f0b009f
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/List12;->setContentView(I)V
 
     .line 50
     new-instance v0, Landroid/widget/ArrayAdapter;
 
-    const v1, 0x1090003
+    iget-object v1, p0, Lio/appium/android/apis/view/List12;->mStrings:Ljava/util/ArrayList;
 
-    iget-object v2, p0, Lio/appium/android/apis/view/List12;->mStrings:Ljava/util/ArrayList;
+    const v2, 0x1090003
 
-    invoke-direct {v0, p0, v1, v2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
+    invoke-direct {v0, p0, v2, v1}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
 
     iput-object v0, p0, Lio/appium/android/apis/view/List12;->mAdapter:Landroid/widget/ArrayAdapter;
 
@@ -127,7 +121,7 @@
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/List12;->setListAdapter(Landroid/widget/ListAdapter;)V
 
     .line 54
-    const v0, 0x7f0900e2
+    const v0, 0x7f09023e
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/List12;->findViewById(I)Landroid/view/View;
 
@@ -157,37 +151,37 @@
     .param p2, "keyCode"    # I
     .param p3, "event"    # Landroid/view/KeyEvent;
 
-    .prologue
     .line 71
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     .line 72
-    sparse-switch p2, :sswitch_data_0
+    const/16 v0, 0x17
 
-    .line 79
-    :cond_0
-    const/4 v0, 0x0
+    if-eq p2, v0, :cond_0
 
-    :goto_0
-    return v0
+    const/16 v0, 0x42
+
+    if-eq p2, v0, :cond_0
+
+    goto :goto_0
 
     .line 75
-    :sswitch_0
+    :cond_0
     invoke-direct {p0}, Lio/appium/android/apis/view/List12;->sendText()V
 
     .line 76
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 
-    .line 72
-    :sswitch_data_0
-    .sparse-switch
-        0x17 -> :sswitch_0
-        0x42 -> :sswitch_0
-    .end sparse-switch
+    .line 79
+    :cond_1
+    :goto_0
+    const/4 v0, 0x0
+
+    return v0
 .end method

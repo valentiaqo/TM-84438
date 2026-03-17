@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/ContentBrowserActivity$Content;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/ContentBrowserActivity$Content;
 
-    .prologue
     .line 70
     iput-object p1, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content$1;->this$0:Lio/appium/android/apis/view/ContentBrowserActivity$Content;
 
@@ -39,7 +39,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
     .line 72
     iget-object v0, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content$1;->this$0:Lio/appium/android/apis/view/ContentBrowserActivity$Content;
 

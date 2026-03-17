@@ -41,9 +41,9 @@
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/graphics/FingerPaint;Landroid/content/Context;)V
     .locals 2
+    .param p1, "this$0"    # Lio/appium/android/apis/graphics/FingerPaint;
     .param p2, "c"    # Landroid/content/Context;
 
-    .prologue
     .line 68
     iput-object p1, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->this$0:Lio/appium/android/apis/graphics/FingerPaint;
 
@@ -75,37 +75,34 @@
     .param p1, "x"    # F
     .param p2, "y"    # F
 
-    .prologue
-    const/high16 v3, 0x40800000    # 4.0f
-
-    const/high16 v7, 0x40000000    # 2.0f
-
     .line 101
-    iget v2, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->mX:F
+    iget v0, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->mX:F
 
-    sub-float v2, p1, v2
+    sub-float v0, p1, v0
 
-    invoke-static {v2}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
     move-result v0
 
     .line 102
     .local v0, "dx":F
-    iget v2, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->mY:F
+    iget v1, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->mY:F
 
-    sub-float v2, p2, v2
+    sub-float v1, p2, v1
 
-    invoke-static {v2}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v1}, Ljava/lang/Math;->abs(F)F
 
     move-result v1
 
     .line 103
     .local v1, "dy":F
-    cmpl-float v2, v0, v3
+    const/high16 v2, 0x40800000    # 4.0f
 
-    if-gez v2, :cond_0
+    cmpl-float v3, v0, v2
 
-    cmpl-float v2, v1, v3
+    if-gez v3, :cond_0
+
+    cmpl-float v2, v1, v2
 
     if-ltz v2, :cond_1
 
@@ -117,19 +114,17 @@
 
     iget v4, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->mY:F
 
-    iget v5, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->mX:F
+    add-float v5, p1, v3
 
-    add-float/2addr v5, p1
+    const/high16 v6, 0x40000000    # 2.0f
 
-    div-float/2addr v5, v7
+    div-float/2addr v5, v6
 
-    iget v6, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->mY:F
+    add-float v7, p2, v4
 
-    add-float/2addr v6, p2
+    div-float/2addr v7, v6
 
-    div-float/2addr v6, v7
-
-    invoke-virtual {v2, v3, v4, v5, v6}, Landroid/graphics/Path;->quadTo(FFFF)V
+    invoke-virtual {v2, v3, v4, v5, v7}, Landroid/graphics/Path;->quadTo(FFFF)V
 
     .line 105
     iput p1, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->mX:F
@@ -147,7 +142,6 @@
     .param p1, "x"    # F
     .param p2, "y"    # F
 
-    .prologue
     .line 95
     iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->mPath:Landroid/graphics/Path;
 
@@ -171,7 +165,6 @@
 .method private touch_up()V
     .locals 3
 
-    .prologue
     .line 110
     iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->mPath:Landroid/graphics/Path;
 
@@ -209,9 +202,6 @@
     .locals 3
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
-    const/4 v2, 0x0
-
     .line 84
     const v0, -0x555556
 
@@ -221,6 +211,8 @@
     iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->mBitmap:Landroid/graphics/Bitmap;
 
     iget-object v1, p0, Lio/appium/android/apis/graphics/FingerPaint$MyView;->mBitmapPaint:Landroid/graphics/Paint;
+
+    const/4 v2, 0x0
 
     invoke-virtual {p1, v0, v2, v2, v1}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
@@ -246,7 +238,6 @@
     .param p3, "oldw"    # I
     .param p4, "oldh"    # I
 
-    .prologue
     .line 77
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
 
@@ -276,7 +267,6 @@
     .locals 3
     .param p1, "event"    # Landroid/view/MotionEvent;
 
-    .prologue
     .line 119
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -296,32 +286,20 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 136
-    :goto_0
-    const/4 v2, 0x1
-
-    return v2
-
-    .line 124
-    :pswitch_0
-    invoke-direct {p0, v0, v1}, Lio/appium/android/apis/graphics/FingerPaint$MyView;->touch_start(FF)V
-
-    .line 125
-    invoke-virtual {p0}, Lio/appium/android/apis/graphics/FingerPaint$MyView;->invalidate()V
-
     goto :goto_0
 
     .line 128
-    :pswitch_1
+    :pswitch_0
     invoke-direct {p0, v0, v1}, Lio/appium/android/apis/graphics/FingerPaint$MyView;->touch_move(FF)V
 
     .line 129
     invoke-virtual {p0}, Lio/appium/android/apis/graphics/FingerPaint$MyView;->invalidate()V
 
+    .line 130
     goto :goto_0
 
     .line 132
-    :pswitch_2
+    :pswitch_1
     invoke-direct {p0}, Lio/appium/android/apis/graphics/FingerPaint$MyView;->touch_up()V
 
     .line 133
@@ -329,11 +307,28 @@
 
     goto :goto_0
 
-    .line 122
+    .line 124
+    :pswitch_2
+    invoke-direct {p0, v0, v1}, Lio/appium/android/apis/graphics/FingerPaint$MyView;->touch_start(FF)V
+
+    .line 125
+    invoke-virtual {p0}, Lio/appium/android/apis/graphics/FingerPaint$MyView;->invalidate()V
+
+    .line 126
+    nop
+
+    .line 136
+    :goto_0
+    const/4 v2, 0x1
+
+    return v2
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_0
         :pswitch_2
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method

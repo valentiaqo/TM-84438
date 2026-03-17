@@ -26,8 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/animation/ReversingAnimation;Lio/appium/android/apis/animation/ReversingAnimation$MyAnimationView;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/ReversingAnimation;
 
-    .prologue
     .line 52
     iput-object p1, p0, Lio/appium/android/apis/animation/ReversingAnimation$1;->this$0:Lio/appium/android/apis/animation/ReversingAnimation;
 
@@ -44,7 +44,6 @@
     .locals 1
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 54
     iget-object v0, p0, Lio/appium/android/apis/animation/ReversingAnimation$1;->val$animView:Lio/appium/android/apis/animation/ReversingAnimation$MyAnimationView;
 

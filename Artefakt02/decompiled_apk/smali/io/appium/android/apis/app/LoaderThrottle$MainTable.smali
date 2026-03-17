@@ -37,7 +37,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     .line 83
     const-string v0, "content://io.appium.android.apis.app.LoaderThrottle/main"
 
@@ -50,19 +49,20 @@
     .line 89
     const-string v0, "content://io.appium.android.apis.app.LoaderThrottle/main/"
 
+    .line 90
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Lio/appium/android/apis/app/LoaderThrottle$MainTable;->CONTENT_ID_URI_BASE:Landroid/net/Uri;
 
+    .line 89
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
     .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

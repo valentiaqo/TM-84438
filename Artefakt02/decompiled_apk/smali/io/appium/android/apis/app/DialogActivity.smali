@@ -13,7 +13,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 38
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -37,20 +36,19 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v3, 0x3
 
     .line 47
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 49
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/app/DialogActivity;->requestWindowFeature(I)Z
+    const/4 v0, 0x3
+
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/DialogActivity;->requestWindowFeature(I)Z
 
     .line 55
-    const v1, 0x7f03003b
+    const v1, 0x7f0b0058
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/DialogActivity;->setContentView(I)V
 
@@ -70,12 +68,12 @@
 
     const v2, 0x1080027
 
-    invoke-virtual {v1, v3, v2}, Landroid/view/Window;->setFeatureDrawableResource(II)V
+    invoke-virtual {v1, v0, v2}, Landroid/view/Window;->setFeatureDrawableResource(II)V
 
     .line 61
-    const v1, 0x7f090078
+    const v0, 0x7f090022
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/DialogActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/DialogActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -88,17 +86,17 @@
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 63
-    const v1, 0x7f090079
+    const v1, 0x7f09017c
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/DialogActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
     .line 64
-    .restart local v0    # "button":Landroid/widget/Button;
     iget-object v1, p0, Lio/appium/android/apis/app/DialogActivity;->mRemoveContentListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V

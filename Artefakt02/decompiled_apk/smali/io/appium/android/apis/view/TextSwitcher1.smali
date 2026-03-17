@@ -17,7 +17,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 35
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -32,7 +31,6 @@
 .method private updateCounter()V
     .locals 2
 
-    .prologue
     .line 70
     iget-object v0, p0, Lio/appium/android/apis/view/TextSwitcher1;->mSwitcher:Landroid/widget/TextSwitcher;
 
@@ -53,7 +51,6 @@
 .method public makeView()Landroid/view/View;
     .locals 2
 
-    .prologue
     .line 74
     new-instance v0, Landroid/widget/TextView;
 
@@ -78,7 +75,6 @@
     .locals 1
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 65
     iget v0, p0, Lio/appium/android/apis/view/TextSwitcher1;->mCounter:I
 
@@ -94,72 +90,71 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 44
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 46
-    const v3, 0x7f0300ee
+    const v0, 0x7f0b0117
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/TextSwitcher1;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/TextSwitcher1;->setContentView(I)V
 
     .line 48
-    const v3, 0x7f0900bc
+    const v0, 0x7f090204
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/TextSwitcher1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/TextSwitcher1;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Landroid/widget/TextSwitcher;
+    check-cast v0, Landroid/widget/TextSwitcher;
 
-    iput-object v3, p0, Lio/appium/android/apis/view/TextSwitcher1;->mSwitcher:Landroid/widget/TextSwitcher;
+    iput-object v0, p0, Lio/appium/android/apis/view/TextSwitcher1;->mSwitcher:Landroid/widget/TextSwitcher;
 
     .line 49
-    iget-object v3, p0, Lio/appium/android/apis/view/TextSwitcher1;->mSwitcher:Landroid/widget/TextSwitcher;
+    iget-object v0, p0, Lio/appium/android/apis/view/TextSwitcher1;->mSwitcher:Landroid/widget/TextSwitcher;
 
-    invoke-virtual {v3, p0}, Landroid/widget/TextSwitcher;->setFactory(Landroid/widget/ViewSwitcher$ViewFactory;)V
+    invoke-virtual {v0, p0}, Landroid/widget/TextSwitcher;->setFactory(Landroid/widget/ViewSwitcher$ViewFactory;)V
 
     .line 51
-    const/high16 v3, 0x10a0000
+    const/high16 v0, 0x10a0000
 
-    invoke-static {p0, v3}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+    invoke-static {p0, v0}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v0
 
     .line 53
     .local v0, "in":Landroid/view/animation/Animation;
-    const v3, 0x10a0001
+    const v1, 0x10a0001
 
-    invoke-static {p0, v3}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
-
-    move-result-object v2
-
-    .line 55
-    .local v2, "out":Landroid/view/animation/Animation;
-    iget-object v3, p0, Lio/appium/android/apis/view/TextSwitcher1;->mSwitcher:Landroid/widget/TextSwitcher;
-
-    invoke-virtual {v3, v0}, Landroid/widget/TextSwitcher;->setInAnimation(Landroid/view/animation/Animation;)V
-
-    .line 56
-    iget-object v3, p0, Lio/appium/android/apis/view/TextSwitcher1;->mSwitcher:Landroid/widget/TextSwitcher;
-
-    invoke-virtual {v3, v2}, Landroid/widget/TextSwitcher;->setOutAnimation(Landroid/view/animation/Animation;)V
-
-    .line 58
-    const v3, 0x7f09017c
-
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/TextSwitcher1;->findViewById(I)Landroid/view/View;
+    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v1
 
-    check-cast v1, Landroid/widget/Button;
+    .line 55
+    .local v1, "out":Landroid/view/animation/Animation;
+    iget-object v2, p0, Lio/appium/android/apis/view/TextSwitcher1;->mSwitcher:Landroid/widget/TextSwitcher;
+
+    invoke-virtual {v2, v0}, Landroid/widget/TextSwitcher;->setInAnimation(Landroid/view/animation/Animation;)V
+
+    .line 56
+    iget-object v2, p0, Lio/appium/android/apis/view/TextSwitcher1;->mSwitcher:Landroid/widget/TextSwitcher;
+
+    invoke-virtual {v2, v1}, Landroid/widget/TextSwitcher;->setOutAnimation(Landroid/view/animation/Animation;)V
+
+    .line 58
+    const v2, 0x7f090143
+
+    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/TextSwitcher1;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/Button;
 
     .line 59
-    .local v1, "nextButton":Landroid/widget/Button;
-    invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    .local v2, "nextButton":Landroid/widget/Button;
+    invoke-virtual {v2, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 61
     invoke-direct {p0}, Lio/appium/android/apis/view/TextSwitcher1;->updateCounter()V

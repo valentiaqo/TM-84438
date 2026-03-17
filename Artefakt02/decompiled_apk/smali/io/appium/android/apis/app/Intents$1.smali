@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/Intents;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/Intents;
 
-    .prologue
     .line 40
     iput-object p1, p0, Lio/appium/android/apis/app/Intents$1;->this$0:Lio/appium/android/apis/app/Intents;
 
@@ -40,7 +40,6 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 42
     new-instance v0, Landroid/content/Intent;
 

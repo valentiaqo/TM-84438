@@ -28,8 +28,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/DeviceAdminSample$LockWipeFragment;Lio/appium/android/apis/app/DeviceAdminSample;Z)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/DeviceAdminSample$LockWipeFragment;
 
-    .prologue
     .line 758
     iput-object p1, p0, Lio/appium/android/apis/app/DeviceAdminSample$LockWipeFragment$1;->this$0:Lio/appium/android/apis/app/DeviceAdminSample$LockWipeFragment;
 
@@ -49,7 +49,6 @@
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "which"    # I
 
-    .prologue
     .line 761
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -64,13 +63,21 @@
     if-eqz v1, :cond_0
 
     .line 763
-    const v1, 0x7f0c01d9
+    const v1, 0x7f0e03d7
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+
+    goto :goto_0
+
+    .line 765
+    :cond_0
+    const v1, 0x7f0e03d6
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     .line 767
     :goto_0
-    const v1, 0x7f0c01da
+    const v1, 0x7f0e03d9
 
     new-instance v2, Lio/appium/android/apis/app/DeviceAdminSample$LockWipeFragment$1$1;
 
@@ -79,7 +86,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 778
-    const v1, 0x7f0c01db
+    const v1, 0x7f0e03d8
 
     const/4 v2, 0x0
 
@@ -90,12 +97,4 @@
 
     .line 780
     return-void
-
-    .line 765
-    :cond_0
-    const v1, 0x7f0c01d8
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
-
-    goto :goto_0
 .end method

@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/graphics/ColorPickerDialog;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/graphics/ColorPickerDialog;
 
-    .prologue
     .line 223
     iput-object p1, p0, Lio/appium/android/apis/graphics/ColorPickerDialog$1;->this$0:Lio/appium/android/apis/graphics/ColorPickerDialog;
 
@@ -40,7 +40,6 @@
     .locals 1
     .param p1, "color"    # I
 
-    .prologue
     .line 225
     iget-object v0, p0, Lio/appium/android/apis/graphics/ColorPickerDialog$1;->this$0:Lio/appium/android/apis/graphics/ColorPickerDialog;
 

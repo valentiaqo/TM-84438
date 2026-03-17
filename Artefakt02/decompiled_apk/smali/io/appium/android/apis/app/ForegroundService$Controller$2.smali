@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/ForegroundService$Controller;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/ForegroundService$Controller;
 
-    .prologue
-    .line 225
+    .line 247
     iput-object p1, p0, Lio/appium/android/apis/app/ForegroundService$Controller$2;->this$0:Lio/appium/android/apis/app/ForegroundService$Controller;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,15 +40,14 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 227
+    .line 249
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "io.appium.android.apis.BACKGROUND"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 228
+    .line 250
     .local v0, "intent":Landroid/content/Intent;
     iget-object v1, p0, Lio/appium/android/apis/app/ForegroundService$Controller$2;->this$0:Lio/appium/android/apis/app/ForegroundService$Controller;
 
@@ -56,11 +55,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 229
+    .line 251
     iget-object v1, p0, Lio/appium/android/apis/app/ForegroundService$Controller$2;->this$0:Lio/appium/android/apis/app/ForegroundService$Controller;
 
     invoke-virtual {v1, v0}, Lio/appium/android/apis/app/ForegroundService$Controller;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    .line 230
+    .line 252
     return-void
 .end method

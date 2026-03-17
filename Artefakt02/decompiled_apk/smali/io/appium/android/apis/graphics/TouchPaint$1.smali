@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/graphics/TouchPaint;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/graphics/TouchPaint;
 
-    .prologue
     .line 199
     iput-object p1, p0, Lio/appium/android/apis/graphics/TouchPaint$1;->this$0:Lio/appium/android/apis/graphics/TouchPaint;
 
@@ -34,24 +34,23 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .locals 2
     .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     .line 202
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v1, 0x1
+
+    if-eq v0, v1, :cond_0
 
     .line 212
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 214
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 207
-    :pswitch_0
+    :cond_0
     iget-object v0, p0, Lio/appium/android/apis/graphics/TouchPaint$1;->this$0:Lio/appium/android/apis/graphics/TouchPaint;
 
     iget-object v0, v0, Lio/appium/android/apis/graphics/TouchPaint;->mView:Lio/appium/android/apis/graphics/TouchPaint$PaintView;
@@ -63,11 +62,10 @@
 
     invoke-virtual {v0}, Lio/appium/android/apis/graphics/TouchPaint;->scheduleFade()V
 
-    goto :goto_0
+    .line 209
+    nop
 
-    .line 202
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
+    .line 214
+    :goto_0
+    return-void
 .end method

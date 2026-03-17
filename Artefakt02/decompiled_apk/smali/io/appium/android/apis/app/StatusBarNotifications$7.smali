@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/StatusBarNotifications;
 
-    .prologue
-    .line 99
+    .line 102
     iput-object p1, p0, Lio/appium/android/apis/app/StatusBarNotifications$7;->this$0:Lio/appium/android/apis/app/StatusBarNotifications;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,16 +40,15 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 101
+    .line 104
     iget-object v0, p0, Lio/appium/android/apis/app/StatusBarNotifications$7;->this$0:Lio/appium/android/apis/app/StatusBarNotifications;
 
-    const v1, 0x7f02005a
+    const v1, 0x7f0800be
 
-    const v2, 0x7f0c011f
+    const v2, 0x7f0e030d
 
     invoke-static {v0, v1, v2}, Lio/appium/android/apis/app/StatusBarNotifications;->access$100(Lio/appium/android/apis/app/StatusBarNotifications;II)V
 
-    .line 102
+    .line 105
     return-void
 .end method

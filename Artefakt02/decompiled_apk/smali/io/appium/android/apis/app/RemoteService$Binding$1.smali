@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/RemoteService$Binding;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/RemoteService$Binding;
 
-    .prologue
     .line 299
     iput-object p1, p0, Lio/appium/android/apis/app/RemoteService$Binding$1;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 
@@ -41,7 +41,6 @@
     .param p1, "className"    # Landroid/content/ComponentName;
     .param p2, "service"    # Landroid/os/IBinder;
 
-    .prologue
     .line 307
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding$1;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 
@@ -85,11 +84,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 320
+    goto :goto_0
+
+    .line 315
+    :catch_0
+    move-exception v0
+
     .line 323
     :goto_0
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding$1;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 
-    const v1, 0x7f0c0097
+    const v1, 0x7f0e027a
 
     const/4 v2, 0x0
 
@@ -97,24 +103,16 @@
 
     move-result-object v0
 
+    .line 324
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 325
     return-void
-
-    .line 315
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 3
     .param p1, "className"    # Landroid/content/ComponentName;
-
-    .prologue
-    const/4 v2, 0x0
 
     .line 330
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding$1;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
@@ -124,30 +122,31 @@
     iput-object v1, v0, Lio/appium/android/apis/app/RemoteService$Binding;->mService:Lio/appium/android/apis/app/IRemoteService;
 
     .line 331
-    iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding$1;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
-
     iget-object v0, v0, Lio/appium/android/apis/app/RemoteService$Binding;->mKillButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setEnabled(Z)V
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
     .line 332
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding$1;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 
     iget-object v0, v0, Lio/appium/android/apis/app/RemoteService$Binding;->mCallbackText:Landroid/widget/TextView;
 
-    const-string v1, "Disconnected."
+    const-string v2, "Disconnected."
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 335
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding$1;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 
-    const v1, 0x7f0c0098
+    const v2, 0x7f0e027c
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v0
 
+    .line 336
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 337

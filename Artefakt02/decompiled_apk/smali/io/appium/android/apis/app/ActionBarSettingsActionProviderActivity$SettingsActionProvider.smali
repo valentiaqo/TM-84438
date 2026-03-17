@@ -26,7 +26,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
     .line 67
     new-instance v0, Landroid/content/Intent;
 
@@ -43,7 +42,6 @@
     .locals 0
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 78
     invoke-direct {p0, p1}, Landroid/view/ActionProvider;-><init>(Landroid/content/Context;)V
 
@@ -57,7 +55,6 @@
 .method static synthetic access$000()Landroid/content/Intent;
     .locals 1
 
-    .prologue
     .line 64
     sget-object v0, Lio/appium/android/apis/app/ActionBarSettingsActionProviderActivity$SettingsActionProvider;->sSettingsIntent:Landroid/content/Intent;
 
@@ -68,7 +65,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/app/ActionBarSettingsActionProviderActivity$SettingsActionProvider;
 
-    .prologue
     .line 64
     iget-object v0, p0, Lio/appium/android/apis/app/ActionBarSettingsActionProviderActivity$SettingsActionProvider;->mContext:Landroid/content/Context;
 
@@ -78,52 +74,50 @@
 
 # virtual methods
 .method public onCreateActionView()Landroid/view/View;
-    .locals 5
+    .locals 4
 
-    .prologue
     .line 88
-    iget-object v3, p0, Lio/appium/android/apis/app/ActionBarSettingsActionProviderActivity$SettingsActionProvider;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lio/appium/android/apis/app/ActionBarSettingsActionProviderActivity$SettingsActionProvider;->mContext:Landroid/content/Context;
 
-    invoke-static {v3}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object v1
-
-    .line 89
-    .local v1, "layoutInflater":Landroid/view/LayoutInflater;
-    const v3, 0x7f030004
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v1, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v2
-
-    .line 90
-    .local v2, "view":Landroid/view/View;
-    const v3, 0x7f090004
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/ImageButton;
+    .line 89
+    .local v0, "layoutInflater":Landroid/view/LayoutInflater;
+    const v1, 0x7f0b0020
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v1
+
+    .line 90
+    .local v1, "view":Landroid/view/View;
+    const v2, 0x7f090048
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/ImageButton;
 
     .line 92
-    .local v0, "button":Landroid/widget/ImageButton;
+    .local v2, "button":Landroid/widget/ImageButton;
     new-instance v3, Lio/appium/android/apis/app/ActionBarSettingsActionProviderActivity$SettingsActionProvider$1;
 
     invoke-direct {v3, p0}, Lio/appium/android/apis/app/ActionBarSettingsActionProviderActivity$SettingsActionProvider$1;-><init>(Lio/appium/android/apis/app/ActionBarSettingsActionProviderActivity$SettingsActionProvider;)V
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 98
-    return-object v2
+    return-object v1
 .end method
 
 .method public onPerformDefaultAction()Z
     .locals 2
 
-    .prologue
     .line 108
     iget-object v0, p0, Lio/appium/android/apis/app/ActionBarSettingsActionProviderActivity$SettingsActionProvider;->mContext:Landroid/content/Context;
 

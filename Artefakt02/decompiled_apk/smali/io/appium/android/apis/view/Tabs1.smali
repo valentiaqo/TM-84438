@@ -7,7 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 31
     invoke-direct {p0}, Landroid/app/TabActivity;-><init>()V
 
@@ -20,7 +19,6 @@
     .locals 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 35
     invoke-super {p0, p1}, Landroid/app/TabActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -35,15 +33,15 @@
 
     move-result-object v1
 
-    const v2, 0x7f0300e9
-
     invoke-virtual {v0}, Landroid/widget/TabHost;->getTabContentView()Landroid/widget/FrameLayout;
 
-    move-result-object v3
+    move-result-object v2
+
+    const v3, 0x7f0b0111
 
     const/4 v4, 0x1
 
-    invoke-virtual {v1, v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v1, v3, v2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     .line 40
     const-string v1, "tab1"
@@ -54,16 +52,19 @@
 
     const-string v2, "tab1"
 
+    .line 41
     invoke-virtual {v1, v2}, Landroid/widget/TabHost$TabSpec;->setIndicator(Ljava/lang/CharSequence;)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v1
 
-    const v2, 0x7f090122
+    .line 42
+    const v2, 0x7f090244
 
     invoke-virtual {v1, v2}, Landroid/widget/TabHost$TabSpec;->setContent(I)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v1
 
+    .line 40
     invoke-virtual {v0, v1}, Landroid/widget/TabHost;->addTab(Landroid/widget/TabHost$TabSpec;)V
 
     .line 43
@@ -75,16 +76,19 @@
 
     const-string v2, "tab2"
 
+    .line 44
     invoke-virtual {v1, v2}, Landroid/widget/TabHost$TabSpec;->setIndicator(Ljava/lang/CharSequence;)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v1
 
-    const v2, 0x7f090123
+    .line 45
+    const v2, 0x7f090245
 
     invoke-virtual {v1, v2}, Landroid/widget/TabHost$TabSpec;->setContent(I)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v1
 
+    .line 43
     invoke-virtual {v0, v1}, Landroid/widget/TabHost;->addTab(Landroid/widget/TabHost$TabSpec;)V
 
     .line 46
@@ -96,16 +100,19 @@
 
     const-string v2, "tab3"
 
+    .line 47
     invoke-virtual {v1, v2}, Landroid/widget/TabHost$TabSpec;->setIndicator(Ljava/lang/CharSequence;)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v1
 
-    const v2, 0x7f090124
+    .line 48
+    const v2, 0x7f090246
 
     invoke-virtual {v1, v2}, Landroid/widget/TabHost$TabSpec;->setContent(I)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v1
 
+    .line 46
     invoke-virtual {v0, v1}, Landroid/widget/TabHost;->addTab(Landroid/widget/TabHost$TabSpec;)V
 
     .line 49

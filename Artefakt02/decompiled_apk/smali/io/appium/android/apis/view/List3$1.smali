@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/List3;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/List3;
 
-    .prologue
     .line 53
     iput-object p1, p0, Lio/appium/android/apis/view/List3$1;->this$0:Lio/appium/android/apis/view/List3;
 
@@ -42,62 +42,59 @@
     .param p2, "cursor"    # Landroid/database/Cursor;
     .param p3, "columnIndex"    # I
 
-    .prologue
-    const/4 v3, 0x1
-
     .line 56
-    if-eq p3, v3, :cond_0
+    const/4 v0, 0x1
+
+    if-eq p3, v0, :cond_0
 
     .line 57
-    const/4 v3, 0x0
-
-    .line 69
-    .end local p1    # "view":Landroid/view/View;
-    :goto_0
-    return v3
-
-    .line 59
-    .restart local p1    # "view":Landroid/view/View;
-    :cond_0
-    invoke-interface {p2, v3}, Landroid/database/Cursor;->getInt(I)I
-
-    move-result v2
-
-    .line 60
-    .local v2, "type":I
     const/4 v0, 0x0
 
+    return v0
+
+    .line 59
+    :cond_0
+    invoke-interface {p2, v0}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v1
+
+    .line 60
+    .local v1, "type":I
+    const/4 v2, 0x0
+
     .line 62
-    .local v0, "label":Ljava/lang/String;
-    if-nez v2, :cond_1
+    .local v2, "label":Ljava/lang/String;
+    if-nez v1, :cond_1
 
     .line 63
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    invoke-interface {p2, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {p2, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     .line 66
     :cond_1
-    iget-object v4, p0, Lio/appium/android/apis/view/List3$1;->this$0:Lio/appium/android/apis/view/List3;
+    iget-object v3, p0, Lio/appium/android/apis/view/List3$1;->this$0:Lio/appium/android/apis/view/List3;
 
-    invoke-virtual {v4}, Lio/appium/android/apis/view/List3;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v3}, Lio/appium/android/apis/view/List3;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v4, v2, v0}, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v3, v1, v2}, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
 
-    move-result-object v1
+    move-result-object v3
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
     .line 68
-    .local v1, "text":Ljava/lang/String;
-    check-cast p1, Landroid/widget/TextView;
+    .local v3, "text":Ljava/lang/String;
+    move-object v4, p1
 
-    .end local p1    # "view":Landroid/view/View;
-    invoke-virtual {p1, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    check-cast v4, Landroid/widget/TextView;
 
-    goto :goto_0
+    invoke-virtual {v4, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 69
+    return v0
 .end method

@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lio/appium/android/apis/graphics/TouchPaint$2;,
         Lio/appium/android/apis/graphics/TouchPaint$PaintView;,
         Lio/appium/android/apis/graphics/TouchPaint$PaintMode;
     }
@@ -41,7 +40,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     .line 76
     const/4 v0, 0x7
 
@@ -70,7 +68,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 62
     invoke-direct {p0}, Lio/appium/android/apis/graphics/GraphicsActivity;-><init>()V
 
@@ -81,7 +78,6 @@
 
     iput-object v0, p0, Lio/appium/android/apis/graphics/TouchPaint;->mHandler:Landroid/os/Handler;
 
-    .line 228
     return-void
 .end method
 
@@ -90,11 +86,6 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
 
     .line 95
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->onCreate(Landroid/os/Bundle;)V
@@ -117,64 +108,67 @@
     invoke-virtual {v0}, Lio/appium/android/apis/graphics/TouchPaint$PaintView;->requestFocus()Z
 
     .line 105
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
     if-eqz p1, :cond_0
 
     .line 106
-    const-string v0, "fading"
+    const-string v2, "fading"
 
-    invoke-virtual {p1, v0, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {p1, v2, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v0
+    move-result v1
 
-    iput-boolean v0, p0, Lio/appium/android/apis/graphics/TouchPaint;->mFading:Z
+    iput-boolean v1, p0, Lio/appium/android/apis/graphics/TouchPaint;->mFading:Z
 
     .line 107
-    const-string v0, "color"
+    const-string v1, "color"
 
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
     iput v0, p0, Lio/appium/android/apis/graphics/TouchPaint;->mColorIndex:I
 
-    .line 112
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 109
     :cond_0
-    iput-boolean v2, p0, Lio/appium/android/apis/graphics/TouchPaint;->mFading:Z
+    iput-boolean v1, p0, Lio/appium/android/apis/graphics/TouchPaint;->mFading:Z
 
     .line 110
-    iput v1, p0, Lio/appium/android/apis/graphics/TouchPaint;->mColorIndex:I
+    iput v0, p0, Lio/appium/android/apis/graphics/TouchPaint;->mColorIndex:I
 
-    goto :goto_0
+    .line 112
+    :goto_0
+    return-void
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
     .locals 4
     .param p1, "menu"    # Landroid/view/Menu;
 
-    .prologue
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
-
     .line 116
     const-string v0, "Clear"
 
-    invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-interface {p1, v2, v1, v2, v0}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
 
     .line 117
-    const/4 v0, 0x2
+    const-string v0, "Fade"
 
-    const-string v1, "Fade"
+    const/4 v3, 0x2
 
-    invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setCheckable(Z)Landroid/view/MenuItem;
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setCheckable(Z)Landroid/view/MenuItem;
 
     .line 118
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
@@ -188,77 +182,67 @@
     .locals 2
     .param p1, "item"    # Landroid/view/MenuItem;
 
-    .prologue
-    const/4 v1, 0x1
-
     .line 129
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
+
+    const/4 v1, 0x1
 
     packed-switch v0, :pswitch_data_0
 
     .line 142
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
-    move-result v1
+    move-result v0
 
-    :goto_0
-    return v1
-
-    .line 131
-    :pswitch_0
-    iget-object v0, p0, Lio/appium/android/apis/graphics/TouchPaint;->mView:Lio/appium/android/apis/graphics/TouchPaint$PaintView;
-
-    invoke-virtual {v0}, Lio/appium/android/apis/graphics/TouchPaint$PaintView;->clear()V
-
-    goto :goto_0
+    return v0
 
     .line 134
-    :pswitch_1
+    :pswitch_0
     iget-boolean v0, p0, Lio/appium/android/apis/graphics/TouchPaint;->mFading:Z
 
-    if-nez v0, :cond_0
+    xor-int/2addr v0, v1
 
-    move v0, v1
-
-    :goto_1
     iput-boolean v0, p0, Lio/appium/android/apis/graphics/TouchPaint;->mFading:Z
 
     .line 135
     iget-boolean v0, p0, Lio/appium/android/apis/graphics/TouchPaint;->mFading:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 136
     invoke-virtual {p0}, Lio/appium/android/apis/graphics/TouchPaint;->startFading()V
 
     goto :goto_0
 
-    .line 134
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_1
-
     .line 138
-    :cond_1
+    :cond_0
     invoke-virtual {p0}, Lio/appium/android/apis/graphics/TouchPaint;->stopFading()V
 
-    goto :goto_0
+    .line 140
+    :goto_0
+    return v1
 
-    .line 129
+    .line 131
+    :pswitch_1
+    iget-object v0, p0, Lio/appium/android/apis/graphics/TouchPaint;->mView:Lio/appium/android/apis/graphics/TouchPaint$PaintView;
+
+    invoke-virtual {v0}, Lio/appium/android/apis/graphics/TouchPaint$PaintView;->clear()V
+
+    .line 132
+    return v1
+
     :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_0
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method protected onPause()V
     .locals 0
 
-    .prologue
     .line 169
     invoke-super {p0}, Lio/appium/android/apis/graphics/GraphicsActivity;->onPause()V
 
@@ -273,7 +257,6 @@
     .locals 2
     .param p1, "menu"    # Landroid/view/Menu;
 
-    .prologue
     .line 123
     const/4 v0, 0x2
 
@@ -296,7 +279,6 @@
 .method protected onResume()V
     .locals 1
 
-    .prologue
     .line 148
     invoke-super {p0}, Lio/appium/android/apis/graphics/GraphicsActivity;->onResume()V
 
@@ -317,7 +299,6 @@
     .locals 2
     .param p1, "outState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 159
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
@@ -342,15 +323,12 @@
 .method scheduleFade()V
     .locals 4
 
-    .prologue
     .line 196
     iget-object v0, p0, Lio/appium/android/apis/graphics/TouchPaint;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lio/appium/android/apis/graphics/TouchPaint;->mHandler:Landroid/os/Handler;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v1
 
@@ -364,9 +342,7 @@
 
 .method public bridge synthetic setContentView(Landroid/view/View;)V
     .locals 0
-    .param p1, "x0"    # Landroid/view/View;
 
-    .prologue
     .line 62
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->setContentView(Landroid/view/View;)V
 
@@ -376,7 +352,6 @@
 .method startFading()V
     .locals 2
 
-    .prologue
     .line 181
     iget-object v0, p0, Lio/appium/android/apis/graphics/TouchPaint;->mHandler:Landroid/os/Handler;
 
@@ -394,7 +369,6 @@
 .method stopFading()V
     .locals 2
 
-    .prologue
     .line 189
     iget-object v0, p0, Lio/appium/android/apis/graphics/TouchPaint;->mHandler:Landroid/os/Handler;
 

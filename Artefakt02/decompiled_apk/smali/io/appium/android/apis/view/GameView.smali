@@ -38,8 +38,7 @@
 .field private final mBullets:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Lio/appium/android/apis/view/GameView$Bullet;",
             ">;"
         }
@@ -67,8 +66,7 @@
 .field private final mObstacles:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Lio/appium/android/apis/view/GameView$Obstacle;",
             ">;"
         }
@@ -84,132 +82,131 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .locals 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
-
-    .prologue
-    const/4 v6, 0x1
-
-    const/high16 v5, 0x41400000    # 12.0f
-
-    const/high16 v4, 0x40400000    # 3.0f
 
     .line 84
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 47
-    const-wide/16 v2, 0x10
+    const-wide/16 v0, 0x10
 
-    iput-wide v2, p0, Lio/appium/android/apis/view/GameView;->ANIMATION_TIME_STEP:J
+    iput-wide v0, p0, Lio/appium/android/apis/view/GameView;->ANIMATION_TIME_STEP:J
 
     .line 48
-    const/16 v2, 0xc
+    const/16 v0, 0xc
 
-    iput v2, p0, Lio/appium/android/apis/view/GameView;->MAX_OBSTACLES:I
+    iput v0, p0, Lio/appium/android/apis/view/GameView;->MAX_OBSTACLES:I
 
     .line 77
-    new-instance v2, Lio/appium/android/apis/view/GameView$1;
+    new-instance v0, Lio/appium/android/apis/view/GameView$1;
 
-    invoke-direct {v2, p0}, Lio/appium/android/apis/view/GameView$1;-><init>(Lio/appium/android/apis/view/GameView;)V
+    invoke-direct {v0, p0}, Lio/appium/android/apis/view/GameView$1;-><init>(Lio/appium/android/apis/view/GameView;)V
 
-    iput-object v2, p0, Lio/appium/android/apis/view/GameView;->mAnimationRunnable:Ljava/lang/Runnable;
+    iput-object v0, p0, Lio/appium/android/apis/view/GameView;->mAnimationRunnable:Ljava/lang/Runnable;
 
     .line 86
-    new-instance v2, Ljava/util/Random;
+    new-instance v0, Ljava/util/Random;
 
-    invoke-direct {v2}, Ljava/util/Random;-><init>()V
+    invoke-direct {v0}, Ljava/util/Random;-><init>()V
 
-    iput-object v2, p0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
+    iput-object v0, p0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
 
     .line 87
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v2, p0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
+    iput-object v0, p0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
 
     .line 88
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v2, p0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
+    iput-object v0, p0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
 
     .line 90
-    invoke-virtual {p0, v6}, Lio/appium/android/apis/view/GameView;->setFocusable(Z)V
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/GameView;->setFocusable(Z)V
 
     .line 91
-    invoke-virtual {p0, v6}, Lio/appium/android/apis/view/GameView;->setFocusableInTouchMode(Z)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/GameView;->setFocusableInTouchMode(Z)V
 
     .line 93
     invoke-virtual {p0}, Lio/appium/android/apis/view/GameView;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v2
+    move-result-object v0
 
-    iget v2, v2, Landroid/util/DisplayMetrics;->density:F
+    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    const/high16 v3, 0x40a00000    # 5.0f
+    const/high16 v1, 0x40a00000    # 5.0f
 
-    mul-float v0, v2, v3
+    mul-float v0, v0, v1
 
     .line 94
     .local v0, "baseSize":F
-    mul-float v1, v0, v4
+    const/high16 v1, 0x40400000    # 3.0f
+
+    mul-float v2, v0, v1
 
     .line 96
-    .local v1, "baseSpeed":F
-    mul-float v2, v0, v4
+    .local v2, "baseSpeed":F
+    mul-float v3, v0, v1
 
-    iput v2, p0, Lio/appium/android/apis/view/GameView;->mShipSize:F
+    iput v3, p0, Lio/appium/android/apis/view/GameView;->mShipSize:F
 
     .line 97
-    const/high16 v2, 0x3e800000    # 0.25f
+    const/high16 v3, 0x3e800000    # 0.25f
 
-    mul-float/2addr v2, v1
+    mul-float v3, v3, v2
 
-    iput v2, p0, Lio/appium/android/apis/view/GameView;->mMaxShipThrust:F
+    iput v3, p0, Lio/appium/android/apis/view/GameView;->mMaxShipThrust:F
 
     .line 98
-    mul-float v2, v1, v5
+    const/high16 v3, 0x41400000    # 12.0f
 
-    iput v2, p0, Lio/appium/android/apis/view/GameView;->mMaxShipSpeed:F
+    mul-float v4, v2, v3
+
+    iput v4, p0, Lio/appium/android/apis/view/GameView;->mMaxShipSpeed:F
 
     .line 100
     iput v0, p0, Lio/appium/android/apis/view/GameView;->mBulletSize:F
 
     .line 101
-    mul-float v2, v1, v5
+    mul-float v4, v2, v3
 
-    iput v2, p0, Lio/appium/android/apis/view/GameView;->mBulletSpeed:F
+    iput v4, p0, Lio/appium/android/apis/view/GameView;->mBulletSpeed:F
 
     .line 103
-    const/high16 v2, 0x40000000    # 2.0f
+    const/high16 v4, 0x40000000    # 2.0f
 
-    mul-float/2addr v2, v0
+    mul-float v4, v4, v0
 
-    iput v2, p0, Lio/appium/android/apis/view/GameView;->mMinObstacleSize:F
+    iput v4, p0, Lio/appium/android/apis/view/GameView;->mMinObstacleSize:F
 
     .line 104
-    mul-float v2, v0, v5
+    mul-float v3, v3, v0
 
-    iput v2, p0, Lio/appium/android/apis/view/GameView;->mMaxObstacleSize:F
+    iput v3, p0, Lio/appium/android/apis/view/GameView;->mMaxObstacleSize:F
 
     .line 105
-    iput v1, p0, Lio/appium/android/apis/view/GameView;->mMinObstacleSpeed:F
+    iput v2, p0, Lio/appium/android/apis/view/GameView;->mMinObstacleSpeed:F
 
     .line 106
-    mul-float v2, v1, v4
+    mul-float v1, v1, v2
 
-    iput v2, p0, Lio/appium/android/apis/view/GameView;->mMaxObstacleSpeed:F
+    iput v1, p0, Lio/appium/android/apis/view/GameView;->mMaxObstacleSpeed:F
 
     .line 107
     return-void
@@ -219,7 +216,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/view/GameView;
 
-    .prologue
     .line 46
     iget v0, p0, Lio/appium/android/apis/view/GameView;->mShipSize:F
 
@@ -230,7 +226,6 @@
     .locals 0
     .param p0, "x0"    # Lio/appium/android/apis/view/GameView;
 
-    .prologue
     .line 46
     invoke-direct {p0}, Lio/appium/android/apis/view/GameView;->crash()V
 
@@ -241,7 +236,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/view/GameView;
 
-    .prologue
     .line 46
     iget v0, p0, Lio/appium/android/apis/view/GameView;->mBulletSize:F
 
@@ -254,13 +248,12 @@
     .param p1, "from"    # I
     .param p2, "to"    # I
 
-    .prologue
     .line 490
     sub-int v0, p2, p1
 
     int-to-float v0, v0
 
-    mul-float/2addr v0, p0
+    mul-float v0, v0, p0
 
     float-to-int v0, v0
 
@@ -272,7 +265,6 @@
 .method private crash()V
     .locals 3
 
-    .prologue
     .line 327
     invoke-direct {p0}, Lio/appium/android/apis/view/GameView;->getVibrator()Landroid/os/Vibrator;
 
@@ -291,7 +283,6 @@
     .line 328
     return-void
 
-    .line 327
     :array_0
     .array-data 8
         0x0
@@ -308,7 +299,6 @@
 .method private ensureInitialized()V
     .locals 1
 
-    .prologue
     .line 321
     iget-object v0, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
@@ -325,19 +315,16 @@
 .method private fire()V
     .locals 4
 
-    .prologue
     .line 309
-    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+    invoke-virtual {v0}, Lio/appium/android/apis/view/GameView$Ship;->isDestroyed()Z
 
-    invoke-virtual {v1}, Lio/appium/android/apis/view/GameView$Ship;->isDestroyed()Z
+    move-result v0
 
-    move-result v1
-
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 310
     new-instance v0, Lio/appium/android/apis/view/GameView$Bullet;
@@ -373,10 +360,12 @@
 
     iget v3, p0, Lio/appium/android/apis/view/GameView;->mBulletSpeed:F
 
+    .line 313
     invoke-virtual {v2, v3}, Lio/appium/android/apis/view/GameView$Ship;->getBulletVelocityY(F)F
 
     move-result v2
 
+    .line 312
     invoke-virtual {v0, v1, v2}, Lio/appium/android/apis/view/GameView$Bullet;->setVelocity(FF)V
 
     .line 314
@@ -406,80 +395,75 @@
     .param p2, "axis"    # I
     .param p3, "historyPos"    # I
 
-    .prologue
     .line 272
     invoke-virtual {p0}, Landroid/view/MotionEvent;->getSource()I
 
-    move-result v3
-
-    invoke-virtual {p1, p2, v3}, Landroid/view/InputDevice;->getMotionRange(II)Landroid/view/InputDevice$MotionRange;
-
-    move-result-object v1
-
-    .line 273
-    .local v1, "range":Landroid/view/InputDevice$MotionRange;
-    if-eqz v1, :cond_1
-
-    .line 274
-    invoke-virtual {v1}, Landroid/view/InputDevice$MotionRange;->getFlat()F
-
     move-result v0
 
+    invoke-virtual {p1, p2, v0}, Landroid/view/InputDevice;->getMotionRange(II)Landroid/view/InputDevice$MotionRange;
+
+    move-result-object v0
+
+    .line 273
+    .local v0, "range":Landroid/view/InputDevice$MotionRange;
+    if-eqz v0, :cond_1
+
+    .line 274
+    invoke-virtual {v0}, Landroid/view/InputDevice$MotionRange;->getFlat()F
+
+    move-result v1
+
     .line 275
-    .local v0, "flat":F
+    .local v1, "flat":F
     if-gez p3, :cond_0
 
     invoke-virtual {p0, p2}, Landroid/view/MotionEvent;->getAxisValue(I)F
 
     move-result v2
 
-    .line 280
-    .local v2, "value":F
-    :goto_0
-    invoke-static {v2}, Ljava/lang/Math;->abs(F)F
+    goto :goto_0
 
-    move-result v3
-
-    cmpl-float v3, v3, v0
-
-    if-lez v3, :cond_1
-
-    .line 284
-    .end local v0    # "flat":F
-    .end local v2    # "value":F
-    :goto_1
-    return v2
-
-    .line 275
-    .restart local v0    # "flat":F
+    .line 276
     :cond_0
     invoke-virtual {p0, p2, p3}, Landroid/view/MotionEvent;->getHistoricalAxisValue(II)F
 
     move-result v2
 
-    goto :goto_0
+    :goto_0
+    nop
+
+    .line 280
+    .local v2, "value":F
+    invoke-static {v2}, Ljava/lang/Math;->abs(F)F
+
+    move-result v3
+
+    cmpl-float v3, v3, v1
+
+    if-lez v3, :cond_1
+
+    .line 281
+    return v2
 
     .line 284
-    .end local v0    # "flat":F
+    .end local v1    # "flat":F
+    .end local v2    # "value":F
     :cond_1
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    goto :goto_1
+    return v1
 .end method
 
 .method private getVibrator()Landroid/os/Vibrator;
-    .locals 3
+    .locals 2
 
-    .prologue
     .line 337
-    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 338
-    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
-
-    invoke-virtual {v1}, Landroid/view/InputDevice;->getVibrator()Landroid/os/Vibrator;
+    invoke-virtual {v0}, Landroid/view/InputDevice;->getVibrator()Landroid/os/Vibrator;
 
     move-result-object v0
 
@@ -491,59 +475,59 @@
 
     if-eqz v1, :cond_0
 
-    .line 343
-    .end local v0    # "vibrator":Landroid/os/Vibrator;
-    :goto_0
+    .line 340
     return-object v0
 
+    .line 343
+    .end local v0    # "vibrator":Landroid/os/Vibrator;
     :cond_0
     invoke-virtual {p0}, Lio/appium/android/apis/view/GameView;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "vibrator"
+    const-string v1, "vibrator"
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/os/Vibrator;
+    check-cast v0, Landroid/os/Vibrator;
 
-    move-object v0, v1
-
-    goto :goto_0
+    return-object v0
 .end method
 
 .method private static isFireKey(I)Z
     .locals 1
     .param p0, "keyCode"    # I
 
-    .prologue
     .line 201
     invoke-static {p0}, Landroid/view/KeyEvent;->isGamepadButton(I)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     const/16 v0, 0x17
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_1
 
     const/16 v0, 0x3e
 
-    if-ne p0, v0, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
+    if-ne p0, v0, :cond_0
 
     goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    return v0
 .end method
 
 .method private processJoystickInput(Landroid/view/MotionEvent;I)V
@@ -551,21 +535,20 @@
     .param p1, "event"    # Landroid/view/MotionEvent;
     .param p2, "historyPos"    # I
 
-    .prologue
-    const/4 v4, 0x0
-
     .line 249
-    iget-object v2, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, v2, v3, p2}, Lio/appium/android/apis/view/GameView;->getCenteredAxis(Landroid/view/MotionEvent;Landroid/view/InputDevice;II)F
+    invoke-static {p1, v0, v1, p2}, Lio/appium/android/apis/view/GameView;->getCenteredAxis(Landroid/view/MotionEvent;Landroid/view/InputDevice;II)F
 
     move-result v0
 
     .line 250
     .local v0, "x":F
-    cmpl-float v2, v0, v4
+    const/4 v1, 0x0
+
+    cmpl-float v2, v0, v1
 
     if-nez v2, :cond_0
 
@@ -580,7 +563,7 @@
 
     .line 253
     :cond_0
-    cmpl-float v2, v0, v4
+    cmpl-float v2, v0, v1
 
     if-nez v2, :cond_1
 
@@ -601,64 +584,63 @@
 
     invoke-static {p1, v2, v3, p2}, Lio/appium/android/apis/view/GameView;->getCenteredAxis(Landroid/view/MotionEvent;Landroid/view/InputDevice;II)F
 
-    move-result v1
+    move-result v2
 
     .line 258
-    .local v1, "y":F
-    cmpl-float v2, v1, v4
+    .local v2, "y":F
+    cmpl-float v3, v2, v1
 
-    if-nez v2, :cond_2
+    if-nez v3, :cond_2
 
     .line 259
-    iget-object v2, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
+    iget-object v3, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
 
-    const/16 v3, 0x10
+    const/16 v4, 0x10
 
-    invoke-static {p1, v2, v3, p2}, Lio/appium/android/apis/view/GameView;->getCenteredAxis(Landroid/view/MotionEvent;Landroid/view/InputDevice;II)F
+    invoke-static {p1, v3, v4, p2}, Lio/appium/android/apis/view/GameView;->getCenteredAxis(Landroid/view/MotionEvent;Landroid/view/InputDevice;II)F
 
-    move-result v1
+    move-result v2
 
     .line 261
     :cond_2
-    cmpl-float v2, v1, v4
+    cmpl-float v1, v2, v1
 
-    if-nez v2, :cond_3
+    if-nez v1, :cond_3
 
     .line 262
-    iget-object v2, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
+    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
 
     const/16 v3, 0xe
 
-    invoke-static {p1, v2, v3, p2}, Lio/appium/android/apis/view/GameView;->getCenteredAxis(Landroid/view/MotionEvent;Landroid/view/InputDevice;II)F
+    invoke-static {p1, v1, v3, p2}, Lio/appium/android/apis/view/GameView;->getCenteredAxis(Landroid/view/MotionEvent;Landroid/view/InputDevice;II)F
 
-    move-result v1
+    move-result v2
 
     .line 266
     :cond_3
-    iget-object v2, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    invoke-virtual {v2, v0, v1}, Lio/appium/android/apis/view/GameView$Ship;->setHeading(FF)V
+    invoke-virtual {v1, v0, v2}, Lio/appium/android/apis/view/GameView$Ship;->setHeading(FF)V
 
     .line 267
     if-gez p2, :cond_4
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
 
-    move-result-wide v2
+    move-result-wide v3
 
-    :goto_0
-    invoke-direct {p0, v2, v3}, Lio/appium/android/apis/view/GameView;->step(J)V
+    goto :goto_0
 
-    .line 268
-    return-void
-
-    .line 267
     :cond_4
     invoke-virtual {p1, p2}, Landroid/view/MotionEvent;->getHistoricalEventTime(I)J
 
-    move-result-wide v2
+    move-result-wide v3
 
-    goto :goto_0
+    :goto_0
+    invoke-direct {p0, v3, v4}, Lio/appium/android/apis/view/GameView;->step(J)V
+
+    .line 268
+    return-void
 .end method
 
 .method static pythag(FF)F
@@ -666,7 +648,6 @@
     .param p0, "x"    # F
     .param p1, "y"    # F
 
-    .prologue
     .line 486
     mul-float v0, p0, p0
 
@@ -688,7 +669,6 @@
 .method private reset()V
     .locals 1
 
-    .prologue
     .line 331
     new-instance v0, Lio/appium/android/apis/view/GameView$Ship;
 
@@ -723,7 +703,6 @@
     .param p8, "g2"    # I
     .param p9, "b2"    # I
 
-    .prologue
     .line 496
     invoke-static {p1, p2, p6}, Lio/appium/android/apis/view/GameView;->blend(FII)I
 
@@ -733,6 +712,7 @@
 
     move-result v1
 
+    .line 497
     invoke-static {p1, p4, p8}, Lio/appium/android/apis/view/GameView;->blend(FII)I
 
     move-result v2
@@ -741,6 +721,7 @@
 
     move-result v3
 
+    .line 496
     invoke-virtual {p0, v0, v1, v2, v3}, Landroid/graphics/Paint;->setARGB(IIII)V
 
     .line 498
@@ -748,762 +729,572 @@
 .end method
 
 .method private step(J)V
-    .locals 24
+    .locals 16
     .param p1, "currentStepTime"    # J
 
-    .prologue
     .line 358
     move-object/from16 v0, p0
 
-    iget-wide v0, v0, Lio/appium/android/apis/view/GameView;->mLastStepTime:J
+    move-wide/from16 v1, p1
 
-    move-wide/from16 v21, v0
+    iget-wide v3, v0, Lio/appium/android/apis/view/GameView;->mLastStepTime:J
 
-    sub-long v21, p1, v21
+    sub-long v3, v1, v3
 
-    move-wide/from16 v0, v21
+    long-to-float v3, v3
 
-    long-to-float v0, v0
+    const v4, 0x3a83126f    # 0.001f
 
-    move/from16 v21, v0
-
-    const v22, 0x3a83126f    # 0.001f
-
-    mul-float v17, v21, v22
+    mul-float v3, v3, v4
 
     .line 359
-    .local v17, "tau":F
-    move-wide/from16 v0, p1
-
-    move-object/from16 v2, p0
-
-    iput-wide v0, v2, Lio/appium/android/apis/view/GameView;->mLastStepTime:J
+    .local v3, "tau":F
+    iput-wide v1, v0, Lio/appium/android/apis/view/GameView;->mLastStepTime:J
 
     .line 361
     invoke-direct/range {p0 .. p0}, Lio/appium/android/apis/view/GameView;->ensureInitialized()V
 
     .line 364
-    move-object/from16 v0, p0
+    iget-object v4, v0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+    iget v5, v0, Lio/appium/android/apis/view/GameView;->mMaxShipThrust:F
 
-    move-object/from16 v21, v0
+    iget v6, v0, Lio/appium/android/apis/view/GameView;->mMaxShipSpeed:F
 
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lio/appium/android/apis/view/GameView;->mMaxShipThrust:F
-
-    move/from16 v22, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lio/appium/android/apis/view/GameView;->mMaxShipSpeed:F
-
-    move/from16 v23, v0
-
-    move-object/from16 v0, v21
-
-    move/from16 v1, v17
-
-    move/from16 v2, v22
-
-    move/from16 v3, v23
-
-    invoke-virtual {v0, v1, v2, v3}, Lio/appium/android/apis/view/GameView$Ship;->accelerate(FFF)V
+    invoke-virtual {v4, v3, v5, v6}, Lio/appium/android/apis/view/GameView$Ship;->accelerate(FFF)V
 
     .line 365
-    move-object/from16 v0, p0
+    iget-object v4, v0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+    invoke-virtual {v4, v3}, Lio/appium/android/apis/view/GameView$Ship;->step(F)Z
 
-    move-object/from16 v21, v0
+    move-result v4
 
-    move-object/from16 v0, v21
-
-    move/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Lio/appium/android/apis/view/GameView$Ship;->step(F)Z
-
-    move-result v21
-
-    if-nez v21, :cond_0
+    if-nez v4, :cond_0
 
     .line 366
     invoke-direct/range {p0 .. p0}, Lio/appium/android/apis/view/GameView;->reset()V
 
     .line 370
     :cond_0
-    move-object/from16 v0, p0
+    iget-object v4, v0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    move-object/from16 v21, v0
-
-    invoke-interface/range {v21 .. v21}, Ljava/util/List;->size()I
-
-    move-result v10
+    move-result v4
 
     .line 371
-    .local v10, "numBullets":I
-    const/4 v7, 0x0
+    .local v4, "numBullets":I
+    const/4 v5, 0x0
 
-    .local v7, "i":I
+    .local v5, "i":I
     :goto_0
-    if-ge v7, v10, :cond_2
+    if-ge v5, v4, :cond_2
 
     .line 372
-    move-object/from16 v0, p0
+    iget-object v6, v0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
+    invoke-interface {v6, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v21, v0
+    move-result-object v6
 
-    move-object/from16 v0, v21
-
-    invoke-interface {v0, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lio/appium/android/apis/view/GameView$Bullet;
+    check-cast v6, Lio/appium/android/apis/view/GameView$Bullet;
 
     .line 373
-    .local v4, "bullet":Lio/appium/android/apis/view/GameView$Bullet;
-    move/from16 v0, v17
+    .local v6, "bullet":Lio/appium/android/apis/view/GameView$Bullet;
+    invoke-virtual {v6, v3}, Lio/appium/android/apis/view/GameView$Bullet;->step(F)Z
 
-    invoke-virtual {v4, v0}, Lio/appium/android/apis/view/GameView$Bullet;->step(F)Z
+    move-result v7
 
-    move-result v21
-
-    if-nez v21, :cond_1
+    if-nez v7, :cond_1
 
     .line 374
-    move-object/from16 v0, p0
+    iget-object v7, v0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    invoke-interface {v0, v7}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    invoke-interface {v7, v5}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 375
-    add-int/lit8 v7, v7, -0x1
+    add-int/lit8 v5, v5, -0x1
 
     .line 376
-    add-int/lit8 v10, v10, -0x1
+    add-int/lit8 v4, v4, -0x1
 
     .line 371
+    .end local v6    # "bullet":Lio/appium/android/apis/view/GameView$Bullet;
     :cond_1
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
     .line 381
-    .end local v4    # "bullet":Lio/appium/android/apis/view/GameView$Bullet;
+    .end local v5    # "i":I
     :cond_2
-    move-object/from16 v0, p0
+    iget-object v5, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
+    invoke-interface {v5}, Ljava/util/List;->size()I
 
-    move-object/from16 v21, v0
-
-    invoke-interface/range {v21 .. v21}, Ljava/util/List;->size()I
-
-    move-result v11
+    move-result v5
 
     .line 382
-    .local v11, "numObstacles":I
-    const/4 v7, 0x0
+    .local v5, "numObstacles":I
+    const/4 v6, 0x0
 
+    .local v6, "i":I
     :goto_1
-    if-ge v7, v11, :cond_4
+    if-ge v6, v5, :cond_4
 
     .line 383
-    move-object/from16 v0, p0
+    iget-object v7, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
+    invoke-interface {v7, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v21, v0
+    move-result-object v7
 
-    move-object/from16 v0, v21
-
-    invoke-interface {v0, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lio/appium/android/apis/view/GameView$Obstacle;
+    check-cast v7, Lio/appium/android/apis/view/GameView$Obstacle;
 
     .line 384
-    .local v12, "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
-    move/from16 v0, v17
+    .local v7, "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
+    invoke-virtual {v7, v3}, Lio/appium/android/apis/view/GameView$Obstacle;->step(F)Z
 
-    invoke-virtual {v12, v0}, Lio/appium/android/apis/view/GameView$Obstacle;->step(F)Z
+    move-result v8
 
-    move-result v21
-
-    if-nez v21, :cond_3
+    if-nez v8, :cond_3
 
     .line 385
-    move-object/from16 v0, p0
+    iget-object v8, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    invoke-interface {v0, v7}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    invoke-interface {v8, v6}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 386
-    add-int/lit8 v7, v7, -0x1
+    add-int/lit8 v6, v6, -0x1
 
     .line 387
-    add-int/lit8 v11, v11, -0x1
+    add-int/lit8 v5, v5, -0x1
 
     .line 382
+    .end local v7    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
     :cond_3
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_1
 
     .line 392
-    .end local v12    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
+    .end local v6    # "i":I
     :cond_4
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
+    .restart local v6    # "i":I
     :goto_2
-    if-ge v7, v10, :cond_7
+    if-ge v6, v4, :cond_7
 
     .line 393
-    move-object/from16 v0, p0
+    iget-object v7, v0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
+    invoke-interface {v7, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v21, v0
+    move-result-object v7
 
-    move-object/from16 v0, v21
-
-    invoke-interface {v0, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lio/appium/android/apis/view/GameView$Bullet;
+    check-cast v7, Lio/appium/android/apis/view/GameView$Bullet;
 
     .line 394
-    .restart local v4    # "bullet":Lio/appium/android/apis/view/GameView$Bullet;
+    .local v7, "bullet":Lio/appium/android/apis/view/GameView$Bullet;
     const/4 v8, 0x0
 
     .local v8, "j":I
     :goto_3
-    if-ge v8, v11, :cond_5
+    if-ge v8, v5, :cond_6
 
     .line 395
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
+    invoke-interface {v9, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v21, v0
+    move-result-object v9
 
-    move-object/from16 v0, v21
-
-    invoke-interface {v0, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lio/appium/android/apis/view/GameView$Obstacle;
+    check-cast v9, Lio/appium/android/apis/view/GameView$Obstacle;
 
     .line 396
-    .restart local v12    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
-    invoke-virtual {v4, v12}, Lio/appium/android/apis/view/GameView$Bullet;->collidesWith(Lio/appium/android/apis/view/GameView$Sprite;)Z
+    .local v9, "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
+    invoke-virtual {v7, v9}, Lio/appium/android/apis/view/GameView$Bullet;->collidesWith(Lio/appium/android/apis/view/GameView$Sprite;)Z
 
-    move-result v21
+    move-result v10
 
-    if-eqz v21, :cond_6
+    if-eqz v10, :cond_5
 
     .line 397
-    invoke-virtual {v4}, Lio/appium/android/apis/view/GameView$Bullet;->destroy()V
+    invoke-virtual {v7}, Lio/appium/android/apis/view/GameView$Bullet;->destroy()V
 
     .line 398
-    invoke-virtual {v12}, Lio/appium/android/apis/view/GameView$Obstacle;->destroy()V
+    invoke-virtual {v9}, Lio/appium/android/apis/view/GameView$Obstacle;->destroy()V
 
-    .line 392
-    .end local v12    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
-    :cond_5
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_2
+    .line 399
+    goto :goto_4
 
     .line 394
-    .restart local v12    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
-    :cond_6
+    .end local v9    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
+    :cond_5
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_3
 
-    .line 405
-    .end local v4    # "bullet":Lio/appium/android/apis/view/GameView$Bullet;
+    .line 392
+    .end local v7    # "bullet":Lio/appium/android/apis/view/GameView$Bullet;
     .end local v8    # "j":I
-    .end local v12    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
-    :cond_7
-    const/4 v7, 0x0
-
+    :cond_6
     :goto_4
-    if-ge v7, v11, :cond_8
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_2
+
+    .line 405
+    .end local v6    # "i":I
+    :cond_7
+    const/4 v6, 0x0
+
+    .restart local v6    # "i":I
+    :goto_5
+    if-ge v6, v5, :cond_9
 
     .line 406
-    move-object/from16 v0, p0
+    iget-object v7, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
+    invoke-interface {v7, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v21, v0
+    move-result-object v7
 
-    move-object/from16 v0, v21
-
-    invoke-interface {v0, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lio/appium/android/apis/view/GameView$Obstacle;
+    check-cast v7, Lio/appium/android/apis/view/GameView$Obstacle;
 
     .line 407
-    .restart local v12    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
-    move-object/from16 v0, p0
+    .local v7, "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
+    iget-object v8, v0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+    invoke-virtual {v8, v7}, Lio/appium/android/apis/view/GameView$Ship;->collidesWith(Lio/appium/android/apis/view/GameView$Sprite;)Z
 
-    move-object/from16 v21, v0
+    move-result v8
 
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v12}, Lio/appium/android/apis/view/GameView$Ship;->collidesWith(Lio/appium/android/apis/view/GameView$Sprite;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_b
+    if-eqz v8, :cond_8
 
     .line 408
-    move-object/from16 v0, p0
+    iget-object v8, v0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
-
-    move-object/from16 v21, v0
-
-    invoke-virtual/range {v21 .. v21}, Lio/appium/android/apis/view/GameView$Ship;->destroy()V
+    invoke-virtual {v8}, Lio/appium/android/apis/view/GameView$Ship;->destroy()V
 
     .line 409
-    invoke-virtual {v12}, Lio/appium/android/apis/view/GameView$Obstacle;->destroy()V
+    invoke-virtual {v7}, Lio/appium/android/apis/view/GameView$Obstacle;->destroy()V
+
+    .line 410
+    goto :goto_6
+
+    .line 405
+    .end local v7    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
+    :cond_8
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_5
 
     .line 416
-    .end local v12    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
-    :cond_8
-    :goto_5
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
-
-    move-object/from16 v21, v0
-
-    invoke-interface/range {v21 .. v21}, Ljava/util/List;->size()I
-
-    move-result v21
-
-    const/16 v22, 0xc
-
-    move/from16 v0, v21
-
-    move/from16 v1, v22
-
-    if-ge v0, v1, :cond_a
-
-    .line 417
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lio/appium/android/apis/view/GameView;->mShipSize:F
-
-    move/from16 v21, v0
-
-    const/high16 v22, 0x40800000    # 4.0f
-
-    mul-float v9, v21, v22
-
-    .line 418
-    .local v9, "minDistance":F
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
-
-    move-object/from16 v21, v0
-
-    invoke-virtual/range {v21 .. v21}, Ljava/util/Random;->nextFloat()F
-
-    move-result v21
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lio/appium/android/apis/view/GameView;->mMaxObstacleSize:F
-
-    move/from16 v22, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lio/appium/android/apis/view/GameView;->mMinObstacleSize:F
-
-    move/from16 v23, v0
-
-    sub-float v22, v22, v23
-
-    mul-float v21, v21, v22
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lio/appium/android/apis/view/GameView;->mMinObstacleSize:F
-
-    move/from16 v22, v0
-
-    add-float v15, v21, v22
-
-    .line 421
-    .local v15, "size":F
-    const/16 v18, 0x0
-
-    .line 423
-    .local v18, "tries":I
+    .end local v6    # "i":I
     :cond_9
-    move-object/from16 v0, p0
+    :goto_6
+    iget-object v6, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
-
-    move-object/from16 v21, v0
-
-    const/16 v22, 0x4
-
-    invoke-virtual/range {v21 .. v22}, Ljava/util/Random;->nextInt(I)I
+    invoke-interface {v6}, Ljava/util/List;->size()I
 
     move-result v6
 
+    const/16 v7, 0xc
+
+    if-ge v6, v7, :cond_c
+
+    .line 417
+    iget v6, v0, Lio/appium/android/apis/view/GameView;->mShipSize:F
+
+    const/high16 v7, 0x40800000    # 4.0f
+
+    mul-float v6, v6, v7
+
+    .line 418
+    .local v6, "minDistance":F
+    iget-object v7, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
+
+    invoke-virtual {v7}, Ljava/util/Random;->nextFloat()F
+
+    move-result v7
+
+    iget v8, v0, Lio/appium/android/apis/view/GameView;->mMaxObstacleSize:F
+
+    iget v9, v0, Lio/appium/android/apis/view/GameView;->mMinObstacleSize:F
+
+    sub-float/2addr v8, v9
+
+    mul-float v7, v7, v8
+
+    add-float/2addr v7, v9
+
+    .line 421
+    .local v7, "size":F
+    const/4 v8, 0x0
+
+    .line 423
+    .local v8, "tries":I
+    :goto_7
+    iget-object v9, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
+
+    const/4 v10, 0x4
+
+    invoke-virtual {v9, v10}, Ljava/util/Random;->nextInt(I)I
+
+    move-result v9
+
     .line 424
-    .local v6, "edge":I
-    packed-switch v6, :pswitch_data_0
+    .local v9, "edge":I
+    packed-switch v9, :pswitch_data_0
 
     .line 438
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
-
-    move-object/from16 v21, v0
+    iget-object v10, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
 
     invoke-virtual/range {p0 .. p0}, Lio/appium/android/apis/view/GameView;->getWidth()I
 
-    move-result v22
+    move-result v11
 
-    invoke-virtual/range {v21 .. v22}, Ljava/util/Random;->nextInt(I)I
+    invoke-virtual {v10, v11}, Ljava/util/Random;->nextInt(I)I
 
-    move-result v21
+    move-result v10
 
-    move/from16 v0, v21
-
-    int-to-float v13, v0
+    int-to-float v10, v10
 
     .line 439
-    .local v13, "positionX":F
+    .local v10, "positionX":F
     invoke-virtual/range {p0 .. p0}, Lio/appium/android/apis/view/GameView;->getHeight()I
 
-    move-result v21
+    move-result v11
 
-    move/from16 v0, v21
+    int-to-float v11, v11
 
-    int-to-float v0, v0
+    add-float/2addr v11, v7
 
-    move/from16 v21, v0
+    goto :goto_8
 
-    add-float v14, v21, v15
-
-    .line 442
-    .local v14, "positionY":F
-    :goto_6
-    add-int/lit8 v18, v18, 0x1
-
-    const/16 v21, 0xa
-
-    move/from16 v0, v18
-
-    move/from16 v1, v21
-
-    if-le v0, v1, :cond_c
-
-    .line 459
-    .end local v6    # "edge":I
-    .end local v9    # "minDistance":F
-    .end local v13    # "positionX":F
-    .end local v14    # "positionY":F
-    .end local v15    # "size":F
-    .end local v18    # "tries":I
-    :cond_a
-    return-void
-
-    .line 405
-    .restart local v12    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
-    :cond_b
-    add-int/lit8 v7, v7, 0x1
-
-    goto/16 :goto_4
-
-    .line 426
-    .end local v12    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
-    .restart local v6    # "edge":I
-    .restart local v9    # "minDistance":F
-    .restart local v15    # "size":F
-    .restart local v18    # "tries":I
+    .line 434
+    .end local v10    # "positionX":F
     :pswitch_0
-    neg-float v13, v15
+    iget-object v10, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
 
-    .line 427
-    .restart local v13    # "positionX":F
-    move-object/from16 v0, p0
+    invoke-virtual/range {p0 .. p0}, Lio/appium/android/apis/view/GameView;->getWidth()I
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
+    move-result v11
 
-    move-object/from16 v21, v0
+    invoke-virtual {v10, v11}, Ljava/util/Random;->nextInt(I)I
 
-    invoke-virtual/range {p0 .. p0}, Lio/appium/android/apis/view/GameView;->getHeight()I
+    move-result v10
 
-    move-result v22
+    int-to-float v10, v10
 
-    invoke-virtual/range {v21 .. v22}, Ljava/util/Random;->nextInt(I)I
+    .line 435
+    .restart local v10    # "positionX":F
+    neg-float v11, v7
 
-    move-result v21
-
-    move/from16 v0, v21
-
-    int-to-float v14, v0
-
-    .line 428
-    .restart local v14    # "positionY":F
-    goto :goto_6
+    .line 436
+    .local v11, "positionY":F
+    goto :goto_8
 
     .line 430
-    .end local v13    # "positionX":F
-    .end local v14    # "positionY":F
+    .end local v10    # "positionX":F
+    .end local v11    # "positionY":F
     :pswitch_1
     invoke-virtual/range {p0 .. p0}, Lio/appium/android/apis/view/GameView;->getWidth()I
 
-    move-result v21
+    move-result v10
 
-    move/from16 v0, v21
+    int-to-float v10, v10
 
-    int-to-float v0, v0
-
-    move/from16 v21, v0
-
-    add-float v13, v21, v15
+    add-float/2addr v10, v7
 
     .line 431
-    .restart local v13    # "positionX":F
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
-
-    move-object/from16 v21, v0
+    .restart local v10    # "positionX":F
+    iget-object v11, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
 
     invoke-virtual/range {p0 .. p0}, Lio/appium/android/apis/view/GameView;->getHeight()I
 
-    move-result v22
+    move-result v12
 
-    invoke-virtual/range {v21 .. v22}, Ljava/util/Random;->nextInt(I)I
+    invoke-virtual {v11, v12}, Ljava/util/Random;->nextInt(I)I
 
-    move-result v21
+    move-result v11
 
-    move/from16 v0, v21
-
-    int-to-float v14, v0
+    int-to-float v11, v11
 
     .line 432
-    .restart local v14    # "positionY":F
-    goto :goto_6
+    .restart local v11    # "positionY":F
+    goto :goto_8
 
-    .line 434
-    .end local v13    # "positionX":F
-    .end local v14    # "positionY":F
+    .line 426
+    .end local v10    # "positionX":F
+    .end local v11    # "positionY":F
     :pswitch_2
-    move-object/from16 v0, p0
+    neg-float v10, v7
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
+    .line 427
+    .restart local v10    # "positionX":F
+    iget-object v11, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
 
-    move-object/from16 v21, v0
+    invoke-virtual/range {p0 .. p0}, Lio/appium/android/apis/view/GameView;->getHeight()I
 
-    invoke-virtual/range {p0 .. p0}, Lio/appium/android/apis/view/GameView;->getWidth()I
+    move-result v12
 
-    move-result v22
+    invoke-virtual {v11, v12}, Ljava/util/Random;->nextInt(I)I
 
-    invoke-virtual/range {v21 .. v22}, Ljava/util/Random;->nextInt(I)I
+    move-result v11
 
-    move-result v21
+    int-to-float v11, v11
 
-    move/from16 v0, v21
+    .line 428
+    .restart local v11    # "positionY":F
+    nop
 
-    int-to-float v13, v0
+    .line 442
+    :goto_8
+    add-int/lit8 v8, v8, 0x1
 
-    .line 435
-    .restart local v13    # "positionX":F
-    neg-float v14, v15
+    const/16 v12, 0xa
 
-    .line 436
-    .restart local v14    # "positionY":F
-    goto :goto_6
+    if-le v8, v12, :cond_a
+
+    .line 443
+    goto :goto_9
 
     .line 445
-    :cond_c
-    move-object/from16 v0, p0
+    .end local v9    # "edge":I
+    :cond_a
+    iget-object v9, v0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+    invoke-virtual {v9, v10, v11}, Lio/appium/android/apis/view/GameView$Ship;->distanceTo(FF)F
 
-    move-object/from16 v21, v0
+    move-result v9
 
-    move-object/from16 v0, v21
+    cmpg-float v9, v9, v6
 
-    invoke-virtual {v0, v13, v14}, Lio/appium/android/apis/view/GameView$Ship;->distanceTo(FF)F
-
-    move-result v21
-
-    cmpg-float v21, v21, v9
-
-    if-ltz v21, :cond_9
+    if-ltz v9, :cond_b
 
     .line 447
-    move-object/from16 v0, p0
+    iget-object v9, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
+    invoke-virtual {v9}, Ljava/util/Random;->nextFloat()F
 
-    move-object/from16 v21, v0
+    move-result v9
 
-    invoke-virtual/range {v21 .. v21}, Ljava/util/Random;->nextFloat()F
+    const v12, 0x40490fdb    # (float)Math.PI
 
-    move-result v21
+    mul-float v9, v9, v12
 
-    const v22, 0x40490fdb    # (float)Math.PI
+    const/high16 v12, 0x40000000    # 2.0f
 
-    mul-float v21, v21, v22
-
-    const/high16 v22, 0x40000000    # 2.0f
-
-    mul-float v5, v21, v22
+    mul-float v9, v9, v12
 
     .line 448
-    .local v5, "direction":F
-    move-object/from16 v0, p0
+    .local v9, "direction":F
+    iget-object v12, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mRandom:Ljava/util/Random;
+    invoke-virtual {v12}, Ljava/util/Random;->nextFloat()F
 
-    move-object/from16 v21, v0
+    move-result v12
 
-    invoke-virtual/range {v21 .. v21}, Ljava/util/Random;->nextFloat()F
+    iget v13, v0, Lio/appium/android/apis/view/GameView;->mMaxObstacleSpeed:F
 
-    move-result v21
+    iget v14, v0, Lio/appium/android/apis/view/GameView;->mMinObstacleSpeed:F
 
-    move-object/from16 v0, p0
+    sub-float/2addr v13, v14
 
-    iget v0, v0, Lio/appium/android/apis/view/GameView;->mMaxObstacleSpeed:F
+    mul-float v12, v12, v13
 
-    move/from16 v22, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lio/appium/android/apis/view/GameView;->mMinObstacleSpeed:F
-
-    move/from16 v23, v0
-
-    sub-float v22, v22, v23
-
-    mul-float v21, v21, v22
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lio/appium/android/apis/view/GameView;->mMinObstacleSpeed:F
-
-    move/from16 v22, v0
-
-    add-float v16, v21, v22
+    add-float/2addr v12, v14
 
     .line 450
-    .local v16, "speed":F
-    float-to-double v0, v5
+    .local v12, "speed":F
+    float-to-double v13, v9
 
-    move-wide/from16 v21, v0
+    invoke-static {v13, v14}, Ljava/lang/Math;->cos(D)D
 
-    invoke-static/range {v21 .. v22}, Ljava/lang/Math;->cos(D)D
+    move-result-wide v13
 
-    move-result-wide v21
+    double-to-float v13, v13
 
-    move-wide/from16 v0, v21
-
-    double-to-float v0, v0
-
-    move/from16 v21, v0
-
-    mul-float v19, v21, v16
+    mul-float v13, v13, v12
 
     .line 451
-    .local v19, "velocityX":F
-    float-to-double v0, v5
+    .local v13, "velocityX":F
+    float-to-double v14, v9
 
-    move-wide/from16 v21, v0
+    invoke-static {v14, v15}, Ljava/lang/Math;->sin(D)D
 
-    invoke-static/range {v21 .. v22}, Ljava/lang/Math;->sin(D)D
+    move-result-wide v14
 
-    move-result-wide v21
+    double-to-float v14, v14
 
-    move-wide/from16 v0, v21
-
-    double-to-float v0, v0
-
-    move/from16 v21, v0
-
-    mul-float v20, v21, v16
+    mul-float v14, v14, v12
 
     .line 453
-    .local v20, "velocityY":F
-    new-instance v12, Lio/appium/android/apis/view/GameView$Obstacle;
+    .local v14, "velocityY":F
+    new-instance v15, Lio/appium/android/apis/view/GameView$Obstacle;
 
-    move-object/from16 v0, p0
-
-    invoke-direct {v12, v0}, Lio/appium/android/apis/view/GameView$Obstacle;-><init>(Lio/appium/android/apis/view/GameView;)V
+    invoke-direct {v15, v0}, Lio/appium/android/apis/view/GameView$Obstacle;-><init>(Lio/appium/android/apis/view/GameView;)V
 
     .line 454
-    .restart local v12    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
-    invoke-virtual {v12, v13, v14}, Lio/appium/android/apis/view/GameView$Obstacle;->setPosition(FF)V
+    .local v15, "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
+    invoke-virtual {v15, v10, v11}, Lio/appium/android/apis/view/GameView$Obstacle;->setPosition(FF)V
 
     .line 455
-    invoke-virtual {v12, v15}, Lio/appium/android/apis/view/GameView$Obstacle;->setSize(F)V
+    invoke-virtual {v15, v7}, Lio/appium/android/apis/view/GameView$Obstacle;->setSize(F)V
 
     .line 456
-    move/from16 v0, v19
-
-    move/from16 v1, v20
-
-    invoke-virtual {v12, v0, v1}, Lio/appium/android/apis/view/GameView$Obstacle;->setVelocity(FF)V
+    invoke-virtual {v15, v13, v14}, Lio/appium/android/apis/view/GameView$Obstacle;->setVelocity(FF)V
 
     .line 457
-    move-object/from16 v0, p0
+    iget-object v1, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
 
-    iget-object v0, v0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
+    invoke-interface {v1, v15}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v21, v0
+    .line 458
+    .end local v6    # "minDistance":F
+    .end local v7    # "size":F
+    .end local v8    # "tries":I
+    .end local v9    # "direction":F
+    .end local v10    # "positionX":F
+    .end local v11    # "positionY":F
+    .end local v12    # "speed":F
+    .end local v13    # "velocityX":F
+    .end local v14    # "velocityY":F
+    .end local v15    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
+    move-wide/from16 v1, p1
 
-    move-object/from16 v0, v21
+    goto/16 :goto_6
 
-    invoke-interface {v0, v12}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    .line 445
+    .restart local v6    # "minDistance":F
+    .restart local v7    # "size":F
+    .restart local v8    # "tries":I
+    .restart local v10    # "positionX":F
+    .restart local v11    # "positionY":F
+    :cond_b
+    move-wide/from16 v1, p1
 
-    goto/16 :goto_5
+    goto/16 :goto_7
 
-    .line 424
-    nop
+    .line 459
+    .end local v6    # "minDistance":F
+    .end local v7    # "size":F
+    .end local v8    # "tries":I
+    .end local v10    # "positionX":F
+    .end local v11    # "positionY":F
+    :cond_c
+    :goto_9
+    return-void
 
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_0
-        :pswitch_1
         :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -1512,7 +1303,6 @@
 .method animateFrame()V
     .locals 6
 
-    .prologue
     .line 347
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -1549,103 +1339,100 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 6
+    .locals 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
     .line 463
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
     .line 466
-    iget-object v5, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    if-eqz v5, :cond_0
+    if-eqz v0, :cond_0
 
     .line 467
-    iget-object v5, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
-
-    invoke-virtual {v5, p1}, Lio/appium/android/apis/view/GameView$Ship;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {v0, p1}, Lio/appium/android/apis/view/GameView$Ship;->draw(Landroid/graphics/Canvas;)V
 
     .line 471
     :cond_0
-    iget-object v5, p0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
 
-    invoke-interface {v5}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v0
 
     .line 472
-    .local v2, "numBullets":I
+    .local v0, "numBullets":I
     const/4 v1, 0x0
 
     .local v1, "i":I
     :goto_0
-    if-ge v1, v2, :cond_1
+    if-ge v1, v0, :cond_1
 
     .line 473
-    iget-object v5, p0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
+    iget-object v2, p0, Lio/appium/android/apis/view/GameView;->mBullets:Ljava/util/List;
 
-    invoke-interface {v5, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lio/appium/android/apis/view/GameView$Bullet;
+    check-cast v2, Lio/appium/android/apis/view/GameView$Bullet;
 
     .line 474
-    .local v0, "bullet":Lio/appium/android/apis/view/GameView$Bullet;
-    invoke-virtual {v0, p1}, Lio/appium/android/apis/view/GameView$Bullet;->draw(Landroid/graphics/Canvas;)V
+    .local v2, "bullet":Lio/appium/android/apis/view/GameView$Bullet;
+    invoke-virtual {v2, p1}, Lio/appium/android/apis/view/GameView$Bullet;->draw(Landroid/graphics/Canvas;)V
 
     .line 472
+    .end local v2    # "bullet":Lio/appium/android/apis/view/GameView$Bullet;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 478
-    .end local v0    # "bullet":Lio/appium/android/apis/view/GameView$Bullet;
+    .end local v1    # "i":I
     :cond_1
-    iget-object v5, p0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
+    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
 
-    invoke-interface {v5}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v1
 
     .line 479
-    .local v3, "numObstacles":I
-    const/4 v1, 0x0
+    .local v1, "numObstacles":I
+    const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_1
-    if-ge v1, v3, :cond_2
+    if-ge v2, v1, :cond_2
 
     .line 480
-    iget-object v5, p0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
+    iget-object v3, p0, Lio/appium/android/apis/view/GameView;->mObstacles:Ljava/util/List;
 
-    invoke-interface {v5, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lio/appium/android/apis/view/GameView$Obstacle;
+    check-cast v3, Lio/appium/android/apis/view/GameView$Obstacle;
 
     .line 481
-    .local v4, "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
-    invoke-virtual {v4, p1}, Lio/appium/android/apis/view/GameView$Obstacle;->draw(Landroid/graphics/Canvas;)V
+    .local v3, "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
+    invoke-virtual {v3, p1}, Lio/appium/android/apis/view/GameView$Obstacle;->draw(Landroid/graphics/Canvas;)V
 
     .line 479
-    add-int/lit8 v1, v1, 0x1
+    .end local v3    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     .line 483
-    .end local v4    # "obstacle":Lio/appium/android/apis/view/GameView$Obstacle;
+    .end local v2    # "i":I
     :cond_2
     return-void
 .end method
 
 .method public onGenericMotionEvent(Landroid/view/MotionEvent;)Z
-    .locals 5
+    .locals 3
     .param p1, "event"    # Landroid/view/MotionEvent;
-
-    .prologue
-    const/4 v2, 0x1
 
     .line 208
     invoke-direct {p0}, Lio/appium/android/apis/view/GameView;->ensureInitialized()V
@@ -1653,113 +1440,111 @@
     .line 212
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getSource()I
 
-    move-result v3
+    move-result v0
 
-    and-int/lit8 v3, v3, 0x10
+    and-int/lit8 v0, v0, 0x10
 
-    if-eqz v3, :cond_4
+    if-eqz v0, :cond_4
 
+    .line 213
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v3
+    move-result v0
 
-    const/4 v4, 0x2
+    const/4 v1, 0x2
 
-    if-ne v3, v4, :cond_4
+    if-ne v0, v1, :cond_4
 
     .line 217
-    iget-object v3, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
 
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v3, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
+    invoke-virtual {v0}, Landroid/view/InputDevice;->getId()I
 
-    invoke-virtual {v3}, Landroid/view/InputDevice;->getId()I
-
-    move-result v3
+    move-result v0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getDeviceId()I
 
-    move-result v4
+    move-result v1
 
-    if-eq v3, v4, :cond_2
+    if-eq v0, v1, :cond_1
 
     .line 218
     :cond_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getDevice()Landroid/view/InputDevice;
 
-    move-result-object v3
+    move-result-object v0
 
-    iput-object v3, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
+    iput-object v0, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
 
     .line 221
-    iget-object v3, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameView;->mLastInputDevice:Landroid/view/InputDevice;
 
-    if-nez v3, :cond_2
+    if-nez v0, :cond_1
 
     .line 222
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    .line 241
-    :cond_1
-    :goto_0
-    return v2
+    return v0
 
     .line 227
-    :cond_2
-    iget v3, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
+    :cond_1
+    iget v0, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
 
-    if-nez v3, :cond_1
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_2
+
+    .line 228
+    return v1
 
     .line 232
+    :cond_2
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getHistorySize()I
 
     move-result v0
 
     .line 233
     .local v0, "historySize":I
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    .local v1, "i":I
-    :goto_1
-    if-ge v1, v0, :cond_3
+    .local v2, "i":I
+    :goto_0
+    if-ge v2, v0, :cond_3
 
     .line 234
-    invoke-direct {p0, p1, v1}, Lio/appium/android/apis/view/GameView;->processJoystickInput(Landroid/view/MotionEvent;I)V
+    invoke-direct {p0, p1, v2}, Lio/appium/android/apis/view/GameView;->processJoystickInput(Landroid/view/MotionEvent;I)V
 
     .line 233
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    .line 238
-    :cond_3
-    const/4 v3, -0x1
-
-    invoke-direct {p0, p1, v3}, Lio/appium/android/apis/view/GameView;->processJoystickInput(Landroid/view/MotionEvent;I)V
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
+
+    .line 238
+    .end local v2    # "i":I
+    :cond_3
+    const/4 v2, -0x1
+
+    invoke-direct {p0, p1, v2}, Lio/appium/android/apis/view/GameView;->processJoystickInput(Landroid/view/MotionEvent;I)V
+
+    .line 239
+    return v1
 
     .line 241
     .end local v0    # "historySize":I
-    .end local v1    # "i":I
     :cond_4
     invoke-super {p0, p1}, Landroid/view/View;->onGenericMotionEvent(Landroid/view/MotionEvent;)Z
 
-    move-result v2
+    move-result v0
 
-    goto :goto_0
+    return v0
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 4
+    .locals 5
     .param p1, "keyCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
-
-    .prologue
-    const/high16 v3, 0x3f800000    # 1.0f
-
-    const/high16 v2, -0x40800000    # -1.0f
 
     .line 119
     invoke-direct {p0}, Lio/appium/android/apis/view/GameView;->ensureInitialized()V
@@ -1773,9 +1558,15 @@
 
     move-result v1
 
+    const/4 v2, 0x1
+
     if-nez v1, :cond_0
 
     .line 124
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    const/high16 v3, -0x40800000    # -1.0f
+
     packed-switch p1, :pswitch_data_0
 
     .line 146
@@ -1791,49 +1582,13 @@
     .line 148
     const/4 v0, 0x1
 
-    .line 153
-    :cond_0
-    :goto_0
-    if-eqz v0, :cond_1
-
-    .line 154
-    invoke-virtual {p2}, Landroid/view/KeyEvent;->getEventTime()J
-
-    move-result-wide v1
-
-    invoke-direct {p0, v1, v2}, Lio/appium/android/apis/view/GameView;->step(J)V
-
-    .line 155
-    const/4 v1, 0x1
-
-    .line 157
-    :goto_1
-    return v1
-
-    .line 126
-    :pswitch_0
-    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
-
-    invoke-virtual {v1, v2}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingX(F)V
-
-    .line 127
-    iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
-
-    or-int/lit8 v1, v1, 0x1
-
-    iput v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
-
-    .line 128
-    const/4 v0, 0x1
-
-    .line 129
     goto :goto_0
 
     .line 131
-    :pswitch_1
-    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+    :pswitch_0
+    iget-object v3, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    invoke-virtual {v1, v3}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingX(F)V
+    invoke-virtual {v3, v1}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingX(F)V
 
     .line 132
     iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
@@ -1848,30 +1603,30 @@
     .line 134
     goto :goto_0
 
-    .line 136
-    :pswitch_2
+    .line 126
+    :pswitch_1
     iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    invoke-virtual {v1, v2}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingY(F)V
+    invoke-virtual {v1, v3}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingX(F)V
 
-    .line 137
+    .line 127
     iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
 
-    or-int/lit8 v1, v1, 0x4
+    or-int/2addr v1, v2
 
     iput v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
 
-    .line 138
+    .line 128
     const/4 v0, 0x1
 
-    .line 139
+    .line 129
     goto :goto_0
 
     .line 141
-    :pswitch_3
-    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+    :pswitch_2
+    iget-object v3, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    invoke-virtual {v1, v3}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingY(F)V
+    invoke-virtual {v3, v1}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingY(F)V
 
     .line 142
     iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
@@ -1886,23 +1641,51 @@
     .line 144
     goto :goto_0
 
+    .line 136
+    :pswitch_3
+    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+
+    invoke-virtual {v1, v3}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingY(F)V
+
+    .line 137
+    iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
+
+    or-int/lit8 v1, v1, 0x4
+
+    iput v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
+
+    .line 138
+    const/4 v0, 0x1
+
+    .line 153
+    :cond_0
+    :goto_0
+    if-eqz v0, :cond_1
+
+    .line 154
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->getEventTime()J
+
+    move-result-wide v3
+
+    invoke-direct {p0, v3, v4}, Lio/appium/android/apis/view/GameView;->step(J)V
+
+    .line 155
+    return v2
+
     .line 157
     :cond_1
     invoke-super {p0, p1, p2}, Landroid/view/View;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v1
 
-    goto :goto_1
-
-    .line 124
-    nop
+    return v1
 
     :pswitch_data_0
     .packed-switch 0x13
-        :pswitch_2
         :pswitch_3
-        :pswitch_0
+        :pswitch_2
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -1910,9 +1693,6 @@
     .locals 3
     .param p1, "keyCode"    # I
     .param p2, "event"    # Landroid/view/KeyEvent;
-
-    .prologue
-    const/4 v2, 0x0
 
     .line 162
     invoke-direct {p0}, Lio/appium/android/apis/view/GameView;->ensureInitialized()V
@@ -1922,6 +1702,8 @@
 
     .line 166
     .local v0, "handled":Z
+    const/4 v1, 0x0
+
     packed-switch p1, :pswitch_data_0
 
     .line 188
@@ -1932,6 +1714,81 @@
     if-eqz v1, :cond_0
 
     .line 189
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 173
+    :pswitch_0
+    iget-object v2, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+
+    invoke-virtual {v2, v1}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingX(F)V
+
+    .line 174
+    iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
+
+    and-int/lit8 v1, v1, -0x3
+
+    iput v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
+
+    .line 175
+    const/4 v0, 0x1
+
+    .line 176
+    goto :goto_0
+
+    .line 168
+    :pswitch_1
+    iget-object v2, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+
+    invoke-virtual {v2, v1}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingX(F)V
+
+    .line 169
+    iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
+
+    and-int/lit8 v1, v1, -0x2
+
+    iput v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
+
+    .line 170
+    const/4 v0, 0x1
+
+    .line 171
+    goto :goto_0
+
+    .line 183
+    :pswitch_2
+    iget-object v2, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+
+    invoke-virtual {v2, v1}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingY(F)V
+
+    .line 184
+    iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
+
+    and-int/lit8 v1, v1, -0x9
+
+    iput v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
+
+    .line 185
+    const/4 v0, 0x1
+
+    .line 186
+    goto :goto_0
+
+    .line 178
+    :pswitch_3
+    iget-object v2, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+
+    invoke-virtual {v2, v1}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingY(F)V
+
+    .line 179
+    iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
+
+    and-int/lit8 v1, v1, -0x5
+
+    iput v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
+
+    .line 180
     const/4 v0, 0x1
 
     .line 193
@@ -1949,85 +1806,7 @@
     .line 195
     const/4 v1, 0x1
 
-    .line 197
-    :goto_1
     return v1
-
-    .line 168
-    :pswitch_0
-    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
-
-    invoke-virtual {v1, v2}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingX(F)V
-
-    .line 169
-    iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
-
-    and-int/lit8 v1, v1, -0x2
-
-    iput v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
-
-    .line 170
-    const/4 v0, 0x1
-
-    .line 171
-    goto :goto_0
-
-    .line 173
-    :pswitch_1
-    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
-
-    invoke-virtual {v1, v2}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingX(F)V
-
-    .line 174
-    iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
-
-    and-int/lit8 v1, v1, -0x3
-
-    iput v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
-
-    .line 175
-    const/4 v0, 0x1
-
-    .line 176
-    goto :goto_0
-
-    .line 178
-    :pswitch_2
-    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
-
-    invoke-virtual {v1, v2}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingY(F)V
-
-    .line 179
-    iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
-
-    and-int/lit8 v1, v1, -0x5
-
-    iput v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
-
-    .line 180
-    const/4 v0, 0x1
-
-    .line 181
-    goto :goto_0
-
-    .line 183
-    :pswitch_3
-    iget-object v1, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
-
-    invoke-virtual {v1, v2}, Lio/appium/android/apis/view/GameView$Ship;->setHeadingY(F)V
-
-    .line 184
-    iget v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
-
-    and-int/lit8 v1, v1, -0x9
-
-    iput v1, p0, Lio/appium/android/apis/view/GameView;->mDPadState:I
-
-    .line 185
-    const/4 v0, 0x1
-
-    .line 186
-    goto :goto_0
 
     .line 197
     :cond_1
@@ -2035,17 +1814,16 @@
 
     move-result v1
 
-    goto :goto_1
+    return v1
 
-    .line 166
     nop
 
     :pswitch_data_0
     .packed-switch 0x13
-        :pswitch_2
         :pswitch_3
-        :pswitch_0
+        :pswitch_2
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -2056,7 +1834,6 @@
     .param p3, "oldw"    # I
     .param p4, "oldh"    # I
 
-    .prologue
     .line 111
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
 
@@ -2071,11 +1848,8 @@
     .locals 4
     .param p1, "hasWindowFocus"    # Z
 
-    .prologue
-    const/4 v2, 0x0
-
     .line 292
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
     .line 293
     invoke-virtual {p0}, Lio/appium/android/apis/view/GameView;->getHandler()Landroid/os/Handler;
@@ -2095,16 +1869,10 @@
 
     iput-wide v0, p0, Lio/appium/android/apis/view/GameView;->mLastStepTime:J
 
-    .line 305
-    :cond_0
-    :goto_0
-    invoke-super {p0, p1}, Landroid/view/View;->onWindowFocusChanged(Z)V
-
-    .line 306
-    return-void
+    goto :goto_0
 
     .line 296
-    :cond_1
+    :cond_0
     invoke-virtual {p0}, Lio/appium/android/apis/view/GameView;->getHandler()Landroid/os/Handler;
 
     move-result-object v0
@@ -2121,17 +1889,23 @@
     .line 299
     iget-object v0, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     .line 300
-    iget-object v0, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v2, v2}, Lio/appium/android/apis/view/GameView$Ship;->setHeading(FF)V
+    invoke-virtual {v0, v1, v1}, Lio/appium/android/apis/view/GameView$Ship;->setHeading(FF)V
 
     .line 301
     iget-object v0, p0, Lio/appium/android/apis/view/GameView;->mShip:Lio/appium/android/apis/view/GameView$Ship;
 
-    invoke-virtual {v0, v2, v2}, Lio/appium/android/apis/view/GameView$Ship;->setVelocity(FF)V
+    invoke-virtual {v0, v1, v1}, Lio/appium/android/apis/view/GameView$Ship;->setVelocity(FF)V
 
-    goto :goto_0
+    .line 305
+    :cond_1
+    :goto_0
+    invoke-super {p0, p1}, Landroid/view/View;->onWindowFocusChanged(Z)V
+
+    .line 306
+    return-void
 .end method

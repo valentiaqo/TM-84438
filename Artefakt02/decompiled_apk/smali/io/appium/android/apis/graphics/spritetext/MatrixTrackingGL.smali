@@ -11,7 +11,7 @@
 
 
 # static fields
-.field private static final _check:Z
+.field private static final _check:Z = false
 
 
 # instance fields
@@ -47,13 +47,12 @@
     .locals 1
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL;
 
-    .prologue
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 61
     move-object v0, p1
 
-    .line 61
     check-cast v0, Ljavax/microedition/khronos/opengles/GL10;
 
     iput-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
@@ -63,9 +62,9 @@
 
     if-eqz v0, :cond_0
 
+    .line 63
     move-object v0, p1
 
-    .line 63
     check-cast v0, Ljavax/microedition/khronos/opengles/GL10Ext;
 
     iput-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl10Ext:Ljavax/microedition/khronos/opengles/GL10Ext;
@@ -76,9 +75,9 @@
 
     if-eqz v0, :cond_1
 
+    .line 66
     move-object v0, p1
 
-    .line 66
     check-cast v0, Ljavax/microedition/khronos/opengles/GL11;
 
     iput-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
@@ -90,10 +89,11 @@
     if-eqz v0, :cond_2
 
     .line 69
-    check-cast p1, Ljavax/microedition/khronos/opengles/GL11Ext;
+    move-object v0, p1
 
-    .end local p1    # "gl":Ljavax/microedition/khronos/opengles/GL;
-    iput-object p1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    check-cast v0, Ljavax/microedition/khronos/opengles/GL11Ext;
+
+    iput-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     .line 71
     :cond_2
@@ -134,89 +134,109 @@
 .method private check()V
     .locals 7
 
-    .prologue
-    const/16 v6, 0x10
-
     .line 1046
-    iget v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mMatrixMode:I
+    iget v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mMatrixMode:I
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
     .line 1057
-    new-instance v3, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v4, "Unknown matrix mode"
+    const-string v1, "Unknown matrix mode"
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v0
+
+    .line 1054
+    :pswitch_0
+    const v0, 0x898f
+
+    .line 1055
+    .local v0, "oesMode":I
+    goto :goto_0
+
+    .line 1051
+    .end local v0    # "oesMode":I
+    :pswitch_1
+    const v0, 0x898e
+
+    .line 1052
+    .restart local v0    # "oesMode":I
+    goto :goto_0
 
     .line 1048
-    :pswitch_0
-    const v2, 0x898d
+    .end local v0    # "oesMode":I
+    :pswitch_2
+    const v0, 0x898d
+
+    .line 1049
+    .restart local v0    # "oesMode":I
+    nop
 
     .line 1060
-    .local v2, "oesMode":I
     :goto_0
-    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mByteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mByteBuffer:Ljava/nio/ByteBuffer;
 
-    if-nez v3, :cond_0
+    const/16 v2, 0x10
+
+    if-nez v1, :cond_0
 
     .line 1061
-    new-array v3, v6, [F
+    new-array v1, v2, [F
 
-    iput-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckA:[F
+    iput-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckA:[F
 
     .line 1062
-    new-array v3, v6, [F
+    new-array v1, v2, [F
 
-    iput-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckB:[F
+    iput-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckB:[F
 
     .line 1063
-    const/16 v3, 0x40
+    const/16 v1, 0x40
 
-    invoke-static {v3}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    invoke-static {v1}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v3
+    move-result-object v1
 
-    iput-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mByteBuffer:Ljava/nio/ByteBuffer;
+    iput-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mByteBuffer:Ljava/nio/ByteBuffer;
 
     .line 1064
-    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mByteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mByteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
-
-    .line 1065
-    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mByteBuffer:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
-
     move-result-object v3
 
-    iput-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mFloatBuffer:Ljava/nio/FloatBuffer;
+    invoke-virtual {v1, v3}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+
+    .line 1065
+    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mByteBuffer:Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mFloatBuffer:Ljava/nio/FloatBuffer;
 
     .line 1067
     :cond_0
-    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    iget-object v4, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mByteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mByteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
+    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-interface {v3, v2, v4}, Ljavax/microedition/khronos/opengles/GL10;->glGetIntegerv(ILjava/nio/IntBuffer;)V
+    invoke-interface {v1, v0, v3}, Ljavax/microedition/khronos/opengles/GL10;->glGetIntegerv(ILjava/nio/IntBuffer;)V
 
     .line 1068
     const/4 v1, 0x0
 
     .local v1, "i":I
     :goto_1
-    if-ge v1, v6, :cond_1
+    if-ge v1, v2, :cond_1
 
     .line 1069
     iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckB:[F
@@ -234,144 +254,116 @@
 
     goto :goto_1
 
-    .line 1051
-    .end local v1    # "i":I
-    .end local v2    # "oesMode":I
-    :pswitch_1
-    const v2, 0x898e
-
-    .line 1052
-    .restart local v2    # "oesMode":I
-    goto :goto_0
-
-    .line 1054
-    .end local v2    # "oesMode":I
-    :pswitch_2
-    const v2, 0x898f
-
-    .line 1055
-    .restart local v2    # "oesMode":I
-    goto :goto_0
-
     .line 1071
-    .restart local v1    # "i":I
+    .end local v1    # "i":I
     :cond_1
-    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
-    iget-object v4, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckA:[F
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v3, v4, v5}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->getMatrix([FI)V
-
-    .line 1073
-    const/4 v0, 0x0
-
-    .line 1074
-    .local v0, "fail":Z
-    const/4 v1, 0x0
-
-    :goto_2
-    if-ge v1, v6, :cond_3
-
-    .line 1075
     iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckA:[F
 
-    aget v3, v3, v1
+    const/4 v4, 0x0
 
-    iget-object v4, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckB:[F
+    invoke-virtual {v1, v3, v4}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->getMatrix([FI)V
 
-    aget v4, v4, v1
+    .line 1073
+    const/4 v1, 0x0
 
-    cmpl-float v3, v3, v4
+    .line 1074
+    .local v1, "fail":Z
+    const/4 v3, 0x0
 
-    if-eqz v3, :cond_2
+    .local v3, "i":I
+    :goto_2
+    if-ge v3, v2, :cond_3
 
-    .line 1076
-    const-string v3, "GLMatWrap"
+    .line 1075
+    iget-object v4, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckA:[F
 
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "i:"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string v5, " a:"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckA:[F
-
-    aget v5, v5, v1
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string v5, " a:"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
+    aget v4, v4, v3
 
     iget-object v5, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckB:[F
 
-    aget v5, v5, v1
+    aget v5, v5, v3
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    cmpl-float v4, v4, v5
 
-    move-result-object v4
+    if-eqz v4, :cond_2
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 1076
+    const-string v4, "GLMatWrap"
 
-    move-result-object v4
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "i:"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v6, " a:"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v6, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckA:[F
+
+    aget v6, v6, v3
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    const-string v6, " a:"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v6, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCheckB:[F
+
+    aget v6, v6, v3
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1078
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     .line 1074
     :cond_2
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
     .line 1081
+    .end local v3    # "i":I
     :cond_3
-    if-eqz v0, :cond_4
-
-    .line 1082
-    new-instance v3, Ljava/lang/IllegalArgumentException;
-
-    const-string v4, "Matrix math difference."
-
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    if-nez v1, :cond_4
 
     .line 1084
-    :cond_4
     return-void
 
-    .line 1046
+    .line 1082
+    :cond_4
+    new-instance v2, Ljava/lang/IllegalArgumentException;
+
+    const-string v3, "Matrix math difference."
+
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    return-void
+
     nop
 
     :pswitch_data_0
     .packed-switch 0x1700
-        :pswitch_0
-        :pswitch_1
         :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -382,7 +374,6 @@
     .param p1, "m"    # [F
     .param p2, "offset"    # I
 
-    .prologue
     .line 1033
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -395,7 +386,6 @@
 .method public getMatrixMode()I
     .locals 1
 
-    .prologue
     .line 1041
     iget v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mMatrixMode:I
 
@@ -406,7 +396,6 @@
     .locals 1
     .param p1, "texture"    # I
 
-    .prologue
     .line 82
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -421,7 +410,6 @@
     .param p1, "func"    # I
     .param p2, "ref"    # F
 
-    .prologue
     .line 86
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -436,7 +424,6 @@
     .param p1, "func"    # I
     .param p2, "ref"    # I
 
-    .prologue
     .line 90
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -451,7 +438,6 @@
     .param p1, "target"    # I
     .param p2, "buffer"    # I
 
-    .prologue
     .line 754
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -465,7 +451,6 @@
     .param p1, "target"    # I
     .param p2, "texture"    # I
 
-    .prologue
     .line 94
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -480,7 +465,6 @@
     .param p1, "sfactor"    # I
     .param p2, "dfactor"    # I
 
-    .prologue
     .line 98
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -497,7 +481,6 @@
     .param p3, "data"    # Ljava/nio/Buffer;
     .param p4, "usage"    # I
 
-    .prologue
     .line 758
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -513,7 +496,6 @@
     .param p3, "size"    # I
     .param p4, "data"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 762
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -526,7 +508,6 @@
     .locals 1
     .param p1, "mask"    # I
 
-    .prologue
     .line 102
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -543,7 +524,6 @@
     .param p3, "blue"    # F
     .param p4, "alpha"    # F
 
-    .prologue
     .line 106
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -560,7 +540,6 @@
     .param p3, "blue"    # I
     .param p4, "alpha"    # I
 
-    .prologue
     .line 110
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -574,7 +553,6 @@
     .locals 1
     .param p1, "depth"    # F
 
-    .prologue
     .line 114
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -588,7 +566,6 @@
     .locals 1
     .param p1, "depth"    # I
 
-    .prologue
     .line 118
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -602,7 +579,6 @@
     .locals 1
     .param p1, "s"    # I
 
-    .prologue
     .line 122
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -616,7 +592,6 @@
     .locals 1
     .param p1, "texture"    # I
 
-    .prologue
     .line 126
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -631,7 +606,6 @@
     .param p1, "plane"    # I
     .param p2, "equation"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 678
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
@@ -647,7 +621,6 @@
     .param p2, "equation"    # [F
     .param p3, "offset"    # I
 
-    .prologue
     .line 674
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
@@ -662,7 +635,6 @@
     .param p1, "plane"    # I
     .param p2, "equation"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 686
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
@@ -678,7 +650,6 @@
     .param p2, "equation"    # [I
     .param p3, "offset"    # I
 
-    .prologue
     .line 682
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
@@ -695,7 +666,6 @@
     .param p3, "blue"    # F
     .param p4, "alpha"    # F
 
-    .prologue
     .line 130
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -712,7 +682,6 @@
     .param p3, "blue"    # B
     .param p4, "alpha"    # B
 
-    .prologue
     .line 766
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -728,7 +697,6 @@
     .param p3, "blue"    # I
     .param p4, "alpha"    # I
 
-    .prologue
     .line 134
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -745,7 +713,6 @@
     .param p3, "blue"    # Z
     .param p4, "alpha"    # Z
 
-    .prologue
     .line 139
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -762,7 +729,6 @@
     .param p3, "stride"    # I
     .param p4, "offset"    # I
 
-    .prologue
     .line 978
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -778,7 +744,6 @@
     .param p3, "stride"    # I
     .param p4, "pointer"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 143
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -789,7 +754,7 @@
 .end method
 
 .method public glCompressedTexImage2D(IIIIIIILjava/nio/Buffer;)V
-    .locals 9
+    .locals 10
     .param p1, "target"    # I
     .param p2, "level"    # I
     .param p3, "internalformat"    # I
@@ -799,34 +764,35 @@
     .param p7, "imageSize"    # I
     .param p8, "data"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 149
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    move-object v0, p0
 
-    move v1, p1
+    iget-object v1, v0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    move v2, p2
+    move v2, p1
 
-    move v3, p3
+    move v3, p2
 
-    move v4, p4
+    move v4, p3
 
-    move v5, p5
+    move v5, p4
 
-    move v6, p6
+    move v6, p5
 
-    move/from16 v7, p7
+    move/from16 v7, p6
 
-    move-object/from16 v8, p8
+    move/from16 v8, p7
 
-    invoke-interface/range {v0 .. v8}, Ljavax/microedition/khronos/opengles/GL10;->glCompressedTexImage2D(IIIIIIILjava/nio/Buffer;)V
+    move-object/from16 v9, p8
+
+    invoke-interface/range {v1 .. v9}, Ljavax/microedition/khronos/opengles/GL10;->glCompressedTexImage2D(IIIIIIILjava/nio/Buffer;)V
 
     .line 151
     return-void
 .end method
 
 .method public glCompressedTexSubImage2D(IIIIIIIILjava/nio/Buffer;)V
-    .locals 10
+    .locals 11
     .param p1, "target"    # I
     .param p2, "level"    # I
     .param p3, "xoffset"    # I
@@ -837,36 +803,37 @@
     .param p8, "imageSize"    # I
     .param p9, "data"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 156
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    move-object v0, p0
 
-    move v1, p1
+    iget-object v1, v0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    move v2, p2
+    move v2, p1
 
-    move v3, p3
+    move v3, p2
 
-    move v4, p4
+    move v4, p3
 
-    move v5, p5
+    move v5, p4
 
-    move/from16 v6, p6
+    move/from16 v6, p5
 
-    move/from16 v7, p7
+    move/from16 v7, p6
 
-    move/from16 v8, p8
+    move/from16 v8, p7
 
-    move-object/from16 v9, p9
+    move/from16 v9, p8
 
-    invoke-interface/range {v0 .. v9}, Ljavax/microedition/khronos/opengles/GL10;->glCompressedTexSubImage2D(IIIIIIIILjava/nio/Buffer;)V
+    move-object/from16 v10, p9
+
+    invoke-interface/range {v1 .. v10}, Ljavax/microedition/khronos/opengles/GL10;->glCompressedTexSubImage2D(IIIIIIIILjava/nio/Buffer;)V
 
     .line 158
     return-void
 .end method
 
 .method public glCopyTexImage2D(IIIIIIII)V
-    .locals 9
+    .locals 10
     .param p1, "target"    # I
     .param p2, "level"    # I
     .param p3, "internalformat"    # I
@@ -876,34 +843,35 @@
     .param p7, "height"    # I
     .param p8, "border"    # I
 
-    .prologue
     .line 162
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    move-object v0, p0
 
-    move v1, p1
+    iget-object v1, v0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    move v2, p2
+    move v2, p1
 
-    move v3, p3
+    move v3, p2
 
-    move v4, p4
+    move v4, p3
 
-    move v5, p5
+    move v5, p4
 
-    move v6, p6
+    move v6, p5
 
-    move/from16 v7, p7
+    move/from16 v7, p6
 
-    move/from16 v8, p8
+    move/from16 v8, p7
 
-    invoke-interface/range {v0 .. v8}, Ljavax/microedition/khronos/opengles/GL10;->glCopyTexImage2D(IIIIIIII)V
+    move/from16 v9, p8
+
+    invoke-interface/range {v1 .. v9}, Ljavax/microedition/khronos/opengles/GL10;->glCopyTexImage2D(IIIIIIII)V
 
     .line 164
     return-void
 .end method
 
 .method public glCopyTexSubImage2D(IIIIIIII)V
-    .locals 9
+    .locals 10
     .param p1, "target"    # I
     .param p2, "level"    # I
     .param p3, "xoffset"    # I
@@ -913,27 +881,28 @@
     .param p7, "width"    # I
     .param p8, "height"    # I
 
-    .prologue
     .line 168
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    move-object v0, p0
 
-    move v1, p1
+    iget-object v1, v0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    move v2, p2
+    move v2, p1
 
-    move v3, p3
+    move v3, p2
 
-    move v4, p4
+    move v4, p3
 
-    move v5, p5
+    move v5, p4
 
-    move v6, p6
+    move v6, p5
 
-    move/from16 v7, p7
+    move/from16 v7, p6
 
-    move/from16 v8, p8
+    move/from16 v8, p7
 
-    invoke-interface/range {v0 .. v8}, Ljavax/microedition/khronos/opengles/GL10;->glCopyTexSubImage2D(IIIIIIII)V
+    move/from16 v9, p8
+
+    invoke-interface/range {v1 .. v9}, Ljavax/microedition/khronos/opengles/GL10;->glCopyTexSubImage2D(IIIIIIII)V
 
     .line 170
     return-void
@@ -943,7 +912,6 @@
     .locals 1
     .param p1, "mode"    # I
 
-    .prologue
     .line 173
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -957,7 +925,6 @@
     .locals 1
     .param p1, "matrixpaletteindex"    # I
 
-    .prologue
     .line 1002
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -971,7 +938,6 @@
     .param p1, "n"    # I
     .param p2, "buffers"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 774
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -986,7 +952,6 @@
     .param p2, "buffers"    # [I
     .param p3, "offset"    # I
 
-    .prologue
     .line 770
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1000,7 +965,6 @@
     .param p1, "n"    # I
     .param p2, "textures"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 181
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1016,7 +980,6 @@
     .param p2, "textures"    # [I
     .param p3, "offset"    # I
 
-    .prologue
     .line 177
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1030,7 +993,6 @@
     .locals 1
     .param p1, "func"    # I
 
-    .prologue
     .line 185
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1044,7 +1006,6 @@
     .locals 1
     .param p1, "flag"    # Z
 
-    .prologue
     .line 189
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1059,7 +1020,6 @@
     .param p1, "near"    # F
     .param p2, "far"    # F
 
-    .prologue
     .line 193
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1074,7 +1034,6 @@
     .param p1, "near"    # I
     .param p2, "far"    # I
 
-    .prologue
     .line 197
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1088,7 +1047,6 @@
     .locals 1
     .param p1, "cap"    # I
 
-    .prologue
     .line 201
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1102,7 +1060,6 @@
     .locals 1
     .param p1, "array"    # I
 
-    .prologue
     .line 205
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1118,7 +1075,6 @@
     .param p2, "first"    # I
     .param p3, "count"    # I
 
-    .prologue
     .line 209
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1135,7 +1091,6 @@
     .param p3, "type"    # I
     .param p4, "offset"    # I
 
-    .prologue
     .line 982
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1151,7 +1106,6 @@
     .param p3, "type"    # I
     .param p4, "indices"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 213
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1169,7 +1123,6 @@
     .param p4, "width"    # F
     .param p5, "height"    # F
 
-    .prologue
     .line 693
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
@@ -1193,7 +1146,6 @@
     .locals 1
     .param p1, "coords"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 701
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
@@ -1208,7 +1160,6 @@
     .param p1, "coords"    # [F
     .param p2, "offset"    # I
 
-    .prologue
     .line 697
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
@@ -1226,7 +1177,6 @@
     .param p4, "width"    # I
     .param p5, "height"    # I
 
-    .prologue
     .line 705
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
@@ -1250,7 +1200,6 @@
     .locals 1
     .param p1, "coords"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 713
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
@@ -1265,7 +1214,6 @@
     .param p1, "coords"    # [I
     .param p2, "offset"    # I
 
-    .prologue
     .line 709
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
@@ -1283,7 +1231,6 @@
     .param p4, "width"    # S
     .param p5, "height"    # S
 
-    .prologue
     .line 718
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
@@ -1307,7 +1254,6 @@
     .locals 1
     .param p1, "coords"    # Ljava/nio/ShortBuffer;
 
-    .prologue
     .line 726
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
@@ -1322,7 +1268,6 @@
     .param p1, "coords"    # [S
     .param p2, "offset"    # I
 
-    .prologue
     .line 722
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
@@ -1340,7 +1285,6 @@
     .param p4, "width"    # I
     .param p5, "height"    # I
 
-    .prologue
     .line 730
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
@@ -1364,7 +1308,6 @@
     .locals 1
     .param p1, "coords"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 738
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
@@ -1379,7 +1322,6 @@
     .param p1, "coords"    # [I
     .param p2, "offset"    # I
 
-    .prologue
     .line 734
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
@@ -1393,7 +1335,6 @@
     .locals 1
     .param p1, "cap"    # I
 
-    .prologue
     .line 217
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1407,7 +1348,6 @@
     .locals 1
     .param p1, "array"    # I
 
-    .prologue
     .line 221
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1420,7 +1360,6 @@
 .method public glFinish()V
     .locals 1
 
-    .prologue
     .line 225
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1433,7 +1372,6 @@
 .method public glFlush()V
     .locals 1
 
-    .prologue
     .line 229
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1448,7 +1386,6 @@
     .param p1, "pname"    # I
     .param p2, "param"    # F
 
-    .prologue
     .line 233
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1463,7 +1400,6 @@
     .param p1, "pname"    # I
     .param p2, "params"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 241
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1479,7 +1415,6 @@
     .param p2, "params"    # [F
     .param p3, "offset"    # I
 
-    .prologue
     .line 237
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1494,7 +1429,6 @@
     .param p1, "pname"    # I
     .param p2, "param"    # I
 
-    .prologue
     .line 245
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1509,7 +1443,6 @@
     .param p1, "pname"    # I
     .param p2, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 253
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1525,7 +1458,6 @@
     .param p2, "params"    # [I
     .param p3, "offset"    # I
 
-    .prologue
     .line 249
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1539,7 +1471,6 @@
     .locals 1
     .param p1, "mode"    # I
 
-    .prologue
     .line 257
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1550,7 +1481,7 @@
 .end method
 
 .method public glFrustumf(FFFFFF)V
-    .locals 7
+    .locals 8
     .param p1, "left"    # F
     .param p2, "right"    # F
     .param p3, "bottom"    # F
@@ -1558,7 +1489,6 @@
     .param p5, "near"    # F
     .param p6, "far"    # F
 
-    .prologue
     .line 262
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -1577,28 +1507,28 @@
     invoke-virtual/range {v0 .. v6}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->glFrustumf(FFFFFF)V
 
     .line 263
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    move v1, p1
+    move v2, p1
 
-    move v2, p2
+    move v3, p2
 
-    move v3, p3
+    move v4, p3
 
-    move v4, p4
+    move v5, p4
 
-    move v5, p5
+    move v6, p5
 
-    move v6, p6
+    move v7, p6
 
-    invoke-interface/range {v0 .. v6}, Ljavax/microedition/khronos/opengles/GL10;->glFrustumf(FFFFFF)V
+    invoke-interface/range {v1 .. v7}, Ljavax/microedition/khronos/opengles/GL10;->glFrustumf(FFFFFF)V
 
     .line 265
     return-void
 .end method
 
 .method public glFrustumx(IIIIII)V
-    .locals 7
+    .locals 8
     .param p1, "left"    # I
     .param p2, "right"    # I
     .param p3, "bottom"    # I
@@ -1606,7 +1536,6 @@
     .param p5, "near"    # I
     .param p6, "far"    # I
 
-    .prologue
     .line 269
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -1625,21 +1554,21 @@
     invoke-virtual/range {v0 .. v6}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->glFrustumx(IIIIII)V
 
     .line 270
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    move v1, p1
+    move v2, p1
 
-    move v2, p2
+    move v3, p2
 
-    move v3, p3
+    move v4, p3
 
-    move v4, p4
+    move v5, p4
 
-    move v5, p5
+    move v6, p5
 
-    move v6, p6
+    move v7, p6
 
-    invoke-interface/range {v0 .. v6}, Ljavax/microedition/khronos/opengles/GL10;->glFrustumx(IIIIII)V
+    invoke-interface/range {v1 .. v7}, Ljavax/microedition/khronos/opengles/GL10;->glFrustumx(IIIIII)V
 
     .line 272
     return-void
@@ -1650,7 +1579,6 @@
     .param p1, "n"    # I
     .param p2, "buffers"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 782
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1665,7 +1593,6 @@
     .param p2, "buffers"    # [I
     .param p3, "offset"    # I
 
-    .prologue
     .line 778
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1679,7 +1606,6 @@
     .param p1, "n"    # I
     .param p2, "textures"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 279
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1695,7 +1621,6 @@
     .param p2, "textures"    # [I
     .param p3, "offset"    # I
 
-    .prologue
     .line 275
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1710,7 +1635,6 @@
     .param p1, "pname"    # I
     .param p2, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 790
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1725,7 +1649,6 @@
     .param p2, "params"    # [Z
     .param p3, "offset"    # I
 
-    .prologue
     .line 786
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1740,7 +1663,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 798
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1756,7 +1678,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 794
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1770,7 +1691,6 @@
     .param p1, "pname"    # I
     .param p2, "eqn"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 806
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1785,7 +1705,6 @@
     .param p2, "eqn"    # [F
     .param p3, "offset"    # I
 
-    .prologue
     .line 802
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1799,7 +1718,6 @@
     .param p1, "pname"    # I
     .param p2, "eqn"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 814
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1814,7 +1732,6 @@
     .param p2, "eqn"    # [I
     .param p3, "offset"    # I
 
-    .prologue
     .line 810
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1824,13 +1741,12 @@
 .end method
 
 .method public glGetError()I
-    .locals 2
+    .locals 1
 
-    .prologue
     .line 283
-    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    invoke-interface {v1}, Ljavax/microedition/khronos/opengles/GL10;->glGetError()I
+    invoke-interface {v0}, Ljavax/microedition/khronos/opengles/GL10;->glGetError()I
 
     move-result v0
 
@@ -1844,7 +1760,6 @@
     .param p1, "pname"    # I
     .param p2, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 822
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1859,7 +1774,6 @@
     .param p2, "params"    # [I
     .param p3, "offset"    # I
 
-    .prologue
     .line 818
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1873,7 +1787,6 @@
     .param p1, "pname"    # I
     .param p2, "params"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 830
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1888,7 +1801,6 @@
     .param p2, "params"    # [F
     .param p3, "offset"    # I
 
-    .prologue
     .line 826
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1902,7 +1814,6 @@
     .param p1, "pname"    # I
     .param p2, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 292
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1918,7 +1829,6 @@
     .param p2, "params"    # [I
     .param p3, "offset"    # I
 
-    .prologue
     .line 288
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -1934,7 +1844,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 838
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1950,7 +1859,6 @@
     .param p3, "params"    # [F
     .param p4, "offset"    # I
 
-    .prologue
     .line 834
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1965,7 +1873,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 846
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1981,7 +1888,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 842
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -1996,7 +1902,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 854
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2012,7 +1917,6 @@
     .param p3, "params"    # [F
     .param p4, "offset"    # I
 
-    .prologue
     .line 850
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2027,7 +1931,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 862
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2043,7 +1946,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 858
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2057,7 +1959,6 @@
     .param p1, "pname"    # I
     .param p2, "params"    # [Ljava/nio/Buffer;
 
-    .prologue
     .line 986
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2067,14 +1968,13 @@
 .end method
 
 .method public glGetString(I)Ljava/lang/String;
-    .locals 2
+    .locals 1
     .param p1, "name"    # I
 
-    .prologue
     .line 296
-    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    invoke-interface {v1, p1}, Ljavax/microedition/khronos/opengles/GL10;->glGetString(I)Ljava/lang/String;
+    invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glGetString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -2089,7 +1989,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 870
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2105,7 +2004,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 866
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2120,7 +2018,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 878
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2136,7 +2033,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 874
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2151,7 +2047,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 886
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2167,7 +2062,6 @@
     .param p3, "params"    # [F
     .param p4, "offset"    # I
 
-    .prologue
     .line 882
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2182,7 +2076,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 894
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2198,7 +2091,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 890
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2213,7 +2105,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 902
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2229,7 +2120,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 898
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2243,7 +2133,6 @@
     .param p1, "target"    # I
     .param p2, "mode"    # I
 
-    .prologue
     .line 301
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2257,7 +2146,6 @@
     .locals 1
     .param p1, "buffer"    # I
 
-    .prologue
     .line 906
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2270,7 +2158,6 @@
     .locals 1
     .param p1, "cap"    # I
 
-    .prologue
     .line 910
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2283,7 +2170,6 @@
     .locals 1
     .param p1, "texture"    # I
 
-    .prologue
     .line 914
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2297,7 +2183,6 @@
     .param p1, "pname"    # I
     .param p2, "param"    # F
 
-    .prologue
     .line 305
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2312,7 +2197,6 @@
     .param p1, "pname"    # I
     .param p2, "params"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 313
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2328,7 +2212,6 @@
     .param p2, "params"    # [F
     .param p3, "offset"    # I
 
-    .prologue
     .line 309
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2343,7 +2226,6 @@
     .param p1, "pname"    # I
     .param p2, "param"    # I
 
-    .prologue
     .line 317
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2358,7 +2240,6 @@
     .param p1, "pname"    # I
     .param p2, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 325
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2374,7 +2255,6 @@
     .param p2, "params"    # [I
     .param p3, "offset"    # I
 
-    .prologue
     .line 321
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2390,7 +2270,6 @@
     .param p2, "pname"    # I
     .param p3, "param"    # F
 
-    .prologue
     .line 329
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2406,7 +2285,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 337
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2423,7 +2301,6 @@
     .param p3, "params"    # [F
     .param p4, "offset"    # I
 
-    .prologue
     .line 333
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2439,7 +2316,6 @@
     .param p2, "pname"    # I
     .param p3, "param"    # I
 
-    .prologue
     .line 341
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2455,7 +2331,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 349
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2472,7 +2347,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 345
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2486,7 +2360,6 @@
     .locals 1
     .param p1, "width"    # F
 
-    .prologue
     .line 353
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2500,7 +2373,6 @@
     .locals 1
     .param p1, "width"    # I
 
-    .prologue
     .line 357
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2513,7 +2385,6 @@
 .method public glLoadIdentity()V
     .locals 1
 
-    .prologue
     .line 361
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -2532,7 +2403,6 @@
     .locals 2
     .param p1, "m"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 373
     invoke-virtual {p1}, Ljava/nio/FloatBuffer;->position()I
 
@@ -2561,7 +2431,6 @@
     .param p1, "m"    # [F
     .param p2, "offset"    # I
 
-    .prologue
     .line 367
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -2580,7 +2449,6 @@
     .locals 2
     .param p1, "m"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 387
     invoke-virtual {p1}, Ljava/nio/IntBuffer;->position()I
 
@@ -2609,7 +2477,6 @@
     .param p1, "m"    # [I
     .param p2, "offset"    # I
 
-    .prologue
     .line 381
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -2627,7 +2494,6 @@
 .method public glLoadPaletteFromModelViewMatrixOES()V
     .locals 1
 
-    .prologue
     .line 1006
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2640,7 +2506,6 @@
     .locals 1
     .param p1, "opcode"    # I
 
-    .prologue
     .line 395
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2656,7 +2521,6 @@
     .param p2, "pname"    # I
     .param p3, "param"    # F
 
-    .prologue
     .line 399
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2672,7 +2536,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 407
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2689,7 +2552,6 @@
     .param p3, "params"    # [F
     .param p4, "offset"    # I
 
-    .prologue
     .line 403
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2705,7 +2567,6 @@
     .param p2, "pname"    # I
     .param p3, "param"    # I
 
-    .prologue
     .line 411
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2721,7 +2582,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 419
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2738,7 +2598,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 415
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2755,7 +2614,6 @@
     .param p3, "stride"    # I
     .param p4, "offset"    # I
 
-    .prologue
     .line 1016
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2771,7 +2629,6 @@
     .param p3, "stride"    # I
     .param p4, "pointer"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 1011
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -2784,7 +2641,6 @@
     .locals 3
     .param p1, "mode"    # I
 
-    .prologue
     .line 423
     packed-switch p1, :pswitch_data_0
 
@@ -2799,11 +2655,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2813,11 +2665,32 @@
 
     throw v0
 
-    .line 425
+    .line 428
     :pswitch_0
+    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mTexture:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
+
+    iput-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
+
+    .line 429
+    goto :goto_0
+
+    .line 431
+    :pswitch_1
+    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mProjection:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
+
+    iput-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
+
+    .line 432
+    goto :goto_0
+
+    .line 425
+    :pswitch_2
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mModelView:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
     iput-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
+
+    .line 426
+    nop
 
     .line 436
     :goto_0
@@ -2831,28 +2704,13 @@
     .line 439
     return-void
 
-    .line 428
-    :pswitch_1
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mTexture:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
+    nop
 
-    iput-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
-
-    goto :goto_0
-
-    .line 431
-    :pswitch_2
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mProjection:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
-
-    iput-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
-
-    goto :goto_0
-
-    .line 423
     :pswitch_data_0
     .packed-switch 0x1700
-        :pswitch_0
         :pswitch_2
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -2860,7 +2718,6 @@
     .locals 2
     .param p1, "m"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 448
     invoke-virtual {p1}, Ljava/nio/FloatBuffer;->position()I
 
@@ -2889,7 +2746,6 @@
     .param p1, "m"    # [F
     .param p2, "offset"    # I
 
-    .prologue
     .line 442
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -2908,7 +2764,6 @@
     .locals 2
     .param p1, "m"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 462
     invoke-virtual {p1}, Ljava/nio/IntBuffer;->position()I
 
@@ -2937,7 +2792,6 @@
     .param p1, "m"    # [I
     .param p2, "offset"    # I
 
-    .prologue
     .line 456
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -2960,7 +2814,6 @@
     .param p4, "r"    # F
     .param p5, "q"    # F
 
-    .prologue
     .line 471
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -2988,7 +2841,6 @@
     .param p4, "r"    # I
     .param p5, "q"    # I
 
-    .prologue
     .line 475
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3014,7 +2866,6 @@
     .param p2, "ny"    # F
     .param p3, "nz"    # F
 
-    .prologue
     .line 479
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3030,7 +2881,6 @@
     .param p2, "ny"    # I
     .param p3, "nz"    # I
 
-    .prologue
     .line 483
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3046,7 +2896,6 @@
     .param p2, "stride"    # I
     .param p3, "offset"    # I
 
-    .prologue
     .line 990
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3061,7 +2910,6 @@
     .param p2, "stride"    # I
     .param p3, "pointer"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 487
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3072,7 +2920,7 @@
 .end method
 
 .method public glOrthof(FFFFFF)V
-    .locals 7
+    .locals 8
     .param p1, "left"    # F
     .param p2, "right"    # F
     .param p3, "bottom"    # F
@@ -3080,7 +2928,6 @@
     .param p5, "near"    # F
     .param p6, "far"    # F
 
-    .prologue
     .line 492
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -3099,28 +2946,28 @@
     invoke-virtual/range {v0 .. v6}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->glOrthof(FFFFFF)V
 
     .line 493
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    move v1, p1
+    move v2, p1
 
-    move v2, p2
+    move v3, p2
 
-    move v3, p3
+    move v4, p3
 
-    move v4, p4
+    move v5, p4
 
-    move v5, p5
+    move v6, p5
 
-    move v6, p6
+    move v7, p6
 
-    invoke-interface/range {v0 .. v6}, Ljavax/microedition/khronos/opengles/GL10;->glOrthof(FFFFFF)V
+    invoke-interface/range {v1 .. v7}, Ljavax/microedition/khronos/opengles/GL10;->glOrthof(FFFFFF)V
 
     .line 495
     return-void
 .end method
 
 .method public glOrthox(IIIIII)V
-    .locals 7
+    .locals 8
     .param p1, "left"    # I
     .param p2, "right"    # I
     .param p3, "bottom"    # I
@@ -3128,7 +2975,6 @@
     .param p5, "near"    # I
     .param p6, "far"    # I
 
-    .prologue
     .line 499
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -3147,21 +2993,21 @@
     invoke-virtual/range {v0 .. v6}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->glOrthox(IIIIII)V
 
     .line 500
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    move v1, p1
+    move v2, p1
 
-    move v2, p2
+    move v3, p2
 
-    move v3, p3
+    move v4, p3
 
-    move v4, p4
+    move v5, p4
 
-    move v5, p5
+    move v6, p5
 
-    move v6, p6
+    move v7, p6
 
-    invoke-interface/range {v0 .. v6}, Ljavax/microedition/khronos/opengles/GL10;->glOrthox(IIIIII)V
+    invoke-interface/range {v1 .. v7}, Ljavax/microedition/khronos/opengles/GL10;->glOrthox(IIIIII)V
 
     .line 502
     return-void
@@ -3172,7 +3018,6 @@
     .param p1, "pname"    # I
     .param p2, "param"    # I
 
-    .prologue
     .line 505
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3187,7 +3032,6 @@
     .param p1, "pname"    # I
     .param p2, "param"    # F
 
-    .prologue
     .line 918
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3201,7 +3045,6 @@
     .param p1, "pname"    # I
     .param p2, "params"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 926
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3216,7 +3059,6 @@
     .param p2, "params"    # [F
     .param p3, "offset"    # I
 
-    .prologue
     .line 922
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3230,7 +3072,6 @@
     .param p1, "pname"    # I
     .param p2, "param"    # I
 
-    .prologue
     .line 930
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3244,7 +3085,6 @@
     .param p1, "pname"    # I
     .param p2, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 938
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3259,7 +3099,6 @@
     .param p2, "params"    # [I
     .param p3, "offset"    # I
 
-    .prologue
     .line 934
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3272,7 +3111,6 @@
     .locals 1
     .param p1, "size"    # F
 
-    .prologue
     .line 509
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3288,7 +3126,6 @@
     .param p2, "stride"    # I
     .param p3, "pointer"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 942
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3301,7 +3138,6 @@
     .locals 1
     .param p1, "size"    # I
 
-    .prologue
     .line 513
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3316,7 +3152,6 @@
     .param p1, "factor"    # F
     .param p2, "units"    # F
 
-    .prologue
     .line 517
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3331,7 +3166,6 @@
     .param p1, "factor"    # I
     .param p2, "units"    # I
 
-    .prologue
     .line 521
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3344,7 +3178,6 @@
 .method public glPopMatrix()V
     .locals 1
 
-    .prologue
     .line 525
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -3362,7 +3195,6 @@
 .method public glPushMatrix()V
     .locals 1
 
-    .prologue
     .line 531
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -3382,7 +3214,6 @@
     .param p1, "mantissa"    # Ljava/nio/IntBuffer;
     .param p2, "exponent"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 748
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl10Ext:Ljavax/microedition/khronos/opengles/GL10Ext;
 
@@ -3400,7 +3231,6 @@
     .param p3, "exponent"    # [I
     .param p4, "exponentOffset"    # I
 
-    .prologue
     .line 743
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl10Ext:Ljavax/microedition/khronos/opengles/GL10Ext;
 
@@ -3421,7 +3251,6 @@
     .param p6, "type"    # I
     .param p7, "pixels"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 538
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3452,7 +3281,6 @@
     .param p3, "y"    # F
     .param p4, "z"    # F
 
-    .prologue
     .line 542
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -3474,7 +3302,6 @@
     .param p3, "y"    # I
     .param p4, "z"    # I
 
-    .prologue
     .line 548
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -3494,7 +3321,6 @@
     .param p1, "value"    # F
     .param p2, "invert"    # Z
 
-    .prologue
     .line 554
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3509,7 +3335,6 @@
     .param p1, "value"    # I
     .param p2, "invert"    # Z
 
-    .prologue
     .line 558
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3525,7 +3350,6 @@
     .param p2, "y"    # F
     .param p3, "z"    # F
 
-    .prologue
     .line 562
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -3546,7 +3370,6 @@
     .param p2, "y"    # I
     .param p3, "z"    # I
 
-    .prologue
     .line 568
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -3568,7 +3391,6 @@
     .param p3, "width"    # I
     .param p4, "height"    # I
 
-    .prologue
     .line 574
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3582,7 +3404,6 @@
     .locals 1
     .param p1, "mode"    # I
 
-    .prologue
     .line 578
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3598,7 +3419,6 @@
     .param p2, "ref"    # I
     .param p3, "mask"    # I
 
-    .prologue
     .line 582
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3612,7 +3432,6 @@
     .locals 1
     .param p1, "mask"    # I
 
-    .prologue
     .line 586
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3628,7 +3447,6 @@
     .param p2, "zfail"    # I
     .param p3, "zpass"    # I
 
-    .prologue
     .line 590
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3645,7 +3463,6 @@
     .param p3, "stride"    # I
     .param p4, "offset"    # I
 
-    .prologue
     .line 994
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3661,7 +3478,6 @@
     .param p3, "stride"    # I
     .param p4, "pointer"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 595
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3677,7 +3493,6 @@
     .param p2, "pname"    # I
     .param p3, "param"    # F
 
-    .prologue
     .line 599
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3693,7 +3508,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 607
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3710,7 +3524,6 @@
     .param p3, "params"    # [F
     .param p4, "offset"    # I
 
-    .prologue
     .line 603
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3726,7 +3539,6 @@
     .param p2, "pname"    # I
     .param p3, "param"    # I
 
-    .prologue
     .line 946
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3741,7 +3553,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 954
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3757,7 +3568,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 950
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3772,7 +3582,6 @@
     .param p2, "pname"    # I
     .param p3, "param"    # I
 
-    .prologue
     .line 611
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3788,7 +3597,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 619
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3805,7 +3613,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 615
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3816,7 +3623,7 @@
 .end method
 
 .method public glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
-    .locals 10
+    .locals 11
     .param p1, "target"    # I
     .param p2, "level"    # I
     .param p3, "internalformat"    # I
@@ -3827,29 +3634,30 @@
     .param p8, "type"    # I
     .param p9, "pixels"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 625
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    move-object v0, p0
 
-    move v1, p1
+    iget-object v1, v0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    move v2, p2
+    move v2, p1
 
-    move v3, p3
+    move v3, p2
 
-    move v4, p4
+    move v4, p3
 
-    move v5, p5
+    move v5, p4
 
-    move/from16 v6, p6
+    move/from16 v6, p5
 
-    move/from16 v7, p7
+    move/from16 v7, p6
 
-    move/from16 v8, p8
+    move/from16 v8, p7
 
-    move-object/from16 v9, p9
+    move/from16 v9, p8
 
-    invoke-interface/range {v0 .. v9}, Ljavax/microedition/khronos/opengles/GL10;->glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
+    move-object/from16 v10, p9
+
+    invoke-interface/range {v1 .. v10}, Ljavax/microedition/khronos/opengles/GL10;->glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
 
     .line 627
     return-void
@@ -3861,7 +3669,6 @@
     .param p2, "pname"    # I
     .param p3, "param"    # F
 
-    .prologue
     .line 630
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3877,7 +3684,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 962
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3893,7 +3699,6 @@
     .param p3, "params"    # [F
     .param p4, "offset"    # I
 
-    .prologue
     .line 958
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3908,7 +3713,6 @@
     .param p2, "pname"    # I
     .param p3, "param"    # I
 
-    .prologue
     .line 966
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3923,7 +3727,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 642
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
@@ -3940,7 +3743,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 638
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
@@ -3956,7 +3758,6 @@
     .param p2, "pname"    # I
     .param p3, "param"    # I
 
-    .prologue
     .line 634
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -3972,7 +3773,6 @@
     .param p2, "pname"    # I
     .param p3, "params"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 974
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3988,7 +3788,6 @@
     .param p3, "params"    # [I
     .param p4, "offset"    # I
 
-    .prologue
     .line 970
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -3998,7 +3797,7 @@
 .end method
 
 .method public glTexSubImage2D(IIIIIIIILjava/nio/Buffer;)V
-    .locals 10
+    .locals 11
     .param p1, "target"    # I
     .param p2, "level"    # I
     .param p3, "xoffset"    # I
@@ -4009,29 +3808,30 @@
     .param p8, "type"    # I
     .param p9, "pixels"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 648
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    move-object v0, p0
 
-    move v1, p1
+    iget-object v1, v0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
-    move v2, p2
+    move v2, p1
 
-    move v3, p3
+    move v3, p2
 
-    move v4, p4
+    move v4, p3
 
-    move v5, p5
+    move v5, p4
 
-    move/from16 v6, p6
+    move/from16 v6, p5
 
-    move/from16 v7, p7
+    move/from16 v7, p6
 
-    move/from16 v8, p8
+    move/from16 v8, p7
 
-    move-object/from16 v9, p9
+    move/from16 v9, p8
 
-    invoke-interface/range {v0 .. v9}, Ljavax/microedition/khronos/opengles/GL10;->glTexSubImage2D(IIIIIIIILjava/nio/Buffer;)V
+    move-object/from16 v10, p9
+
+    invoke-interface/range {v1 .. v10}, Ljavax/microedition/khronos/opengles/GL10;->glTexSubImage2D(IIIIIIIILjava/nio/Buffer;)V
 
     .line 650
     return-void
@@ -4043,7 +3843,6 @@
     .param p2, "y"    # F
     .param p3, "z"    # F
 
-    .prologue
     .line 653
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -4064,7 +3863,6 @@
     .param p2, "y"    # I
     .param p3, "z"    # I
 
-    .prologue
     .line 659
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mCurrent:Lio/appium/android/apis/graphics/spritetext/MatrixStack;
 
@@ -4086,7 +3884,6 @@
     .param p3, "stride"    # I
     .param p4, "offset"    # I
 
-    .prologue
     .line 998
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -4102,7 +3899,6 @@
     .param p3, "stride"    # I
     .param p4, "pointer"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 666
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -4119,7 +3915,6 @@
     .param p3, "width"    # I
     .param p4, "height"    # I
 
-    .prologue
     .line 670
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixTrackingGL;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
@@ -4136,7 +3931,6 @@
     .param p3, "stride"    # I
     .param p4, "offset"    # I
 
-    .prologue
     .line 1025
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
@@ -4152,7 +3946,6 @@
     .param p3, "stride"    # I
     .param p4, "pointer"    # Ljava/nio/Buffer;
 
-    .prologue
     .line 1021
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

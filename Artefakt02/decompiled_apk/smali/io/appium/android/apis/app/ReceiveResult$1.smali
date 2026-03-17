@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/ReceiveResult;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/ReceiveResult;
 
-    .prologue
     .line 142
     iput-object p1, p0, Lio/appium/android/apis/app/ReceiveResult$1;->this$0:Lio/appium/android/apis/app/ReceiveResult;
 
@@ -40,7 +40,6 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 146
     new-instance v0, Landroid/content/Intent;
 

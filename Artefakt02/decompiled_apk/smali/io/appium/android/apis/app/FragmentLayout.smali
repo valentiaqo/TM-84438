@@ -17,11 +17,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 43
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 179
     return-void
 .end method
 
@@ -31,12 +29,11 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 48
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 50
-    const v0, 0x7f03004d
+    const v0, 0x7f0b006a
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/FragmentLayout;->setContentView(I)V
 

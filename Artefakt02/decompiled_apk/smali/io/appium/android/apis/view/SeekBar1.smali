@@ -18,7 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 30
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -31,17 +30,16 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 38
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 40
-    const v0, 0x7f0300ce
+    const v0, 0x7f0b00f2
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/SeekBar1;->setContentView(I)V
 
     .line 42
-    const v0, 0x7f090154
+    const v0, 0x7f0901bb
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/SeekBar1;->findViewById(I)Landroid/view/View;
 
@@ -57,7 +55,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
     .line 44
-    const v0, 0x7f090155
+    const v0, 0x7f090169
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/SeekBar1;->findViewById(I)Landroid/view/View;
 
@@ -68,7 +66,7 @@
     iput-object v0, p0, Lio/appium/android/apis/view/SeekBar1;->mProgressText:Landroid/widget/TextView;
 
     .line 45
-    const v0, 0x7f090156
+    const v0, 0x7f090228
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/SeekBar1;->findViewById(I)Landroid/view/View;
 
@@ -88,7 +86,6 @@
     .param p2, "progress"    # I
     .param p3, "fromTouch"    # Z
 
-    .prologue
     .line 49
     iget-object v0, p0, Lio/appium/android/apis/view/SeekBar1;->mProgressText:Landroid/widget/TextView;
 
@@ -98,15 +95,12 @@
 
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     const-string v2, " "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
-    const v2, 0x7f0c0228
+    .line 50
+    const v2, 0x7f0e02d0
 
     invoke-virtual {p0, v2}, Lio/appium/android/apis/view/SeekBar1;->getString(I)Ljava/lang/String;
 
@@ -114,22 +108,17 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     const-string v2, "="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 49
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 51
@@ -140,11 +129,10 @@
     .locals 2
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
-    .prologue
     .line 54
     iget-object v0, p0, Lio/appium/android/apis/view/SeekBar1;->mTrackingText:Landroid/widget/TextView;
 
-    const v1, 0x7f0c0226
+    const v1, 0x7f0e02d2
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/view/SeekBar1;->getString(I)Ljava/lang/String;
 
@@ -160,11 +148,10 @@
     .locals 2
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
-    .prologue
     .line 58
     iget-object v0, p0, Lio/appium/android/apis/view/SeekBar1;->mTrackingText:Landroid/widget/TextView;
 
-    const v1, 0x7f0c0227
+    const v1, 0x7f0e02d1
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/view/SeekBar1;->getString(I)Ljava/lang/String;
 

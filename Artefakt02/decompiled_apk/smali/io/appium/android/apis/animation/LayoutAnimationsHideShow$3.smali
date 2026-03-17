@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/animation/LayoutAnimationsHideShow;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
 
-    .prologue
     .line 90
     iput-object p1, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$3;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
 
@@ -37,45 +37,55 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 6
+    .locals 4
     .param p1, "buttonView"    # Landroid/widget/CompoundButton;
     .param p2, "isChecked"    # Z
-
-    .prologue
-    const-wide/16 v4, 0x1e
 
     .line 93
     if-eqz p2, :cond_0
 
     .line 94
-    iget-object v2, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$3;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
+    iget-object v0, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$3;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
 
-    invoke-static {v2}, Lio/appium/android/apis/animation/LayoutAnimationsHideShow;->access$000(Lio/appium/android/apis/animation/LayoutAnimationsHideShow;)Landroid/animation/LayoutTransition;
+    invoke-static {v0}, Lio/appium/android/apis/animation/LayoutAnimationsHideShow;->access$000(Lio/appium/android/apis/animation/LayoutAnimationsHideShow;)Landroid/animation/LayoutTransition;
 
-    move-result-object v2
+    move-result-object v0
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v2, v3, v4, v5}, Landroid/animation/LayoutTransition;->setStagger(IJ)V
+    const-wide/16 v2, 0x1e
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/animation/LayoutTransition;->setStagger(IJ)V
 
     .line 95
-    iget-object v2, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$3;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
+    iget-object v0, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$3;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
 
-    invoke-static {v2}, Lio/appium/android/apis/animation/LayoutAnimationsHideShow;->access$000(Lio/appium/android/apis/animation/LayoutAnimationsHideShow;)Landroid/animation/LayoutTransition;
+    invoke-static {v0}, Lio/appium/android/apis/animation/LayoutAnimationsHideShow;->access$000(Lio/appium/android/apis/animation/LayoutAnimationsHideShow;)Landroid/animation/LayoutTransition;
 
-    move-result-object v2
+    move-result-object v0
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v2, v3, v4, v5}, Landroid/animation/LayoutTransition;->setStagger(IJ)V
+    invoke-virtual {v0, v1, v2, v3}, Landroid/animation/LayoutTransition;->setStagger(IJ)V
 
     .line 96
-    iget-object v2, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$3;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
+    iget-object v0, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$3;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
 
-    invoke-static {v2}, Lio/appium/android/apis/animation/LayoutAnimationsHideShow;->access$100(Lio/appium/android/apis/animation/LayoutAnimationsHideShow;)V
+    invoke-static {v0}, Lio/appium/android/apis/animation/LayoutAnimationsHideShow;->access$100(Lio/appium/android/apis/animation/LayoutAnimationsHideShow;)V
 
     .line 97
     const-wide/16 v0, 0x1f4
+
+    goto :goto_0
+
+    .line 99
+    :cond_0
+    iget-object v0, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$3;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
+
+    invoke-static {v0}, Lio/appium/android/apis/animation/LayoutAnimationsHideShow;->access$200(Lio/appium/android/apis/animation/LayoutAnimationsHideShow;)V
+
+    .line 100
+    const-wide/16 v0, 0x12c
 
     .line 102
     .local v0, "duration":J
@@ -90,17 +100,4 @@
 
     .line 103
     return-void
-
-    .line 99
-    .end local v0    # "duration":J
-    :cond_0
-    iget-object v2, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$3;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
-
-    invoke-static {v2}, Lio/appium/android/apis/animation/LayoutAnimationsHideShow;->access$200(Lio/appium/android/apis/animation/LayoutAnimationsHideShow;)V
-
-    .line 100
-    const-wide/16 v0, 0x12c
-
-    .restart local v0    # "duration":J
-    goto :goto_0
 .end method

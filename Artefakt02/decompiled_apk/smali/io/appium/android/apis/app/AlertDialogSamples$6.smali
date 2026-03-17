@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/AlertDialogSamples;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/AlertDialogSamples;
 
-    .prologue
     .line 114
     iput-object p1, p0, Lio/appium/android/apis/app/AlertDialogSamples$6;->this$0:Lio/appium/android/apis/app/AlertDialogSamples;
 
@@ -41,7 +41,6 @@
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "whichButton"    # I
 
-    .prologue
     .line 116
     return-void
 .end method

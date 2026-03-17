@@ -29,8 +29,7 @@
 .field public final balls:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList",
-            "<",
+            "Ljava/util/ArrayList<",
             "Lio/appium/android/apis/animation/ShapeHolder;",
             ">;"
         }
@@ -44,13 +43,9 @@
 
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/animation/MultiPropertyAnimation;Landroid/content/Context;)V
-    .locals 3
+    .locals 2
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/MultiPropertyAnimation;
     .param p2, "context"    # Landroid/content/Context;
-
-    .prologue
-    const/4 v2, 0x0
-
-    const/4 v1, 0x0
 
     .line 77
     iput-object p1, p0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->this$0:Lio/appium/android/apis/animation/MultiPropertyAnimation;
@@ -66,33 +61,37 @@
     iput-object v0, p0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
 
     .line 73
-    iput-object v2, p0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->animation:Landroid/animation/AnimatorSet;
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->animation:Landroid/animation/AnimatorSet;
 
     .line 74
-    iput-object v2, p0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->bounceAnim:Landroid/animation/Animator;
+    iput-object v0, p0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->bounceAnim:Landroid/animation/Animator;
 
     .line 75
-    iput-object v2, p0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->ball:Lio/appium/android/apis/animation/ShapeHolder;
+    iput-object v0, p0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->ball:Lio/appium/android/apis/animation/ShapeHolder;
 
     .line 79
-    const/high16 v0, 0x42480000    # 50.0f
+    const/4 v0, 0x0
 
-    invoke-direct {p0, v0, v1}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->addBall(FF)Lio/appium/android/apis/animation/ShapeHolder;
+    const/high16 v1, 0x42480000    # 50.0f
+
+    invoke-direct {p0, v1, v0}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->addBall(FF)Lio/appium/android/apis/animation/ShapeHolder;
 
     .line 80
-    const/high16 v0, 0x43160000    # 150.0f
+    const/high16 v1, 0x43160000    # 150.0f
 
-    invoke-direct {p0, v0, v1}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->addBall(FF)Lio/appium/android/apis/animation/ShapeHolder;
+    invoke-direct {p0, v1, v0}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->addBall(FF)Lio/appium/android/apis/animation/ShapeHolder;
 
     .line 81
-    const/high16 v0, 0x437a0000    # 250.0f
+    const/high16 v1, 0x437a0000    # 250.0f
 
-    invoke-direct {p0, v0, v1}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->addBall(FF)Lio/appium/android/apis/animation/ShapeHolder;
+    invoke-direct {p0, v1, v0}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->addBall(FF)Lio/appium/android/apis/animation/ShapeHolder;
 
     .line 82
-    const/high16 v0, 0x43af0000    # 350.0f
+    const/high16 v1, 0x43af0000    # 350.0f
 
-    invoke-direct {p0, v0, v1}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->addBall(FF)Lio/appium/android/apis/animation/ShapeHolder;
+    invoke-direct {p0, v1, v0}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->addBall(FF)Lio/appium/android/apis/animation/ShapeHolder;
 
     .line 83
     return-void
@@ -103,836 +102,667 @@
     .param p1, "x"    # F
     .param p2, "y"    # F
 
-    .prologue
     .line 144
-    new-instance v9, Landroid/graphics/drawable/shapes/OvalShape;
+    new-instance v0, Landroid/graphics/drawable/shapes/OvalShape;
 
-    invoke-direct {v9}, Landroid/graphics/drawable/shapes/OvalShape;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/drawable/shapes/OvalShape;-><init>()V
 
     .line 145
-    .local v9, "circle":Landroid/graphics/drawable/shapes/OvalShape;
-    const/high16 v2, 0x42c80000    # 100.0f
+    .local v0, "circle":Landroid/graphics/drawable/shapes/OvalShape;
+    const/high16 v1, 0x42c80000    # 100.0f
 
-    const/high16 v3, 0x42c80000    # 100.0f
-
-    invoke-virtual {v9, v2, v3}, Landroid/graphics/drawable/shapes/OvalShape;->resize(FF)V
+    invoke-virtual {v0, v1, v1}, Landroid/graphics/drawable/shapes/OvalShape;->resize(FF)V
 
     .line 146
-    new-instance v10, Landroid/graphics/drawable/ShapeDrawable;
+    new-instance v1, Landroid/graphics/drawable/ShapeDrawable;
 
-    invoke-direct {v10, v9}, Landroid/graphics/drawable/ShapeDrawable;-><init>(Landroid/graphics/drawable/shapes/Shape;)V
+    invoke-direct {v1, v0}, Landroid/graphics/drawable/ShapeDrawable;-><init>(Landroid/graphics/drawable/shapes/Shape;)V
 
     .line 147
-    .local v10, "drawable":Landroid/graphics/drawable/ShapeDrawable;
-    new-instance v14, Lio/appium/android/apis/animation/ShapeHolder;
+    .local v1, "drawable":Landroid/graphics/drawable/ShapeDrawable;
+    new-instance v2, Lio/appium/android/apis/animation/ShapeHolder;
 
-    invoke-direct {v14, v10}, Lio/appium/android/apis/animation/ShapeHolder;-><init>(Landroid/graphics/drawable/ShapeDrawable;)V
+    invoke-direct {v2, v1}, Lio/appium/android/apis/animation/ShapeHolder;-><init>(Landroid/graphics/drawable/ShapeDrawable;)V
 
     .line 148
-    .local v14, "shapeHolder":Lio/appium/android/apis/animation/ShapeHolder;
-    move/from16 v0, p1
+    .local v2, "shapeHolder":Lio/appium/android/apis/animation/ShapeHolder;
+    move/from16 v3, p1
 
-    invoke-virtual {v14, v0}, Lio/appium/android/apis/animation/ShapeHolder;->setX(F)V
+    invoke-virtual {v2, v3}, Lio/appium/android/apis/animation/ShapeHolder;->setX(F)V
 
     .line 149
-    move/from16 v0, p2
+    move/from16 v4, p2
 
-    invoke-virtual {v14, v0}, Lio/appium/android/apis/animation/ShapeHolder;->setY(F)V
+    invoke-virtual {v2, v4}, Lio/appium/android/apis/animation/ShapeHolder;->setY(F)V
 
     .line 150
-    const-wide/high16 v2, 0x4059000000000000L    # 100.0
-
     invoke-static {}, Ljava/lang/Math;->random()D
 
-    move-result-wide v15
+    move-result-wide v5
 
-    const-wide v17, 0x4063600000000000L    # 155.0
+    const-wide v7, 0x4063600000000000L    # 155.0
 
-    mul-double v15, v15, v17
+    mul-double v5, v5, v7
 
-    add-double/2addr v2, v15
+    const-wide/high16 v9, 0x4059000000000000L    # 100.0
 
-    double-to-int v13, v2
+    add-double/2addr v5, v9
+
+    double-to-int v5, v5
 
     .line 151
-    .local v13, "red":I
-    const-wide/high16 v2, 0x4059000000000000L    # 100.0
-
+    .local v5, "red":I
     invoke-static {}, Ljava/lang/Math;->random()D
 
-    move-result-wide v15
+    move-result-wide v11
 
-    const-wide v17, 0x4063600000000000L    # 155.0
+    mul-double v11, v11, v7
 
-    mul-double v15, v15, v17
+    add-double/2addr v11, v9
 
-    add-double/2addr v2, v15
-
-    double-to-int v11, v2
+    double-to-int v6, v11
 
     .line 152
-    .local v11, "green":I
-    const-wide/high16 v2, 0x4059000000000000L    # 100.0
-
+    .local v6, "green":I
     invoke-static {}, Ljava/lang/Math;->random()D
 
-    move-result-wide v15
+    move-result-wide v11
 
-    const-wide v17, 0x4063600000000000L    # 155.0
+    mul-double v11, v11, v7
 
-    mul-double v15, v15, v17
+    add-double/2addr v11, v9
 
-    add-double/2addr v2, v15
-
-    double-to-int v8, v2
+    double-to-int v7, v11
 
     .line 153
-    .local v8, "blue":I
-    const/high16 v2, -0x1000000
+    .local v7, "blue":I
+    shl-int/lit8 v8, v5, 0x10
 
-    shl-int/lit8 v3, v13, 0x10
+    const/high16 v9, -0x1000000
 
-    or-int/2addr v2, v3
+    or-int/2addr v8, v9
 
-    shl-int/lit8 v3, v11, 0x8
+    shl-int/lit8 v10, v6, 0x8
 
-    or-int/2addr v2, v3
+    or-int/2addr v8, v10
 
-    or-int v5, v2, v8
+    or-int/2addr v8, v7
 
     .line 154
-    .local v5, "color":I
-    invoke-virtual {v10}, Landroid/graphics/drawable/ShapeDrawable;->getPaint()Landroid/graphics/Paint;
+    .local v8, "color":I
+    invoke-virtual {v1}, Landroid/graphics/drawable/ShapeDrawable;->getPaint()Landroid/graphics/Paint;
 
-    move-result-object v12
+    move-result-object v15
 
     .line 155
-    .local v12, "paint":Landroid/graphics/Paint;
-    const/high16 v2, -0x1000000
+    .local v15, "paint":Landroid/graphics/Paint;
+    div-int/lit8 v10, v5, 0x4
 
-    div-int/lit8 v3, v13, 0x4
+    shl-int/lit8 v10, v10, 0x10
 
-    shl-int/lit8 v3, v3, 0x10
+    or-int/2addr v9, v10
 
-    or-int/2addr v2, v3
+    div-int/lit8 v10, v6, 0x4
 
-    div-int/lit8 v3, v11, 0x4
+    shl-int/lit8 v10, v10, 0x8
 
-    shl-int/lit8 v3, v3, 0x8
+    or-int/2addr v9, v10
 
-    or-int/2addr v2, v3
+    div-int/lit8 v10, v7, 0x4
 
-    div-int/lit8 v3, v8, 0x4
-
-    or-int v6, v2, v3
+    or-int/2addr v9, v10
 
     .line 156
-    .local v6, "darkColor":I
-    new-instance v1, Landroid/graphics/RadialGradient;
+    .local v9, "darkColor":I
+    new-instance v17, Landroid/graphics/RadialGradient;
 
-    const/high16 v2, 0x42160000    # 37.5f
+    sget-object v16, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
-    const/high16 v3, 0x41480000    # 12.5f
+    const/high16 v11, 0x42160000    # 37.5f
 
-    const/high16 v4, 0x42480000    # 50.0f
+    const/high16 v12, 0x41480000    # 12.5f
 
-    sget-object v7, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
+    const/high16 v13, 0x42480000    # 50.0f
 
-    invoke-direct/range {v1 .. v7}, Landroid/graphics/RadialGradient;-><init>(FFFIILandroid/graphics/Shader$TileMode;)V
+    move-object/from16 v10, v17
+
+    move v14, v8
+
+    move-object/from16 v18, v15
+
+    .end local v15    # "paint":Landroid/graphics/Paint;
+    .local v18, "paint":Landroid/graphics/Paint;
+    move v15, v9
+
+    invoke-direct/range {v10 .. v16}, Landroid/graphics/RadialGradient;-><init>(FFFIILandroid/graphics/Shader$TileMode;)V
 
     .line 158
-    .local v1, "gradient":Landroid/graphics/RadialGradient;
-    invoke-virtual {v12, v1}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+    .local v10, "gradient":Landroid/graphics/RadialGradient;
+    move-object/from16 v11, v18
+
+    .end local v18    # "paint":Landroid/graphics/Paint;
+    .local v11, "paint":Landroid/graphics/Paint;
+    invoke-virtual {v11, v10}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     .line 159
-    invoke-virtual {v14, v12}, Lio/appium/android/apis/animation/ShapeHolder;->setPaint(Landroid/graphics/Paint;)V
+    invoke-virtual {v2, v11}, Lio/appium/android/apis/animation/ShapeHolder;->setPaint(Landroid/graphics/Paint;)V
 
     .line 160
-    move-object/from16 v0, p0
+    move-object/from16 v12, p0
 
-    iget-object v2, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
+    iget-object v13, v12, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v13, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 161
-    return-object v14
+    return-object v2
 .end method
 
 .method private createAnimation()V
     .locals 23
 
-    .prologue
     .line 86
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->bounceAnim:Landroid/animation/Animator;
+    iget-object v1, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->bounceAnim:Landroid/animation/Animator;
 
-    move-object/from16 v18, v0
-
-    if-nez v18, :cond_0
+    if-nez v1, :cond_0
 
     .line 88
-    move-object/from16 v0, p0
+    iget-object v1, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
 
-    iget-object v0, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
+    const/4 v2, 0x0
 
-    move-object/from16 v18, v0
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    const/16 v19, 0x0
+    move-result-object v1
 
-    invoke-virtual/range {v18 .. v19}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lio/appium/android/apis/animation/ShapeHolder;
+    check-cast v1, Lio/appium/android/apis/animation/ShapeHolder;
 
     .line 89
-    .local v2, "ball":Lio/appium/android/apis/animation/ShapeHolder;
-    const-string v18, "y"
+    .local v1, "ball":Lio/appium/android/apis/animation/ShapeHolder;
+    const-string v3, "y"
 
-    const/16 v19, 0x2
+    const/4 v4, 0x2
 
-    move/from16 v0, v19
+    new-array v5, v4, [F
 
-    new-array v0, v0, [F
+    .line 90
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
 
-    move-object/from16 v19, v0
+    move-result v6
 
-    const/16 v20, 0x0
-
-    invoke-virtual {v2}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
-
-    move-result v21
-
-    aput v21, v19, v20
-
-    const/16 v20, 0x1
+    aput v6, v5, v2
 
     invoke-virtual/range {p0 .. p0}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->getHeight()I
 
-    move-result v21
+    move-result v6
 
-    move/from16 v0, v21
+    int-to-float v6, v6
 
-    int-to-float v0, v0
+    const/high16 v7, 0x42c80000    # 100.0f
 
-    move/from16 v21, v0
+    sub-float/2addr v6, v7
 
-    const/high16 v22, 0x42c80000    # 100.0f
+    const/4 v8, 0x1
 
-    sub-float v21, v21, v22
+    aput v6, v5, v8
 
-    aput v21, v19, v20
+    .line 89
+    invoke-static {v1, v3, v5}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
-    move-object/from16 v0, v18
+    move-result-object v3
 
-    move-object/from16 v1, v19
+    const-wide/16 v5, 0x5dc
 
-    invoke-static {v2, v0, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+    .line 90
+    invoke-virtual {v3, v5, v6}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
-    move-result-object v18
-
-    const-wide/16 v19, 0x5dc
-
-    invoke-virtual/range {v18 .. v20}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
-
-    move-result-object v16
+    move-result-object v3
 
     .line 91
-    .local v16, "yBouncer":Landroid/animation/ObjectAnimator;
-    new-instance v18, Landroid/view/animation/BounceInterpolator;
+    .local v3, "yBouncer":Landroid/animation/ObjectAnimator;
+    new-instance v5, Landroid/view/animation/BounceInterpolator;
 
-    invoke-direct/range {v18 .. v18}, Landroid/view/animation/BounceInterpolator;-><init>()V
+    invoke-direct {v5}, Landroid/view/animation/BounceInterpolator;-><init>()V
 
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {v3, v5}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
     .line 92
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Landroid/animation/ObjectAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+    invoke-virtual {v3, v0}, Landroid/animation/ObjectAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
     .line 94
-    move-object/from16 v0, p0
+    iget-object v5, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
 
-    iget-object v0, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
+    invoke-virtual {v5, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v18, v0
+    move-result-object v5
 
-    const/16 v19, 0x1
+    move-object v1, v5
 
-    invoke-virtual/range {v18 .. v19}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    .end local v2    # "ball":Lio/appium/android/apis/animation/ShapeHolder;
-    check-cast v2, Lio/appium/android/apis/animation/ShapeHolder;
+    check-cast v1, Lio/appium/android/apis/animation/ShapeHolder;
 
     .line 95
-    .restart local v2    # "ball":Lio/appium/android/apis/animation/ShapeHolder;
-    const-string v18, "y"
+    const-string v5, "y"
 
-    const/16 v19, 0x2
+    new-array v6, v4, [F
 
-    move/from16 v0, v19
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
 
-    new-array v0, v0, [F
+    move-result v9
 
-    move-object/from16 v19, v0
+    aput v9, v6, v2
 
-    const/16 v20, 0x0
-
-    invoke-virtual {v2}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
-
-    move-result v21
-
-    aput v21, v19, v20
-
-    const/16 v20, 0x1
-
+    .line 96
     invoke-virtual/range {p0 .. p0}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->getHeight()I
 
-    move-result v21
+    move-result v9
 
-    move/from16 v0, v21
+    int-to-float v9, v9
 
-    int-to-float v0, v0
+    sub-float/2addr v9, v7
 
-    move/from16 v21, v0
+    aput v9, v6, v8
 
-    const/high16 v22, 0x42c80000    # 100.0f
+    .line 95
+    invoke-static {v5, v6}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
 
-    sub-float v21, v21, v22
-
-    aput v21, v19, v20
-
-    invoke-static/range {v18 .. v19}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
-
-    move-result-object v13
+    move-result-object v5
 
     .line 97
-    .local v13, "pvhY":Landroid/animation/PropertyValuesHolder;
-    const-string v18, "alpha"
+    .local v5, "pvhY":Landroid/animation/PropertyValuesHolder;
+    const-string v6, "alpha"
 
-    const/16 v19, 0x2
+    new-array v9, v4, [F
 
-    move/from16 v0, v19
+    fill-array-data v9, :array_0
 
-    new-array v0, v0, [F
+    invoke-static {v6, v9}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
 
-    move-object/from16 v19, v0
+    move-result-object v6
 
-    fill-array-data v19, :array_0
+    .line 98
+    .local v6, "pvhAlpha":Landroid/animation/PropertyValuesHolder;
+    new-array v9, v4, [Landroid/animation/PropertyValuesHolder;
 
-    invoke-static/range {v18 .. v19}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
+    aput-object v5, v9, v2
+
+    aput-object v6, v9, v8
+
+    invoke-static {v1, v9}, Landroid/animation/ObjectAnimator;->ofPropertyValuesHolder(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;
 
     move-result-object v9
 
-    .line 98
-    .local v9, "pvhAlpha":Landroid/animation/PropertyValuesHolder;
-    const/16 v18, 0x2
+    .line 99
+    const-wide/16 v10, 0x2ee
 
-    move/from16 v0, v18
+    invoke-virtual {v9, v10, v11}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
-    new-array v0, v0, [Landroid/animation/PropertyValuesHolder;
-
-    move-object/from16 v18, v0
-
-    const/16 v19, 0x0
-
-    aput-object v13, v18, v19
-
-    const/16 v19, 0x1
-
-    aput-object v9, v18, v19
-
-    move-object/from16 v0, v18
-
-    invoke-static {v2, v0}, Landroid/animation/ObjectAnimator;->ofPropertyValuesHolder(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;
-
-    move-result-object v18
-
-    const-wide/16 v19, 0x2ee
-
-    invoke-virtual/range {v18 .. v20}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
-
-    move-result-object v15
+    move-result-object v9
 
     .line 100
-    .local v15, "yAlphaBouncer":Landroid/animation/ObjectAnimator;
-    new-instance v18, Landroid/view/animation/AccelerateInterpolator;
+    .local v9, "yAlphaBouncer":Landroid/animation/ObjectAnimator;
+    new-instance v12, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-direct/range {v18 .. v18}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
+    invoke-direct {v12}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
 
-    move-object/from16 v0, v18
-
-    invoke-virtual {v15, v0}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {v9, v12}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
     .line 101
-    const/16 v18, 0x1
-
-    move/from16 v0, v18
-
-    invoke-virtual {v15, v0}, Landroid/animation/ObjectAnimator;->setRepeatCount(I)V
+    invoke-virtual {v9, v8}, Landroid/animation/ObjectAnimator;->setRepeatCount(I)V
 
     .line 102
-    const/16 v18, 0x2
-
-    move/from16 v0, v18
-
-    invoke-virtual {v15, v0}, Landroid/animation/ObjectAnimator;->setRepeatMode(I)V
+    invoke-virtual {v9, v4}, Landroid/animation/ObjectAnimator;->setRepeatMode(I)V
 
     .line 105
-    move-object/from16 v0, p0
+    iget-object v12, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
 
-    iget-object v0, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
+    invoke-virtual {v12, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v18, v0
+    move-result-object v12
 
-    const/16 v19, 0x2
+    move-object v1, v12
 
-    invoke-virtual/range {v18 .. v19}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    .end local v2    # "ball":Lio/appium/android/apis/animation/ShapeHolder;
-    check-cast v2, Lio/appium/android/apis/animation/ShapeHolder;
+    check-cast v1, Lio/appium/android/apis/animation/ShapeHolder;
 
     .line 106
-    .restart local v2    # "ball":Lio/appium/android/apis/animation/ShapeHolder;
-    const-string v18, "width"
+    const-string v12, "width"
 
-    const/16 v19, 0x2
+    new-array v13, v4, [F
 
-    move/from16 v0, v19
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getWidth()F
 
-    new-array v0, v0, [F
+    move-result v14
 
-    move-object/from16 v19, v0
+    aput v14, v13, v2
 
-    const/16 v20, 0x0
+    .line 107
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getWidth()F
 
-    invoke-virtual {v2}, Lio/appium/android/apis/animation/ShapeHolder;->getWidth()F
+    move-result v14
 
-    move-result v21
+    const/high16 v15, 0x40000000    # 2.0f
 
-    aput v21, v19, v20
+    mul-float v14, v14, v15
 
-    const/16 v20, 0x1
+    aput v14, v13, v8
 
-    invoke-virtual {v2}, Lio/appium/android/apis/animation/ShapeHolder;->getWidth()F
+    .line 106
+    invoke-static {v12, v13}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
 
-    move-result v21
-
-    const/high16 v22, 0x40000000    # 2.0f
-
-    mul-float v21, v21, v22
-
-    aput v21, v19, v20
-
-    invoke-static/range {v18 .. v19}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
-
-    move-result-object v11
+    move-result-object v12
 
     .line 108
-    .local v11, "pvhW":Landroid/animation/PropertyValuesHolder;
-    const-string v18, "height"
+    .local v12, "pvhW":Landroid/animation/PropertyValuesHolder;
+    const-string v13, "height"
 
-    const/16 v19, 0x2
+    new-array v14, v4, [F
 
-    move/from16 v0, v19
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getHeight()F
 
-    new-array v0, v0, [F
+    move-result v16
 
-    move-object/from16 v19, v0
+    aput v16, v14, v2
 
-    const/16 v20, 0x0
+    .line 109
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getHeight()F
 
-    invoke-virtual {v2}, Lio/appium/android/apis/animation/ShapeHolder;->getHeight()F
+    move-result v16
 
-    move-result v21
+    mul-float v16, v16, v15
 
-    aput v21, v19, v20
+    aput v16, v14, v8
 
-    const/16 v20, 0x1
-
-    invoke-virtual {v2}, Lio/appium/android/apis/animation/ShapeHolder;->getHeight()F
-
-    move-result v21
-
-    const/high16 v22, 0x40000000    # 2.0f
-
-    mul-float v21, v21, v22
-
-    aput v21, v19, v20
-
-    invoke-static/range {v18 .. v19}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
-
-    move-result-object v10
-
-    .line 110
-    .local v10, "pvhH":Landroid/animation/PropertyValuesHolder;
-    const-string v18, "x"
-
-    const/16 v19, 0x2
-
-    move/from16 v0, v19
-
-    new-array v0, v0, [F
-
-    move-object/from16 v19, v0
-
-    const/16 v20, 0x0
-
-    invoke-virtual {v2}, Lio/appium/android/apis/animation/ShapeHolder;->getX()F
-
-    move-result v21
-
-    aput v21, v19, v20
-
-    const/16 v20, 0x1
-
-    invoke-virtual {v2}, Lio/appium/android/apis/animation/ShapeHolder;->getX()F
-
-    move-result v21
-
-    const/high16 v22, 0x42480000    # 50.0f
-
-    sub-float v21, v21, v22
-
-    aput v21, v19, v20
-
-    invoke-static/range {v18 .. v19}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
-
-    move-result-object v7
-
-    .line 112
-    .local v7, "pvTX":Landroid/animation/PropertyValuesHolder;
-    const-string v18, "y"
-
-    const/16 v19, 0x2
-
-    move/from16 v0, v19
-
-    new-array v0, v0, [F
-
-    move-object/from16 v19, v0
-
-    const/16 v20, 0x0
-
-    invoke-virtual {v2}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
-
-    move-result v21
-
-    aput v21, v19, v20
-
-    const/16 v20, 0x1
-
-    invoke-virtual {v2}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
-
-    move-result v21
-
-    const/high16 v22, 0x42480000    # 50.0f
-
-    sub-float v21, v21, v22
-
-    aput v21, v19, v20
-
-    invoke-static/range {v18 .. v19}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
-
-    move-result-object v8
-
-    .line 114
-    .local v8, "pvTY":Landroid/animation/PropertyValuesHolder;
-    const/16 v18, 0x4
-
-    move/from16 v0, v18
-
-    new-array v0, v0, [Landroid/animation/PropertyValuesHolder;
-
-    move-object/from16 v18, v0
-
-    const/16 v19, 0x0
-
-    aput-object v11, v18, v19
-
-    const/16 v19, 0x1
-
-    aput-object v10, v18, v19
-
-    const/16 v19, 0x2
-
-    aput-object v7, v18, v19
-
-    const/16 v19, 0x3
-
-    aput-object v8, v18, v19
-
-    move-object/from16 v0, v18
-
-    invoke-static {v2, v0}, Landroid/animation/ObjectAnimator;->ofPropertyValuesHolder(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;
-
-    move-result-object v18
-
-    const-wide/16 v19, 0x2ee
-
-    invoke-virtual/range {v18 .. v20}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
-
-    move-result-object v14
-
-    .line 116
-    .local v14, "whxyBouncer":Landroid/animation/ObjectAnimator;
-    const/16 v18, 0x1
-
-    move/from16 v0, v18
-
-    invoke-virtual {v14, v0}, Landroid/animation/ObjectAnimator;->setRepeatCount(I)V
-
-    .line 117
-    const/16 v18, 0x2
-
-    move/from16 v0, v18
-
-    invoke-virtual {v14, v0}, Landroid/animation/ObjectAnimator;->setRepeatMode(I)V
-
-    .line 119
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
-
-    move-object/from16 v18, v0
-
-    const/16 v19, 0x3
-
-    invoke-virtual/range {v18 .. v19}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    .end local v2    # "ball":Lio/appium/android/apis/animation/ShapeHolder;
-    check-cast v2, Lio/appium/android/apis/animation/ShapeHolder;
-
-    .line 120
-    .restart local v2    # "ball":Lio/appium/android/apis/animation/ShapeHolder;
-    const-string v18, "y"
-
-    const/16 v19, 0x2
-
-    move/from16 v0, v19
-
-    new-array v0, v0, [F
-
-    move-object/from16 v19, v0
-
-    const/16 v20, 0x0
-
-    invoke-virtual {v2}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
-
-    move-result v21
-
-    aput v21, v19, v20
-
-    const/16 v20, 0x1
-
-    invoke-virtual/range {p0 .. p0}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->getHeight()I
-
-    move-result v21
-
-    move/from16 v0, v21
-
-    int-to-float v0, v0
-
-    move/from16 v21, v0
-
-    const/high16 v22, 0x42c80000    # 100.0f
-
-    sub-float v21, v21, v22
-
-    aput v21, v19, v20
-
-    invoke-static/range {v18 .. v19}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
+    .line 108
+    invoke-static {v13, v14}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
 
     move-result-object v13
 
+    .line 110
+    .local v13, "pvhH":Landroid/animation/PropertyValuesHolder;
+    const-string v14, "x"
+
+    new-array v15, v4, [F
+
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getX()F
+
+    move-result v16
+
+    aput v16, v15, v2
+
+    .line 111
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getX()F
+
+    move-result v16
+
+    const/high16 v17, 0x42480000    # 50.0f
+
+    sub-float v16, v16, v17
+
+    aput v16, v15, v8
+
+    .line 110
+    invoke-static {v14, v15}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
+
+    move-result-object v14
+
+    .line 112
+    .local v14, "pvTX":Landroid/animation/PropertyValuesHolder;
+    const-string v15, "y"
+
+    new-array v7, v4, [F
+
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
+
+    move-result v18
+
+    aput v18, v7, v2
+
+    .line 113
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
+
+    move-result v18
+
+    sub-float v18, v18, v17
+
+    aput v18, v7, v8
+
+    .line 112
+    invoke-static {v15, v7}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
+
+    move-result-object v7
+
+    .line 114
+    .local v7, "pvTY":Landroid/animation/PropertyValuesHolder;
+    const/4 v15, 0x4
+
+    new-array v10, v15, [Landroid/animation/PropertyValuesHolder;
+
+    aput-object v12, v10, v2
+
+    aput-object v13, v10, v8
+
+    aput-object v14, v10, v4
+
+    const/4 v11, 0x3
+
+    aput-object v7, v10, v11
+
+    invoke-static {v1, v10}, Landroid/animation/ObjectAnimator;->ofPropertyValuesHolder(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;
+
+    move-result-object v10
+
+    .line 115
+    move-object/from16 v20, v3
+
+    const-wide/16 v2, 0x2ee
+
+    .end local v3    # "yBouncer":Landroid/animation/ObjectAnimator;
+    .local v20, "yBouncer":Landroid/animation/ObjectAnimator;
+    invoke-virtual {v10, v2, v3}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    move-result-object v10
+
+    .line 116
+    .local v10, "whxyBouncer":Landroid/animation/ObjectAnimator;
+    invoke-virtual {v10, v8}, Landroid/animation/ObjectAnimator;->setRepeatCount(I)V
+
+    .line 117
+    invoke-virtual {v10, v4}, Landroid/animation/ObjectAnimator;->setRepeatMode(I)V
+
+    .line 119
+    iget-object v2, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    move-object v1, v2
+
+    check-cast v1, Lio/appium/android/apis/animation/ShapeHolder;
+
+    .line 120
+    const-string v2, "y"
+
+    new-array v3, v4, [F
+
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
+
+    move-result v21
+
+    const/16 v19, 0x0
+
+    aput v21, v3, v19
+
+    invoke-virtual/range {p0 .. p0}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->getHeight()I
+
+    move-result v15
+
+    int-to-float v15, v15
+
+    const/high16 v16, 0x42c80000    # 100.0f
+
+    sub-float v15, v15, v16
+
+    aput v15, v3, v8
+
+    invoke-static {v2, v3}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
+
+    move-result-object v2
+
     .line 121
-    invoke-virtual {v2}, Lio/appium/android/apis/animation/ShapeHolder;->getX()F
+    .end local v5    # "pvhY":Landroid/animation/PropertyValuesHolder;
+    .local v2, "pvhY":Landroid/animation/PropertyValuesHolder;
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getX()F
 
     move-result v3
 
     .line 122
     .local v3, "ballX":F
-    const/16 v18, 0x0
+    const/4 v5, 0x0
 
-    move/from16 v0, v18
-
-    invoke-static {v0, v3}, Landroid/animation/Keyframe;->ofFloat(FF)Landroid/animation/Keyframe;
-
-    move-result-object v4
-
-    .line 123
-    .local v4, "kf0":Landroid/animation/Keyframe;
-    const/high16 v18, 0x3f000000    # 0.5f
-
-    const/high16 v19, 0x42c80000    # 100.0f
-
-    add-float v19, v19, v3
-
-    invoke-static/range {v18 .. v19}, Landroid/animation/Keyframe;->ofFloat(FF)Landroid/animation/Keyframe;
+    invoke-static {v5, v3}, Landroid/animation/Keyframe;->ofFloat(FF)Landroid/animation/Keyframe;
 
     move-result-object v5
 
+    .line 123
+    .local v5, "kf0":Landroid/animation/Keyframe;
+    const/high16 v15, 0x3f000000    # 0.5f
+
+    add-float v4, v3, v16
+
+    invoke-static {v15, v4}, Landroid/animation/Keyframe;->ofFloat(FF)Landroid/animation/Keyframe;
+
+    move-result-object v4
+
     .line 124
-    .local v5, "kf1":Landroid/animation/Keyframe;
-    const/high16 v18, 0x3f800000    # 1.0f
+    .local v4, "kf1":Landroid/animation/Keyframe;
+    const/high16 v15, 0x3f800000    # 1.0f
 
-    const/high16 v19, 0x42480000    # 50.0f
+    add-float v8, v3, v17
 
-    add-float v19, v19, v3
+    invoke-static {v15, v8}, Landroid/animation/Keyframe;->ofFloat(FF)Landroid/animation/Keyframe;
 
-    invoke-static/range {v18 .. v19}, Landroid/animation/Keyframe;->ofFloat(FF)Landroid/animation/Keyframe;
-
-    move-result-object v6
+    move-result-object v8
 
     .line 125
-    .local v6, "kf2":Landroid/animation/Keyframe;
-    const-string v18, "x"
+    .local v8, "kf2":Landroid/animation/Keyframe;
+    const-string v15, "x"
 
-    const/16 v19, 0x3
+    move/from16 v17, v3
 
-    move/from16 v0, v19
-
-    new-array v0, v0, [Landroid/animation/Keyframe;
-
-    move-object/from16 v19, v0
-
-    const/16 v20, 0x0
-
-    aput-object v4, v19, v20
-
-    const/16 v20, 0x1
-
-    aput-object v5, v19, v20
-
-    const/16 v20, 0x2
-
-    aput-object v6, v19, v20
-
-    invoke-static/range {v18 .. v19}, Landroid/animation/PropertyValuesHolder;->ofKeyframe(Ljava/lang/String;[Landroid/animation/Keyframe;)Landroid/animation/PropertyValuesHolder;
-
-    move-result-object v12
-
-    .line 126
-    .local v12, "pvhX":Landroid/animation/PropertyValuesHolder;
-    const/16 v18, 0x2
-
-    move/from16 v0, v18
-
-    new-array v0, v0, [Landroid/animation/PropertyValuesHolder;
-
-    move-object/from16 v18, v0
+    .end local v3    # "ballX":F
+    .local v17, "ballX":F
+    new-array v3, v11, [Landroid/animation/Keyframe;
 
     const/16 v19, 0x0
 
-    aput-object v13, v18, v19
+    aput-object v5, v3, v19
 
-    const/16 v19, 0x1
+    const/4 v11, 0x1
 
-    aput-object v12, v18, v19
+    aput-object v4, v3, v11
 
-    move-object/from16 v0, v18
+    const/4 v11, 0x2
 
-    invoke-static {v2, v0}, Landroid/animation/ObjectAnimator;->ofPropertyValuesHolder(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;
+    aput-object v8, v3, v11
 
-    move-result-object v18
+    invoke-static {v15, v3}, Landroid/animation/PropertyValuesHolder;->ofKeyframe(Ljava/lang/String;[Landroid/animation/Keyframe;)Landroid/animation/PropertyValuesHolder;
 
-    const-wide/16 v19, 0x2ee
+    move-result-object v3
 
-    invoke-virtual/range {v18 .. v20}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+    .line 126
+    .local v3, "pvhX":Landroid/animation/PropertyValuesHolder;
+    new-array v15, v11, [Landroid/animation/PropertyValuesHolder;
 
-    move-result-object v17
+    aput-object v2, v15, v19
+
+    const/4 v11, 0x1
+
+    aput-object v3, v15, v11
+
+    invoke-static {v1, v15}, Landroid/animation/ObjectAnimator;->ofPropertyValuesHolder(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;
+
+    move-result-object v15
+
+    .line 127
+    move-object/from16 v22, v12
+
+    const-wide/16 v11, 0x2ee
+
+    .end local v12    # "pvhW":Landroid/animation/PropertyValuesHolder;
+    .local v22, "pvhW":Landroid/animation/PropertyValuesHolder;
+    invoke-virtual {v15, v11, v12}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    move-result-object v11
 
     .line 128
-    .local v17, "yxBouncer":Landroid/animation/ObjectAnimator;
-    const/16 v18, 0x1
+    .local v11, "yxBouncer":Landroid/animation/ObjectAnimator;
+    const/4 v12, 0x1
 
-    invoke-virtual/range {v17 .. v18}, Landroid/animation/ObjectAnimator;->setRepeatCount(I)V
+    invoke-virtual {v11, v12}, Landroid/animation/ObjectAnimator;->setRepeatCount(I)V
 
     .line 129
-    const/16 v18, 0x2
+    const/4 v12, 0x2
 
-    invoke-virtual/range {v17 .. v18}, Landroid/animation/ObjectAnimator;->setRepeatMode(I)V
+    invoke-virtual {v11, v12}, Landroid/animation/ObjectAnimator;->setRepeatMode(I)V
 
     .line 132
-    new-instance v18, Landroid/animation/AnimatorSet;
+    new-instance v15, Landroid/animation/AnimatorSet;
 
-    invoke-direct/range {v18 .. v18}, Landroid/animation/AnimatorSet;-><init>()V
+    invoke-direct {v15}, Landroid/animation/AnimatorSet;-><init>()V
 
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->bounceAnim:Landroid/animation/Animator;
+    iput-object v15, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->bounceAnim:Landroid/animation/Animator;
 
     .line 133
-    move-object/from16 v0, p0
+    iget-object v15, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->bounceAnim:Landroid/animation/Animator;
 
-    iget-object v0, v0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->bounceAnim:Landroid/animation/Animator;
+    check-cast v15, Landroid/animation/AnimatorSet;
 
-    move-object/from16 v18, v0
+    const/4 v12, 0x4
 
-    check-cast v18, Landroid/animation/AnimatorSet;
+    new-array v12, v12, [Landroid/animation/Animator;
 
-    const/16 v19, 0x4
+    const/16 v18, 0x0
 
-    move/from16 v0, v19
+    aput-object v20, v12, v18
 
-    new-array v0, v0, [Landroid/animation/Animator;
+    const/16 v16, 0x1
 
-    move-object/from16 v19, v0
+    aput-object v9, v12, v16
 
-    const/16 v20, 0x0
+    const/16 v16, 0x2
 
-    aput-object v16, v19, v20
+    aput-object v10, v12, v16
 
-    const/16 v20, 0x1
+    const/16 v16, 0x3
 
-    aput-object v15, v19, v20
+    aput-object v11, v12, v16
 
-    const/16 v20, 0x2
-
-    aput-object v14, v19, v20
-
-    const/16 v20, 0x3
-
-    aput-object v17, v19, v20
-
-    invoke-virtual/range {v18 .. v19}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
+    invoke-virtual {v15, v12}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
     .line 136
-    .end local v2    # "ball":Lio/appium/android/apis/animation/ShapeHolder;
-    .end local v3    # "ballX":F
-    .end local v4    # "kf0":Landroid/animation/Keyframe;
-    .end local v5    # "kf1":Landroid/animation/Keyframe;
-    .end local v6    # "kf2":Landroid/animation/Keyframe;
-    .end local v7    # "pvTX":Landroid/animation/PropertyValuesHolder;
-    .end local v8    # "pvTY":Landroid/animation/PropertyValuesHolder;
-    .end local v9    # "pvhAlpha":Landroid/animation/PropertyValuesHolder;
-    .end local v10    # "pvhH":Landroid/animation/PropertyValuesHolder;
-    .end local v11    # "pvhW":Landroid/animation/PropertyValuesHolder;
-    .end local v12    # "pvhX":Landroid/animation/PropertyValuesHolder;
-    .end local v13    # "pvhY":Landroid/animation/PropertyValuesHolder;
-    .end local v14    # "whxyBouncer":Landroid/animation/ObjectAnimator;
-    .end local v15    # "yAlphaBouncer":Landroid/animation/ObjectAnimator;
-    .end local v16    # "yBouncer":Landroid/animation/ObjectAnimator;
-    .end local v17    # "yxBouncer":Landroid/animation/ObjectAnimator;
+    .end local v1    # "ball":Lio/appium/android/apis/animation/ShapeHolder;
+    .end local v2    # "pvhY":Landroid/animation/PropertyValuesHolder;
+    .end local v3    # "pvhX":Landroid/animation/PropertyValuesHolder;
+    .end local v4    # "kf1":Landroid/animation/Keyframe;
+    .end local v5    # "kf0":Landroid/animation/Keyframe;
+    .end local v6    # "pvhAlpha":Landroid/animation/PropertyValuesHolder;
+    .end local v7    # "pvTY":Landroid/animation/PropertyValuesHolder;
+    .end local v8    # "kf2":Landroid/animation/Keyframe;
+    .end local v9    # "yAlphaBouncer":Landroid/animation/ObjectAnimator;
+    .end local v10    # "whxyBouncer":Landroid/animation/ObjectAnimator;
+    .end local v11    # "yxBouncer":Landroid/animation/ObjectAnimator;
+    .end local v13    # "pvhH":Landroid/animation/PropertyValuesHolder;
+    .end local v14    # "pvTX":Landroid/animation/PropertyValuesHolder;
+    .end local v17    # "ballX":F
+    .end local v20    # "yBouncer":Landroid/animation/ObjectAnimator;
+    .end local v22    # "pvhW":Landroid/animation/PropertyValuesHolder;
     :cond_0
     return-void
 
-    .line 97
+    nop
+
     :array_0
     .array-data 4
         0x3f800000    # 1.0f
@@ -946,7 +776,6 @@
     .locals 0
     .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
-    .prologue
     .line 174
     invoke-virtual {p0}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->invalidate()V
 
@@ -958,55 +787,53 @@
     .locals 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
     .line 166
-    iget-object v2, p0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
+    iget-object v0, p0, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->balls:Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    check-cast v0, Lio/appium/android/apis/animation/ShapeHolder;
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lio/appium/android/apis/animation/ShapeHolder;
 
     .line 167
-    .local v0, "ball":Lio/appium/android/apis/animation/ShapeHolder;
-    invoke-virtual {v0}, Lio/appium/android/apis/animation/ShapeHolder;->getX()F
+    .local v1, "ball":Lio/appium/android/apis/animation/ShapeHolder;
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getX()F
 
     move-result v2
 
-    invoke-virtual {v0}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
 
     move-result v3
 
     invoke-virtual {p1, v2, v3}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 168
-    invoke-virtual {v0}, Lio/appium/android/apis/animation/ShapeHolder;->getShape()Landroid/graphics/drawable/ShapeDrawable;
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getShape()Landroid/graphics/drawable/ShapeDrawable;
 
     move-result-object v2
 
     invoke-virtual {v2, p1}, Landroid/graphics/drawable/ShapeDrawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 169
-    invoke-virtual {v0}, Lio/appium/android/apis/animation/ShapeHolder;->getX()F
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getX()F
 
     move-result v2
 
     neg-float v2, v2
 
-    invoke-virtual {v0}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
+    invoke-virtual {v1}, Lio/appium/android/apis/animation/ShapeHolder;->getY()F
 
     move-result v3
 
@@ -1014,10 +841,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/graphics/Canvas;->translate(FF)V
 
+    .line 170
+    .end local v1    # "ball":Lio/appium/android/apis/animation/ShapeHolder;
     goto :goto_0
 
     .line 171
-    .end local v0    # "ball":Lio/appium/android/apis/animation/ShapeHolder;
     :cond_0
     return-void
 .end method
@@ -1025,7 +853,6 @@
 .method public startAnimation()V
     .locals 1
 
-    .prologue
     .line 139
     invoke-direct {p0}, Lio/appium/android/apis/animation/MultiPropertyAnimation$MyAnimationView;->createAnimation()V
 

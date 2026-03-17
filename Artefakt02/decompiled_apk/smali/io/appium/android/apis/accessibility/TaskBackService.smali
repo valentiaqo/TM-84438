@@ -24,7 +24,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 36
     invoke-direct {p0}, Landroid/accessibilityservice/AccessibilityService;-><init>()V
 
@@ -32,10 +31,9 @@
 .end method
 
 .method private getListItemNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .locals 5
+    .locals 4
     .param p1, "source"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    .prologue
     .line 144
     move-object v0, p1
 
@@ -44,316 +42,320 @@
     :goto_0
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->getParent()Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 147
-    .local v2, "parent":Landroid/view/accessibility/AccessibilityNodeInfo;
-    if-nez v2, :cond_1
+    .local v1, "parent":Landroid/view/accessibility/AccessibilityNodeInfo;
+    if-nez v1, :cond_0
 
     .line 148
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    .line 151
-    .end local v0    # "current":Landroid/view/accessibility/AccessibilityNodeInfo;
-    :cond_0
-    return-object v0
+    return-object v2
 
     .line 150
-    .restart local v0    # "current":Landroid/view/accessibility/AccessibilityNodeInfo;
-    :cond_1
-    const-string v3, "io.appium.android.apis.accessibility.TaskListView"
+    :cond_0
+    const-string v2, "io.appium.android.apis.accessibility.TaskListView"
 
-    invoke-virtual {v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->getClassName()Ljava/lang/CharSequence;
+    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getClassName()Ljava/lang/CharSequence;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_0
+    if-eqz v2, :cond_1
+
+    .line 151
+    return-object v0
 
     .line 154
-    move-object v1, v0
+    :cond_1
+    move-object v2, v0
 
     .line 155
-    .local v1, "oldCurrent":Landroid/view/accessibility/AccessibilityNodeInfo;
-    move-object v0, v2
+    .local v2, "oldCurrent":Landroid/view/accessibility/AccessibilityNodeInfo;
+    move-object v0, v1
 
     .line 156
-    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->recycle()V
+    invoke-virtual {v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->recycle()V
 
+    .line 157
+    .end local v1    # "parent":Landroid/view/accessibility/AccessibilityNodeInfo;
+    .end local v2    # "oldCurrent":Landroid/view/accessibility/AccessibilityNodeInfo;
     goto :goto_0
 .end method
 
 
 # virtual methods
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 18
+    .locals 17
     .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
-    .prologue
     .line 69
     move-object/from16 v0, p0
 
-    iget-boolean v14, v0, Lio/appium/android/apis/accessibility/TaskBackService;->mTextToSpeechInitialized:Z
+    iget-boolean v1, v0, Lio/appium/android/apis/accessibility/TaskBackService;->mTextToSpeechInitialized:Z
 
-    if-nez v14, :cond_1
+    if-nez v1, :cond_0
 
     .line 70
-    const-string v14, "TaskBackService/onAccessibilityEvent"
+    const-string v1, "TaskBackService/onAccessibilityEvent"
 
-    const-string v15, "Text-To-Speech engine not ready.  Bailing out."
+    const-string v2, "Text-To-Speech engine not ready.  Bailing out."
 
-    invoke-static {v14, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 141
-    :cond_0
-    :goto_0
+    .line 71
     return-void
 
     .line 82
-    :cond_1
+    :cond_0
     invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityEvent;->getSource()Landroid/view/accessibility/AccessibilityNodeInfo;
-
-    move-result-object v10
-
-    .line 83
-    .local v10, "source":Landroid/view/accessibility/AccessibilityNodeInfo;
-    if-eqz v10, :cond_0
-
-    .line 88
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v10}, Lio/appium/android/apis/accessibility/TaskBackService;->getListItemNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroid/view/accessibility/AccessibilityNodeInfo;
-
-    move-result-object v9
-
-    .line 89
-    .local v9, "rowNode":Landroid/view/accessibility/AccessibilityNodeInfo;
-    if-eqz v9, :cond_0
-
-    .line 94
-    const/4 v14, 0x0
-
-    invoke-virtual {v9, v14}, Landroid/view/accessibility/AccessibilityNodeInfo;->getChild(I)Landroid/view/accessibility/AccessibilityNodeInfo;
-
-    move-result-object v6
-
-    .line 95
-    .local v6, "labelNode":Landroid/view/accessibility/AccessibilityNodeInfo;
-    if-nez v6, :cond_2
-
-    .line 96
-    invoke-virtual {v9}, Landroid/view/accessibility/AccessibilityNodeInfo;->recycle()V
-
-    goto :goto_0
-
-    .line 100
-    :cond_2
-    const/4 v14, 0x1
-
-    invoke-virtual {v9, v14}, Landroid/view/accessibility/AccessibilityNodeInfo;->getChild(I)Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v1
 
-    .line 101
-    .local v1, "completeNode":Landroid/view/accessibility/AccessibilityNodeInfo;
-    if-nez v1, :cond_3
+    .line 83
+    .local v1, "source":Landroid/view/accessibility/AccessibilityNodeInfo;
+    if-nez v1, :cond_1
 
-    .line 102
-    invoke-virtual {v9}, Landroid/view/accessibility/AccessibilityNodeInfo;->recycle()V
+    .line 84
+    return-void
 
-    goto :goto_0
-
-    .line 108
-    :cond_3
-    invoke-virtual {v9}, Landroid/view/accessibility/AccessibilityNodeInfo;->getChildCount()I
-
-    move-result v14
-
-    const/4 v15, 0x2
-
-    if-lt v14, v15, :cond_4
-
-    const/4 v14, 0x1
-
-    invoke-virtual {v9, v14}, Landroid/view/accessibility/AccessibilityNodeInfo;->getChild(I)Landroid/view/accessibility/AccessibilityNodeInfo;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Landroid/view/accessibility/AccessibilityNodeInfo;->isCheckable()Z
-
-    move-result v14
-
-    if-nez v14, :cond_5
-
-    .line 109
-    :cond_4
-    invoke-virtual {v9}, Landroid/view/accessibility/AccessibilityNodeInfo;->recycle()V
-
-    goto :goto_0
-
-    .line 113
-    :cond_5
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v11
-
-    .line 114
-    .local v11, "taskLabel":Ljava/lang/CharSequence;
-    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->isChecked()Z
-
-    move-result v5
-
-    .line 116
-    .local v5, "isComplete":Z
-    const/4 v2, 0x0
-
-    .line 117
-    .local v2, "completeStr":Ljava/lang/String;
-    if-eqz v5, :cond_7
-
-    .line 118
-    const v14, 0x7f0c03ac
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v14}, Lio/appium/android/apis/accessibility/TaskBackService;->getString(I)Ljava/lang/String;
+    .line 88
+    :cond_1
+    invoke-direct {v0, v1}, Lio/appium/android/apis/accessibility/TaskBackService;->getListItemNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v2
 
-    .line 123
-    :goto_1
-    const v14, 0x7f0c03ab
+    .line 89
+    .local v2, "rowNode":Landroid/view/accessibility/AccessibilityNodeInfo;
+    if-nez v2, :cond_2
 
-    const/4 v15, 0x2
+    .line 90
+    return-void
 
-    new-array v15, v15, [Ljava/lang/Object;
+    .line 94
+    :cond_2
+    const/4 v3, 0x0
 
-    const/16 v16, 0x0
+    invoke-virtual {v2, v3}, Landroid/view/accessibility/AccessibilityNodeInfo;->getChild(I)Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    aput-object v11, v15, v16
+    move-result-object v4
 
-    const/16 v16, 0x1
+    .line 95
+    .local v4, "labelNode":Landroid/view/accessibility/AccessibilityNodeInfo;
+    if-nez v4, :cond_3
 
-    aput-object v2, v15, v16
+    .line 96
+    invoke-virtual {v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->recycle()V
 
-    move-object/from16 v0, p0
+    .line 97
+    return-void
 
-    invoke-virtual {v0, v14, v15}, Lio/appium/android/apis/accessibility/TaskBackService;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    .line 100
+    :cond_3
+    const/4 v5, 0x1
 
-    move-result-object v12
+    invoke-virtual {v2, v5}, Landroid/view/accessibility/AccessibilityNodeInfo;->getChild(I)Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    .line 124
-    .local v12, "taskStr":Ljava/lang/String;
-    new-instance v13, Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    invoke-direct {v13, v12}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    .line 101
+    .local v6, "completeNode":Landroid/view/accessibility/AccessibilityNodeInfo;
+    if-nez v6, :cond_4
 
-    .line 128
-    .local v13, "utterance":Ljava/lang/StringBuilder;
-    invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityEvent;->getRecordCount()I
+    .line 102
+    invoke-virtual {v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->recycle()V
 
-    move-result v8
+    .line 103
+    return-void
 
-    .line 129
-    .local v8, "records":I
-    const/4 v4, 0x0
+    .line 108
+    :cond_4
+    invoke-virtual {v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->getChildCount()I
 
-    .local v4, "i":I
-    :goto_2
-    if-ge v4, v8, :cond_8
+    move-result v7
 
-    .line 130
-    move-object/from16 v0, p1
+    const/4 v8, 0x2
 
-    invoke-virtual {v0, v4}, Landroid/view/accessibility/AccessibilityEvent;->getRecord(I)Landroid/view/accessibility/AccessibilityRecord;
+    if-lt v7, v8, :cond_9
+
+    invoke-virtual {v2, v5}, Landroid/view/accessibility/AccessibilityNodeInfo;->getChild(I)Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v7
 
-    .line 131
-    .local v7, "record":Landroid/view/accessibility/AccessibilityRecord;
-    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityRecord;->getContentDescription()Ljava/lang/CharSequence;
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo;->isCheckable()Z
 
-    move-result-object v3
+    move-result v7
 
-    .line 132
-    .local v3, "contentDescription":Ljava/lang/CharSequence;
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    if-nez v7, :cond_5
 
-    move-result v14
-
-    if-nez v14, :cond_6
-
-    .line 133
-    const-string v14, ", "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 134
-    invoke-virtual {v13, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
-
-    .line 129
-    :cond_6
-    add-int/lit8 v4, v4, 0x1
+    move-object/from16 v13, p1
 
     goto :goto_2
 
+    .line 113
+    :cond_5
+    invoke-virtual {v4}, Landroid/view/accessibility/AccessibilityNodeInfo;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v7
+
+    .line 114
+    .local v7, "taskLabel":Ljava/lang/CharSequence;
+    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo;->isChecked()Z
+
+    move-result v9
+
+    .line 116
+    .local v9, "isComplete":Z
+    const/4 v10, 0x0
+
+    .line 117
+    .local v10, "completeStr":Ljava/lang/String;
+    if-eqz v9, :cond_6
+
+    .line 118
+    const v11, 0x7f0e039d
+
+    invoke-virtual {v0, v11}, Lio/appium/android/apis/accessibility/TaskBackService;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    goto :goto_0
+
     .line 120
-    .end local v3    # "contentDescription":Ljava/lang/CharSequence;
-    .end local v4    # "i":I
-    .end local v7    # "record":Landroid/view/accessibility/AccessibilityRecord;
-    .end local v8    # "records":I
-    .end local v12    # "taskStr":Ljava/lang/String;
-    .end local v13    # "utterance":Ljava/lang/StringBuilder;
+    :cond_6
+    const v11, 0x7f0e03a0
+
+    invoke-virtual {v0, v11}, Lio/appium/android/apis/accessibility/TaskBackService;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    .line 123
+    :goto_0
+    const v11, 0x7f0e039e
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    aput-object v7, v8, v3
+
+    aput-object v10, v8, v5
+
+    invoke-virtual {v0, v11, v8}, Lio/appium/android/apis/accessibility/TaskBackService;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 124
+    .local v5, "taskStr":Ljava/lang/String;
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    .line 128
+    .local v8, "utterance":Ljava/lang/StringBuilder;
+    invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityEvent;->getRecordCount()I
+
+    move-result v11
+
+    .line 129
+    .local v11, "records":I
+    const/4 v12, 0x0
+
+    .local v12, "i":I
+    :goto_1
+    if-ge v12, v11, :cond_8
+
+    .line 130
+    move-object/from16 v13, p1
+
+    invoke-virtual {v13, v12}, Landroid/view/accessibility/AccessibilityEvent;->getRecord(I)Landroid/view/accessibility/AccessibilityRecord;
+
+    move-result-object v14
+
+    .line 131
+    .local v14, "record":Landroid/view/accessibility/AccessibilityRecord;
+    invoke-virtual {v14}, Landroid/view/accessibility/AccessibilityRecord;->getContentDescription()Ljava/lang/CharSequence;
+
+    move-result-object v15
+
+    .line 132
+    .local v15, "contentDescription":Ljava/lang/CharSequence;
+    invoke-static {v15}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v16
+
+    if-nez v16, :cond_7
+
+    .line 133
+    const-string v3, ", "
+
+    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 134
+    invoke-virtual {v8, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    .line 129
+    .end local v14    # "record":Landroid/view/accessibility/AccessibilityRecord;
+    .end local v15    # "contentDescription":Ljava/lang/CharSequence;
     :cond_7
-    const v14, 0x7f0c03ad
+    add-int/lit8 v12, v12, 0x1
 
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v14}, Lio/appium/android/apis/accessibility/TaskBackService;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
+    const/4 v3, 0x0
 
     goto :goto_1
 
-    .line 139
-    .restart local v4    # "i":I
-    .restart local v8    # "records":I
-    .restart local v12    # "taskStr":Ljava/lang/String;
-    .restart local v13    # "utterance":Ljava/lang/StringBuilder;
     :cond_8
-    move-object/from16 v0, p0
+    move-object/from16 v13, p1
 
-    iget-object v14, v0, Lio/appium/android/apis/accessibility/TaskBackService;->mTts:Landroid/speech/tts/TextToSpeech;
+    .line 139
+    .end local v12    # "i":I
+    iget-object v3, v0, Lio/appium/android/apis/accessibility/TaskBackService;->mTts:Landroid/speech/tts/TextToSpeech;
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v12
 
-    const/16 v16, 0x0
+    const/4 v14, 0x0
 
-    const/16 v17, 0x0
+    const/4 v15, 0x0
 
-    invoke-virtual/range {v14 .. v17}, Landroid/speech/tts/TextToSpeech;->speak(Ljava/lang/String;ILjava/util/HashMap;)I
+    invoke-virtual {v3, v12, v15, v14}, Landroid/speech/tts/TextToSpeech;->speak(Ljava/lang/String;ILjava/util/HashMap;)I
 
     .line 140
-    const-string v14, "TaskBackService/onAccessibilityEvent"
+    const-string v3, "TaskBackService/onAccessibilityEvent"
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v12
 
-    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_0
+    .line 141
+    return-void
+
+    .line 108
+    .end local v5    # "taskStr":Ljava/lang/String;
+    .end local v7    # "taskLabel":Ljava/lang/CharSequence;
+    .end local v8    # "utterance":Ljava/lang/StringBuilder;
+    .end local v9    # "isComplete":Z
+    .end local v10    # "completeStr":Ljava/lang/String;
+    .end local v11    # "records":I
+    :cond_9
+    move-object/from16 v13, p1
+
+    .line 109
+    :goto_2
+    invoke-virtual {v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->recycle()V
+
+    .line 110
+    return-void
 .end method
 
 .method public onDestroy()V
     .locals 1
 
-    .prologue
     .line 186
     invoke-super {p0}, Landroid/accessibilityservice/AccessibilityService;->onDestroy()V
 
@@ -376,7 +378,6 @@
     .locals 2
     .param p1, "status"    # I
 
-    .prologue
     .line 175
     if-nez p1, :cond_0
 
@@ -400,7 +401,6 @@
 .method public onInterrupt()V
     .locals 0
 
-    .prologue
     .line 166
     return-void
 .end method
@@ -408,7 +408,6 @@
 .method public onServiceConnected()V
     .locals 2
 
-    .prologue
     .line 60
     new-instance v0, Landroid/speech/tts/TextToSpeech;
 

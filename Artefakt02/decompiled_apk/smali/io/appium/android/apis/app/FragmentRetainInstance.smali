@@ -16,11 +16,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 38
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 98
     return-void
 .end method
 
@@ -30,7 +28,6 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 41
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -56,6 +53,7 @@
 
     move-result-object v0
 
+    .line 46
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
 
     .line 48

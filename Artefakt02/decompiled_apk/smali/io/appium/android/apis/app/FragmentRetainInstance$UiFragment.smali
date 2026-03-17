@@ -22,7 +22,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 54
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
@@ -35,7 +34,6 @@
     .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 75
     invoke-super {p0, p1}, Landroid/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
 
@@ -96,39 +94,38 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 4
+    .locals 3
     .param p1, "inflater"    # Landroid/view/LayoutInflater;
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 60
-    const v2, 0x7f03004f
+    const v0, 0x7f0b006c
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v2, p2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v1
-
-    .line 63
-    .local v1, "v":Landroid/view/View;
-    const v2, 0x7f0900a9
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/Button;
+    .line 63
+    .local v0, "v":Landroid/view/View;
+    const v1, 0x7f090189
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/Button;
 
     .line 64
-    .local v0, "button":Landroid/widget/Button;
+    .local v1, "button":Landroid/widget/Button;
     new-instance v2, Lio/appium/android/apis/app/FragmentRetainInstance$UiFragment$1;
 
     invoke-direct {v2, p0}, Lio/appium/android/apis/app/FragmentRetainInstance$UiFragment$1;-><init>(Lio/appium/android/apis/app/FragmentRetainInstance$UiFragment;)V
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 70
-    return-object v1
+    return-object v0
 .end method

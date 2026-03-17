@@ -16,7 +16,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 37
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -34,7 +33,6 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 43
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -58,7 +56,6 @@
     .locals 3
     .param p1, "menu"    # Landroid/view/Menu;
 
-    .prologue
     .line 50
     invoke-virtual {p0}, Lio/appium/android/apis/app/ActionBarUsage;->getMenuInflater()Landroid/view/MenuInflater;
 
@@ -66,18 +63,18 @@
 
     .line 51
     .local v0, "inflater":Landroid/view/MenuInflater;
-    const v2, 0x7f0e0002
+    const v1, 0x7f0c0002
 
-    invoke-virtual {v0, v2, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
+    invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
     .line 52
-    const v2, 0x7f09018b
+    const v1, 0x7f09001a
 
-    invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    invoke-interface {p1, v1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v2}, Landroid/view/MenuItem;->getActionView()Landroid/view/View;
+    invoke-interface {v1}, Landroid/view/MenuItem;->getActionView()Landroid/view/View;
 
     move-result-object v1
 
@@ -97,7 +94,6 @@
     .locals 2
     .param p1, "item"    # Landroid/view/MenuItem;
 
-    .prologue
     .line 68
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -107,15 +103,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
-
     invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -136,31 +128,28 @@
 .end method
 
 .method public onPrepareOptionsMenu(Landroid/view/Menu;)Z
-    .locals 3
+    .locals 2
     .param p1, "menu"    # Landroid/view/Menu;
 
-    .prologue
     .line 59
-    iget v1, p0, Lio/appium/android/apis/app/ActionBarUsage;->mSortMode:I
+    iget v0, p0, Lio/appium/android/apis/app/ActionBarUsage;->mSortMode:I
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v0, v1, :cond_0
 
     .line 60
-    iget v1, p0, Lio/appium/android/apis/app/ActionBarUsage;->mSortMode:I
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
-    invoke-interface {p1, v1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    move-result-object v0
 
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/view/MenuItem;->getIcon()Landroid/graphics/drawable/Drawable;
+    invoke-interface {v0}, Landroid/view/MenuItem;->getIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     .line 61
     .local v0, "icon":Landroid/graphics/drawable/Drawable;
-    const v1, 0x7f09018f
+    const v1, 0x7f09001c
 
     invoke-interface {p1, v1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -173,16 +162,15 @@
     :cond_0
     invoke-super {p0, p1}, Landroid/app/Activity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 .end method
 
 .method public onQueryTextChange(Ljava/lang/String;)Z
     .locals 2
     .param p1, "newText"    # Ljava/lang/String;
 
-    .prologue
     .line 84
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
@@ -190,20 +178,10 @@
 
     if-eqz v0, :cond_0
 
-    const-string p1, ""
+    const-string v0, ""
 
-    .line 85
-    :goto_0
-    iget-object v0, p0, Lio/appium/android/apis/app/ActionBarUsage;->mSearchText:Landroid/widget/TextView;
+    goto :goto_0
 
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 86
-    const/4 v0, 0x1
-
-    return v0
-
-    .line 84
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -213,24 +191,30 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
-
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    goto :goto_0
+    :goto_0
+    move-object p1, v0
+
+    .line 85
+    iget-object v0, p0, Lio/appium/android/apis/app/ActionBarUsage;->mSearchText:Landroid/widget/TextView;
+
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 86
+    const/4 v0, 0x1
+
+    return v0
 .end method
 
 .method public onQueryTextSubmit(Ljava/lang/String;)Z
     .locals 2
     .param p1, "query"    # Ljava/lang/String;
 
-    .prologue
     .line 90
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -240,17 +224,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
-
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
 
     const-string v1, "..."
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -274,7 +252,6 @@
     .locals 1
     .param p1, "item"    # Landroid/view/MenuItem;
 
-    .prologue
     .line 76
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 

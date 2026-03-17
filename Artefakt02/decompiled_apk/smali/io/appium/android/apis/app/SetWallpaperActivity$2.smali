@@ -28,8 +28,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/SetWallpaperActivity;Landroid/app/WallpaperManager;Landroid/widget/ImageView;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/SetWallpaperActivity;
 
-    .prologue
     .line 77
     iput-object p1, p0, Lio/appium/android/apis/app/SetWallpaperActivity$2;->this$0:Lio/appium/android/apis/app/SetWallpaperActivity;
 
@@ -45,32 +45,30 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .locals 2
     .param p1, "view"    # Landroid/view/View;
 
-    .prologue
     .line 80
     :try_start_0
-    iget-object v1, p0, Lio/appium/android/apis/app/SetWallpaperActivity$2;->val$wallpaperManager:Landroid/app/WallpaperManager;
+    iget-object v0, p0, Lio/appium/android/apis/app/SetWallpaperActivity$2;->val$wallpaperManager:Landroid/app/WallpaperManager;
 
-    iget-object v2, p0, Lio/appium/android/apis/app/SetWallpaperActivity$2;->val$imageView:Landroid/widget/ImageView;
+    iget-object v1, p0, Lio/appium/android/apis/app/SetWallpaperActivity$2;->val$imageView:Landroid/widget/ImageView;
 
-    invoke-virtual {v2}, Landroid/widget/ImageView;->getDrawingCache()Landroid/graphics/Bitmap;
+    invoke-virtual {v1}, Landroid/widget/ImageView;->getDrawingCache()Landroid/graphics/Bitmap;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Landroid/app/WallpaperManager;->setBitmap(Landroid/graphics/Bitmap;)V
+    invoke-virtual {v0, v1}, Landroid/app/WallpaperManager;->setBitmap(Landroid/graphics/Bitmap;)V
 
     .line 81
-    iget-object v1, p0, Lio/appium/android/apis/app/SetWallpaperActivity$2;->this$0:Lio/appium/android/apis/app/SetWallpaperActivity;
+    iget-object v0, p0, Lio/appium/android/apis/app/SetWallpaperActivity$2;->this$0:Lio/appium/android/apis/app/SetWallpaperActivity;
 
-    invoke-virtual {v1}, Lio/appium/android/apis/app/SetWallpaperActivity;->finish()V
+    invoke-virtual {v0}, Lio/appium/android/apis/app/SetWallpaperActivity;->finish()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 85
-    :goto_0
-    return-void
+    .line 84
+    goto :goto_0
 
     .line 82
     :catch_0
@@ -80,5 +78,8 @@
     .local v0, "e":Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_0
+    .line 85
+    .end local v0    # "e":Ljava/io/IOException;
+    :goto_0
+    return-void
 .end method

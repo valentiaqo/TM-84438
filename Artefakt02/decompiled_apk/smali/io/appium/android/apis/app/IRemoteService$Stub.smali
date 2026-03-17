@@ -35,7 +35,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 18
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
@@ -52,22 +51,19 @@
     .locals 2
     .param p0, "obj"    # Landroid/os/IBinder;
 
-    .prologue
     .line 27
     if-nez p0, :cond_0
 
     .line 28
     const/4 v0, 0x0
 
-    .line 34
-    :goto_0
     return-object v0
 
     .line 30
     :cond_0
-    const-string v1, "io.appium.android.apis.app.IRemoteService"
+    const-string v0, "io.appium.android.apis.app.IRemoteService"
 
-    invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
+    invoke-interface {p0, v0}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
 
     move-result-object v0
 
@@ -80,18 +76,19 @@
     if-eqz v1, :cond_1
 
     .line 32
-    check-cast v0, Lio/appium/android/apis/app/IRemoteService;
+    move-object v1, v0
 
-    goto :goto_0
+    check-cast v1, Lio/appium/android/apis/app/IRemoteService;
+
+    return-object v1
 
     .line 34
     :cond_1
-    new-instance v0, Lio/appium/android/apis/app/IRemoteService$Stub$Proxy;
+    new-instance v1, Lio/appium/android/apis/app/IRemoteService$Stub$Proxy;
 
-    .end local v0    # "iin":Landroid/os/IInterface;
-    invoke-direct {v0, p0}, Lio/appium/android/apis/app/IRemoteService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
+    invoke-direct {v1, p0}, Lio/appium/android/apis/app/IRemoteService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_0
+    return-object v1
 .end method
 
 
@@ -99,7 +96,6 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 0
 
-    .prologue
     .line 38
     return-object p0
 .end method
@@ -116,84 +112,84 @@
         }
     .end annotation
 
-    .prologue
-    const/4 v1, 0x1
-
     .line 42
-    sparse-switch p1, :sswitch_data_0
+    const-string v0, "io.appium.android.apis.app.IRemoteService"
 
-    .line 68
+    .line 43
+    .local v0, "descriptor":Ljava/lang/String;
+    const v1, 0x5f4e5446
+
+    const/4 v2, 0x1
+
+    if-eq p1, v1, :cond_0
+
+    packed-switch p1, :pswitch_data_0
+
+    .line 70
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v1
 
-    :goto_0
     return v1
 
-    .line 46
-    :sswitch_0
-    const-string v2, "io.appium.android.apis.app.IRemoteService"
-
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 51
-    :sswitch_1
-    const-string v2, "io.appium.android.apis.app.IRemoteService"
-
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 53
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lio/appium/android/apis/app/IRemoteServiceCallback$Stub;->asInterface(Landroid/os/IBinder;)Lio/appium/android/apis/app/IRemoteServiceCallback;
-
-    move-result-object v0
-
-    .line 54
-    .local v0, "_arg0":Lio/appium/android/apis/app/IRemoteServiceCallback;
-    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/IRemoteService$Stub;->registerCallback(Lio/appium/android/apis/app/IRemoteServiceCallback;)V
-
-    .line 55
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto :goto_0
-
-    .line 60
-    .end local v0    # "_arg0":Lio/appium/android/apis/app/IRemoteServiceCallback;
-    :sswitch_2
-    const-string v2, "io.appium.android.apis.app.IRemoteService"
-
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 62
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lio/appium/android/apis/app/IRemoteServiceCallback$Stub;->asInterface(Landroid/os/IBinder;)Lio/appium/android/apis/app/IRemoteServiceCallback;
-
-    move-result-object v0
+    .line 61
+    :pswitch_0
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 63
-    .restart local v0    # "_arg0":Lio/appium/android/apis/app/IRemoteServiceCallback;
-    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/IRemoteService$Stub;->unregisterCallback(Lio/appium/android/apis/app/IRemoteServiceCallback;)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lio/appium/android/apis/app/IRemoteServiceCallback$Stub;->asInterface(Landroid/os/IBinder;)Lio/appium/android/apis/app/IRemoteServiceCallback;
+
+    move-result-object v1
 
     .line 64
+    .local v1, "_arg0":Lio/appium/android/apis/app/IRemoteServiceCallback;
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/IRemoteService$Stub;->unregisterCallback(Lio/appium/android/apis/app/IRemoteServiceCallback;)V
+
+    .line 65
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_0
+    .line 66
+    return v2
 
-    .line 42
-    nop
+    .line 52
+    .end local v1    # "_arg0":Lio/appium/android/apis/app/IRemoteServiceCallback;
+    :pswitch_1
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    :sswitch_data_0
-    .sparse-switch
-        0x1 -> :sswitch_1
-        0x2 -> :sswitch_2
-        0x5f4e5446 -> :sswitch_0
-    .end sparse-switch
+    .line 54
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lio/appium/android/apis/app/IRemoteServiceCallback$Stub;->asInterface(Landroid/os/IBinder;)Lio/appium/android/apis/app/IRemoteServiceCallback;
+
+    move-result-object v1
+
+    .line 55
+    .restart local v1    # "_arg0":Lio/appium/android/apis/app/IRemoteServiceCallback;
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/IRemoteService$Stub;->registerCallback(Lio/appium/android/apis/app/IRemoteServiceCallback;)V
+
+    .line 56
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 57
+    return v2
+
+    .line 47
+    .end local v1    # "_arg0":Lio/appium/android/apis/app/IRemoteServiceCallback;
+    :cond_0
+    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 48
+    return v2
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

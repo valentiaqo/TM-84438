@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/ServiceStartArguments$Controller;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/ServiceStartArguments$Controller;
 
-    .prologue
-    .line 263
+    .line 262
     iput-object p1, p0, Lio/appium/android/apis/app/ServiceStartArguments$Controller$5;->this$0:Lio/appium/android/apis/app/ServiceStartArguments$Controller;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,14 +40,13 @@
     .locals 1
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 267
+    .line 266
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v0
 
     invoke-static {v0}, Landroid/os/Process;->killProcess(I)V
 
-    .line 268
+    .line 267
     return-void
 .end method

@@ -23,8 +23,7 @@
 .field final mCallbacks:Landroid/os/RemoteCallbackList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/RemoteCallbackList",
-            "<",
+            "Landroid/os/RemoteCallbackList<",
             "Lio/appium/android/apis/app/IRemoteServiceCallback;",
             ">;"
         }
@@ -44,7 +43,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 57
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
@@ -81,61 +79,91 @@
 
     iput-object v0, p0, Lio/appium/android/apis/app/RemoteService;->mHandler:Landroid/os/Handler;
 
-    .line 471
     return-void
 .end method
 
 .method private showNotification()V
-    .locals 8
+    .locals 6
 
-    .prologue
-    const v7, 0x7f0c008f
+    .line 185
+    const v0, 0x7f0e027e
 
-    const/4 v6, 0x0
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/RemoteService;->getText(I)Ljava/lang/CharSequence;
 
-    .line 184
-    invoke-virtual {p0, v7}, Lio/appium/android/apis/app/RemoteService;->getText(I)Ljava/lang/CharSequence;
+    move-result-object v1
+
+    .line 187
+    .local v1, "text":Ljava/lang/CharSequence;
+    new-instance v2, Landroid/content/Intent;
+
+    const-class v3, Lio/appium/android/apis/app/RemoteService$Controller;
+
+    invoke-direct {v2, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    const/4 v3, 0x0
+
+    invoke-static {p0, v3, v2, v3}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v2
 
-    .line 187
-    .local v2, "text":Ljava/lang/CharSequence;
-    new-instance v1, Landroid/app/Notification;
+    .line 190
+    .local v2, "contentIntent":Landroid/app/PendingIntent;
+    new-instance v3, Landroid/app/Notification$Builder;
 
-    const v3, 0x7f02005d
+    invoke-direct {v3, p0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
+    .line 191
+    const v4, 0x7f0800c1
+
+    invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 192
+    invoke-virtual {v3, v1}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 193
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v4
 
-    invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/Notification;-><init>(ILjava/lang/CharSequence;J)V
-
-    .line 191
-    .local v1, "notification":Landroid/app/Notification;
-    new-instance v3, Landroid/content/Intent;
-
-    const-class v4, Lio/appium/android/apis/app/RemoteService$Controller;
-
-    invoke-direct {v3, p0, v4}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    invoke-static {p0, v6, v3, v6}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v0
-
-    .line 195
-    .local v0, "contentIntent":Landroid/app/PendingIntent;
-    const v3, 0x7f0c0091
-
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/app/RemoteService;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v4, v5}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v3
 
-    invoke-virtual {v1, p0, v3, v2, v0}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
+    .line 194
+    const v4, 0x7f0e027d
+
+    invoke-virtual {p0, v4}, Lio/appium/android/apis/app/RemoteService;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 195
+    invoke-virtual {v3, v1}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 196
+    invoke-virtual {v3, v2}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 197
+    invoke-virtual {v3}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+
+    move-result-object v3
 
     .line 200
-    iget-object v3, p0, Lio/appium/android/apis/app/RemoteService;->mNM:Landroid/app/NotificationManager;
+    .local v3, "notification":Landroid/app/Notification;
+    iget-object v4, p0, Lio/appium/android/apis/app/RemoteService;->mNM:Landroid/app/NotificationManager;
 
-    invoke-virtual {v3, v7, v1}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+    invoke-virtual {v4, v0, v3}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
     .line 201
     return-void
@@ -147,7 +175,6 @@
     .locals 2
     .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 104
     const-class v0, Lio/appium/android/apis/app/IRemoteService;
 
@@ -168,8 +195,6 @@
     .line 105
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService;->mBinder:Lio/appium/android/apis/app/IRemoteService$Stub;
 
-    .line 110
-    :goto_0
     return-object v0
 
     .line 107
@@ -193,19 +218,18 @@
     .line 108
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService;->mSecondaryBinder:Lio/appium/android/apis/app/ISecondary$Stub;
 
-    goto :goto_0
+    return-object v0
 
     .line 110
     :cond_1
     const/4 v0, 0x0
 
-    goto :goto_0
+    return-object v0
 .end method
 
 .method public onCreate()V
     .locals 2
 
-    .prologue
     .line 71
     const-string v0, "notification"
 
@@ -234,16 +258,15 @@
 .method public onDestroy()V
     .locals 2
 
-    .prologue
     .line 85
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService;->mNM:Landroid/app/NotificationManager;
 
-    const v1, 0x7f0c008f
+    const v1, 0x7f0e027e
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
     .line 88
-    const v0, 0x7f0c0090
+    const v0, 0x7f0e027f
 
     const/4 v1, 0x0
 
@@ -273,7 +296,6 @@
     .locals 2
     .param p1, "rootIntent"    # Landroid/content/Intent;
 
-    .prologue
     .line 140
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -283,11 +305,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
-
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

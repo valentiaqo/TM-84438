@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="0x1" android:orientation="1" android:padding="4.0dp" android:layout_width="-1" android:layout_height="-1"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textAppearance="@null" android:paddingBottom="4.0dp" android:layout_width="-1" android:layout_height="-2" android:text="@string/receive_result_instructions" android:layout_weight="0.0" android:contentDescription="@string/receive_result_instructions" />
-    <TextView android:textAppearance="@null" android:textColor="#000" android:id="@id/results" android:background="@drawable/green" android:paddingBottom="4.0dp" android:layout_width="-1" android:layout_height="10.0dp" android:layout_weight="1.0" />
-    <Button android:id="@id/get" android:layout_width="-2" android:layout_height="-2" android:text="@string/receive_result_result" android:layout_weight="0.0" android:contentDescription="@string/receive_result_result">
-        <requestFocus />
-    </Button>
-</LinearLayout>

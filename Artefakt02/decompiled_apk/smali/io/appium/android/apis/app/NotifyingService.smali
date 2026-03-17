@@ -21,9 +21,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     .line 42
-    const v0, 0x7f0300d9
+    const v0, 0x7f0b0100
 
     sput v0, Lio/appium/android/apis/app/NotifyingService;->MOOD_NOTIFICATIONS:I
 
@@ -33,7 +32,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 39
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
@@ -60,7 +58,6 @@
     .param p1, "x1"    # I
     .param p2, "x2"    # I
 
-    .prologue
     .line 39
     invoke-direct {p0, p1, p2}, Lio/appium/android/apis/app/NotifyingService;->showNotification(II)V
 
@@ -71,7 +68,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/app/NotifyingService;
 
-    .prologue
     .line 39
     iget-object v0, p0, Lio/appium/android/apis/app/NotifyingService;->mCondition:Landroid/os/ConditionVariable;
 
@@ -79,58 +75,82 @@
 .end method
 
 .method private showNotification(II)V
-    .locals 7
+    .locals 5
     .param p1, "moodId"    # I
     .param p2, "textId"    # I
-
-    .prologue
-    const/4 v6, 0x0
 
     .line 95
     invoke-virtual {p0, p2}, Lio/appium/android/apis/app/NotifyingService;->getText(I)Ljava/lang/CharSequence;
 
-    move-result-object v2
-
-    .line 102
-    .local v2, "text":Ljava/lang/CharSequence;
-    new-instance v1, Landroid/app/Notification;
-
-    const/4 v3, 0x0
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    invoke-direct {v1, p1, v3, v4, v5}, Landroid/app/Notification;-><init>(ILjava/lang/CharSequence;J)V
-
-    .line 105
-    .local v1, "notification":Landroid/app/Notification;
-    new-instance v3, Landroid/content/Intent;
-
-    const-class v4, Lio/appium/android/apis/app/NotifyingController;
-
-    invoke-direct {v3, p0, v4}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    invoke-static {p0, v6, v3, v6}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
     move-result-object v0
 
-    .line 109
-    .local v0, "contentIntent":Landroid/app/PendingIntent;
-    const v3, 0x7f0c0123
+    .line 97
+    .local v0, "text":Ljava/lang/CharSequence;
+    new-instance v1, Landroid/content/Intent;
+
+    const-class v2, Lio/appium/android/apis/app/NotifyingController;
+
+    invoke-direct {v1, p0, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    const/4 v2, 0x0
+
+    invoke-static {p0, v2, v1, v2}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+
+    move-result-object v1
+
+    .line 105
+    .local v1, "contentIntent":Landroid/app/PendingIntent;
+    new-instance v2, Landroid/app/Notification$Builder;
+
+    invoke-direct {v2, p0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 106
+    invoke-virtual {v2, p1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
+
+    move-result-object v2
+
+    .line 107
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v3
+
+    invoke-virtual {v2, v3, v4}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
+
+    move-result-object v2
+
+    .line 108
+    const v3, 0x7f0e0310
 
     invoke-virtual {p0, v3}, Lio/appium/android/apis/app/NotifyingService;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    invoke-virtual {v1, p0, v3, v2, v0}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
+    invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v2
+
+    .line 109
+    invoke-virtual {v2, v0}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v2
+
+    .line 110
+    invoke-virtual {v2, v1}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
+
+    move-result-object v2
+
+    .line 111
+    invoke-virtual {v2}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+
+    move-result-object v2
 
     .line 114
+    .local v2, "notification":Landroid/app/Notification;
     iget-object v3, p0, Lio/appium/android/apis/app/NotifyingService;->mNM:Landroid/app/NotificationManager;
 
     sget v4, Lio/appium/android/apis/app/NotifyingService;->MOOD_NOTIFICATIONS:I
 
-    invoke-virtual {v3, v4, v1}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+    invoke-virtual {v3, v4, v2}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
     .line 115
     return-void
@@ -142,7 +162,6 @@
     .locals 1
     .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 90
     iget-object v0, p0, Lio/appium/android/apis/app/NotifyingService;->mBinder:Landroid/os/IBinder;
 
@@ -152,28 +171,27 @@
 .method public onCreate()V
     .locals 4
 
-    .prologue
     .line 49
-    const-string v1, "notification"
+    const-string v0, "notification"
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/NotifyingService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/NotifyingService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/app/NotificationManager;
+    check-cast v0, Landroid/app/NotificationManager;
 
-    iput-object v1, p0, Lio/appium/android/apis/app/NotifyingService;->mNM:Landroid/app/NotificationManager;
+    iput-object v0, p0, Lio/appium/android/apis/app/NotifyingService;->mNM:Landroid/app/NotificationManager;
 
     .line 54
     new-instance v0, Ljava/lang/Thread;
 
-    const/4 v1, 0x0
+    iget-object v1, p0, Lio/appium/android/apis/app/NotifyingService;->mTask:Ljava/lang/Runnable;
 
-    iget-object v2, p0, Lio/appium/android/apis/app/NotifyingService;->mTask:Ljava/lang/Runnable;
+    const-string v2, "NotifyingService"
 
-    const-string v3, "NotifyingService"
+    const/4 v3, 0x0
 
-    invoke-direct {v0, v1, v2, v3}, Ljava/lang/Thread;-><init>(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V
+    invoke-direct {v0, v3, v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V
 
     .line 55
     .local v0, "notifyingThread":Ljava/lang/Thread;
@@ -195,7 +213,6 @@
 .method public onDestroy()V
     .locals 2
 
-    .prologue
     .line 62
     iget-object v0, p0, Lio/appium/android/apis/app/NotifyingService;->mNM:Landroid/app/NotificationManager;
 

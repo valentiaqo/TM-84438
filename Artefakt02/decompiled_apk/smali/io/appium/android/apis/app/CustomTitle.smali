@@ -7,7 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 52
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -17,56 +16,55 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 9
+    .locals 7
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v8, 0x7
 
     .line 61
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 63
-    invoke-virtual {p0, v8}, Lio/appium/android/apis/app/CustomTitle;->requestWindowFeature(I)Z
+    const/4 v0, 0x7
+
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/CustomTitle;->requestWindowFeature(I)Z
 
     .line 64
-    const v6, 0x7f030033
+    const v1, 0x7f0b0050
 
-    invoke-virtual {p0, v6}, Lio/appium/android/apis/app/CustomTitle;->setContentView(I)V
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/CustomTitle;->setContentView(I)V
 
     .line 65
     invoke-virtual {p0}, Lio/appium/android/apis/app/CustomTitle;->getWindow()Landroid/view/Window;
 
-    move-result-object v6
+    move-result-object v1
 
-    const v7, 0x7f030034
+    const v2, 0x7f0b0051
 
-    invoke-virtual {v6, v8, v7}, Landroid/view/Window;->setFeatureInt(II)V
+    invoke-virtual {v1, v0, v2}, Landroid/view/Window;->setFeatureInt(II)V
 
     .line 67
-    const v6, 0x7f090071
+    const v0, 0x7f09010e
 
-    invoke-virtual {p0, v6}, Lio/appium/android/apis/app/CustomTitle;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/CustomTitle;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    .line 68
+    .local v0, "leftText":Landroid/widget/TextView;
+    const v1, 0x7f090190
+
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/CustomTitle;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 68
-    .local v1, "leftText":Landroid/widget/TextView;
-    const v6, 0x7f090072
-
-    invoke-virtual {p0, v6}, Lio/appium/android/apis/app/CustomTitle;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/widget/TextView;
-
     .line 69
-    .local v4, "rightText":Landroid/widget/TextView;
-    const v6, 0x7f09006d
+    .local v1, "rightText":Landroid/widget/TextView;
+    const v2, 0x7f090110
 
-    invoke-virtual {p0, v6}, Lio/appium/android/apis/app/CustomTitle;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lio/appium/android/apis/app/CustomTitle;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -74,48 +72,48 @@
 
     .line 70
     .local v2, "leftTextEdit":Landroid/widget/EditText;
-    const v6, 0x7f09006f
+    const v3, 0x7f090192
 
-    invoke-virtual {p0, v6}, Lio/appium/android/apis/app/CustomTitle;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/widget/EditText;
-
-    .line 71
-    .local v5, "rightTextEdit":Landroid/widget/EditText;
-    const v6, 0x7f09006e
-
-    invoke-virtual {p0, v6}, Lio/appium/android/apis/app/CustomTitle;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/Button;
-
-    .line 72
-    .local v0, "leftButton":Landroid/widget/Button;
-    const v6, 0x7f090070
-
-    invoke-virtual {p0, v6}, Lio/appium/android/apis/app/CustomTitle;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Lio/appium/android/apis/app/CustomTitle;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    check-cast v3, Landroid/widget/Button;
+    check-cast v3, Landroid/widget/EditText;
+
+    .line 71
+    .local v3, "rightTextEdit":Landroid/widget/EditText;
+    const v4, 0x7f09010f
+
+    invoke-virtual {p0, v4}, Lio/appium/android/apis/app/CustomTitle;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/Button;
+
+    .line 72
+    .local v4, "leftButton":Landroid/widget/Button;
+    const v5, 0x7f090191
+
+    invoke-virtual {p0, v5}, Lio/appium/android/apis/app/CustomTitle;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/Button;
 
     .line 74
-    .local v3, "rightButton":Landroid/widget/Button;
+    .local v5, "rightButton":Landroid/widget/Button;
     new-instance v6, Lio/appium/android/apis/app/CustomTitle$1;
 
-    invoke-direct {v6, p0, v1, v2}, Lio/appium/android/apis/app/CustomTitle$1;-><init>(Lio/appium/android/apis/app/CustomTitle;Landroid/widget/TextView;Landroid/widget/EditText;)V
+    invoke-direct {v6, p0, v0, v2}, Lio/appium/android/apis/app/CustomTitle$1;-><init>(Lio/appium/android/apis/app/CustomTitle;Landroid/widget/TextView;Landroid/widget/EditText;)V
 
-    invoke-virtual {v0, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v4, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 79
     new-instance v6, Lio/appium/android/apis/app/CustomTitle$2;
 
-    invoke-direct {v6, p0, v4, v5}, Lio/appium/android/apis/app/CustomTitle$2;-><init>(Lio/appium/android/apis/app/CustomTitle;Landroid/widget/TextView;Landroid/widget/EditText;)V
+    invoke-direct {v6, p0, v1, v3}, Lio/appium/android/apis/app/CustomTitle$2;-><init>(Lio/appium/android/apis/app/CustomTitle;Landroid/widget/TextView;Landroid/widget/EditText;)V
 
-    invoke-virtual {v3, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v5, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 84
     return-void

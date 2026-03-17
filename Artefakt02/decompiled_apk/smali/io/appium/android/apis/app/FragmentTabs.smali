@@ -15,11 +15,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 33
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 70
     return-void
 .end method
 
@@ -28,9 +26,6 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 6
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v5, 0x0
 
     .line 36
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
@@ -47,117 +42,131 @@
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setNavigationMode(I)V
 
     .line 40
-    const/16 v1, 0x8
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v5, v1}, Landroid/app/ActionBar;->setDisplayOptions(II)V
+    const/16 v2, 0x8
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
     .line 42
     invoke-virtual {v0}, Landroid/app/ActionBar;->newTab()Landroid/app/ActionBar$Tab;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "Simple"
+    const-string v3, "Simple"
 
-    invoke-virtual {v1, v2}, Landroid/app/ActionBar$Tab;->setText(Ljava/lang/CharSequence;)Landroid/app/ActionBar$Tab;
+    .line 43
+    invoke-virtual {v2, v3}, Landroid/app/ActionBar$Tab;->setText(Ljava/lang/CharSequence;)Landroid/app/ActionBar$Tab;
 
-    move-result-object v1
+    move-result-object v2
 
-    new-instance v2, Lio/appium/android/apis/app/FragmentTabs$TabListener;
+    new-instance v3, Lio/appium/android/apis/app/FragmentTabs$TabListener;
 
-    const-string v3, "simple"
+    const-string v4, "simple"
 
-    const-class v4, Lio/appium/android/apis/app/FragmentStack$CountingFragment;
+    const-class v5, Lio/appium/android/apis/app/FragmentStack$CountingFragment;
 
-    invoke-direct {v2, p0, v3, v4}, Lio/appium/android/apis/app/FragmentTabs$TabListener;-><init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-direct {v3, p0, v4, v5}, Lio/appium/android/apis/app/FragmentTabs$TabListener;-><init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/Class;)V
 
-    invoke-virtual {v1, v2}, Landroid/app/ActionBar$Tab;->setTabListener(Landroid/app/ActionBar$TabListener;)Landroid/app/ActionBar$Tab;
+    .line 44
+    invoke-virtual {v2, v3}, Landroid/app/ActionBar$Tab;->setTabListener(Landroid/app/ActionBar$TabListener;)Landroid/app/ActionBar$Tab;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->addTab(Landroid/app/ActionBar$Tab;)V
+    .line 42
+    invoke-virtual {v0, v2}, Landroid/app/ActionBar;->addTab(Landroid/app/ActionBar$Tab;)V
 
     .line 46
     invoke-virtual {v0}, Landroid/app/ActionBar;->newTab()Landroid/app/ActionBar$Tab;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "Contacts"
+    const-string v3, "Contacts"
 
-    invoke-virtual {v1, v2}, Landroid/app/ActionBar$Tab;->setText(Ljava/lang/CharSequence;)Landroid/app/ActionBar$Tab;
+    .line 47
+    invoke-virtual {v2, v3}, Landroid/app/ActionBar$Tab;->setText(Ljava/lang/CharSequence;)Landroid/app/ActionBar$Tab;
 
-    move-result-object v1
+    move-result-object v2
 
-    new-instance v2, Lio/appium/android/apis/app/FragmentTabs$TabListener;
+    new-instance v3, Lio/appium/android/apis/app/FragmentTabs$TabListener;
 
-    const-string v3, "contacts"
+    const-string v4, "contacts"
 
-    const-class v4, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;
+    const-class v5, Lio/appium/android/apis/app/LoaderCursor$CursorLoaderListFragment;
 
-    invoke-direct {v2, p0, v3, v4}, Lio/appium/android/apis/app/FragmentTabs$TabListener;-><init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-direct {v3, p0, v4, v5}, Lio/appium/android/apis/app/FragmentTabs$TabListener;-><init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/Class;)V
 
-    invoke-virtual {v1, v2}, Landroid/app/ActionBar$Tab;->setTabListener(Landroid/app/ActionBar$TabListener;)Landroid/app/ActionBar$Tab;
+    .line 48
+    invoke-virtual {v2, v3}, Landroid/app/ActionBar$Tab;->setTabListener(Landroid/app/ActionBar$TabListener;)Landroid/app/ActionBar$Tab;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->addTab(Landroid/app/ActionBar$Tab;)V
+    .line 46
+    invoke-virtual {v0, v2}, Landroid/app/ActionBar;->addTab(Landroid/app/ActionBar$Tab;)V
 
     .line 50
     invoke-virtual {v0}, Landroid/app/ActionBar;->newTab()Landroid/app/ActionBar$Tab;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "Apps"
+    const-string v3, "Apps"
 
-    invoke-virtual {v1, v2}, Landroid/app/ActionBar$Tab;->setText(Ljava/lang/CharSequence;)Landroid/app/ActionBar$Tab;
+    .line 51
+    invoke-virtual {v2, v3}, Landroid/app/ActionBar$Tab;->setText(Ljava/lang/CharSequence;)Landroid/app/ActionBar$Tab;
 
-    move-result-object v1
+    move-result-object v2
 
-    new-instance v2, Lio/appium/android/apis/app/FragmentTabs$TabListener;
+    new-instance v3, Lio/appium/android/apis/app/FragmentTabs$TabListener;
 
-    const-string v3, "apps"
+    const-string v4, "apps"
 
-    const-class v4, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;
+    const-class v5, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;
 
-    invoke-direct {v2, p0, v3, v4}, Lio/appium/android/apis/app/FragmentTabs$TabListener;-><init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-direct {v3, p0, v4, v5}, Lio/appium/android/apis/app/FragmentTabs$TabListener;-><init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/Class;)V
 
-    invoke-virtual {v1, v2}, Landroid/app/ActionBar$Tab;->setTabListener(Landroid/app/ActionBar$TabListener;)Landroid/app/ActionBar$Tab;
+    .line 52
+    invoke-virtual {v2, v3}, Landroid/app/ActionBar$Tab;->setTabListener(Landroid/app/ActionBar$TabListener;)Landroid/app/ActionBar$Tab;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->addTab(Landroid/app/ActionBar$Tab;)V
+    .line 50
+    invoke-virtual {v0, v2}, Landroid/app/ActionBar;->addTab(Landroid/app/ActionBar$Tab;)V
 
     .line 54
     invoke-virtual {v0}, Landroid/app/ActionBar;->newTab()Landroid/app/ActionBar$Tab;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "Throttle"
+    const-string v3, "Throttle"
 
-    invoke-virtual {v1, v2}, Landroid/app/ActionBar$Tab;->setText(Ljava/lang/CharSequence;)Landroid/app/ActionBar$Tab;
+    .line 55
+    invoke-virtual {v2, v3}, Landroid/app/ActionBar$Tab;->setText(Ljava/lang/CharSequence;)Landroid/app/ActionBar$Tab;
 
-    move-result-object v1
+    move-result-object v2
 
-    new-instance v2, Lio/appium/android/apis/app/FragmentTabs$TabListener;
+    new-instance v3, Lio/appium/android/apis/app/FragmentTabs$TabListener;
 
-    const-string v3, "throttle"
+    const-string v4, "throttle"
 
-    const-class v4, Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment;
+    const-class v5, Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment;
 
-    invoke-direct {v2, p0, v3, v4}, Lio/appium/android/apis/app/FragmentTabs$TabListener;-><init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-direct {v3, p0, v4, v5}, Lio/appium/android/apis/app/FragmentTabs$TabListener;-><init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/Class;)V
 
-    invoke-virtual {v1, v2}, Landroid/app/ActionBar$Tab;->setTabListener(Landroid/app/ActionBar$TabListener;)Landroid/app/ActionBar$Tab;
+    .line 56
+    invoke-virtual {v2, v3}, Landroid/app/ActionBar$Tab;->setTabListener(Landroid/app/ActionBar$TabListener;)Landroid/app/ActionBar$Tab;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->addTab(Landroid/app/ActionBar$Tab;)V
+    .line 54
+    invoke-virtual {v0, v2}, Landroid/app/ActionBar;->addTab(Landroid/app/ActionBar$Tab;)V
 
     .line 59
     if-eqz p1, :cond_0
 
     .line 60
-    const-string v1, "tab"
+    const-string v2, "tab"
 
-    invoke-virtual {p1, v1, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p1, v2, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v1
 
@@ -172,7 +181,6 @@
     .locals 2
     .param p1, "outState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 66
     invoke-super {p0, p1}, Landroid/app/Activity;->onSaveInstanceState(Landroid/os/Bundle;)V
 

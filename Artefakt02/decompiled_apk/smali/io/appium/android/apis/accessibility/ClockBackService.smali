@@ -43,8 +43,7 @@
 .field private static sSoundsResourceIds:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/util/SparseArray",
-            "<",
+            "Landroid/util/SparseArray<",
             "Ljava/lang/Integer;",
             ">;"
         }
@@ -54,8 +53,8 @@
 .field private static final sVibrationPatterns:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/util/SparseArray",
-            "<[J>;"
+            "Landroid/util/SparseArray<",
+            "[J>;"
         }
     .end annotation
 .end field
@@ -73,8 +72,7 @@
 .field private final mEarconNames:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/util/SparseArray",
-            "<",
+            "Landroid/util/SparseArray<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -94,35 +92,28 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
-
-    .prologue
-    const/16 v7, 0x8
-
-    const/4 v6, 0x1
-
-    const/4 v5, 0x6
-
-    const/4 v4, 0x4
-
-    const/4 v3, 0x2
+    .locals 11
 
     .line 80
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const-string v1, "com.android.alarmclock"
 
-    const-string v2, "com.android.alarmclock"
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     const-string v1, "com.google.android.deskclock"
 
-    aput-object v1, v0, v6
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
 
     const-string v1, "com.android.deskclock"
+
+    const/4 v3, 0x2
 
     aput-object v1, v0, v3
 
@@ -142,7 +133,7 @@
 
     fill-array-data v1, :array_0
 
-    invoke-virtual {v0, v6, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 146
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sVibrationPatterns:Landroid/util/SparseArray;
@@ -156,64 +147,70 @@
     .line 149
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sVibrationPatterns:Landroid/util/SparseArray;
 
-    new-array v1, v4, [J
+    const/4 v1, 0x4
 
-    fill-array-data v1, :array_2
+    new-array v4, v1, [J
 
-    invoke-virtual {v0, v4, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    fill-array-data v4, :array_2
+
+    invoke-virtual {v0, v1, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 152
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sVibrationPatterns:Landroid/util/SparseArray;
 
-    new-array v1, v4, [J
+    new-array v4, v1, [J
 
-    fill-array-data v1, :array_3
+    fill-array-data v4, :array_3
 
-    invoke-virtual {v0, v7, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    const/16 v5, 0x8
+
+    invoke-virtual {v0, v5, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 155
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sVibrationPatterns:Landroid/util/SparseArray;
 
-    const/16 v1, 0x20
+    const/4 v4, 0x6
 
-    new-array v2, v5, [J
+    new-array v6, v4, [J
 
-    fill-array-data v2, :array_4
+    fill-array-data v6, :array_4
 
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    const/16 v7, 0x20
+
+    invoke-virtual {v0, v7, v6}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 158
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sVibrationPatterns:Landroid/util/SparseArray;
 
-    const/16 v1, 0x80
+    new-array v6, v4, [J
 
-    new-array v2, v5, [J
+    fill-array-data v6, :array_5
 
-    fill-array-data v2, :array_5
+    const/16 v8, 0x80
 
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v8, v6}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 161
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sVibrationPatterns:Landroid/util/SparseArray;
 
-    const/16 v1, 0x100
+    new-array v6, v4, [J
 
-    new-array v2, v5, [J
+    fill-array-data v6, :array_6
 
-    fill-array-data v2, :array_6
+    const/16 v9, 0x100
 
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v9, v6}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 164
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sVibrationPatterns:Landroid/util/SparseArray;
 
-    const/16 v1, 0x200
+    new-array v4, v4, [J
 
-    new-array v2, v5, [J
+    fill-array-data v4, :array_7
 
-    fill-array-data v2, :array_7
+    const/16 v6, 0x200
 
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v6, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 170
     new-instance v0, Landroid/util/SparseArray;
@@ -225,7 +222,92 @@
     .line 172
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
 
-    const v1, 0x7f07000d
+    .line 173
+    const v4, 0x7f0d000d
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    .line 172
+    invoke-virtual {v0, v2, v10}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    .line 174
+    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
+
+    .line 175
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    .line 174
+    invoke-virtual {v0, v3, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    .line 176
+    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
+
+    .line 177
+    const v2, 0x7f0d000e
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    .line 176
+    invoke-virtual {v0, v1, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    .line 178
+    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
+
+    .line 179
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    .line 178
+    invoke-virtual {v0, v5, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    .line 180
+    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
+
+    .line 181
+    const v1, 0x7f0d0010
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    .line 180
+    invoke-virtual {v0, v7, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    .line 182
+    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
+
+    .line 183
+    const v1, 0x7f0d000f
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    .line 182
+    invoke-virtual {v0, v8, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    .line 184
+    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
+
+    const v1, 0x7f0d000c
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v9, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    .line 185
+    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
+
+    const v1, 0x7f0d000b
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -233,134 +315,48 @@
 
     invoke-virtual {v0, v6, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 174
-    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
-
-    const v1, 0x7f07000d
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v3, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    .line 176
-    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
-
-    const v1, 0x7f07000e
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v4, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    .line 178
-    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
-
-    const v1, 0x7f07000e
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v7, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    .line 180
-    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
-
-    const/16 v1, 0x20
-
-    const v2, 0x7f070010
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    .line 182
-    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
-
-    const/16 v1, 0x80
-
-    const v2, 0x7f07000f
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    .line 184
-    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
-
-    const/16 v1, 0x100
-
-    const v2, 0x7f07000c
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    .line 185
-    sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
-
-    const/16 v1, 0x200
-
-    const v2, 0x7f07000b
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
     .line 186
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
 
-    const/16 v1, 0x1000
+    const v1, 0x7f0d0009
 
-    const v2, 0x7f070009
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const/16 v2, 0x1000
 
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 187
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
 
-    const/16 v1, 0x800
+    const v1, 0x7f0d000a
 
-    const v2, 0x7f07000a
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const/16 v2, 0x800
 
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 188
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
 
-    const/16 v1, 0x400
+    const v1, 0x7f0d0008
 
-    const v2, 0x7f070008
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const/16 v2, 0x400
 
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 189
     return-void
 
-    .line 143
     nop
 
     :array_0
@@ -369,14 +365,12 @@
         0x64
     .end array-data
 
-    .line 146
     :array_1
     .array-data 8
         0x0
         0x64
     .end array-data
 
-    .line 149
     :array_2
     .array-data 8
         0x0
@@ -385,7 +379,6 @@
         0xf
     .end array-data
 
-    .line 152
     :array_3
     .array-data 8
         0x0
@@ -394,7 +387,6 @@
         0xf
     .end array-data
 
-    .line 155
     :array_4
     .array-data 8
         0x0
@@ -405,7 +397,6 @@
         0x19
     .end array-data
 
-    .line 158
     :array_5
     .array-data 8
         0x0
@@ -416,7 +407,6 @@
         0xa
     .end array-data
 
-    .line 161
     :array_6
     .array-data 8
         0x0
@@ -427,7 +417,6 @@
         0x1e
     .end array-data
 
-    .line 164
     :array_7
     .array-data 8
         0x0
@@ -442,7 +431,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 61
     invoke-direct {p0}, Landroid/accessibilityservice/AccessibilityService;-><init>()V
 
@@ -481,7 +469,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/accessibility/ClockBackService;
 
-    .prologue
     .line 61
     iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mTts:Landroid/speech/tts/TextToSpeech;
 
@@ -493,7 +480,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/accessibility/ClockBackService;
     .param p1, "x1"    # Landroid/speech/tts/TextToSpeech;
 
-    .prologue
     .line 61
     iput-object p1, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mTts:Landroid/speech/tts/TextToSpeech;
 
@@ -504,7 +490,6 @@
     .locals 0
     .param p0, "x0"    # Lio/appium/android/apis/accessibility/ClockBackService;
 
-    .prologue
     .line 61
     invoke-direct {p0}, Lio/appium/android/apis/accessibility/ClockBackService;->registerBroadCastReceiver()V
 
@@ -516,7 +501,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/accessibility/ClockBackService;
     .param p1, "x1"    # I
 
-    .prologue
     .line 61
     invoke-direct {p0, p1}, Lio/appium/android/apis/accessibility/ClockBackService;->playEarcon(I)V
 
@@ -526,7 +510,6 @@
 .method static synthetic access$300()Landroid/util/SparseArray;
     .locals 1
 
-    .prologue
     .line 61
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackService;->sVibrationPatterns:Landroid/util/SparseArray;
 
@@ -537,7 +520,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/accessibility/ClockBackService;
 
-    .prologue
     .line 61
     iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mVibrator:Landroid/os/Vibrator;
 
@@ -549,7 +531,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/accessibility/ClockBackService;
     .param p1, "x1"    # I
 
-    .prologue
     .line 61
     invoke-direct {p0, p1}, Lio/appium/android/apis/accessibility/ClockBackService;->configureForRingerMode(I)V
 
@@ -561,7 +542,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/accessibility/ClockBackService;
     .param p1, "x1"    # I
 
-    .prologue
     .line 61
     invoke-direct {p0, p1}, Lio/appium/android/apis/accessibility/ClockBackService;->generateScreenOnOrOffUtternace(I)Ljava/lang/String;
 
@@ -574,20 +554,17 @@
     .locals 4
     .param p1, "ringerMode"    # I
 
-    .prologue
-    const/4 v1, 0x2
+    .line 432
+    const/4 v0, 0x2
 
-    const/4 v0, 0x1
-
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
     const/4 v2, 0x5
 
-    .line 432
-    if-nez p1, :cond_1
+    if-nez p1, :cond_0
 
     .line 434
-    iput v1, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mProvidedFeedbackType:I
+    iput v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mProvidedFeedbackType:I
 
     .line 437
     const/4 v0, 0x7
@@ -597,22 +574,21 @@
     .line 442
     iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mHandler:Landroid/os/Handler;
 
-    const/16 v1, 0x1000
+    const/16 v3, 0x1000
 
-    invoke-virtual {v0, v2, v1, v3}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {v0, v2, v3, v1}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 462
-    :cond_0
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 443
-    :cond_1
-    if-ne p1, v0, :cond_2
+    :cond_0
+    const/4 v3, 0x1
+
+    if-ne p1, v3, :cond_1
 
     .line 445
     const/4 v0, 0x4
@@ -625,9 +601,9 @@
     .line 452
     iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mHandler:Landroid/os/Handler;
 
-    const/16 v1, 0x800
+    const/16 v3, 0x800
 
-    invoke-virtual {v0, v2, v1, v3}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {v0, v2, v3, v1}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 
@@ -636,78 +612,79 @@
     goto :goto_0
 
     .line 453
-    :cond_2
-    if-ne p1, v1, :cond_0
+    :cond_1
+    if-ne p1, v0, :cond_2
 
     .line 456
-    iput v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mProvidedFeedbackType:I
+    iput v3, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mProvidedFeedbackType:I
 
     .line 457
-    invoke-direct {p0, v0}, Lio/appium/android/apis/accessibility/ClockBackService;->setServiceInfo(I)V
+    invoke-direct {p0, v3}, Lio/appium/android/apis/accessibility/ClockBackService;->setServiceInfo(I)V
 
     .line 460
     iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mHandler:Landroid/os/Handler;
 
-    const/16 v1, 0x400
+    const/16 v3, 0x400
 
-    invoke-virtual {v0, v2, v1, v3}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {v0, v2, v3, v1}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_0
+    .line 462
+    :cond_2
+    :goto_0
+    return-void
 .end method
 
 .method private formatUtterance(Landroid/view/accessibility/AccessibilityEvent;)Ljava/lang/String;
-    .locals 8
+    .locals 7
     .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
-    .prologue
-    const/4 v7, 0x0
-
     .line 524
-    iget-object v4, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mUtterance:Ljava/lang/StringBuilder;
+    iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mUtterance:Ljava/lang/StringBuilder;
 
     .line 527
-    .local v4, "utterance":Ljava/lang/StringBuilder;
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->setLength(I)V
+    .local v0, "utterance":Ljava/lang/StringBuilder;
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->setLength(I)V
 
     .line 529
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
 
-    move-result-object v1
-
-    .line 532
-    .local v1, "eventText":Ljava/util/List;, "Ljava/util/List<Ljava/lang/CharSequence;>;"
-    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
-
-    move-result v5
-
-    if-nez v5, :cond_2
-
-    .line 533
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
     move-result-object v2
 
-    .local v2, "i$":Ljava/util/Iterator;
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    .line 532
+    .local v2, "eventText":Ljava/util/List;, "Ljava/util/List<Ljava/lang/CharSequence;>;"
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_1
+    if-nez v3, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 533
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    check-cast v3, Ljava/lang/CharSequence;
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/CharSequence;
 
     .line 535
-    .local v3, "subText":Ljava/lang/CharSequence;
-    invoke-interface {v3, v7}, Ljava/lang/CharSequence;->charAt(I)C
+    .local v4, "subText":Ljava/lang/CharSequence;
+    invoke-interface {v4, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v5
 
@@ -718,128 +695,141 @@
     .line 536
     const/4 v5, 0x1
 
-    invoke-interface {v3}, Ljava/lang/CharSequence;->length()I
+    invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
 
     move-result v6
 
-    invoke-interface {v3, v5, v6}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
+    invoke-interface {v4, v5, v6}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
 
-    move-result-object v3
+    move-result-object v4
 
     .line 538
     :cond_0
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     .line 539
     const-string v5, " "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 540
+    .end local v4    # "subText":Ljava/lang/CharSequence;
     goto :goto_0
 
     .line 542
-    .end local v3    # "subText":Ljava/lang/CharSequence;
     :cond_1
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    .line 553
-    .end local v2    # "i$":Ljava/util/Iterator;
-    :goto_1
-    return-object v5
+    return-object v1
 
     .line 547
     :cond_2
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getContentDescription()Ljava/lang/CharSequence;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 548
-    .local v0, "contentDescription":Ljava/lang/CharSequence;
-    if-eqz v0, :cond_3
+    .local v1, "contentDescription":Ljava/lang/CharSequence;
+    if-eqz v1, :cond_3
 
     .line 549
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     .line 550
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    goto :goto_1
+    return-object v3
 
     .line 553
     :cond_3
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    goto :goto_1
+    return-object v3
 .end method
 
 .method private generateScreenOnOrOffUtternace(I)Ljava/lang/String;
     .locals 9
     .param p1, "feedbackIndex"    # I
 
-    .prologue
-    const/4 v8, 0x5
-
-    const/4 v7, 0x2
-
     .line 380
-    const/16 v6, 0x100
+    const/16 v0, 0x100
 
-    if-ne p1, v6, :cond_1
+    if-ne p1, v0, :cond_0
 
-    const v3, 0x7f0c03a0
+    const v0, 0x7f0e03a2
+
+    goto :goto_0
+
+    :cond_0
+    const v0, 0x7f0e03a1
 
     .line 382
-    .local v3, "resourceId":I
+    .local v0, "resourceId":I
     :goto_0
-    iget-object v6, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v6, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
     .line 385
-    .local v4, "template":Ljava/lang/String;
-    iget-object v6, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mAudioManager:Landroid/media/AudioManager;
+    .local v1, "template":Ljava/lang/String;
+    iget-object v2, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mAudioManager:Landroid/media/AudioManager;
 
-    invoke-virtual {v6, v7}, Landroid/media/AudioManager;->getStreamVolume(I)I
+    const/4 v3, 0x2
 
-    move-result v1
-
-    .line 386
-    .local v1, "currentRingerVolume":I
-    iget-object v6, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mAudioManager:Landroid/media/AudioManager;
-
-    invoke-virtual {v6, v7}, Landroid/media/AudioManager;->getStreamMaxVolume(I)I
+    invoke-virtual {v2, v3}, Landroid/media/AudioManager;->getStreamVolume(I)I
 
     move-result v2
 
+    .line 386
+    .local v2, "currentRingerVolume":I
+    iget-object v4, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mAudioManager:Landroid/media/AudioManager;
+
+    invoke-virtual {v4, v3}, Landroid/media/AudioManager;->getStreamMaxVolume(I)I
+
+    move-result v3
+
     .line 387
-    .local v2, "maxRingerVolume":I
-    const/16 v6, 0x64
+    .local v3, "maxRingerVolume":I
+    const/16 v4, 0x64
 
-    div-int/2addr v6, v2
+    div-int/2addr v4, v3
 
-    mul-int v5, v6, v1
+    mul-int v4, v4, v2
 
     .line 390
-    .local v5, "volumePercent":I
-    rem-int/lit8 v0, v5, 0xa
+    .local v4, "volumePercent":I
+    rem-int/lit8 v5, v4, 0xa
 
     .line 391
-    .local v0, "adjustment":I
-    if-ge v0, v8, :cond_2
+    .local v5, "adjustment":I
+    const/4 v6, 0x5
+
+    if-ge v5, v6, :cond_1
 
     .line 392
-    sub-int/2addr v5, v0
+    sub-int/2addr v4, v5
+
+    goto :goto_1
+
+    .line 393
+    :cond_1
+    if-le v5, v6, :cond_2
+
+    .line 394
+    rsub-int/lit8 v6, v5, 0xa
+
+    add-int/2addr v4, v6
 
     .line 397
-    :cond_0
+    :cond_2
     :goto_1
     const/4 v6, 0x1
 
@@ -847,57 +837,27 @@
 
     const/4 v7, 0x0
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v8
 
     aput-object v8, v6, v7
 
-    invoke-static {v4, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
     return-object v6
-
-    .line 380
-    .end local v0    # "adjustment":I
-    .end local v1    # "currentRingerVolume":I
-    .end local v2    # "maxRingerVolume":I
-    .end local v3    # "resourceId":I
-    .end local v4    # "template":Ljava/lang/String;
-    .end local v5    # "volumePercent":I
-    :cond_1
-    const v3, 0x7f0c03a1
-
-    goto :goto_0
-
-    .line 393
-    .restart local v0    # "adjustment":I
-    .restart local v1    # "currentRingerVolume":I
-    .restart local v2    # "maxRingerVolume":I
-    .restart local v3    # "resourceId":I
-    .restart local v4    # "template":Ljava/lang/String;
-    .restart local v5    # "volumePercent":I
-    :cond_2
-    if-le v0, v8, :cond_0
-
-    .line 394
-    rsub-int/lit8 v6, v0, 0xa
-
-    add-int/2addr v5, v6
-
-    goto :goto_1
 .end method
 
 .method private playEarcon(I)V
     .locals 5
     .param p1, "earconId"    # I
 
-    .prologue
     .line 562
-    iget-object v2, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mEarconNames:Landroid/util/SparseArray;
+    iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mEarconNames:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -908,9 +868,9 @@
     if-nez v0, :cond_0
 
     .line 565
-    sget-object v2, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
+    sget-object v1, Lio/appium/android/apis/accessibility/ClockBackService;->sSoundsResourceIds:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -929,17 +889,11 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
-
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
 
     const-string v3, "]"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -966,13 +920,13 @@
     .line 573
     .end local v1    # "resourceId":Ljava/lang/Integer;
     :cond_0
-    iget-object v2, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mTts:Landroid/speech/tts/TextToSpeech;
+    iget-object v1, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mTts:Landroid/speech/tts/TextToSpeech;
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v2, v0, v3, v4}, Landroid/speech/tts/TextToSpeech;->playEarcon(Ljava/lang/String;ILjava/util/HashMap;)I
+    invoke-virtual {v1, v0, v2, v3}, Landroid/speech/tts/TextToSpeech;->playEarcon(Ljava/lang/String;ILjava/util/HashMap;)I
 
     .line 574
     return-void
@@ -980,9 +934,6 @@
 
 .method private registerBroadCastReceiver()V
     .locals 3
-
-    .prologue
-    const/4 v2, 0x0
 
     .line 364
     new-instance v0, Landroid/content/IntentFilter;
@@ -1008,6 +959,8 @@
     .line 369
     iget-object v1, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
+    const/4 v2, 0x0
+
     invoke-virtual {p0, v1, v0, v2, v2}, Lio/appium/android/apis/accessibility/ClockBackService;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     .line 370
@@ -1018,7 +971,6 @@
     .locals 3
     .param p1, "feedbackType"    # I
 
-    .prologue
     .line 475
     new-instance v0, Landroid/accessibilityservice/AccessibilityServiceInfo;
 
@@ -1053,13 +1005,8 @@
 
 # virtual methods
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 5
+    .locals 4
     .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
-
-    .prologue
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
 
     .line 489
     const-string v0, "ClockBackService"
@@ -1072,21 +1019,15 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     const-string v2, " "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1097,30 +1038,30 @@
     .line 492
     iget v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mProvidedFeedbackType:I
 
-    if-ne v0, v4, :cond_0
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
 
     .line 493
     iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mHandler:Landroid/os/Handler;
 
     invoke-direct {p0, p1}, Lio/appium/android/apis/accessibility/ClockBackService;->formatUtterance(Landroid/view/accessibility/AccessibilityEvent;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v4, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v0, v1, v2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 501
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 494
     :cond_0
-    iget v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mProvidedFeedbackType:I
-
     const/4 v1, 0x4
+
+    const/4 v2, 0x0
 
     if-ne v0, v1, :cond_1
 
@@ -1131,9 +1072,9 @@
 
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {v0, v1, v3, v2}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 
@@ -1143,8 +1084,6 @@
 
     .line 496
     :cond_1
-    iget v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mProvidedFeedbackType:I
-
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_2
@@ -1156,15 +1095,17 @@
 
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {v0, v1, v3, v2}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_0
+    .line 501
+    :goto_0
+    return-void
 
     .line 499
     :cond_2
@@ -1178,13 +1119,9 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     iget v2, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mProvidedFeedbackType:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1198,36 +1135,31 @@
 .method public onInterrupt()V
     .locals 3
 
-    .prologue
-    const/4 v2, 0x2
-
     .line 506
     iget v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mProvidedFeedbackType:I
 
-    const/4 v1, 0x1
+    const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    const/4 v2, 0x1
+
+    if-ne v0, v2, :cond_0
 
     .line 507
     iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 515
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 508
     :cond_0
-    iget v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mProvidedFeedbackType:I
+    const/4 v2, 0x4
 
-    const/4 v1, 0x4
-
-    if-ne v0, v1, :cond_1
+    if-ne v0, v2, :cond_1
 
     .line 509
     iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mHandler:Landroid/os/Handler;
@@ -1244,9 +1176,7 @@
 
     .line 510
     :cond_1
-    iget v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mProvidedFeedbackType:I
-
-    if-ne v0, v2, :cond_2
+    if-ne v0, v1, :cond_2
 
     .line 511
     iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mHandler:Landroid/os/Handler;
@@ -1259,7 +1189,9 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_0
+    .line 515
+    :goto_0
+    return-void
 
     .line 513
     :cond_2
@@ -1273,13 +1205,9 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     iget v2, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mProvidedFeedbackType:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1291,16 +1219,14 @@
 .end method
 
 .method public onServiceConnected()V
-    .locals 3
+    .locals 2
 
-    .prologue
     .line 319
-    iget-boolean v1, p0, Lio/appium/android/apis/accessibility/ClockBackService;->isInfrastructureInitialized:Z
+    iget-boolean v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->isInfrastructureInitialized:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 340
-    :goto_0
+    .line 320
     return-void
 
     .line 323
@@ -1308,38 +1234,38 @@
     iput-object p0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mContext:Landroid/content/Context;
 
     .line 326
-    iget-object v1, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mHandler:Landroid/os/Handler;
+    iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mHandler:Landroid/os/Handler;
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     .line 329
-    const-string v1, "vibrator"
+    const-string v0, "vibrator"
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/accessibility/ClockBackService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/accessibility/ClockBackService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/os/Vibrator;
+    check-cast v0, Landroid/os/Vibrator;
 
-    iput-object v1, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mVibrator:Landroid/os/Vibrator;
+    iput-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mVibrator:Landroid/os/Vibrator;
 
     .line 332
-    const-string v1, "audio"
+    const-string v0, "audio"
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/accessibility/ClockBackService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/accessibility/ClockBackService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/media/AudioManager;
+    check-cast v0, Landroid/media/AudioManager;
 
-    iput-object v1, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mAudioManager:Landroid/media/AudioManager;
+    iput-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mAudioManager:Landroid/media/AudioManager;
 
     .line 335
-    iget-object v1, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mAudioManager:Landroid/media/AudioManager;
+    iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mAudioManager:Landroid/media/AudioManager;
 
-    invoke-virtual {v1}, Landroid/media/AudioManager;->getRingerMode()I
+    invoke-virtual {v0}, Landroid/media/AudioManager;->getRingerMode()I
 
     move-result v0
 
@@ -1352,27 +1278,27 @@
 
     iput-boolean v1, p0, Lio/appium/android/apis/accessibility/ClockBackService;->isInfrastructureInitialized:Z
 
-    goto :goto_0
+    .line 340
+    return-void
 .end method
 
 .method public onUnbind(Landroid/content/Intent;)Z
     .locals 3
     .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    const/4 v2, 0x0
-
     .line 344
     iget-boolean v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->isInfrastructureInitialized:Z
+
+    const/4 v1, 0x0
 
     if-eqz v0, :cond_1
 
     .line 346
     iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mHandler:Landroid/os/Handler;
 
-    const/4 v1, 0x4
+    const/4 v2, 0x4
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     .line 349
     iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
@@ -1380,15 +1306,13 @@
     if-eqz v0, :cond_0
 
     .line 350
-    iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
-
     invoke-virtual {p0, v0}, Lio/appium/android/apis/accessibility/ClockBackService;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 354
     :cond_0
-    iput-boolean v2, p0, Lio/appium/android/apis/accessibility/ClockBackService;->isInfrastructureInitialized:Z
+    iput-boolean v1, p0, Lio/appium/android/apis/accessibility/ClockBackService;->isInfrastructureInitialized:Z
 
     .line 356
     :cond_1
-    return v2
+    return v1
 .end method

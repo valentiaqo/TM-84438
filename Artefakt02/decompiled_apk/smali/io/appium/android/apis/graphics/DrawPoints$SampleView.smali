@@ -35,7 +35,6 @@
     .locals 1
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 57
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
@@ -54,94 +53,88 @@
 .end method
 
 .method private buildPoints()V
-    .locals 8
-
-    .prologue
-    const/4 v7, 0x0
+    .locals 7
 
     .line 42
-    const/16 v2, 0x42
+    const/16 v0, 0x42
 
     .line 43
-    .local v2, "ptCount":I
-    const/16 v4, 0x84
+    .local v0, "ptCount":I
+    const/16 v1, 0x84
 
-    new-array v4, v4, [F
+    new-array v1, v1, [F
 
-    iput-object v4, p0, Lio/appium/android/apis/graphics/DrawPoints$SampleView;->mPts:[F
+    iput-object v1, p0, Lio/appium/android/apis/graphics/DrawPoints$SampleView;->mPts:[F
 
     .line 45
-    const/4 v3, 0x0
-
-    .line 46
-    .local v3, "value":F
-    const/high16 v0, 0x41160000    # 9.375f
-
-    .line 47
-    .local v0, "delta":F
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 46
+    .local v1, "value":F
+    const/high16 v2, 0x41160000    # 9.375f
+
+    .line 47
+    .local v2, "delta":F
+    const/4 v3, 0x0
+
+    .local v3, "i":I
     :goto_0
     const/16 v4, 0x20
 
-    if-gt v1, v4, :cond_0
+    if-gt v3, v4, :cond_0
 
     .line 48
     iget-object v4, p0, Lio/appium/android/apis/graphics/DrawPoints$SampleView;->mPts:[F
 
-    mul-int/lit8 v5, v1, 0x4
+    mul-int/lit8 v5, v3, 0x4
 
     add-int/lit8 v5, v5, 0x0
 
     const/high16 v6, 0x43960000    # 300.0f
 
-    sub-float/2addr v6, v3
+    sub-float/2addr v6, v1
 
     aput v6, v4, v5
 
     .line 49
-    iget-object v4, p0, Lio/appium/android/apis/graphics/DrawPoints$SampleView;->mPts:[F
-
-    mul-int/lit8 v5, v1, 0x4
+    mul-int/lit8 v5, v3, 0x4
 
     add-int/lit8 v5, v5, 0x1
 
-    aput v7, v4, v5
+    const/4 v6, 0x0
+
+    aput v6, v4, v5
 
     .line 50
-    iget-object v4, p0, Lio/appium/android/apis/graphics/DrawPoints$SampleView;->mPts:[F
-
-    mul-int/lit8 v5, v1, 0x4
+    mul-int/lit8 v5, v3, 0x4
 
     add-int/lit8 v5, v5, 0x0
 
     add-int/lit8 v5, v5, 0x2
 
-    aput v7, v4, v5
+    aput v6, v4, v5
 
     .line 51
-    iget-object v4, p0, Lio/appium/android/apis/graphics/DrawPoints$SampleView;->mPts:[F
-
-    mul-int/lit8 v5, v1, 0x4
+    mul-int/lit8 v5, v3, 0x4
 
     add-int/lit8 v5, v5, 0x1
 
     add-int/lit8 v5, v5, 0x2
 
-    aput v3, v4, v5
+    aput v1, v4, v5
 
     .line 52
     const/high16 v4, 0x41160000    # 9.375f
 
-    add-float/2addr v3, v4
+    add-float/2addr v1, v4
 
     .line 47
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 54
+    .end local v3    # "i":I
     :cond_0
     return-void
 .end method
@@ -152,14 +145,13 @@
     .locals 2
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
-    const/high16 v1, 0x41200000    # 10.0f
-
     .line 63
     iget-object v0, p0, Lio/appium/android/apis/graphics/DrawPoints$SampleView;->mPaint:Landroid/graphics/Paint;
 
     .line 65
     .local v0, "paint":Landroid/graphics/Paint;
+    const/high16 v1, 0x41200000    # 10.0f
+
     invoke-virtual {p1, v1, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 67

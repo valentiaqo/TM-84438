@@ -11,7 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 40
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
 
@@ -22,20 +21,19 @@
     .locals 3
     .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
-    const/4 v2, 0x0
-
     .line 57
     const-string v0, "defaults"
 
-    const v1, 0x7f060002
+    const/4 v1, 0x0
 
-    invoke-static {p0, v0, v2, v1, v2}, Landroid/preference/PreferenceManager;->setDefaultValues(Landroid/content/Context;Ljava/lang/String;IIZ)V
+    const v2, 0x7f110002
+
+    invoke-static {p0, v0, v1, v2, v1}, Landroid/preference/PreferenceManager;->setDefaultValues(Landroid/content/Context;Ljava/lang/String;IIZ)V
 
     .line 59
     const-string v0, "defaults"
 
-    invoke-virtual {p0, v0, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
@@ -48,7 +46,6 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 49
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -65,7 +62,7 @@
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceManager;->setSharedPreferencesName(Ljava/lang/String;)V
 
     .line 53
-    const v0, 0x7f060002
+    const v0, 0x7f110002
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/preference/DefaultValues;->addPreferencesFromResource(I)V
 

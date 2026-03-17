@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <drawable name="red">#7f00</drawable>
-    <drawable name="blue">#770000ff</drawable>
-    <drawable name="green">#7700ff00</drawable>
-    <drawable name="yellow">#77ffff00</drawable>
-    <drawable name="screen_background_black">#ff000000</drawable>
-    <drawable name="translucent_background">#e0000000</drawable>
-    <drawable name="transparent_background">#00000000</drawable>
+    <item type="drawable" name="blue">#770000ff</item>
+    <item type="drawable" name="green">#7700ff00</item>
+    <item type="drawable" name="notification_template_icon_bg">#3333b5e5</item>
+    <item type="drawable" name="notification_template_icon_low_bg">#0cffffff</item>
+    <item type="drawable" name="red">#77ff0000</item>
+    <item type="drawable" name="screen_background_black">#ff000000</item>
+    <item type="drawable" name="translucent_background">#e0000000</item>
+    <item type="drawable" name="transparent_background">#00000000</item>
+    <item type="drawable" name="yellow">#77ffff00</item>
 </resources>

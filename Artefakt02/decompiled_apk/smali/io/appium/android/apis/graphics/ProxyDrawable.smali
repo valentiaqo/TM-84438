@@ -14,7 +14,6 @@
     .locals 0
     .param p1, "target"    # Landroid/graphics/drawable/Drawable;
 
-    .prologue
     .line 29
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
@@ -31,15 +30,12 @@
     .locals 1
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
     .line 45
     iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
     .line 46
-    iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
-
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 48
@@ -50,79 +46,69 @@
 .method public getIntrinsicHeight()I
     .locals 1
 
-    .prologue
     .line 57
     iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
-
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v0
 
-    :goto_0
-    return v0
+    goto :goto_0
 
     :cond_0
     const/4 v0, -0x1
 
-    goto :goto_0
+    :goto_0
+    return v0
 .end method
 
 .method public getIntrinsicWidth()I
     .locals 1
 
-    .prologue
     .line 52
     iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
-
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
 
-    :goto_0
-    return v0
+    goto :goto_0
 
     :cond_0
     const/4 v0, -0x1
 
-    goto :goto_0
+    :goto_0
+    return v0
 .end method
 
 .method public getOpacity()I
     .locals 1
 
-    .prologue
     .line 62
     iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
-
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getOpacity()I
 
     move-result v0
 
-    :goto_0
-    return v0
+    goto :goto_0
 
     :cond_0
     const/4 v0, -0x2
 
-    goto :goto_0
+    :goto_0
+    return v0
 .end method
 
 .method public getProxy()Landroid/graphics/drawable/Drawable;
     .locals 1
 
-    .prologue
     .line 34
     iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
 
@@ -132,7 +118,6 @@
 .method public mutate()Landroid/graphics/drawable/Drawable;
     .locals 1
 
-    .prologue
     .line 95
     iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
 
@@ -167,15 +152,12 @@
     .locals 1
     .param p1, "alpha"    # I
 
-    .prologue
     .line 88
     iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
     .line 89
-    iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
-
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
     .line 91
@@ -187,15 +169,12 @@
     .locals 1
     .param p1, "colorFilter"    # Landroid/graphics/ColorFilter;
 
-    .prologue
     .line 81
     iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
     .line 82
-    iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
-
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
     .line 84
@@ -207,15 +186,12 @@
     .locals 1
     .param p1, "dither"    # Z
 
-    .prologue
     .line 74
     iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
     .line 75
-    iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
-
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setDither(Z)V
 
     .line 77
@@ -227,15 +203,12 @@
     .locals 1
     .param p1, "filter"    # Z
 
-    .prologue
     .line 67
     iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
     .line 68
-    iget-object v0, p0, Lio/appium/android/apis/graphics/ProxyDrawable;->mProxy:Landroid/graphics/drawable/Drawable;
-
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setFilterBitmap(Z)V
 
     .line 70
@@ -247,7 +220,6 @@
     .locals 0
     .param p1, "proxy"    # Landroid/graphics/drawable/Drawable;
 
-    .prologue
     .line 38
     if-eq p1, p0, :cond_0
 

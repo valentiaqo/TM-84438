@@ -10,7 +10,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 35
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -20,22 +19,22 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .locals 2
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 68
-    const-string v1, "notification"
+    const-string v0, "notification"
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/NotificationDisplay;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/NotificationDisplay;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/app/NotificationManager;
+    check-cast v0, Landroid/app/NotificationManager;
 
-    const v2, 0x7f0300d9
+    .line 69
+    const v1, 0x7f0b0100
 
-    invoke-virtual {v1, v2}, Landroid/app/NotificationManager;->cancel(I)V
+    invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
     .line 74
     new-instance v0, Landroid/content/Intent;
@@ -66,13 +65,8 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 7
+    .locals 5
     .param p1, "icicle"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v4, 0x4
-
-    const/4 v6, -0x2
 
     .line 44
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
@@ -80,44 +74,48 @@
     .line 47
     invoke-virtual {p0}, Lio/appium/android/apis/app/NotificationDisplay;->getWindow()Landroid/view/Window;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v3, v4, v4}, Landroid/view/Window;->setFlags(II)V
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1, v1}, Landroid/view/Window;->setFlags(II)V
 
     .line 50
-    new-instance v1, Landroid/widget/RelativeLayout;
+    new-instance v0, Landroid/widget/RelativeLayout;
 
-    invoke-direct {v1, p0}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V
 
     .line 52
-    .local v1, "container":Landroid/widget/RelativeLayout;
-    new-instance v0, Landroid/widget/ImageButton;
+    .local v0, "container":Landroid/widget/RelativeLayout;
+    new-instance v1, Landroid/widget/ImageButton;
 
-    invoke-direct {v0, p0}, Landroid/widget/ImageButton;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Landroid/widget/ImageButton;-><init>(Landroid/content/Context;)V
 
     .line 53
-    .local v0, "button":Landroid/widget/ImageButton;
+    .local v1, "button":Landroid/widget/ImageButton;
     invoke-virtual {p0}, Lio/appium/android/apis/app/NotificationDisplay;->getIntent()Landroid/content/Intent;
 
-    move-result-object v3
+    move-result-object v2
 
-    const-string v4, "moodimg"
+    const-string v3, "moodimg"
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageButton;->setImageResource(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setImageResource(I)V
 
     .line 54
-    invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 56
     new-instance v2, Landroid/widget/RelativeLayout$LayoutParams;
 
-    invoke-direct {v2, v6, v6}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
+    const/4 v3, -0x2
+
+    invoke-direct {v2, v3, v3}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
 
     .line 59
     .local v2, "lp":Landroid/widget/RelativeLayout$LayoutParams;
@@ -126,10 +124,10 @@
     invoke-virtual {v2, v3}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V
 
     .line 61
-    invoke-virtual {v1, v0, v2}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v0, v1, v2}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 63
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/NotificationDisplay;->setContentView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/NotificationDisplay;->setContentView(Landroid/view/View;)V
 
     .line 64
     return-void

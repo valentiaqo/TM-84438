@@ -27,8 +27,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/animation/ListFlipper;Landroid/widget/ListView;Landroid/animation/ObjectAnimator;Landroid/widget/ListView;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/ListFlipper;
 
-    .prologue
     .line 114
     iput-object p1, p0, Lio/appium/android/apis/animation/ListFlipper$2;->this$0:Lio/appium/android/apis/animation/ListFlipper;
 
@@ -49,7 +49,6 @@
     .locals 2
     .param p1, "anim"    # Landroid/animation/Animator;
 
-    .prologue
     .line 117
     iget-object v0, p0, Lio/appium/android/apis/animation/ListFlipper$2;->val$visibleList:Landroid/widget/ListView;
 

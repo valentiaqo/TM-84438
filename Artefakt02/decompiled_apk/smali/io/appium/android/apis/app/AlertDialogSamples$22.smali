@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/AlertDialogSamples;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/AlertDialogSamples;
 
-    .prologue
     .line 271
     iput-object p1, p0, Lio/appium/android/apis/app/AlertDialogSamples$22;->this$0:Lio/appium/android/apis/app/AlertDialogSamples;
 
@@ -42,7 +42,6 @@
     .param p2, "whichButton"    # I
     .param p3, "isChecked"    # Z
 
-    .prologue
     .line 274
     iget-object v0, p0, Lio/appium/android/apis/app/AlertDialogSamples$22;->this$0:Lio/appium/android/apis/app/AlertDialogSamples;
 
@@ -54,6 +53,7 @@
 
     move-result-object v0
 
+    .line 276
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 277

@@ -15,8 +15,7 @@
 .field private mShapeList:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList",
-            "<",
+            "Ljava/util/ArrayList<",
             "Lio/appium/android/apis/graphics/kube/GLShape;",
             ">;"
         }
@@ -28,8 +27,7 @@
 .field private mVertexList:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList",
-            "<",
+            "Ljava/util/ArrayList<",
             "Lio/appium/android/apis/graphics/kube/GLVertex;",
             ">;"
         }
@@ -41,31 +39,30 @@
 .method public constructor <init>()V
     .locals 2
 
-    .prologue
-    const/4 v1, 0x0
-
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 71
-    iput v1, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->count:I
+    const/4 v0, 0x0
+
+    iput v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->count:I
 
     .line 90
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mShapeList:Ljava/util/ArrayList;
+    iput-object v1, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mShapeList:Ljava/util/ArrayList;
 
     .line 91
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexList:Ljava/util/ArrayList;
+    iput-object v1, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexList:Ljava/util/ArrayList;
 
     .line 93
-    iput v1, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mIndexCount:I
+    iput v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mIndexCount:I
 
     return-void
 .end method
@@ -74,7 +71,6 @@
     .locals 2
     .param p0, "x"    # I
 
-    .prologue
     .line 87
     int-to-float v0, p0
 
@@ -91,7 +87,6 @@
     .locals 2
     .param p1, "shape"    # Lio/appium/android/apis/graphics/kube/GLShape;
 
-    .prologue
     .line 31
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mShapeList:Ljava/util/ArrayList;
 
@@ -118,7 +113,6 @@
     .param p2, "y"    # F
     .param p3, "z"    # F
 
-    .prologue
     .line 62
     new-instance v0, Lio/appium/android/apis/graphics/kube/GLVertex;
 
@@ -141,30 +135,25 @@
 .end method
 
 .method public draw(Ljavax/microedition/khronos/opengles/GL10;)V
-    .locals 5
+    .locals 4
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
-
-    .prologue
-    const/16 v4, 0x140c
-
-    const/4 v3, 0x4
-
-    const/4 v2, 0x0
 
     .line 74
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mColorBuffer:Ljava/nio/IntBuffer;
 
-    invoke-virtual {v0, v2}, Ljava/nio/IntBuffer;->position(I)Ljava/nio/Buffer;
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Ljava/nio/IntBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 75
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexBuffer:Ljava/nio/IntBuffer;
 
-    invoke-virtual {v0, v2}, Ljava/nio/IntBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v1}, Ljava/nio/IntBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 76
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mIndexBuffer:Ljava/nio/ShortBuffer;
 
-    invoke-virtual {v0, v2}, Ljava/nio/ShortBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ShortBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 78
     const/16 v0, 0x900
@@ -177,25 +166,29 @@
     invoke-interface {p1, v0}, Ljavax/microedition/khronos/opengles/GL10;->glShadeModel(I)V
 
     .line 80
-    const/4 v0, 0x3
+    iget-object v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexBuffer:Ljava/nio/IntBuffer;
 
-    iget-object v1, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexBuffer:Ljava/nio/IntBuffer;
+    const/16 v2, 0x140c
 
-    invoke-interface {p1, v0, v4, v2, v1}, Ljavax/microedition/khronos/opengles/GL10;->glVertexPointer(IIILjava/nio/Buffer;)V
+    const/4 v3, 0x3
+
+    invoke-interface {p1, v3, v2, v1, v0}, Ljavax/microedition/khronos/opengles/GL10;->glVertexPointer(IIILjava/nio/Buffer;)V
 
     .line 81
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mColorBuffer:Ljava/nio/IntBuffer;
 
-    invoke-interface {p1, v3, v4, v2, v0}, Ljavax/microedition/khronos/opengles/GL10;->glColorPointer(IIILjava/nio/Buffer;)V
+    const/4 v3, 0x4
+
+    invoke-interface {p1, v3, v2, v1, v0}, Ljavax/microedition/khronos/opengles/GL10;->glColorPointer(IIILjava/nio/Buffer;)V
 
     .line 82
     iget v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mIndexCount:I
 
-    const/16 v1, 0x1403
+    iget-object v1, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mIndexBuffer:Ljava/nio/ShortBuffer;
 
-    iget-object v2, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mIndexBuffer:Ljava/nio/ShortBuffer;
+    const/16 v2, 0x1403
 
-    invoke-interface {p1, v3, v0, v1, v2}, Ljavax/microedition/khronos/opengles/GL10;->glDrawElements(IIILjava/nio/Buffer;)V
+    invoke-interface {p1, v3, v0, v2, v1}, Ljavax/microedition/khronos/opengles/GL10;->glDrawElements(IIILjava/nio/Buffer;)V
 
     .line 83
     iget v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->count:I
@@ -209,21 +202,20 @@
 .end method
 
 .method public generate()V
-    .locals 7
+    .locals 5
 
-    .prologue
     .line 36
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexList:Ljava/util/ArrayList;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexList:Ljava/util/ArrayList;
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    move-result v5
+    move-result v0
 
-    mul-int/lit8 v5, v5, 0x4
+    mul-int/lit8 v0, v0, 0x4
 
-    mul-int/lit8 v5, v5, 0x4
+    mul-int/lit8 v0, v0, 0x4
 
-    invoke-static {v5}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
@@ -231,73 +223,73 @@
     .local v0, "bb":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 38
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
 
-    move-result-object v5
+    move-result-object v1
 
-    iput-object v5, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mColorBuffer:Ljava/nio/IntBuffer;
+    iput-object v1, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mColorBuffer:Ljava/nio/IntBuffer;
 
     .line 40
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexList:Ljava/util/ArrayList;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexList:Ljava/util/ArrayList;
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    move-result v5
+    move-result v1
 
-    mul-int/lit8 v5, v5, 0x4
+    mul-int/lit8 v1, v1, 0x4
 
-    mul-int/lit8 v5, v5, 0x3
+    mul-int/lit8 v1, v1, 0x3
 
-    invoke-static {v5}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    invoke-static {v1}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
     .line 41
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 42
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
 
-    move-result-object v5
+    move-result-object v1
 
-    iput-object v5, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexBuffer:Ljava/nio/IntBuffer;
+    iput-object v1, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexBuffer:Ljava/nio/IntBuffer;
 
     .line 44
-    iget v5, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mIndexCount:I
+    iget v1, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mIndexCount:I
 
-    mul-int/lit8 v5, v5, 0x2
+    mul-int/lit8 v1, v1, 0x2
 
-    invoke-static {v5}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    invoke-static {v1}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
     .line 45
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v0, v5}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 46
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
 
-    move-result-object v5
+    move-result-object v1
 
-    iput-object v5, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mIndexBuffer:Ljava/nio/ShortBuffer;
+    iput-object v1, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mIndexBuffer:Ljava/nio/ShortBuffer;
 
     .line 48
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexList:Ljava/util/ArrayList;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexList:Ljava/util/ArrayList;
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -306,33 +298,34 @@
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_0
+    if-eqz v2, :cond_0
 
     .line 50
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Lio/appium/android/apis/graphics/kube/GLVertex;
+    check-cast v2, Lio/appium/android/apis/graphics/kube/GLVertex;
 
     .line 51
-    .local v4, "vertex":Lio/appium/android/apis/graphics/kube/GLVertex;
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexBuffer:Ljava/nio/IntBuffer;
+    .local v2, "vertex":Lio/appium/android/apis/graphics/kube/GLVertex;
+    iget-object v3, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexBuffer:Ljava/nio/IntBuffer;
 
-    iget-object v6, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mColorBuffer:Ljava/nio/IntBuffer;
+    iget-object v4, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mColorBuffer:Ljava/nio/IntBuffer;
 
-    invoke-virtual {v4, v5, v6}, Lio/appium/android/apis/graphics/kube/GLVertex;->put(Ljava/nio/IntBuffer;Ljava/nio/IntBuffer;)V
+    invoke-virtual {v2, v3, v4}, Lio/appium/android/apis/graphics/kube/GLVertex;->put(Ljava/nio/IntBuffer;Ljava/nio/IntBuffer;)V
 
+    .line 52
+    .end local v2    # "vertex":Lio/appium/android/apis/graphics/kube/GLVertex;
     goto :goto_0
 
     .line 54
-    .end local v4    # "vertex":Lio/appium/android/apis/graphics/kube/GLVertex;
     :cond_0
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mShapeList:Ljava/util/ArrayList;
+    iget-object v2, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mShapeList:Ljava/util/ArrayList;
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -341,9 +334,9 @@
     :goto_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_1
+    if-eqz v3, :cond_1
 
     .line 56
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -354,14 +347,15 @@
 
     .line 57
     .local v3, "shape":Lio/appium/android/apis/graphics/kube/GLShape;
-    iget-object v5, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mIndexBuffer:Ljava/nio/ShortBuffer;
+    iget-object v4, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mIndexBuffer:Ljava/nio/ShortBuffer;
 
-    invoke-virtual {v3, v5}, Lio/appium/android/apis/graphics/kube/GLShape;->putIndices(Ljava/nio/ShortBuffer;)V
+    invoke-virtual {v3, v4}, Lio/appium/android/apis/graphics/kube/GLShape;->putIndices(Ljava/nio/ShortBuffer;)V
 
+    .line 58
+    .end local v3    # "shape":Lio/appium/android/apis/graphics/kube/GLShape;
     goto :goto_1
 
     .line 59
-    .end local v3    # "shape":Lio/appium/android/apis/graphics/kube/GLShape;
     :cond_1
     return-void
 .end method
@@ -371,7 +365,6 @@
     .param p1, "vertex"    # Lio/appium/android/apis/graphics/kube/GLVertex;
     .param p2, "transform"    # Lio/appium/android/apis/graphics/kube/M4;
 
-    .prologue
     .line 68
     iget-object v0, p0, Lio/appium/android/apis/graphics/kube/GLWorld;->mVertexBuffer:Ljava/nio/IntBuffer;
 

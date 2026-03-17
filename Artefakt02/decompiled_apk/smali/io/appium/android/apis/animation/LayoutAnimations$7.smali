@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/animation/LayoutAnimations;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/LayoutAnimations;
 
-    .prologue
     .line 165
     iput-object p1, p0, Lio/appium/android/apis/animation/LayoutAnimations$7;->this$0:Lio/appium/android/apis/animation/LayoutAnimations;
 
@@ -37,14 +37,12 @@
     .locals 2
     .param p1, "anim"    # Landroid/animation/Animator;
 
-    .prologue
-    const/high16 v1, 0x3f800000    # 1.0f
-
     .line 167
-    check-cast p1, Landroid/animation/ObjectAnimator;
+    move-object v0, p1
 
-    .end local p1    # "anim":Landroid/animation/Animator;
-    invoke-virtual {p1}, Landroid/animation/ObjectAnimator;->getTarget()Ljava/lang/Object;
+    check-cast v0, Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->getTarget()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -52,6 +50,8 @@
 
     .line 168
     .local v0, "view":Landroid/view/View;
+    const/high16 v1, 0x3f800000    # 1.0f
+
     invoke-virtual {v0, v1}, Landroid/view/View;->setScaleX(F)V
 
     .line 169

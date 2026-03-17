@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/FinishAffinity;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/FinishAffinity;
 
-    .prologue
     .line 49
     iput-object p1, p0, Lio/appium/android/apis/app/FinishAffinity$1;->this$0:Lio/appium/android/apis/app/FinishAffinity;
 
@@ -40,7 +40,6 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 51
     new-instance v0, Landroid/content/Intent;
 

@@ -4,14 +4,13 @@
 
 
 # static fields
-.field private static final TEST_PICTURE:Z
+.field private static final TEST_PICTURE:Z = false
 
 
 # direct methods
 .method constructor <init>()V
     .locals 0
 
-    .prologue
     .line 24
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -24,7 +23,6 @@
     .locals 0
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 30
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -36,7 +34,6 @@
     .locals 0
     .param p1, "view"    # Landroid/view/View;
 
-    .prologue
     .line 41
     invoke-super {p0, p1}, Landroid/app/Activity;->setContentView(Landroid/view/View;)V
 

@@ -33,7 +33,6 @@
     .locals 2
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 51
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
@@ -49,7 +48,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020025
+    const v1, 0x7f08007b
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -62,7 +61,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020026
+    const v1, 0x7f08007c
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -79,7 +78,6 @@
 .method public getCount()I
     .locals 1
 
-    .prologue
     .line 67
     invoke-static {}, Lio/appium/android/apis/view/List14;->access$000()[Ljava/lang/String;
 
@@ -94,7 +92,6 @@
     .locals 1
     .param p1, "position"    # I
 
-    .prologue
     .line 79
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -107,7 +104,6 @@
     .locals 2
     .param p1, "position"    # I
 
-    .prologue
     .line 88
     int-to-long v0, p1
 
@@ -120,18 +116,17 @@
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
     .line 105
     if-nez p2, :cond_0
 
     .line 106
-    iget-object v1, p0, Lio/appium/android/apis/view/List14$EfficientAdapter;->mInflater:Landroid/view/LayoutInflater;
+    iget-object v0, p0, Lio/appium/android/apis/view/List14$EfficientAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f030086
+    const v1, 0x7f0b00a4
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p2
 
@@ -142,7 +137,7 @@
 
     .line 111
     .local v0, "holder":Lio/appium/android/apis/view/List14$EfficientAdapter$ViewHolder;
-    const v1, 0x7f09000c
+    const v1, 0x7f09020c
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -153,7 +148,7 @@
     iput-object v1, v0, Lio/appium/android/apis/view/List14$EfficientAdapter$ViewHolder;->text:Landroid/widget/TextView;
 
     .line 112
-    const v1, 0x7f0900e6
+    const v1, 0x7f0900ef
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -166,7 +161,19 @@
     .line 114
     invoke-virtual {p2, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
+    goto :goto_0
+
+    .line 118
+    .end local v0    # "holder":Lio/appium/android/apis/view/List14$EfficientAdapter$ViewHolder;
+    :cond_0
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lio/appium/android/apis/view/List14$EfficientAdapter$ViewHolder;
+
     .line 122
+    .restart local v0    # "holder":Lio/appium/android/apis/view/List14$EfficientAdapter$ViewHolder;
     :goto_0
     iget-object v1, v0, Lio/appium/android/apis/view/List14$EfficientAdapter$ViewHolder;->text:Landroid/widget/TextView;
 
@@ -179,37 +186,24 @@
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 123
-    iget-object v2, v0, Lio/appium/android/apis/view/List14$EfficientAdapter$ViewHolder;->icon:Landroid/widget/ImageView;
+    iget-object v1, v0, Lio/appium/android/apis/view/List14$EfficientAdapter$ViewHolder;->icon:Landroid/widget/ImageView;
 
-    and-int/lit8 v1, p1, 0x1
+    and-int/lit8 v2, p1, 0x1
 
     const/4 v3, 0x1
 
-    if-ne v1, v3, :cond_1
+    if-ne v2, v3, :cond_1
 
-    iget-object v1, p0, Lio/appium/android/apis/view/List14$EfficientAdapter;->mIcon1:Landroid/graphics/Bitmap;
+    iget-object v2, p0, Lio/appium/android/apis/view/List14$EfficientAdapter;->mIcon1:Landroid/graphics/Bitmap;
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v2, p0, Lio/appium/android/apis/view/List14$EfficientAdapter;->mIcon2:Landroid/graphics/Bitmap;
 
     :goto_1
-    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
     .line 125
     return-object p2
-
-    .line 118
-    .end local v0    # "holder":Lio/appium/android/apis/view/List14$EfficientAdapter$ViewHolder;
-    :cond_0
-    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lio/appium/android/apis/view/List14$EfficientAdapter$ViewHolder;
-
-    .restart local v0    # "holder":Lio/appium/android/apis/view/List14$EfficientAdapter$ViewHolder;
-    goto :goto_0
-
-    .line 123
-    :cond_1
-    iget-object v1, p0, Lio/appium/android/apis/view/List14$EfficientAdapter;->mIcon2:Landroid/graphics/Bitmap;
-
-    goto :goto_1
 .end method

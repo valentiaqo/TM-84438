@@ -17,7 +17,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 34
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -49,7 +48,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/view/Visibility1;
 
-    .prologue
     .line 34
     iget-object v0, p0, Lio/appium/android/apis/view/Visibility1;->mVictim:Landroid/view/View;
 
@@ -62,38 +60,37 @@
     .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 40
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 41
-    const v3, 0x7f0300f4
+    const v0, 0x7f0b011d
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/Visibility1;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Visibility1;->setContentView(I)V
 
     .line 44
-    const v3, 0x7f09017f
+    const v0, 0x7f090243
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/Visibility1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Visibility1;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v0
 
-    iput-object v3, p0, Lio/appium/android/apis/view/Visibility1;->mVictim:Landroid/view/View;
+    iput-object v0, p0, Lio/appium/android/apis/view/Visibility1;->mVictim:Landroid/view/View;
 
     .line 47
-    const v3, 0x7f090174
+    const v0, 0x7f09024a
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/Visibility1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Visibility1;->findViewById(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroid/widget/Button;
+    check-cast v0, Landroid/widget/Button;
 
     .line 48
-    .local v2, "visibleButton":Landroid/widget/Button;
-    const v3, 0x7f090175
+    .local v0, "visibleButton":Landroid/widget/Button;
+    const v1, 0x7f0900fd
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/Visibility1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Visibility1;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -101,19 +98,19 @@
 
     .line 49
     .local v1, "invisibleButton":Landroid/widget/Button;
-    const v3, 0x7f090176
+    const v2, 0x7f0900dc
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/Visibility1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/Visibility1;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v2, Landroid/widget/Button;
 
     .line 52
-    .local v0, "goneButton":Landroid/widget/Button;
+    .local v2, "goneButton":Landroid/widget/Button;
     iget-object v3, p0, Lio/appium/android/apis/view/Visibility1;->mVisibleListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 53
     iget-object v3, p0, Lio/appium/android/apis/view/Visibility1;->mInvisibleListener:Landroid/view/View$OnClickListener;
@@ -123,7 +120,7 @@
     .line 54
     iget-object v3, p0, Lio/appium/android/apis/view/Visibility1;->mGoneListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 55
     return-void

@@ -21,7 +21,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 36
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -36,95 +35,99 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 6
+    .locals 5
     .param p1, "savedState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
 
     .line 46
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 48
-    const v2, 0x7f030043
+    const v0, 0x7f0b0060
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/nfc/ForegroundDispatch;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/nfc/ForegroundDispatch;->setContentView(I)V
 
     .line 49
-    const v2, 0x7f09000c
+    const v0, 0x7f09020c
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/nfc/ForegroundDispatch;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/nfc/ForegroundDispatch;->findViewById(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    iput-object v2, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mText:Landroid/widget/TextView;
+    iput-object v0, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mText:Landroid/widget/TextView;
 
     .line 50
-    iget-object v2, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mText:Landroid/widget/TextView;
+    iget-object v0, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mText:Landroid/widget/TextView;
 
-    const-string v3, "Scan a tag"
+    const-string v1, "Scan a tag"
 
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 52
     invoke-static {p0}, Landroid/nfc/NfcAdapter;->getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object v2, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mAdapter:Landroid/nfc/NfcAdapter;
+    iput-object v0, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mAdapter:Landroid/nfc/NfcAdapter;
 
     .line 57
-    new-instance v2, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
+    .line 58
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-direct {v2, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    const/high16 v3, 0x20000000
+    const/high16 v1, 0x20000000
 
-    invoke-virtual {v2, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {p0, v5, v2, v5}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    .line 57
+    const/4 v1, 0x0
 
-    move-result-object v2
+    invoke-static {p0, v1, v0, v1}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    iput-object v2, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mPendingIntent:Landroid/app/PendingIntent;
+    move-result-object v0
+
+    iput-object v0, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mPendingIntent:Landroid/app/PendingIntent;
 
     .line 61
-    new-instance v1, Landroid/content/IntentFilter;
+    new-instance v0, Landroid/content/IntentFilter;
 
     const-string v2, "android.nfc.action.NDEF_DISCOVERED"
 
-    invoke-direct {v1, v2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
     .line 63
-    .local v1, "ndef":Landroid/content/IntentFilter;
+    .local v0, "ndef":Landroid/content/IntentFilter;
     :try_start_0
     const-string v2, "*/*"
 
-    invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addDataType(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addDataType(Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/content/IntentFilter$MalformedMimeTypeException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 66
+    nop
+
     .line 67
-    new-array v2, v4, [Landroid/content/IntentFilter;
+    const/4 v2, 0x1
 
-    aput-object v1, v2, v5
+    new-array v3, v2, [Landroid/content/IntentFilter;
 
-    iput-object v2, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mFilters:[Landroid/content/IntentFilter;
+    aput-object v0, v3, v1
+
+    iput-object v3, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mFilters:[Landroid/content/IntentFilter;
 
     .line 72
-    new-array v2, v4, [[Ljava/lang/String;
+    new-array v3, v2, [[Ljava/lang/String;
 
-    new-array v3, v4, [Ljava/lang/String;
+    new-array v2, v2, [Ljava/lang/String;
 
     const-class v4, Landroid/nfc/tech/NfcF;
 
@@ -132,26 +135,26 @@
 
     move-result-object v4
 
-    aput-object v4, v3, v5
+    aput-object v4, v2, v1
 
-    aput-object v3, v2, v5
+    aput-object v2, v3, v1
 
-    iput-object v2, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mTechLists:[[Ljava/lang/String;
+    iput-object v3, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mTechLists:[[Ljava/lang/String;
 
     .line 73
     return-void
 
     .line 64
     :catch_0
-    move-exception v0
+    move-exception v1
 
     .line 65
-    .local v0, "e":Landroid/content/IntentFilter$MalformedMimeTypeException;
+    .local v1, "e":Landroid/content/IntentFilter$MalformedMimeTypeException;
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "fail"
 
-    invoke-direct {v2, v3, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v2, v3, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v2
 .end method
@@ -160,7 +163,6 @@
     .locals 3
     .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 84
     const-string v0, "Foreground dispatch"
 
@@ -172,11 +174,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -195,8 +193,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     iget v2, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mCount:I
 
     add-int/lit8 v2, v2, 0x1
@@ -205,17 +201,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     const-string v2, " with intent: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -230,7 +220,6 @@
 .method public onPause()V
     .locals 1
 
-    .prologue
     .line 90
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
@@ -238,8 +227,6 @@
     iget-object v0, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mAdapter:Landroid/nfc/NfcAdapter;
 
     if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v0, p0}, Landroid/nfc/NfcAdapter;->disableForegroundDispatch(Landroid/app/Activity;)V
 
@@ -251,7 +238,6 @@
 .method public onResume()V
     .locals 4
 
-    .prologue
     .line 77
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
@@ -259,8 +245,6 @@
     iget-object v0, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mAdapter:Landroid/nfc/NfcAdapter;
 
     if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mAdapter:Landroid/nfc/NfcAdapter;
 
     iget-object v1, p0, Lio/appium/android/apis/nfc/ForegroundDispatch;->mPendingIntent:Landroid/app/PendingIntent;
 

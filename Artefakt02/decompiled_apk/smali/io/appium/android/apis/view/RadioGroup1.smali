@@ -17,7 +17,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 31
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -31,68 +30,63 @@
     .param p1, "group"    # Landroid/widget/RadioGroup;
     .param p2, "checkedId"    # I
 
-    .prologue
     .line 65
-    const v2, 0x7f0c0220
+    const v0, 0x7f0e0268
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/RadioGroup1;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 66
-    .local v1, "selection":Ljava/lang/String;
-    const v2, 0x7f0c0221
-
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/RadioGroup1;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/RadioGroup1;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 66
+    .local v0, "selection":Ljava/lang/String;
+    const v1, 0x7f0e0267
+
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/RadioGroup1;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
     .line 67
-    .local v0, "none":Ljava/lang/String;
+    .local v1, "none":Ljava/lang/String;
     iget-object v2, p0, Lio/appium/android/apis/view/RadioGroup1;->mChoice:Landroid/widget/TextView;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const/4 v4, -0x1
 
     if-ne p2, v4, :cond_0
 
-    .end local v0    # "none":Ljava/lang/String;
-    :goto_0
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-object v4, v1
 
-    move-result-object v3
+    goto :goto_0
+
+    .line 68
+    :cond_0
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    :goto_0
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
+    .line 67
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 69
     return-void
-
-    .line 67
-    .restart local v0    # "none":Ljava/lang/String;
-    :cond_0
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    goto :goto_0
 .end method
 
 .method public onClick(Landroid/view/View;)V
     .locals 1
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 72
     iget-object v0, p0, Lio/appium/android/apis/view/RadioGroup1;->mRadioGroup:Landroid/widget/RadioGroup;
 
@@ -103,123 +97,118 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 7
+    .locals 6
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v5, -0x2
 
     .line 39
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 41
-    const v4, 0x7f0300a2
+    const v0, 0x7f0b00c6
 
-    invoke-virtual {p0, v4}, Lio/appium/android/apis/view/RadioGroup1;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/RadioGroup1;->setContentView(I)V
 
     .line 42
-    const v4, 0x7f090114
+    const v0, 0x7f090122
 
-    invoke-virtual {p0, v4}, Lio/appium/android/apis/view/RadioGroup1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/RadioGroup1;->findViewById(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v0
 
-    check-cast v4, Landroid/widget/RadioGroup;
+    check-cast v0, Landroid/widget/RadioGroup;
 
-    iput-object v4, p0, Lio/appium/android/apis/view/RadioGroup1;->mRadioGroup:Landroid/widget/RadioGroup;
+    iput-object v0, p0, Lio/appium/android/apis/view/RadioGroup1;->mRadioGroup:Landroid/widget/RadioGroup;
 
     .line 45
-    new-instance v2, Landroid/widget/RadioButton;
+    new-instance v0, Landroid/widget/RadioButton;
 
-    invoke-direct {v2, p0}, Landroid/widget/RadioButton;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Landroid/widget/RadioButton;-><init>(Landroid/content/Context;)V
 
     .line 46
-    .local v2, "newRadioButton":Landroid/widget/RadioButton;
-    const v4, 0x7f0c021f
+    .local v0, "newRadioButton":Landroid/widget/RadioButton;
+    const v1, 0x7f0e0269
 
-    invoke-virtual {v2, v4}, Landroid/widget/RadioButton;->setText(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/RadioButton;->setText(I)V
 
     .line 47
-    const v4, 0x7f090003
+    const v1, 0x7f0901d8
 
-    invoke-virtual {v2, v4}, Landroid/widget/RadioButton;->setId(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/RadioButton;->setId(I)V
 
     .line 48
     new-instance v1, Landroid/widget/RadioGroup$LayoutParams;
 
-    invoke-direct {v1, v5, v5}, Landroid/widget/RadioGroup$LayoutParams;-><init>(II)V
+    const/4 v2, -0x2
+
+    invoke-direct {v1, v2, v2}, Landroid/widget/RadioGroup$LayoutParams;-><init>(II)V
 
     .line 51
     .local v1, "layoutParams":Landroid/widget/LinearLayout$LayoutParams;
-    iget-object v4, p0, Lio/appium/android/apis/view/RadioGroup1;->mRadioGroup:Landroid/widget/RadioGroup;
+    iget-object v2, p0, Lio/appium/android/apis/view/RadioGroup1;->mRadioGroup:Landroid/widget/RadioGroup;
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v4, v2, v5, v1}, Landroid/widget/RadioGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v2, v0, v3, v1}, Landroid/widget/RadioGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
     .line 54
-    const v4, 0x7f0c0220
+    const v2, 0x7f0e0268
 
-    invoke-virtual {p0, v4}, Lio/appium/android/apis/view/RadioGroup1;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/RadioGroup1;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 55
+    .local v2, "selection":Ljava/lang/String;
+    iget-object v3, p0, Lio/appium/android/apis/view/RadioGroup1;->mRadioGroup:Landroid/widget/RadioGroup;
+
+    invoke-virtual {v3, p0}, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
+
+    .line 56
+    const v3, 0x7f090069
+
+    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/RadioGroup1;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    .line 55
-    .local v3, "selection":Ljava/lang/String;
-    iget-object v4, p0, Lio/appium/android/apis/view/RadioGroup1;->mRadioGroup:Landroid/widget/RadioGroup;
+    check-cast v3, Landroid/widget/TextView;
 
-    invoke-virtual {v4, p0}, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
+    iput-object v3, p0, Lio/appium/android/apis/view/RadioGroup1;->mChoice:Landroid/widget/TextView;
 
-    .line 56
-    const v4, 0x7f090118
+    .line 57
+    iget-object v3, p0, Lio/appium/android/apis/view/RadioGroup1;->mChoice:Landroid/widget/TextView;
 
-    invoke-virtual {p0, v4}, Lio/appium/android/apis/view/RadioGroup1;->findViewById(I)Landroid/view/View;
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v5, p0, Lio/appium/android/apis/view/RadioGroup1;->mRadioGroup:Landroid/widget/RadioGroup;
+
+    invoke-virtual {v5}, Landroid/widget/RadioGroup;->getCheckedRadioButtonId()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    check-cast v4, Landroid/widget/TextView;
-
-    iput-object v4, p0, Lio/appium/android/apis/view/RadioGroup1;->mChoice:Landroid/widget/TextView;
-
-    .line 57
-    iget-object v4, p0, Lio/appium/android/apis/view/RadioGroup1;->mChoice:Landroid/widget/TextView;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lio/appium/android/apis/view/RadioGroup1;->mRadioGroup:Landroid/widget/RadioGroup;
-
-    invoke-virtual {v6}, Landroid/widget/RadioGroup;->getCheckedRadioButtonId()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 60
-    const v4, 0x7f0900b4
+    const v3, 0x7f09006b
 
-    invoke-virtual {p0, v4}, Lio/appium/android/apis/view/RadioGroup1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/RadioGroup1;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v3, Landroid/widget/Button;
 
     .line 61
-    .local v0, "clearButton":Landroid/widget/Button;
-    invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    .local v3, "clearButton":Landroid/widget/Button;
+    invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 62
     return-void

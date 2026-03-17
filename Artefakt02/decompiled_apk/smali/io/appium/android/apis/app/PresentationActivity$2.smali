@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/PresentationActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/PresentationActivity;
 
-    .prologue
     .line 288
     iput-object p1, p0, Lio/appium/android/apis/app/PresentationActivity$2;->this$0:Lio/appium/android/apis/app/PresentationActivity;
 
@@ -40,7 +40,6 @@
     .locals 3
     .param p1, "displayId"    # I
 
-    .prologue
     .line 291
     const-string v0, "PresentationActivity"
 
@@ -52,17 +51,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, " added."
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -87,7 +80,6 @@
     .locals 3
     .param p1, "displayId"    # I
 
-    .prologue
     .line 297
     const-string v0, "PresentationActivity"
 
@@ -99,17 +91,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, " changed."
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -134,7 +120,6 @@
     .locals 3
     .param p1, "displayId"    # I
 
-    .prologue
     .line 303
     const-string v0, "PresentationActivity"
 
@@ -146,17 +131,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, " removed."
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

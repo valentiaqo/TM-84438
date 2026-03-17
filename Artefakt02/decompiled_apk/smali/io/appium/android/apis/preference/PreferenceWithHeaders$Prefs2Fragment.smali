@@ -18,7 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 95
     invoke-direct {p0}, Landroid/preference/PreferenceFragment;-><init>()V
 
@@ -31,7 +30,6 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 98
     invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -46,15 +44,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {p0}, Lio/appium/android/apis/preference/PreferenceWithHeaders$Prefs2Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -63,7 +57,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 104
-    const v0, 0x7f06000d
+    const v0, 0x7f11000d
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/preference/PreferenceWithHeaders$Prefs2Fragment;->addPreferencesFromResource(I)V
 

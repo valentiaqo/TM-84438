@@ -15,8 +15,7 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/os/AsyncTask",
-        "<",
+        "Landroid/os/AsyncTask<",
         "Ljava/lang/Void;",
         "Ljava/lang/Void;",
         "Ljava/lang/Void;",
@@ -34,8 +33,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment;Landroid/content/ContentResolver;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment;
 
-    .prologue
     .line 464
     iput-object p1, p0, Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment$2;->this$0:Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment;
 
@@ -49,32 +48,28 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # [Ljava/lang/Object;
+    .locals 0
 
-    .prologue
     .line 464
     check-cast p1, [Ljava/lang/Void;
 
-    .end local p1    # "x0":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment$2;->doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
     .locals 3
     .param p1, "params"    # [Ljava/lang/Void;
 
-    .prologue
-    const/4 v2, 0x0
-
     .line 466
     iget-object v0, p0, Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment$2;->val$cr:Landroid/content/ContentResolver;
 
     sget-object v1, Lio/appium/android/apis/app/LoaderThrottle$MainTable;->CONTENT_URI:Landroid/net/Uri;
+
+    const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2, v2}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 

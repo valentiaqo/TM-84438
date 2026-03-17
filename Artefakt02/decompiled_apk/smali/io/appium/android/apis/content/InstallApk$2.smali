@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/content/InstallApk;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/content/InstallApk;
 
-    .prologue
     .line 103
     iput-object p1, p0, Lio/appium/android/apis/content/InstallApk$2;->this$0:Lio/appium/android/apis/content/InstallApk;
 
@@ -39,9 +39,6 @@
 .method public onClick(Landroid/view/View;)V
     .locals 4
     .param p1, "v"    # Landroid/view/View;
-
-    .prologue
-    const/4 v3, 0x1
 
     .line 105
     new-instance v0, Landroid/content/Intent;
@@ -69,30 +66,34 @@
     .line 107
     const-string v1, "android.intent.extra.NOT_UNKNOWN_SOURCE"
 
-    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 108
     const-string v1, "android.intent.extra.RETURN_RESULT"
 
-    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 109
     const-string v1, "android.intent.extra.INSTALLER_PACKAGE_NAME"
 
-    iget-object v2, p0, Lio/appium/android/apis/content/InstallApk$2;->this$0:Lio/appium/android/apis/content/InstallApk;
+    iget-object v3, p0, Lio/appium/android/apis/content/InstallApk$2;->this$0:Lio/appium/android/apis/content/InstallApk;
 
-    invoke-virtual {v2}, Lio/appium/android/apis/content/InstallApk;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+    .line 110
+    invoke-virtual {v3}, Lio/appium/android/apis/content/InstallApk;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v2, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v3, v3, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    .line 109
+    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 111
     iget-object v1, p0, Lio/appium/android/apis/content/InstallApk$2;->this$0:Lio/appium/android/apis/content/InstallApk;
 
-    invoke-virtual {v1, v0, v3}, Lio/appium/android/apis/content/InstallApk;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v1, v0, v2}, Lio/appium/android/apis/content/InstallApk;->startActivityForResult(Landroid/content/Intent;I)V
 
     .line 112
     return-void

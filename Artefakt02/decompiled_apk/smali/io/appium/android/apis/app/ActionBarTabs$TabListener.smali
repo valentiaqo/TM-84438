@@ -28,7 +28,6 @@
     .locals 0
     .param p2, "fragment"    # Lio/appium/android/apis/app/ActionBarTabs$TabContentFragment;
 
-    .prologue
     .line 92
     iput-object p1, p0, Lio/appium/android/apis/app/ActionBarTabs$TabListener;->this$0:Lio/appium/android/apis/app/ActionBarTabs;
 
@@ -48,7 +47,6 @@
     .param p1, "tab"    # Landroid/app/ActionBar$Tab;
     .param p2, "ft"    # Landroid/app/FragmentTransaction;
 
-    .prologue
     .line 105
     iget-object v0, p0, Lio/appium/android/apis/app/ActionBarTabs$TabListener;->this$0:Lio/appium/android/apis/app/ActionBarTabs;
 
@@ -71,19 +69,16 @@
     .param p1, "tab"    # Landroid/app/ActionBar$Tab;
     .param p2, "ft"    # Landroid/app/FragmentTransaction;
 
-    .prologue
     .line 97
-    const v0, 0x7f09000d
+    iget-object v0, p0, Lio/appium/android/apis/app/ActionBarTabs$TabListener;->mFragment:Lio/appium/android/apis/app/ActionBarTabs$TabContentFragment;
 
-    iget-object v1, p0, Lio/appium/android/apis/app/ActionBarTabs$TabListener;->mFragment:Lio/appium/android/apis/app/ActionBarTabs$TabContentFragment;
+    invoke-virtual {v0}, Lio/appium/android/apis/app/ActionBarTabs$TabContentFragment;->getText()Ljava/lang/String;
 
-    iget-object v2, p0, Lio/appium/android/apis/app/ActionBarTabs$TabListener;->mFragment:Lio/appium/android/apis/app/ActionBarTabs$TabContentFragment;
+    move-result-object v1
 
-    invoke-virtual {v2}, Lio/appium/android/apis/app/ActionBarTabs$TabContentFragment;->getText()Ljava/lang/String;
+    const v2, 0x7f0900d3
 
-    move-result-object v2
-
-    invoke-virtual {p2, v0, v1, v2}, Landroid/app/FragmentTransaction;->add(ILandroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
+    invoke-virtual {p2, v2, v0, v1}, Landroid/app/FragmentTransaction;->add(ILandroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
     .line 98
     return-void
@@ -94,7 +89,6 @@
     .param p1, "tab"    # Landroid/app/ActionBar$Tab;
     .param p2, "ft"    # Landroid/app/FragmentTransaction;
 
-    .prologue
     .line 101
     iget-object v0, p0, Lio/appium/android/apis/app/ActionBarTabs$TabListener;->mFragment:Lio/appium/android/apis/app/ActionBarTabs$TabContentFragment;
 

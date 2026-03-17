@@ -23,8 +23,7 @@
 .field mClients:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList",
-            "<",
+            "Ljava/util/ArrayList<",
             "Landroid/os/Messenger;",
             ">;"
         }
@@ -42,7 +41,6 @@
 .method public constructor <init>()V
     .locals 2
 
-    .prologue
     .line 52
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
@@ -73,58 +71,89 @@
 .end method
 
 .method private showNotification()V
-    .locals 8
-
-    .prologue
-    const v7, 0x7f0c008f
-
-    const/4 v6, 0x0
+    .locals 6
 
     .line 150
-    invoke-virtual {p0, v7}, Lio/appium/android/apis/app/MessengerService;->getText(I)Ljava/lang/CharSequence;
+    const v0, 0x7f0e027e
+
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/MessengerService;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    .line 152
+    .local v1, "text":Ljava/lang/CharSequence;
+    new-instance v2, Landroid/content/Intent;
+
+    const-class v3, Lio/appium/android/apis/app/RemoteService$Controller;
+
+    invoke-direct {v2, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    const/4 v3, 0x0
+
+    invoke-static {p0, v3, v2, v3}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v2
 
-    .line 153
-    .local v2, "text":Ljava/lang/CharSequence;
-    new-instance v1, Landroid/app/Notification;
+    .line 155
+    .local v2, "contentIntent":Landroid/app/PendingIntent;
+    new-instance v3, Landroid/app/Notification$Builder;
 
-    const v3, 0x7f02005d
+    invoke-direct {v3, p0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
+    .line 156
+    const v4, 0x7f0800c1
+
+    invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 157
+    invoke-virtual {v3, v1}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 158
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v4
 
-    invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/Notification;-><init>(ILjava/lang/CharSequence;J)V
-
-    .line 157
-    .local v1, "notification":Landroid/app/Notification;
-    new-instance v3, Landroid/content/Intent;
-
-    const-class v4, Lio/appium/android/apis/app/RemoteService$Controller;
-
-    invoke-direct {v3, p0, v4}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    invoke-static {p0, v6, v3, v6}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v0
-
-    .line 161
-    .local v0, "contentIntent":Landroid/app/PendingIntent;
-    const v3, 0x7f0c0091
-
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/app/MessengerService;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v4, v5}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v3
 
-    invoke-virtual {v1, p0, v3, v2, v0}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
+    .line 159
+    const v4, 0x7f0e01fd
+
+    invoke-virtual {p0, v4}, Lio/appium/android/apis/app/MessengerService;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 160
+    invoke-virtual {v3, v1}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 161
+    invoke-virtual {v3, v2}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 162
+    invoke-virtual {v3}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+
+    move-result-object v3
+
+    .line 165
+    .local v3, "notification":Landroid/app/Notification;
+    iget-object v4, p0, Lio/appium/android/apis/app/MessengerService;->mNM:Landroid/app/NotificationManager;
+
+    invoke-virtual {v4, v0, v3}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
     .line 166
-    iget-object v3, p0, Lio/appium/android/apis/app/MessengerService;->mNM:Landroid/app/NotificationManager;
-
-    invoke-virtual {v3, v7, v1}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
-
-    .line 167
     return-void
 .end method
 
@@ -134,7 +163,6 @@
     .locals 1
     .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 142
     iget-object v0, p0, Lio/appium/android/apis/app/MessengerService;->mMessenger:Landroid/os/Messenger;
 
@@ -148,7 +176,6 @@
 .method public onCreate()V
     .locals 1
 
-    .prologue
     .line 121
     const-string v0, "notification"
 
@@ -170,16 +197,15 @@
 .method public onDestroy()V
     .locals 2
 
-    .prologue
     .line 130
     iget-object v0, p0, Lio/appium/android/apis/app/MessengerService;->mNM:Landroid/app/NotificationManager;
 
-    const v1, 0x7f0c008f
+    const v1, 0x7f0e027e
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
     .line 133
-    const v0, 0x7f0c0090
+    const v0, 0x7f0e027f
 
     const/4 v1, 0x0
 

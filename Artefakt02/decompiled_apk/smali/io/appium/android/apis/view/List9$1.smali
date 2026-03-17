@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/List9;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/List9;
 
-    .prologue
     .line 76
     iput-object p1, p0, Lio/appium/android/apis/view/List9$1;->this$0:Lio/appium/android/apis/view/List9;
 
@@ -37,30 +37,31 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
-
-    .prologue
-    const/4 v1, -0x2
+    .locals 8
 
     .line 79
-    iget-object v2, p0, Lio/appium/android/apis/view/List9$1;->this$0:Lio/appium/android/apis/view/List9;
+    iget-object v0, p0, Lio/appium/android/apis/view/List9$1;->this$0:Lio/appium/android/apis/view/List9;
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    invoke-static {v2, v3}, Lio/appium/android/apis/view/List9;->access$202(Lio/appium/android/apis/view/List9;Z)Z
+    invoke-static {v0, v1}, Lio/appium/android/apis/view/List9;->access$202(Lio/appium/android/apis/view/List9;Z)Z
 
     .line 80
     new-instance v0, Landroid/view/WindowManager$LayoutParams;
 
-    const/4 v3, 0x2
+    const/4 v3, -0x2
 
-    const/16 v4, 0x18
+    const/4 v4, -0x2
 
-    const/4 v5, -0x3
+    const/4 v5, 0x2
 
-    move v2, v1
+    const/16 v6, 0x18
 
-    invoke-direct/range {v0 .. v5}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
+    const/4 v7, -0x3
+
+    move-object v2, v0
+
+    invoke-direct/range {v2 .. v7}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
 
     .line 86
     .local v0, "lp":Landroid/view/WindowManager$LayoutParams;

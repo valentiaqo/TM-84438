@@ -38,11 +38,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 27
     invoke-direct {p0}, Lio/appium/android/apis/graphics/GraphicsActivity;-><init>()V
 
-    .line 58
     return-void
 .end method
 
@@ -50,7 +48,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/graphics/FingerPaint;
 
-    .prologue
     .line 27
     iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
@@ -63,7 +60,6 @@
     .locals 1
     .param p1, "color"    # I
 
-    .prologue
     .line 55
     iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
@@ -76,9 +72,6 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v1, 0x1
 
     .line 32
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->onCreate(Landroid/os/Bundle;)V
@@ -99,6 +92,8 @@
 
     .line 36
     iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
+
+    const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
@@ -164,18 +159,17 @@
     .line 47
     new-instance v0, Landroid/graphics/BlurMaskFilter;
 
-    const/high16 v1, 0x41000000    # 8.0f
+    sget-object v1, Landroid/graphics/BlurMaskFilter$Blur;->NORMAL:Landroid/graphics/BlurMaskFilter$Blur;
 
-    sget-object v2, Landroid/graphics/BlurMaskFilter$Blur;->NORMAL:Landroid/graphics/BlurMaskFilter$Blur;
+    const/high16 v2, 0x41000000    # 8.0f
 
-    invoke-direct {v0, v1, v2}, Landroid/graphics/BlurMaskFilter;-><init>(FLandroid/graphics/BlurMaskFilter$Blur;)V
+    invoke-direct {v0, v2, v1}, Landroid/graphics/BlurMaskFilter;-><init>(FLandroid/graphics/BlurMaskFilter$Blur;)V
 
     iput-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mBlur:Landroid/graphics/MaskFilter;
 
     .line 48
     return-void
 
-    .line 44
     :array_0
     .array-data 4
         0x3f800000    # 1.0f
@@ -185,17 +179,8 @@
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .locals 7
+    .locals 6
     .param p1, "menu"    # Landroid/view/Menu;
-
-    .prologue
-    const/4 v6, 0x1
-
-    const/16 v5, 0x7a
-
-    const/16 v4, 0x35
-
-    const/4 v3, 0x0
 
     .line 148
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
@@ -203,221 +188,229 @@
     .line 150
     const-string v0, "Color"
 
-    invoke-interface {p1, v3, v6, v3, v0}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-interface {p1, v2, v1, v2, v0}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const/16 v1, 0x33
+    const/16 v3, 0x33
 
-    const/16 v2, 0x63
+    const/16 v4, 0x63
 
-    invoke-interface {v0, v1, v2}, Landroid/view/MenuItem;->setShortcut(CC)Landroid/view/MenuItem;
+    invoke-interface {v0, v3, v4}, Landroid/view/MenuItem;->setShortcut(CC)Landroid/view/MenuItem;
 
     .line 151
-    const/4 v0, 0x2
+    const-string v0, "Emboss"
 
-    const-string v1, "Emboss"
+    const/4 v3, 0x2
 
-    invoke-interface {p1, v3, v0, v3, v1}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const/16 v1, 0x34
+    const/16 v3, 0x34
 
-    const/16 v2, 0x73
+    const/16 v4, 0x73
 
-    invoke-interface {v0, v1, v2}, Landroid/view/MenuItem;->setShortcut(CC)Landroid/view/MenuItem;
+    invoke-interface {v0, v3, v4}, Landroid/view/MenuItem;->setShortcut(CC)Landroid/view/MenuItem;
 
     .line 152
-    const/4 v0, 0x3
+    const-string v0, "Blur"
 
-    const-string v1, "Blur"
+    const/4 v3, 0x3
 
-    invoke-interface {p1, v3, v0, v3, v1}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    invoke-interface {v0, v4, v5}, Landroid/view/MenuItem;->setShortcut(CC)Landroid/view/MenuItem;
+    const/16 v3, 0x7a
+
+    const/16 v4, 0x35
+
+    invoke-interface {v0, v4, v3}, Landroid/view/MenuItem;->setShortcut(CC)Landroid/view/MenuItem;
 
     .line 153
-    const/4 v0, 0x4
+    const-string v0, "Erase"
 
-    const-string v1, "Erase"
+    const/4 v5, 0x4
 
-    invoke-interface {p1, v3, v0, v3, v1}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {p1, v2, v5, v2, v0}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    invoke-interface {v0, v4, v5}, Landroid/view/MenuItem;->setShortcut(CC)Landroid/view/MenuItem;
+    invoke-interface {v0, v4, v3}, Landroid/view/MenuItem;->setShortcut(CC)Landroid/view/MenuItem;
 
     .line 154
-    const/4 v0, 0x5
+    const-string v0, "SrcATop"
 
-    const-string v1, "SrcATop"
+    const/4 v5, 0x5
 
-    invoke-interface {p1, v3, v0, v3, v1}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {p1, v2, v5, v2, v0}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    invoke-interface {v0, v4, v5}, Landroid/view/MenuItem;->setShortcut(CC)Landroid/view/MenuItem;
+    invoke-interface {v0, v4, v3}, Landroid/view/MenuItem;->setShortcut(CC)Landroid/view/MenuItem;
 
     .line 164
-    return v6
+    return v1
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
     .locals 4
     .param p1, "item"    # Landroid/view/MenuItem;
 
-    .prologue
-    const/4 v3, 0x0
-
-    const/4 v0, 0x1
-
     .line 175
-    iget-object v1, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     .line 176
-    iget-object v1, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
     const/16 v2, 0xff
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setAlpha(I)V
+    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setAlpha(I)V
 
     .line 178
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
-    move-result v1
+    move-result v0
 
-    packed-switch v1, :pswitch_data_0
+    const/4 v2, 0x1
+
+    packed-switch v0, :pswitch_data_0
 
     .line 206
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
-    :goto_0
     return v0
 
-    .line 180
+    .line 201
     :pswitch_0
-    new-instance v1, Lio/appium/android/apis/graphics/ColorPickerDialog;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
-    iget-object v2, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
+    new-instance v1, Landroid/graphics/PorterDuffXfermode;
 
-    invoke-virtual {v2}, Landroid/graphics/Paint;->getColor()I
+    sget-object v3, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
-    move-result v2
+    invoke-direct {v1, v3}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
 
-    invoke-direct {v1, p0, p0, v2}, Lio/appium/android/apis/graphics/ColorPickerDialog;-><init>(Landroid/content/Context;Lio/appium/android/apis/graphics/ColorPickerDialog$OnColorChangedListener;I)V
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
-    invoke-virtual {v1}, Lio/appium/android/apis/graphics/ColorPickerDialog;->show()V
+    .line 203
+    iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
-    goto :goto_0
+    const/16 v1, 0x80
 
-    .line 183
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAlpha(I)V
+
+    .line 204
+    return v2
+
+    .line 197
     :pswitch_1
-    iget-object v1, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v1}, Landroid/graphics/Paint;->getMaskFilter()Landroid/graphics/MaskFilter;
+    new-instance v1, Landroid/graphics/PorterDuffXfermode;
 
-    move-result-object v1
+    sget-object v3, Landroid/graphics/PorterDuff$Mode;->CLEAR:Landroid/graphics/PorterDuff$Mode;
 
-    iget-object v2, p0, Lio/appium/android/apis/graphics/FingerPaint;->mEmboss:Landroid/graphics/MaskFilter;
+    invoke-direct {v1, v3}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
 
-    if-eq v1, v2, :cond_0
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
-    .line 184
-    iget-object v1, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
-
-    iget-object v2, p0, Lio/appium/android/apis/graphics/FingerPaint;->mEmboss:Landroid/graphics/MaskFilter;
-
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
-
-    goto :goto_0
-
-    .line 186
-    :cond_0
-    iget-object v1, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
-
-    goto :goto_0
+    .line 199
+    return v2
 
     .line 190
     :pswitch_2
-    iget-object v1, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v1}, Landroid/graphics/Paint;->getMaskFilter()Landroid/graphics/MaskFilter;
+    invoke-virtual {v0}, Landroid/graphics/Paint;->getMaskFilter()Landroid/graphics/MaskFilter;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v2, p0, Lio/appium/android/apis/graphics/FingerPaint;->mBlur:Landroid/graphics/MaskFilter;
+    iget-object v3, p0, Lio/appium/android/apis/graphics/FingerPaint;->mBlur:Landroid/graphics/MaskFilter;
 
-    if-eq v1, v2, :cond_1
+    if-eq v0, v3, :cond_0
 
     .line 191
-    iget-object v1, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
-    iget-object v2, p0, Lio/appium/android/apis/graphics/FingerPaint;->mBlur:Landroid/graphics/MaskFilter;
-
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
+    invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
 
     goto :goto_0
 
     .line 193
-    :cond_1
-    iget-object v1, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
+    :cond_0
+    iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
 
-    goto :goto_0
+    .line 195
+    :goto_0
+    return v2
 
-    .line 197
+    .line 183
     :pswitch_3
-    iget-object v1, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
-    new-instance v2, Landroid/graphics/PorterDuffXfermode;
+    invoke-virtual {v0}, Landroid/graphics/Paint;->getMaskFilter()Landroid/graphics/MaskFilter;
 
-    sget-object v3, Landroid/graphics/PorterDuff$Mode;->CLEAR:Landroid/graphics/PorterDuff$Mode;
+    move-result-object v0
 
-    invoke-direct {v2, v3}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+    iget-object v3, p0, Lio/appium/android/apis/graphics/FingerPaint;->mEmboss:Landroid/graphics/MaskFilter;
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+    if-eq v0, v3, :cond_1
 
-    goto :goto_0
+    .line 184
+    iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
-    .line 201
+    invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
+
+    goto :goto_1
+
+    .line 186
+    :cond_1
+    iget-object v0, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
+
+    .line 188
+    :goto_1
+    return v2
+
+    .line 180
     :pswitch_4
+    new-instance v0, Lio/appium/android/apis/graphics/ColorPickerDialog;
+
     iget-object v1, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
 
-    new-instance v2, Landroid/graphics/PorterDuffXfermode;
+    invoke-virtual {v1}, Landroid/graphics/Paint;->getColor()I
 
-    sget-object v3, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+    move-result v1
 
-    invoke-direct {v2, v3}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+    invoke-direct {v0, p0, p0, v1}, Lio/appium/android/apis/graphics/ColorPickerDialog;-><init>(Landroid/content/Context;Lio/appium/android/apis/graphics/ColorPickerDialog$OnColorChangedListener;I)V
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+    invoke-virtual {v0}, Lio/appium/android/apis/graphics/ColorPickerDialog;->show()V
 
-    .line 203
-    iget-object v1, p0, Lio/appium/android/apis/graphics/FingerPaint;->mPaint:Landroid/graphics/Paint;
+    .line 181
+    return v2
 
-    const/16 v2, 0x80
-
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    goto :goto_0
-
-    .line 178
     :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-        :pswitch_3
         :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -425,7 +418,6 @@
     .locals 1
     .param p1, "menu"    # Landroid/view/Menu;
 
-    .prologue
     .line 169
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
 
@@ -437,9 +429,7 @@
 
 .method public bridge synthetic setContentView(Landroid/view/View;)V
     .locals 0
-    .param p1, "x0"    # Landroid/view/View;
 
-    .prologue
     .line 27
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->setContentView(Landroid/view/View;)V
 

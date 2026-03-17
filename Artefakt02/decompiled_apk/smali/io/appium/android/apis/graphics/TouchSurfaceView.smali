@@ -28,7 +28,6 @@
     .locals 1
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 74
     invoke-direct {p0, p1}, Landroid/opengl/GLSurfaceView;-><init>(Landroid/content/Context;)V
 
@@ -69,61 +68,52 @@
     .locals 8
     .param p1, "e"    # Landroid/view/MotionEvent;
 
-    .prologue
-    const/high16 v7, 0x3f100000    # 0.5625f
-
     .line 88
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v2
+    move-result v0
 
     .line 89
-    .local v2, "x":F
+    .local v0, "x":F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
-    move-result v3
+    move-result v1
 
     .line 90
-    .local v3, "y":F
+    .local v1, "y":F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v4
+    move-result v2
 
-    packed-switch v4, :pswitch_data_0
+    const/4 v3, 0x2
 
-    .line 98
-    :goto_0
-    iput v2, p0, Lio/appium/android/apis/graphics/TouchSurfaceView;->mPreviousX:F
+    if-eq v2, v3, :cond_0
 
-    .line 99
-    iput v3, p0, Lio/appium/android/apis/graphics/TouchSurfaceView;->mPreviousY:F
-
-    .line 100
-    const/4 v4, 0x1
-
-    return v4
+    goto :goto_0
 
     .line 92
-    :pswitch_0
-    iget v4, p0, Lio/appium/android/apis/graphics/TouchSurfaceView;->mPreviousX:F
+    :cond_0
+    iget v2, p0, Lio/appium/android/apis/graphics/TouchSurfaceView;->mPreviousX:F
 
-    sub-float v0, v2, v4
+    sub-float v2, v0, v2
 
     .line 93
-    .local v0, "dx":F
-    iget v4, p0, Lio/appium/android/apis/graphics/TouchSurfaceView;->mPreviousY:F
+    .local v2, "dx":F
+    iget v3, p0, Lio/appium/android/apis/graphics/TouchSurfaceView;->mPreviousY:F
 
-    sub-float v1, v3, v4
+    sub-float v3, v1, v3
 
     .line 94
-    .local v1, "dy":F
+    .local v3, "dy":F
     iget-object v4, p0, Lio/appium/android/apis/graphics/TouchSurfaceView;->mRenderer:Lio/appium/android/apis/graphics/TouchSurfaceView$CubeRenderer;
 
     iget v5, v4, Lio/appium/android/apis/graphics/TouchSurfaceView$CubeRenderer;->mAngleX:F
 
-    mul-float v6, v0, v7
+    const/high16 v6, 0x3f100000    # 0.5625f
 
-    add-float/2addr v5, v6
+    mul-float v7, v2, v6
+
+    add-float/2addr v5, v7
 
     iput v5, v4, Lio/appium/android/apis/graphics/TouchSurfaceView$CubeRenderer;->mAngleX:F
 
@@ -132,7 +122,7 @@
 
     iget v5, v4, Lio/appium/android/apis/graphics/TouchSurfaceView$CubeRenderer;->mAngleY:F
 
-    mul-float v6, v1, v7
+    mul-float v6, v6, v3
 
     add-float/2addr v5, v6
 
@@ -141,23 +131,24 @@
     .line 96
     invoke-virtual {p0}, Lio/appium/android/apis/graphics/TouchSurfaceView;->requestRender()V
 
-    goto :goto_0
+    .line 98
+    .end local v2    # "dx":F
+    .end local v3    # "dy":F
+    :goto_0
+    iput v0, p0, Lio/appium/android/apis/graphics/TouchSurfaceView;->mPreviousX:F
 
-    .line 90
-    nop
+    .line 99
+    iput v1, p0, Lio/appium/android/apis/graphics/TouchSurfaceView;->mPreviousY:F
 
-    :pswitch_data_0
-    .packed-switch 0x2
-        :pswitch_0
-    .end packed-switch
+    .line 100
+    const/4 v2, 0x1
+
+    return v2
 .end method
 
 .method public onTrackballEvent(Landroid/view/MotionEvent;)Z
     .locals 4
     .param p1, "e"    # Landroid/view/MotionEvent;
-
-    .prologue
-    const/high16 v3, 0x42100000    # 36.0f
 
     .line 81
     iget-object v0, p0, Lio/appium/android/apis/graphics/TouchSurfaceView;->mRenderer:Lio/appium/android/apis/graphics/TouchSurfaceView$CubeRenderer;
@@ -168,7 +159,9 @@
 
     move-result v2
 
-    mul-float/2addr v2, v3
+    const/high16 v3, 0x42100000    # 36.0f
+
+    mul-float v2, v2, v3
 
     add-float/2addr v1, v2
 
@@ -183,7 +176,7 @@
 
     move-result v2
 
-    mul-float/2addr v2, v3
+    mul-float v2, v2, v3
 
     add-float/2addr v1, v2
 

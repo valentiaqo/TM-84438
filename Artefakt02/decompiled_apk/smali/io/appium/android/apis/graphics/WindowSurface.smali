@@ -23,11 +23,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 16
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 138
     return-void
 .end method
 
@@ -37,7 +35,6 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 21
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -67,127 +64,124 @@
 .method protected onDestroy()V
     .locals 3
 
-    .prologue
     .line 57
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
     .line 60
-    iget-object v1, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
-    monitor-enter v1
+    monitor-enter v0
 
     .line 61
     :try_start_0
-    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
     const/4 v2, 0x1
 
-    iput-boolean v2, v0, Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;->mQuit:Z
+    iput-boolean v2, v1, Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;->mQuit:Z
 
     .line 62
-    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notify()V
+    invoke-virtual {v1}, Ljava/lang/Object;->notify()V
 
     .line 63
-    monitor-exit v1
+    monitor-exit v0
 
     .line 64
     return-void
 
     .line 63
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method protected onPause()V
     .locals 3
 
-    .prologue
     .line 35
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
     .line 38
-    iget-object v1, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
-    monitor-enter v1
+    monitor-enter v0
 
     .line 39
     :try_start_0
-    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
     const/4 v2, 0x0
 
-    iput-boolean v2, v0, Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;->mRunning:Z
+    iput-boolean v2, v1, Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;->mRunning:Z
 
     .line 40
-    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notify()V
+    invoke-virtual {v1}, Ljava/lang/Object;->notify()V
 
     .line 41
-    monitor-exit v1
+    monitor-exit v0
 
     .line 42
     return-void
 
     .line 41
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method protected onResume()V
     .locals 3
 
-    .prologue
     .line 46
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     .line 49
-    iget-object v1, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
-    monitor-enter v1
+    monitor-enter v0
 
     .line 50
     :try_start_0
-    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
     const/4 v2, 0x1
 
-    iput-boolean v2, v0, Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;->mRunning:Z
+    iput-boolean v2, v1, Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;->mRunning:Z
 
     .line 51
-    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notify()V
+    invoke-virtual {v1}, Ljava/lang/Object;->notify()V
 
     .line 52
-    monitor-exit v1
+    monitor-exit v0
 
     .line 53
     return-void
 
     .line 52
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public surfaceChanged(Landroid/view/SurfaceHolder;III)V
@@ -197,7 +191,6 @@
     .param p3, "width"    # I
     .param p4, "height"    # I
 
-    .prologue
     .line 77
     return-void
 .end method
@@ -206,49 +199,47 @@
     .locals 2
     .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
-    .prologue
     .line 68
-    iget-object v1, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
-    monitor-enter v1
+    monitor-enter v0
 
     .line 69
     :try_start_0
-    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
-    iput-object p1, v0, Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;->mSurface:Landroid/view/SurfaceHolder;
+    iput-object p1, v1, Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;->mSurface:Landroid/view/SurfaceHolder;
 
     .line 70
-    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notify()V
+    invoke-virtual {v1}, Ljava/lang/Object;->notify()V
 
     .line 71
-    monitor-exit v1
+    monitor-exit v0
 
     .line 72
     return-void
 
     .line 71
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public surfaceDestroyed(Landroid/view/SurfaceHolder;)V
-    .locals 3
+    .locals 2
     .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
-    .prologue
     .line 85
-    iget-object v2, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/WindowSurface;->mDrawingThread:Lio/appium/android/apis/graphics/WindowSurface$DrawingThread;
 
-    monitor-enter v2
+    monitor-enter v0
 
     .line 86
     :try_start_0
@@ -280,37 +271,39 @@
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 93
+    :goto_1
     goto :goto_0
 
     .line 91
     :catch_0
-    move-exception v0
+    move-exception v1
 
     .line 92
-    .local v0, "e":Ljava/lang/InterruptedException;
+    .local v1, "e":Ljava/lang/InterruptedException;
     :try_start_2
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/InterruptedException;->printStackTrace()V
 
-    goto :goto_0
+    .end local v1    # "e":Ljava/lang/InterruptedException;
+    goto :goto_1
 
     .line 95
-    .end local v0    # "e":Ljava/lang/InterruptedException;
+    :cond_0
+    monitor-exit v0
+
+    .line 96
+    return-void
+
+    .line 95
     :catchall_0
     move-exception v1
 
-    monitor-exit v2
+    monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v1
 
-    :cond_0
-    :try_start_3
-    monitor-exit v2
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    .line 96
     return-void
 .end method
 
@@ -318,7 +311,6 @@
     .locals 0
     .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
-    .prologue
     .line 80
     return-void
 .end method

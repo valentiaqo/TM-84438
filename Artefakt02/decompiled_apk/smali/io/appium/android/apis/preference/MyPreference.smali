@@ -21,12 +21,11 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
     .line 39
     invoke-direct {p0, p1, p2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 41
-    const v0, 0x7f030097
+    const v0, 0x7f0b00bb
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/preference/MyPreference;->setWidgetLayoutResource(I)V
 
@@ -40,14 +39,13 @@
     .locals 2
     .param p1, "view"    # Landroid/view/View;
 
-    .prologue
     .line 46
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 49
-    const v1, 0x7f090103
+    const v0, 0x7f09013a
 
-    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -74,11 +72,10 @@
 .method protected onClick()V
     .locals 2
 
-    .prologue
     .line 57
-    iget v1, p0, Lio/appium/android/apis/preference/MyPreference;->mClickCounter:I
+    iget v0, p0, Lio/appium/android/apis/preference/MyPreference;->mClickCounter:I
 
-    add-int/lit8 v0, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     .line 60
     .local v0, "newValue":I
@@ -92,8 +89,7 @@
 
     if-nez v1, :cond_0
 
-    .line 74
-    :goto_0
+    .line 62
     return-void
 
     .line 66
@@ -108,7 +104,8 @@
     .line 73
     invoke-virtual {p0}, Lio/appium/android/apis/preference/MyPreference;->notifyChanged()V
 
-    goto :goto_0
+    .line 74
+    return-void
 .end method
 
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
@@ -116,7 +113,6 @@
     .param p1, "a"    # Landroid/content/res/TypedArray;
     .param p2, "index"    # I
 
-    .prologue
     .line 80
     const/4 v0, 0x0
 
@@ -132,34 +128,32 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 3
+    .locals 2
     .param p1, "state"    # Landroid/os/Parcelable;
 
-    .prologue
     .line 118
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-class v2, Lio/appium/android/apis/preference/MyPreference$SavedState;
+    const-class v1, Lio/appium/android/apis/preference/MyPreference$SavedState;
 
-    invoke-virtual {v1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 120
     invoke-super {p0, p1}, Landroid/preference/Preference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
-    .line 129
-    :goto_0
+    .line 121
     return-void
 
+    .line 125
     :cond_0
     move-object v0, p1
 
-    .line 125
     check-cast v0, Lio/appium/android/apis/preference/MyPreference$SavedState;
 
     .line 126
@@ -178,80 +172,71 @@
     .line 128
     invoke-virtual {p0}, Lio/appium/android/apis/preference/MyPreference;->notifyChanged()V
 
-    goto :goto_0
+    .line 129
+    return-void
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
     .locals 3
 
-    .prologue
     .line 104
     invoke-super {p0}, Landroid/preference/Preference;->onSaveInstanceState()Landroid/os/Parcelable;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 105
-    .local v1, "superState":Landroid/os/Parcelable;
+    .local v0, "superState":Landroid/os/Parcelable;
     invoke-virtual {p0}, Lio/appium/android/apis/preference/MyPreference;->isPersistent()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 113
-    .end local v1    # "superState":Landroid/os/Parcelable;
-    :goto_0
-    return-object v1
+    .line 107
+    return-object v0
 
     .line 111
-    .restart local v1    # "superState":Landroid/os/Parcelable;
     :cond_0
-    new-instance v0, Lio/appium/android/apis/preference/MyPreference$SavedState;
+    new-instance v1, Lio/appium/android/apis/preference/MyPreference$SavedState;
 
-    invoke-direct {v0, v1}, Lio/appium/android/apis/preference/MyPreference$SavedState;-><init>(Landroid/os/Parcelable;)V
+    invoke-direct {v1, v0}, Lio/appium/android/apis/preference/MyPreference$SavedState;-><init>(Landroid/os/Parcelable;)V
 
     .line 112
-    .local v0, "myState":Lio/appium/android/apis/preference/MyPreference$SavedState;
+    .local v1, "myState":Lio/appium/android/apis/preference/MyPreference$SavedState;
     iget v2, p0, Lio/appium/android/apis/preference/MyPreference;->mClickCounter:I
 
-    iput v2, v0, Lio/appium/android/apis/preference/MyPreference$SavedState;->clickCounter:I
-
-    move-object v1, v0
+    iput v2, v1, Lio/appium/android/apis/preference/MyPreference$SavedState;->clickCounter:I
 
     .line 113
-    goto :goto_0
+    return-object v1
 .end method
 
 .method protected onSetInitialValue(ZLjava/lang/Object;)V
-    .locals 2
+    .locals 1
     .param p1, "restoreValue"    # Z
     .param p2, "defaultValue"    # Ljava/lang/Object;
 
-    .prologue
     .line 85
     if-eqz p1, :cond_0
 
     .line 87
-    iget v1, p0, Lio/appium/android/apis/preference/MyPreference;->mClickCounter:I
+    iget v0, p0, Lio/appium/android/apis/preference/MyPreference;->mClickCounter:I
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/preference/MyPreference;->getPersistedInt(I)I
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/preference/MyPreference;->getPersistedInt(I)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lio/appium/android/apis/preference/MyPreference;->mClickCounter:I
+    iput v0, p0, Lio/appium/android/apis/preference/MyPreference;->mClickCounter:I
 
-    .line 94
-    .end local p2    # "defaultValue":Ljava/lang/Object;
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 90
-    .restart local p2    # "defaultValue":Ljava/lang/Object;
     :cond_0
-    check-cast p2, Ljava/lang/Integer;
+    move-object v0, p2
 
-    .end local p2    # "defaultValue":Ljava/lang/Object;
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
@@ -262,5 +247,8 @@
     .line 92
     invoke-virtual {p0, v0}, Lio/appium/android/apis/preference/MyPreference;->persistInt(I)Z
 
-    goto :goto_0
+    .line 94
+    .end local v0    # "value":I
+    :goto_0
+    return-void
 .end method

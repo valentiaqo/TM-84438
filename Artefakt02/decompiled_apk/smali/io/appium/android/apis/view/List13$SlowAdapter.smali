@@ -22,25 +22,24 @@
 
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/view/List13;Landroid/content/Context;)V
-    .locals 1
+    .locals 0
     .param p2, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 54
     iput-object p1, p0, Lio/appium/android/apis/view/List13$SlowAdapter;->this$0:Lio/appium/android/apis/view/List13;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
     .line 55
-    const-string v0, "layout_inflater"
+    const-string p1, "layout_inflater"
 
-    invoke-virtual {p2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p2, p1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/view/LayoutInflater;
+    check-cast p1, Landroid/view/LayoutInflater;
 
-    iput-object v0, p0, Lio/appium/android/apis/view/List13$SlowAdapter;->mInflater:Landroid/view/LayoutInflater;
+    iput-object p1, p0, Lio/appium/android/apis/view/List13$SlowAdapter;->mInflater:Landroid/view/LayoutInflater;
 
     .line 56
     return-void
@@ -51,7 +50,6 @@
 .method public getCount()I
     .locals 1
 
-    .prologue
     .line 65
     iget-object v0, p0, Lio/appium/android/apis/view/List13$SlowAdapter;->this$0:Lio/appium/android/apis/view/List13;
 
@@ -68,7 +66,6 @@
     .locals 1
     .param p1, "position"    # I
 
-    .prologue
     .line 77
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -81,7 +78,6 @@
     .locals 2
     .param p1, "position"    # I
 
-    .prologue
     .line 86
     int-to-long v0, p1
 
@@ -89,25 +85,32 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 4
+    .locals 3
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
     .line 98
     if-nez p2, :cond_0
 
     .line 99
-    iget-object v1, p0, Lio/appium/android/apis/view/List13$SlowAdapter;->mInflater:Landroid/view/LayoutInflater;
+    iget-object v0, p0, Lio/appium/android/apis/view/List13$SlowAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x1090003
+    const v1, 0x1090003
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v1, v2, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v0, v1, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    goto :goto_0
+
+    .line 101
+    :cond_0
+    move-object v0, p2
 
     check-cast v0, Landroid/widget/TextView;
 
@@ -138,19 +141,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTag(Ljava/lang/Object;)V
 
-    .line 114
-    :goto_1
-    return-object v0
-
-    .end local v0    # "text":Landroid/widget/TextView;
-    :cond_0
-    move-object v0, p2
-
-    .line 101
-    check-cast v0, Landroid/widget/TextView;
-
-    .restart local v0    # "text":Landroid/widget/TextView;
-    goto :goto_0
+    goto :goto_1
 
     .line 109
     :cond_1
@@ -161,5 +152,7 @@
     .line 111
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setTag(Ljava/lang/Object;)V
 
-    goto :goto_1
+    .line 114
+    :goto_1
+    return-object v0
 .end method

@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/PresentationActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/PresentationActivity;
 
-    .prologue
     .line 312
     iput-object p1, p0, Lio/appium/android/apis/app/PresentationActivity$3;->this$0:Lio/appium/android/apis/app/PresentationActivity;
 
@@ -40,24 +40,23 @@
     .locals 5
     .param p1, "dialog"    # Landroid/content/DialogInterface;
 
-    .prologue
     .line 315
-    move-object v1, p1
+    move-object v0, p1
 
-    check-cast v1, Lio/appium/android/apis/app/PresentationActivity$DemoPresentation;
+    check-cast v0, Lio/appium/android/apis/app/PresentationActivity$DemoPresentation;
 
     .line 316
-    .local v1, "presentation":Lio/appium/android/apis/app/PresentationActivity$DemoPresentation;
-    invoke-virtual {v1}, Lio/appium/android/apis/app/PresentationActivity$DemoPresentation;->getDisplay()Landroid/view/Display;
+    .local v0, "presentation":Lio/appium/android/apis/app/PresentationActivity$DemoPresentation;
+    invoke-virtual {v0}, Lio/appium/android/apis/app/PresentationActivity$DemoPresentation;->getDisplay()Landroid/view/Display;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Landroid/view/Display;->getDisplayId()I
+    invoke-virtual {v1}, Landroid/view/Display;->getDisplayId()I
 
-    move-result v0
+    move-result v1
 
     .line 317
-    .local v0, "displayId":I
+    .local v1, "displayId":I
     const-string v2, "PresentationActivity"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -68,17 +67,11 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v4, " was dismissed."
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -93,7 +86,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v0}, Landroid/util/SparseArray;->delete(I)V
+    invoke-virtual {v2, v1}, Landroid/util/SparseArray;->delete(I)V
 
     .line 319
     iget-object v2, p0, Lio/appium/android/apis/app/PresentationActivity$3;->this$0:Lio/appium/android/apis/app/PresentationActivity;

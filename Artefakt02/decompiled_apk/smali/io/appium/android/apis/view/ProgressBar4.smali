@@ -11,7 +11,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 31
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -27,7 +26,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/view/ProgressBar4;
 
-    .prologue
     .line 31
     iget-boolean v0, p0, Lio/appium/android/apis/view/ProgressBar4;->mToggleIndeterminate:Z
 
@@ -39,7 +37,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/view/ProgressBar4;
     .param p1, "x1"    # Z
 
-    .prologue
     .line 31
     iput-boolean p1, p0, Lio/appium/android/apis/view/ProgressBar4;->mToggleIndeterminate:Z
 
@@ -52,29 +49,28 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 36
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 39
-    const/4 v1, 0x5
+    const/4 v0, 0x5
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/ProgressBar4;->requestWindowFeature(I)Z
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ProgressBar4;->requestWindowFeature(I)Z
 
     .line 40
-    const v1, 0x7f0300a0
+    const v0, 0x7f0b00c4
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/ProgressBar4;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ProgressBar4;->setContentView(I)V
 
     .line 41
-    iget-boolean v1, p0, Lio/appium/android/apis/view/ProgressBar4;->mToggleIndeterminate:Z
+    iget-boolean v0, p0, Lio/appium/android/apis/view/ProgressBar4;->mToggleIndeterminate:Z
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/ProgressBar4;->setProgressBarIndeterminateVisibility(Z)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ProgressBar4;->setProgressBarIndeterminateVisibility(Z)V
 
     .line 43
-    const v1, 0x7f090110
+    const v0, 0x7f09021d
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/ProgressBar4;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ProgressBar4;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

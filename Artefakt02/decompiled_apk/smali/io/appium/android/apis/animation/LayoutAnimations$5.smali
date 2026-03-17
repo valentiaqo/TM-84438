@@ -26,8 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/animation/LayoutAnimations;Landroid/animation/LayoutTransition;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/LayoutAnimations;
 
-    .prologue
     .line 116
     iput-object p1, p0, Lio/appium/android/apis/animation/LayoutAnimations$5;->this$0:Lio/appium/android/apis/animation/LayoutAnimations;
 
@@ -45,7 +45,6 @@
     .param p1, "buttonView"    # Landroid/widget/CompoundButton;
     .param p2, "isChecked"    # Z
 
-    .prologue
     .line 118
     iget-object v0, p0, Lio/appium/android/apis/animation/LayoutAnimations$5;->this$0:Lio/appium/android/apis/animation/LayoutAnimations;
 

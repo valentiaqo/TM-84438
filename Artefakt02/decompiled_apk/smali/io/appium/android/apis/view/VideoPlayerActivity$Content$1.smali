@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/VideoPlayerActivity$Content;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/VideoPlayerActivity$Content;
 
-    .prologue
     .line 74
     iput-object p1, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content$1;->this$0:Lio/appium/android/apis/view/VideoPlayerActivity$Content;
 
@@ -39,7 +39,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
     .line 76
     iget-object v0, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content$1;->this$0:Lio/appium/android/apis/view/VideoPlayerActivity$Content;
 

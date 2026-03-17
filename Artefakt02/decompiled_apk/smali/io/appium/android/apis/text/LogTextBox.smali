@@ -8,7 +8,6 @@
     .locals 1
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 39
     const/4 v0, 0x0
 
@@ -23,7 +22,6 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
     .line 43
     const v0, 0x1010084
 
@@ -39,7 +37,6 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
     .param p3, "defStyle"    # I
 
-    .prologue
     .line 47
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -52,7 +49,6 @@
 .method protected getDefaultMovementMethod()Landroid/text/method/MovementMethod;
     .locals 1
 
-    .prologue
     .line 52
     invoke-static {}, Landroid/text/method/ScrollingMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
 
@@ -64,7 +60,6 @@
 .method public getText()Landroid/text/Editable;
     .locals 1
 
-    .prologue
     .line 57
     invoke-super {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
@@ -78,7 +73,6 @@
 .method public bridge synthetic getText()Ljava/lang/CharSequence;
     .locals 1
 
-    .prologue
     .line 37
     invoke-virtual {p0}, Lio/appium/android/apis/text/LogTextBox;->getText()Landroid/text/Editable;
 
@@ -92,7 +86,6 @@
     .param p1, "text"    # Ljava/lang/CharSequence;
     .param p2, "type"    # Landroid/widget/TextView$BufferType;
 
-    .prologue
     .line 62
     sget-object v0, Landroid/widget/TextView$BufferType;->EDITABLE:Landroid/widget/TextView$BufferType;
 

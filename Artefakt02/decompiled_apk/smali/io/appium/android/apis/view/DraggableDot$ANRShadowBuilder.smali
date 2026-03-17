@@ -23,10 +23,10 @@
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/view/DraggableDot;Landroid/view/View;Z)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/DraggableDot;
     .param p2, "view"    # Landroid/view/View;
     .param p3, "doAnr"    # Z
 
-    .prologue
     .line 69
     iput-object p1, p0, Lio/appium/android/apis/view/DraggableDot$ANRShadowBuilder;->this$0:Lio/appium/android/apis/view/DraggableDot;
 
@@ -46,7 +46,6 @@
     .locals 1
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
     .line 76
     iget-boolean v0, p0, Lio/appium/android/apis/view/DraggableDot$ANRShadowBuilder;->mDoAnr:Z
 

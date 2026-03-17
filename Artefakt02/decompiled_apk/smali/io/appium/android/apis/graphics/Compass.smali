@@ -31,7 +31,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 29
     invoke-direct {p0}, Lio/appium/android/apis/graphics/GraphicsActivity;-><init>()V
 
@@ -42,7 +41,6 @@
 
     iput-object v0, p0, Lio/appium/android/apis/graphics/Compass;->mListener:Landroid/hardware/SensorEventListener;
 
-    .line 79
     return-void
 .end method
 
@@ -50,7 +48,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/graphics/Compass;
 
-    .prologue
     .line 29
     iget-object v0, p0, Lio/appium/android/apis/graphics/Compass;->mValues:[F
 
@@ -62,7 +59,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/graphics/Compass;
     .param p1, "x1"    # [F
 
-    .prologue
     .line 29
     iput-object p1, p0, Lio/appium/android/apis/graphics/Compass;->mValues:[F
 
@@ -73,7 +69,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/graphics/Compass;
 
-    .prologue
     .line 29
     iget-object v0, p0, Lio/appium/android/apis/graphics/Compass;->mView:Lio/appium/android/apis/graphics/Compass$SampleView;
 
@@ -86,7 +81,6 @@
     .locals 2
     .param p1, "icicle"    # Landroid/os/Bundle;
 
-    .prologue
     .line 54
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -131,7 +125,6 @@
 .method protected onResume()V
     .locals 4
 
-    .prologue
     .line 65
     invoke-super {p0}, Lio/appium/android/apis/graphics/GraphicsActivity;->onResume()V
 
@@ -153,7 +146,6 @@
 .method protected onStop()V
     .locals 2
 
-    .prologue
     .line 75
     iget-object v0, p0, Lio/appium/android/apis/graphics/Compass;->mSensorManager:Landroid/hardware/SensorManager;
 
@@ -170,9 +162,7 @@
 
 .method public bridge synthetic setContentView(Landroid/view/View;)V
     .locals 0
-    .param p1, "x0"    # Landroid/view/View;
 
-    .prologue
     .line 29
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->setContentView(Landroid/view/View;)V
 

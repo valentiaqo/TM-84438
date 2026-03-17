@@ -50,13 +50,12 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    const/4 v0, 0x0
-
     .line 35
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     .line 53
+    const/4 v0, 0x0
+
     iput-boolean v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mIsVideoSizeKnown:Z
 
     .line 54
@@ -68,10 +67,9 @@
 .method private doCleanUp()V
     .locals 1
 
-    .prologue
+    .line 208
     const/4 v0, 0x0
 
-    .line 208
     iput v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mVideoWidth:I
 
     .line 209
@@ -91,7 +89,6 @@
     .locals 4
     .param p1, "Media"    # Ljava/lang/Integer;
 
-    .prologue
     .line 73
     invoke-direct {p0}, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->doCleanUp()V
 
@@ -99,96 +96,123 @@
     :try_start_0
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result v0
 
-    packed-switch v1, :pswitch_data_0
+    const/4 v1, 0x1
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    .line 104
+    :pswitch_0
+    const-string v0, ""
+
+    iput-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->path:Ljava/lang/String;
+
+    .line 105
+    iget-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->path:Ljava/lang/String;
+
+    const-string v2, ""
+
+    if-ne v0, v2, :cond_0
+
+    .line 107
+    const-string v0, "Please edit MediaPlayerDemo_Video Activity, and set the path variable to your media file URL."
+
+    .line 108
+    invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    .line 112
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    goto :goto_0
+
+    .line 81
+    :pswitch_1
+    const-string v0, ""
+
+    iput-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->path:Ljava/lang/String;
+
+    .line 82
+    iget-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->path:Ljava/lang/String;
+
+    const-string v2, ""
+
+    if-ne v0, v2, :cond_0
+
+    .line 84
+    const-string v0, "Please edit MediaPlayerDemo_Video Activity, and set the path variable to your media file path. Your media file must be stored on sdcard."
+
+    .line 85
+    invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    .line 90
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 122
     :cond_0
     :goto_0
-    new-instance v1, Landroid/media/MediaPlayer;
+    new-instance v0, Landroid/media/MediaPlayer;
 
-    invoke-direct {v1}, Landroid/media/MediaPlayer;-><init>()V
+    invoke-direct {v0}, Landroid/media/MediaPlayer;-><init>()V
 
-    iput-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
+    iput-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     .line 123
-    iget-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
+    iget-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    iget-object v2, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->path:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Landroid/media/MediaPlayer;->setDataSource(Ljava/lang/String;)V
-
-    .line 124
-    iget-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
-
-    iget-object v2, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->holder:Landroid/view/SurfaceHolder;
-
-    invoke-virtual {v1, v2}, Landroid/media/MediaPlayer;->setDisplay(Landroid/view/SurfaceHolder;)V
-
-    .line 125
-    iget-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
-
-    invoke-virtual {v1}, Landroid/media/MediaPlayer;->prepare()V
-
-    .line 126
-    iget-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
-
-    invoke-virtual {v1, p0}, Landroid/media/MediaPlayer;->setOnBufferingUpdateListener(Landroid/media/MediaPlayer$OnBufferingUpdateListener;)V
-
-    .line 127
-    iget-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
-
-    invoke-virtual {v1, p0}, Landroid/media/MediaPlayer;->setOnCompletionListener(Landroid/media/MediaPlayer$OnCompletionListener;)V
-
-    .line 128
-    iget-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
-
-    invoke-virtual {v1, p0}, Landroid/media/MediaPlayer;->setOnPreparedListener(Landroid/media/MediaPlayer$OnPreparedListener;)V
-
-    .line 129
-    iget-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
-
-    invoke-virtual {v1, p0}, Landroid/media/MediaPlayer;->setOnVideoSizeChangedListener(Landroid/media/MediaPlayer$OnVideoSizeChangedListener;)V
-
-    .line 130
-    iget-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
-
-    const/4 v2, 0x3
-
-    invoke-virtual {v1, v2}, Landroid/media/MediaPlayer;->setAudioStreamType(I)V
-
-    .line 136
-    :goto_1
-    return-void
-
-    .line 81
-    :pswitch_0
-    const-string v1, ""
-
-    iput-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->path:Ljava/lang/String;
-
-    .line 82
     iget-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->path:Ljava/lang/String;
 
-    const-string v2, ""
+    invoke-virtual {v0, v1}, Landroid/media/MediaPlayer;->setDataSource(Ljava/lang/String;)V
 
-    if-ne v1, v2, :cond_0
+    .line 124
+    iget-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    .line 84
-    const-string v1, "Please edit MediaPlayerDemo_Video Activity, and set the path variable to your media file path. Your media file must be stored on sdcard."
+    iget-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->holder:Landroid/view/SurfaceHolder;
 
-    const/4 v2, 0x1
+    invoke-virtual {v0, v1}, Landroid/media/MediaPlayer;->setDisplay(Landroid/view/SurfaceHolder;)V
 
-    invoke-static {p0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    .line 125
+    iget-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    move-result-object v1
+    invoke-virtual {v0}, Landroid/media/MediaPlayer;->prepare()V
 
-    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+    .line 126
+    iget-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
+
+    invoke-virtual {v0, p0}, Landroid/media/MediaPlayer;->setOnBufferingUpdateListener(Landroid/media/MediaPlayer$OnBufferingUpdateListener;)V
+
+    .line 127
+    iget-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
+
+    invoke-virtual {v0, p0}, Landroid/media/MediaPlayer;->setOnCompletionListener(Landroid/media/MediaPlayer$OnCompletionListener;)V
+
+    .line 128
+    iget-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
+
+    invoke-virtual {v0, p0}, Landroid/media/MediaPlayer;->setOnPreparedListener(Landroid/media/MediaPlayer$OnPreparedListener;)V
+
+    .line 129
+    iget-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
+
+    invoke-virtual {v0, p0}, Landroid/media/MediaPlayer;->setOnVideoSizeChangedListener(Landroid/media/MediaPlayer$OnVideoSizeChangedListener;)V
+
+    .line 130
+    iget-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Landroid/media/MediaPlayer;->setAudioStreamType(I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    .line 135
+    goto :goto_1
 
     .line 133
     :catch_0
@@ -206,15 +230,11 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
-
     invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -222,60 +242,27 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1
-
-    .line 104
+    .line 136
     .end local v0    # "e":Ljava/lang/Exception;
-    :pswitch_1
-    :try_start_1
-    const-string v1, ""
-
-    iput-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->path:Ljava/lang/String;
-
-    .line 105
-    iget-object v1, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->path:Ljava/lang/String;
-
-    const-string v2, ""
-
-    if-ne v1, v2, :cond_0
-
-    .line 107
-    const-string v1, "Please edit MediaPlayerDemo_Video Activity, and set the path variable to your media file URL."
-
-    const/4 v2, 0x1
-
-    invoke-static {p0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto :goto_0
-
-    .line 76
-    nop
+    :goto_1
+    return-void
 
     :pswitch_data_0
     .packed-switch 0x4
-        :pswitch_0
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method private releaseMediaPlayer()V
     .locals 1
 
-    .prologue
     .line 201
     iget-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     if-eqz v0, :cond_0
 
     .line 202
-    iget-object v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mMediaPlayer:Landroid/media/MediaPlayer;
-
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->release()V
 
     .line 203
@@ -291,7 +278,6 @@
 .method private startVideoPlayback()V
     .locals 3
 
-    .prologue
     .line 215
     const-string v0, "MediaPlayerDemo"
 
@@ -324,7 +310,6 @@
     .param p1, "arg0"    # Landroid/media/MediaPlayer;
     .param p2, "percent"    # I
 
-    .prologue
     .line 139
     const-string v0, "MediaPlayerDemo"
 
@@ -336,11 +321,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -356,7 +337,6 @@
     .locals 2
     .param p1, "arg0"    # Landroid/media/MediaPlayer;
 
-    .prologue
     .line 144
     const-string v0, "MediaPlayerDemo"
 
@@ -372,17 +352,16 @@
     .locals 2
     .param p1, "icicle"    # Landroid/os/Bundle;
 
-    .prologue
     .line 62
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 63
-    const v0, 0x7f03008f
+    const v0, 0x7f0b00ad
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->setContentView(I)V
 
     .line 64
-    const v0, 0x7f0900ee
+    const v0, 0x7f090201
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->findViewById(I)Landroid/view/View;
 
@@ -431,7 +410,6 @@
 .method protected onDestroy()V
     .locals 0
 
-    .prologue
     .line 195
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
@@ -448,7 +426,6 @@
 .method protected onPause()V
     .locals 0
 
-    .prologue
     .line 188
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
@@ -466,7 +443,6 @@
     .locals 2
     .param p1, "mediaplayer"    # Landroid/media/MediaPlayer;
 
-    .prologue
     .line 162
     const-string v0, "MediaPlayerDemo"
 
@@ -502,7 +478,6 @@
     .param p2, "width"    # I
     .param p3, "height"    # I
 
-    .prologue
     .line 148
     const-string v0, "MediaPlayerDemo"
 
@@ -511,57 +486,14 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 149
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_2
 
-    if-nez p3, :cond_2
+    if-nez p3, :cond_0
 
-    .line 150
-    :cond_0
-    const-string v0, "MediaPlayerDemo"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "invalid video width("
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ") or height("
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ")"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 159
-    :cond_1
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 153
-    :cond_2
+    :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->mIsVideoSizeKnown:Z
@@ -584,7 +516,43 @@
     .line 157
     invoke-direct {p0}, Lio/appium/android/apis/media/MediaPlayerDemo_Video;->startVideoPlayback()V
 
-    goto :goto_0
+    .line 159
+    :cond_1
+    return-void
+
+    .line 150
+    :cond_2
+    :goto_0
+    const-string v0, "MediaPlayerDemo"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "invalid video width("
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, ") or height("
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, ")"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 151
+    return-void
 .end method
 
 .method public surfaceChanged(Landroid/view/SurfaceHolder;III)V
@@ -594,7 +562,6 @@
     .param p3, "j"    # I
     .param p4, "k"    # I
 
-    .prologue
     .line 170
     const-string v0, "MediaPlayerDemo"
 
@@ -610,7 +577,6 @@
     .locals 2
     .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
-    .prologue
     .line 180
     const-string v0, "MediaPlayerDemo"
 
@@ -641,7 +607,6 @@
     .locals 2
     .param p1, "surfaceholder"    # Landroid/view/SurfaceHolder;
 
-    .prologue
     .line 175
     const-string v0, "MediaPlayerDemo"
 

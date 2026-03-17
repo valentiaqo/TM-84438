@@ -7,7 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 31
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -20,7 +19,6 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 34
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -30,7 +28,7 @@
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ProgressBar2;->requestWindowFeature(I)Z
 
     .line 39
-    const v0, 0x7f03009e
+    const v0, 0x7f0b00c2
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ProgressBar2;->setContentView(I)V
 

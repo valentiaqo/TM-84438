@@ -10,7 +10,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 30
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -24,7 +23,6 @@
     .param p1, "buttonView"    # Landroid/widget/CompoundButton;
     .param p2, "isChecked"    # Z
 
-    .prologue
     .line 45
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -34,16 +32,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     if-eqz p2, :cond_0
 
-    const-string v0, "on"
+    const-string v1, "on"
+
+    goto :goto_0
+
+    :cond_0
+    const-string v1, "off"
 
     :goto_0
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -55,35 +54,29 @@
 
     move-result-object v0
 
+    .line 46
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 47
     return-void
-
-    .line 45
-    :cond_0
-    const-string v0, "off"
-
-    goto :goto_0
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 33
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 35
-    const v1, 0x7f0300dc
+    const v0, 0x7f0b0104
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Switches;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Switches;->setContentView(I)V
 
     .line 37
-    const v1, 0x7f090177
+    const v0, 0x7f090134
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Switches;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Switches;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

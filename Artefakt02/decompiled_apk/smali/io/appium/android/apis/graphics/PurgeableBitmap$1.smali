@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/graphics/PurgeableBitmap;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/graphics/PurgeableBitmap;
 
-    .prologue
     .line 109
     iput-object p1, p0, Lio/appium/android/apis/graphics/PurgeableBitmap$1;->this$0:Lio/appium/android/apis/graphics/PurgeableBitmap;
 
@@ -41,7 +41,6 @@
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "id"    # I
 
-    .prologue
     .line 111
     return-void
 .end method

@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/AlertDialogSamples;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/AlertDialogSamples;
 
-    .prologue
     .line 409
     iput-object p1, p0, Lio/appium/android/apis/app/AlertDialogSamples$36;->this$0:Lio/appium/android/apis/app/AlertDialogSamples;
 
@@ -37,7 +37,6 @@
     .locals 4
     .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     .line 412
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
@@ -61,9 +60,7 @@
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
 
-    .line 420
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 416
     :cond_0
@@ -95,5 +92,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    goto :goto_0
+    .line 420
+    :goto_0
+    return-void
 .end method

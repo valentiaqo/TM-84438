@@ -11,7 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 66
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -24,17 +23,16 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 77
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 82
-    const v0, 0x7f0300bd
+    const v0, 0x7f0b00e1
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/PersistentState;->setContentView(I)V
 
     .line 85
-    const v0, 0x7f0900d0
+    const v0, 0x7f090136
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/PersistentState;->findViewById(I)Landroid/view/View;
 
@@ -42,12 +40,12 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0c002c
+    const v1, 0x7f0e0239
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     .line 88
-    const v0, 0x7f0900d1
+    const v0, 0x7f09019d
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/PersistentState;->findViewById(I)Landroid/view/View;
 
@@ -64,18 +62,17 @@
 .method protected onPause()V
     .locals 3
 
-    .prologue
     .line 118
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
     .line 120
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/PersistentState;->getPreferences(I)Landroid/content/SharedPreferences;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/PersistentState;->getPreferences(I)Landroid/content/SharedPreferences;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
@@ -125,28 +122,25 @@
 .end method
 
 .method protected onResume()V
-    .locals 7
-
-    .prologue
-    const/4 v6, -0x1
+    .locals 5
 
     .line 97
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     .line 99
-    const/4 v4, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, v4}, Lio/appium/android/apis/app/PersistentState;->getPreferences(I)Landroid/content/SharedPreferences;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/PersistentState;->getPreferences(I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
     .line 100
     .local v0, "prefs":Landroid/content/SharedPreferences;
-    const-string v4, "text"
+    const-string v1, "text"
 
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
-    invoke-interface {v0, v4, v5}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -155,41 +149,43 @@
     if-eqz v1, :cond_0
 
     .line 102
-    iget-object v4, p0, Lio/appium/android/apis/app/PersistentState;->mSaved:Landroid/widget/EditText;
+    iget-object v2, p0, Lio/appium/android/apis/app/PersistentState;->mSaved:Landroid/widget/EditText;
 
-    sget-object v5, Landroid/widget/TextView$BufferType;->EDITABLE:Landroid/widget/TextView$BufferType;
+    sget-object v3, Landroid/widget/TextView$BufferType;->EDITABLE:Landroid/widget/TextView$BufferType;
 
-    invoke-virtual {v4, v1, v5}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V
+    invoke-virtual {v2, v1, v3}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V
 
     .line 104
-    const-string v4, "selection-start"
+    const-string v2, "selection-start"
 
-    invoke-interface {v0, v4, v6}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    const/4 v3, -0x1
 
-    move-result v3
-
-    .line 105
-    .local v3, "selectionStart":I
-    const-string v4, "selection-end"
-
-    invoke-interface {v0, v4, v6}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
     move-result v2
 
-    .line 106
-    .local v2, "selectionEnd":I
-    if-eq v3, v6, :cond_0
+    .line 105
+    .local v2, "selectionStart":I
+    const-string v4, "selection-end"
 
-    if-eq v2, v6, :cond_0
+    invoke-interface {v0, v4, v3}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result v4
+
+    .line 106
+    .local v4, "selectionEnd":I
+    if-eq v2, v3, :cond_0
+
+    if-eq v4, v3, :cond_0
 
     .line 107
-    iget-object v4, p0, Lio/appium/android/apis/app/PersistentState;->mSaved:Landroid/widget/EditText;
+    iget-object v3, p0, Lio/appium/android/apis/app/PersistentState;->mSaved:Landroid/widget/EditText;
 
-    invoke-virtual {v4, v3, v2}, Landroid/widget/EditText;->setSelection(II)V
+    invoke-virtual {v3, v2, v4}, Landroid/widget/EditText;->setSelection(II)V
 
     .line 110
-    .end local v2    # "selectionEnd":I
-    .end local v3    # "selectionStart":I
+    .end local v2    # "selectionStart":I
+    .end local v4    # "selectionEnd":I
     :cond_0
     return-void
 .end method

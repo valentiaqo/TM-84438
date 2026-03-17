@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/RemoteService$Binding;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/RemoteService$Binding;
 
-    .prologue
     .line 343
     iput-object p1, p0, Lio/appium/android/apis/app/RemoteService$Binding$2;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 
@@ -41,7 +41,6 @@
     .param p1, "className"    # Landroid/content/ComponentName;
     .param p2, "service"    # Landroid/os/IBinder;
 
-    .prologue
     .line 348
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding$2;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 
@@ -68,7 +67,6 @@
     .locals 2
     .param p1, "className"    # Landroid/content/ComponentName;
 
-    .prologue
     .line 353
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding$2;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 
@@ -77,8 +75,6 @@
     iput-object v1, v0, Lio/appium/android/apis/app/RemoteService$Binding;->mSecondaryService:Lio/appium/android/apis/app/ISecondary;
 
     .line 354
-    iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding$2;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
-
     iget-object v0, v0, Lio/appium/android/apis/app/RemoteService$Binding;->mKillButton:Landroid/widget/Button;
 
     const/4 v1, 0x0

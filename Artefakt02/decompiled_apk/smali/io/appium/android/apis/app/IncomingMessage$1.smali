@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/IncomingMessage;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/IncomingMessage;
 
-    .prologue
-    .line 45
+    .line 49
     iput-object p1, p0, Lio/appium/android/apis/app/IncomingMessage$1;->this$0:Lio/appium/android/apis/app/IncomingMessage;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,12 +40,11 @@
     .locals 1
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 47
+    .line 51
     iget-object v0, p0, Lio/appium/android/apis/app/IncomingMessage$1;->this$0:Lio/appium/android/apis/app/IncomingMessage;
 
     invoke-virtual {v0}, Lio/appium/android/apis/app/IncomingMessage;->showAppNotification()V
 
-    .line 48
+    .line 52
     return-void
 .end method

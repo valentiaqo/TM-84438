@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/IntentActivityFlags;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/IntentActivityFlags;
 
-    .prologue
     .line 66
     iput-object p1, p0, Lio/appium/android/apis/app/IntentActivityFlags$1;->this$0:Lio/appium/android/apis/app/IntentActivityFlags;
 
@@ -40,13 +40,10 @@
     .locals 2
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 68
     iget-object v0, p0, Lio/appium/android/apis/app/IntentActivityFlags$1;->this$0:Lio/appium/android/apis/app/IntentActivityFlags;
 
-    iget-object v1, p0, Lio/appium/android/apis/app/IntentActivityFlags$1;->this$0:Lio/appium/android/apis/app/IntentActivityFlags;
-
-    invoke-static {v1}, Lio/appium/android/apis/app/IntentActivityFlags;->access$000(Lio/appium/android/apis/app/IntentActivityFlags;)[Landroid/content/Intent;
+    invoke-static {v0}, Lio/appium/android/apis/app/IntentActivityFlags;->access$000(Lio/appium/android/apis/app/IntentActivityFlags;)[Landroid/content/Intent;
 
     move-result-object v1
 

@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lio/appium/android/apis/graphics/CompressedTextureActivity$1;,
         Lio/appium/android/apis/graphics/CompressedTextureActivity$SyntheticCompressedTextureLoader;,
         Lio/appium/android/apis/graphics/CompressedTextureActivity$CompressedTextureLoader;
     }
@@ -16,9 +15,9 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "CompressedTextureActivity"
 
-.field private static final TEST_CREATE_TEXTURE:Z
+.field private static final TEST_CREATE_TEXTURE:Z = false
 
-.field private static final USE_STREAM_IO:Z
+.field private static final USE_STREAM_IO:Z = false
 
 
 # instance fields
@@ -29,11 +28,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 45
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 111
     return-void
 .end method
 
@@ -43,23 +40,22 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 60
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 61
-    new-instance v1, Landroid/opengl/GLSurfaceView;
+    new-instance v0, Landroid/opengl/GLSurfaceView;
 
-    invoke-direct {v1, p0}, Landroid/opengl/GLSurfaceView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Landroid/opengl/GLSurfaceView;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lio/appium/android/apis/graphics/CompressedTextureActivity;->mGLView:Landroid/opengl/GLSurfaceView;
+    iput-object v0, p0, Lio/appium/android/apis/graphics/CompressedTextureActivity;->mGLView:Landroid/opengl/GLSurfaceView;
 
     .line 62
-    iget-object v1, p0, Lio/appium/android/apis/graphics/CompressedTextureActivity;->mGLView:Landroid/opengl/GLSurfaceView;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/CompressedTextureActivity;->mGLView:Landroid/opengl/GLSurfaceView;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/opengl/GLSurfaceView;->setEGLConfigChooser(Z)V
+    invoke-virtual {v0, v1}, Landroid/opengl/GLSurfaceView;->setEGLConfigChooser(Z)V
 
     .line 67
     new-instance v0, Lio/appium/android/apis/graphics/CompressedTextureActivity$CompressedTextureLoader;
@@ -90,7 +86,6 @@
 .method protected onPause()V
     .locals 1
 
-    .prologue
     .line 75
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
@@ -106,7 +101,6 @@
 .method protected onResume()V
     .locals 1
 
-    .prologue
     .line 81
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 

@@ -13,7 +13,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 26
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -31,17 +30,16 @@
     .locals 2
     .param p1, "icicle"    # Landroid/os/Bundle;
 
-    .prologue
     .line 37
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 38
-    const v0, 0x7f0300f3
+    const v0, 0x7f0b011c
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/media/VideoViewDemo;->setContentView(I)V
 
     .line 39
-    const v0, 0x7f090109
+    const v0, 0x7f090202
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/media/VideoViewDemo;->findViewById(I)Landroid/view/View;
 
@@ -67,19 +65,16 @@
 
     move-result-object v0
 
+    .line 47
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 60
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 55
     :cond_0
-    iget-object v0, p0, Lio/appium/android/apis/media/VideoViewDemo;->mVideoView:Landroid/widget/VideoView;
+    iget-object v1, p0, Lio/appium/android/apis/media/VideoViewDemo;->mVideoView:Landroid/widget/VideoView;
 
-    iget-object v1, p0, Lio/appium/android/apis/media/VideoViewDemo;->path:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Landroid/widget/VideoView;->setVideoPath(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Landroid/widget/VideoView;->setVideoPath(Ljava/lang/String;)V
 
     .line 56
     iget-object v0, p0, Lio/appium/android/apis/media/VideoViewDemo;->mVideoView:Landroid/widget/VideoView;
@@ -95,5 +90,7 @@
 
     invoke-virtual {v0}, Landroid/widget/VideoView;->requestFocus()Z
 
-    goto :goto_0
+    .line 60
+    :goto_0
+    return-void
 .end method

@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/content/ExternalStorage;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/content/ExternalStorage;
 
-    .prologue
     .line 274
     iput-object p1, p0, Lio/appium/android/apis/content/ExternalStorage$9;->this$0:Lio/appium/android/apis/content/ExternalStorage;
 
@@ -41,7 +41,6 @@
     .param p1, "path"    # Ljava/lang/String;
     .param p2, "uri"    # Landroid/net/Uri;
 
-    .prologue
     .line 276
     const-string v0, "ExternalStorage"
 
@@ -53,17 +52,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, ":"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -82,11 +75,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

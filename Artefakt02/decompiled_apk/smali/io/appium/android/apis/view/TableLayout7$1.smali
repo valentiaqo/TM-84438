@@ -26,8 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/TableLayout7;Landroid/widget/TableLayout;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/TableLayout7;
 
-    .prologue
     .line 43
     iput-object p1, p0, Lio/appium/android/apis/view/TableLayout7$1;->this$0:Lio/appium/android/apis/view/TableLayout7;
 
@@ -44,22 +44,16 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 45
-    iget-object v1, p0, Lio/appium/android/apis/view/TableLayout7$1;->this$0:Lio/appium/android/apis/view/TableLayout7;
-
     iget-object v0, p0, Lio/appium/android/apis/view/TableLayout7$1;->this$0:Lio/appium/android/apis/view/TableLayout7;
 
     invoke-static {v0}, Lio/appium/android/apis/view/TableLayout7;->access$000(Lio/appium/android/apis/view/TableLayout7;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    const/4 v0, 0x1
-
-    :goto_0
-    invoke-static {v1, v0}, Lio/appium/android/apis/view/TableLayout7;->access$002(Lio/appium/android/apis/view/TableLayout7;Z)Z
+    invoke-static {v0, v1}, Lio/appium/android/apis/view/TableLayout7;->access$002(Lio/appium/android/apis/view/TableLayout7;Z)Z
 
     .line 46
     iget-object v0, p0, Lio/appium/android/apis/view/TableLayout7$1;->val$table:Landroid/widget/TableLayout;
@@ -76,10 +70,4 @@
 
     .line 47
     return-void
-
-    .line 45
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method

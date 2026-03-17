@@ -21,7 +21,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,7 +37,6 @@
     .locals 0
     .param p1, "maxDepth"    # I
 
-    .prologue
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -53,7 +51,6 @@
     .locals 2
     .param p1, "dir"    # I
 
-    .prologue
     .line 171
     iget v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTop:I
 
@@ -71,7 +68,6 @@
     .locals 1
     .param p1, "maxDepth"    # I
 
-    .prologue
     .line 37
     mul-int/lit8 v0, p1, 0x10
 
@@ -97,13 +93,12 @@
     .locals 2
     .param p1, "x"    # I
 
-    .prologue
     .line 157
     int-to-float v0, p1
 
     const/high16 v1, 0x37800000
 
-    mul-float/2addr v0, v1
+    mul-float v0, v0, v1
 
     return v0
 .end method
@@ -112,38 +107,31 @@
     .locals 3
     .param p1, "dir"    # I
 
-    .prologue
     .line 161
-    iget v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTop:I
+    iget v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTop:I
 
-    mul-int/lit8 v2, p1, 0x10
+    mul-int/lit8 v1, p1, 0x10
 
-    add-int v0, v1, v2
+    add-int/2addr v0, v1
 
     .line 162
     .local v0, "newTop":I
-    if-gez v0, :cond_0
-
-    .line 163
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    const-string v2, "stack underflow"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    if-ltz v0, :cond_1
 
     .line 165
-    :cond_0
     add-int/lit8 v1, v0, 0x10
 
     iget-object v2, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
     array-length v2, v2
 
-    if-le v1, v2, :cond_1
+    if-gt v1, v2, :cond_0
+
+    .line 168
+    return-void
 
     .line 166
+    :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "stack overflow"
@@ -152,9 +140,15 @@
 
     throw v1
 
-    .line 168
+    .line 163
     :cond_1
-    return-void
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string v2, "stack underflow"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 .end method
 
 
@@ -164,7 +158,6 @@
     .param p1, "dest"    # [F
     .param p2, "offset"    # I
 
-    .prologue
     .line 153
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
@@ -187,7 +180,6 @@
     .param p5, "near"    # F
     .param p6, "far"    # F
 
-    .prologue
     .line 44
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
@@ -220,7 +212,6 @@
     .param p5, "near"    # I
     .param p6, "far"    # I
 
-    .prologue
     .line 49
     invoke-direct {p0, p1}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->fixedToFloat(I)F
 
@@ -230,6 +221,7 @@
 
     move-result v2
 
+    .line 50
     invoke-direct {p0, p3}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->fixedToFloat(I)F
 
     move-result v3
@@ -238,6 +230,7 @@
 
     move-result v4
 
+    .line 51
     invoke-direct {p0, p5}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->fixedToFloat(I)F
 
     move-result v5
@@ -246,6 +239,7 @@
 
     move-result v6
 
+    .line 49
     move-object v0, p0
 
     invoke-virtual/range {v0 .. v6}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->glFrustumf(FFFFFF)V
@@ -257,7 +251,6 @@
 .method public glLoadIdentity()V
     .locals 2
 
-    .prologue
     .line 55
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
@@ -273,7 +266,6 @@
     .locals 3
     .param p1, "m"    # Ljava/nio/FloatBuffer;
 
-    .prologue
     .line 63
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
@@ -292,7 +284,6 @@
     .param p1, "m"    # [F
     .param p2, "offset"    # I
 
-    .prologue
     .line 59
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
@@ -310,7 +301,6 @@
     .locals 4
     .param p1, "m"    # Ljava/nio/IntBuffer;
 
-    .prologue
     .line 73
     const/4 v0, 0x0
 
@@ -343,6 +333,7 @@
     goto :goto_0
 
     .line 76
+    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -352,7 +343,6 @@
     .param p1, "m"    # [I
     .param p2, "offset"    # I
 
-    .prologue
     .line 67
     const/4 v0, 0x0
 
@@ -385,6 +375,7 @@
     goto :goto_0
 
     .line 70
+    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -393,11 +384,10 @@
     .locals 2
     .param p1, "m"    # Ljava/nio/FloatBuffer;
 
-    .prologue
-    const/16 v1, 0x10
-
     .line 84
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
+
+    const/16 v1, 0x10
 
     invoke-virtual {p1, v0, v1, v1}, Ljava/nio/FloatBuffer;->get([FII)Ljava/nio/FloatBuffer;
 
@@ -411,12 +401,9 @@
 .end method
 
 .method public glMultMatrixf([FI)V
-    .locals 6
+    .locals 11
     .param p1, "m"    # [F
     .param p2, "offset"    # I
-
-    .prologue
-    const/4 v3, 0x0
 
     .line 79
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
@@ -425,40 +412,43 @@
 
     iget-object v2, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
 
+    const/4 v3, 0x0
+
     const/16 v4, 0x10
 
     invoke-static {v0, v1, v2, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 80
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
+    iget-object v5, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
-    iget v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTop:I
+    iget v6, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTop:I
 
-    iget-object v2, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
+    iget-object v7, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
 
-    move-object v4, p1
+    const/4 v8, 0x0
 
-    move v5, p2
+    move-object v9, p1
 
-    invoke-static/range {v0 .. v5}, Landroid/opengl/Matrix;->multiplyMM([FI[FI[FI)V
+    move v10, p2
+
+    invoke-static/range {v5 .. v10}, Landroid/opengl/Matrix;->multiplyMM([FI[FI[FI)V
 
     .line 81
     return-void
 .end method
 
 .method public glMultMatrixx(Ljava/nio/IntBuffer;)V
-    .locals 5
+    .locals 4
     .param p1, "m"    # Ljava/nio/IntBuffer;
-
-    .prologue
-    const/16 v4, 0x10
 
     .line 96
     const/4 v0, 0x0
 
     .local v0, "i":I
     :goto_0
-    if-ge v0, v4, :cond_0
+    const/16 v1, 0x10
+
+    if-ge v0, v1, :cond_0
 
     .line 97
     iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
@@ -481,29 +471,29 @@
     goto :goto_0
 
     .line 99
+    .end local v0    # "i":I
     :cond_0
-    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
+    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
 
-    invoke-virtual {p0, v1, v4}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->glMultMatrixf([FI)V
+    invoke-virtual {p0, v0, v1}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->glMultMatrixf([FI)V
 
     .line 100
     return-void
 .end method
 
 .method public glMultMatrixx([II)V
-    .locals 5
+    .locals 4
     .param p1, "m"    # [I
     .param p2, "offset"    # I
-
-    .prologue
-    const/16 v4, 0x10
 
     .line 89
     const/4 v0, 0x0
 
     .local v0, "i":I
     :goto_0
-    if-ge v0, v4, :cond_0
+    const/16 v1, 0x10
+
+    if-ge v0, v1, :cond_0
 
     .line 90
     iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
@@ -526,10 +516,11 @@
     goto :goto_0
 
     .line 92
+    .end local v0    # "i":I
     :cond_0
-    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
+    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
 
-    invoke-virtual {p0, v1, v4}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->glMultMatrixf([FI)V
+    invoke-virtual {p0, v0, v1}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->glMultMatrixf([FI)V
 
     .line 93
     return-void
@@ -544,7 +535,6 @@
     .param p5, "near"    # F
     .param p6, "far"    # F
 
-    .prologue
     .line 104
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
@@ -577,7 +567,6 @@
     .param p5, "near"    # I
     .param p6, "far"    # I
 
-    .prologue
     .line 109
     invoke-direct {p0, p1}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->fixedToFloat(I)F
 
@@ -587,6 +576,7 @@
 
     move-result v2
 
+    .line 110
     invoke-direct {p0, p3}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->fixedToFloat(I)F
 
     move-result v3
@@ -595,6 +585,7 @@
 
     move-result v4
 
+    .line 111
     invoke-direct {p0, p5}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->fixedToFloat(I)F
 
     move-result v5
@@ -603,6 +594,7 @@
 
     move-result v6
 
+    .line 109
     move-object v0, p0
 
     invoke-virtual/range {v0 .. v6}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->glOrthof(FFFFFF)V
@@ -614,10 +606,9 @@
 .method public glPopMatrix()V
     .locals 1
 
-    .prologue
+    .line 115
     const/4 v0, -0x1
 
-    .line 115
     invoke-direct {p0, v0}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->preflight_adjust(I)V
 
     .line 116
@@ -628,50 +619,42 @@
 .end method
 
 .method public glPushMatrix()V
-    .locals 6
-
-    .prologue
-    const/4 v5, 0x1
+    .locals 5
 
     .line 120
-    invoke-direct {p0, v5}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->preflight_adjust(I)V
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->preflight_adjust(I)V
 
     .line 121
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
+    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
-    iget v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTop:I
+    iget v2, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTop:I
 
-    iget-object v2, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
-
-    iget v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTop:I
-
-    add-int/lit8 v3, v3, 0x10
+    add-int/lit8 v3, v2, 0x10
 
     const/16 v4, 0x10
 
-    invoke-static {v0, v1, v2, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v1, v2, v1, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 123
-    invoke-direct {p0, v5}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->adjust(I)V
+    invoke-direct {p0, v0}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->adjust(I)V
 
     .line 124
     return-void
 .end method
 
 .method public glRotatef(FFFF)V
-    .locals 8
+    .locals 10
     .param p1, "angle"    # F
     .param p2, "x"    # F
     .param p3, "y"    # F
     .param p4, "z"    # F
 
-    .prologue
-    const/4 v1, 0x0
-
-    const/16 v7, 0x10
-
     .line 127
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
+
+    const/4 v1, 0x0
 
     move v2, p1
 
@@ -686,26 +669,28 @@
     .line 128
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
-    iget v2, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTop:I
+    iget v1, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTop:I
 
-    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
+    iget-object v2, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
 
-    invoke-static {v0, v2, v3, v7, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    const/16 v3, 0x10
+
+    invoke-static {v0, v1, v2, v3, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 129
-    iget-object v2, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
+    iget-object v4, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
-    iget v3, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTop:I
+    iget v5, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTop:I
 
-    iget-object v4, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
+    iget-object v8, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
 
-    iget-object v6, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mTemp:[F
+    const/16 v7, 0x10
 
-    move v5, v7
+    const/4 v9, 0x0
 
-    move v7, v1
+    move-object v6, v8
 
-    invoke-static/range {v2 .. v7}, Landroid/opengl/Matrix;->multiplyMM([FI[FI[FI)V
+    invoke-static/range {v4 .. v9}, Landroid/opengl/Matrix;->multiplyMM([FI[FI[FI)V
 
     .line 130
     return-void
@@ -718,7 +703,6 @@
     .param p3, "y"    # I
     .param p4, "z"    # I
 
-    .prologue
     .line 133
     int-to-float v0, p1
 
@@ -746,7 +730,6 @@
     .param p2, "y"    # F
     .param p3, "z"    # F
 
-    .prologue
     .line 137
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
@@ -764,7 +747,6 @@
     .param p2, "y"    # I
     .param p3, "z"    # I
 
-    .prologue
     .line 141
     invoke-direct {p0, p1}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->fixedToFloat(I)F
 
@@ -790,7 +772,6 @@
     .param p2, "y"    # F
     .param p3, "z"    # F
 
-    .prologue
     .line 145
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->mMatrix:[F
 
@@ -808,7 +789,6 @@
     .param p2, "y"    # I
     .param p3, "z"    # I
 
-    .prologue
     .line 149
     invoke-direct {p0, p1}, Lio/appium/android/apis/graphics/spritetext/MatrixStack;->fixedToFloat(I)F
 

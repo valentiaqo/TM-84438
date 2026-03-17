@@ -10,7 +10,7 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/launch_preferences">
         <PreferenceScreen android:title="@string/title_fragment_preference" android:summary="@string/summary_fragment_preference" android:fragment="io.appium.android.apis.preference.PreferenceWithHeaders$Prefs1FragmentInner">
-            <extra android:progress_small_title="someKey" android:value="somePrefValue" />
+            <extra android:name="someKey" android:value="somePrefValue" />
         </PreferenceScreen>
         <PreferenceScreen android:title="@string/title_intent_preference" android:summary="@string/summary_intent_preference">
             <intent android:action="android.intent.action.VIEW" android:data="http://www.android.com" />
@@ -18,6 +18,6 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preference_attributes">
         <CheckBoxPreference android:title="@string/title_parent_preference" android:key="parent_checkbox_preference" android:summary="@string/summary_parent_preference" />
-        <CheckBoxPreference android:layout="@null" android:title="@string/title_child_preference" android:key="child_checkbox_preference" android:summary="@string/summary_child_preference" android:dependency="parent_checkbox_preference" />
+        <CheckBoxPreference android:layout="?android:preferenceLayoutChild" android:title="@string/title_child_preference" android:key="child_checkbox_preference" android:summary="@string/summary_child_preference" android:dependency="parent_checkbox_preference" />
     </PreferenceCategory>
 </PreferenceScreen>

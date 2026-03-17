@@ -26,8 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/ProgressBar1;Landroid/widget/ProgressBar;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/ProgressBar1;
 
-    .prologue
     .line 57
     iput-object p1, p0, Lio/appium/android/apis/view/ProgressBar1$2;->this$0:Lio/appium/android/apis/view/ProgressBar1;
 
@@ -44,7 +44,6 @@
     .locals 2
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 59
     iget-object v0, p0, Lio/appium/android/apis/view/ProgressBar1$2;->val$progressHorizontal:Landroid/widget/ProgressBar;
 

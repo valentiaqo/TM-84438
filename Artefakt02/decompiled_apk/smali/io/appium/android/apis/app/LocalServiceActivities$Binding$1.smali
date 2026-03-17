@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/LocalServiceActivities$Binding;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/LocalServiceActivities$Binding;
 
-    .prologue
     .line 96
     iput-object p1, p0, Lio/appium/android/apis/app/LocalServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/LocalServiceActivities$Binding;
 
@@ -41,14 +41,14 @@
     .param p1, "className"    # Landroid/content/ComponentName;
     .param p2, "service"    # Landroid/os/IBinder;
 
-    .prologue
     .line 103
     iget-object v0, p0, Lio/appium/android/apis/app/LocalServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/LocalServiceActivities$Binding;
 
-    check-cast p2, Lio/appium/android/apis/app/LocalService$LocalBinder;
+    move-object v1, p2
 
-    .end local p2    # "service":Landroid/os/IBinder;
-    invoke-virtual {p2}, Lio/appium/android/apis/app/LocalService$LocalBinder;->getService()Lio/appium/android/apis/app/LocalService;
+    check-cast v1, Lio/appium/android/apis/app/LocalService$LocalBinder;
+
+    invoke-virtual {v1}, Lio/appium/android/apis/app/LocalService$LocalBinder;->getService()Lio/appium/android/apis/app/LocalService;
 
     move-result-object v1
 
@@ -57,7 +57,7 @@
     .line 106
     iget-object v0, p0, Lio/appium/android/apis/app/LocalServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/LocalServiceActivities$Binding;
 
-    const v1, 0x7f0c008b
+    const v1, 0x7f0e01fa
 
     const/4 v2, 0x0
 
@@ -65,6 +65,7 @@
 
     move-result-object v0
 
+    .line 107
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 108
@@ -75,7 +76,6 @@
     .locals 3
     .param p1, "className"    # Landroid/content/ComponentName;
 
-    .prologue
     .line 115
     iget-object v0, p0, Lio/appium/android/apis/app/LocalServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/LocalServiceActivities$Binding;
 
@@ -86,7 +86,7 @@
     .line 116
     iget-object v0, p0, Lio/appium/android/apis/app/LocalServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/LocalServiceActivities$Binding;
 
-    const v1, 0x7f0c008c
+    const v1, 0x7f0e01fc
 
     const/4 v2, 0x0
 
@@ -94,6 +94,7 @@
 
     move-result-object v0
 
+    .line 117
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 118

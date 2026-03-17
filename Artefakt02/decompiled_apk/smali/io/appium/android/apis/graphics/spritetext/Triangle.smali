@@ -21,7 +21,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     .line 348
     const/16 v0, 0x9
 
@@ -48,204 +47,208 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 10
-
-    .prologue
-    const/4 v9, 0x0
-
-    const/4 v8, 0x3
+    .locals 9
 
     .line 282
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 292
-    const/16 v5, 0x24
+    const/16 v0, 0x24
 
-    invoke-static {v5}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v4
+    move-result-object v0
 
     .line 293
-    .local v4, "vbb":Ljava/nio/ByteBuffer;
+    .local v0, "vbb":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
-
-    .line 294
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
-
-    move-result-object v5
-
-    iput-object v5, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mFVertexBuffer:Ljava/nio/FloatBuffer;
-
-    .line 296
-    const/16 v5, 0x18
-
-    invoke-static {v5}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
-
-    move-result-object v3
-
-    .line 297
-    .local v3, "tbb":Ljava/nio/ByteBuffer;
-    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v5}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
-
-    .line 298
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
-
-    move-result-object v5
-
-    iput-object v5, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mTexBuffer:Ljava/nio/FloatBuffer;
-
-    .line 300
-    const/4 v5, 0x6
-
-    invoke-static {v5}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
-    .line 301
-    .local v1, "ibb":Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+
+    .line 294
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mFVertexBuffer:Ljava/nio/FloatBuffer;
+
+    .line 296
+    const/16 v1, 0x18
+
+    invoke-static {v1}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+
+    move-result-object v1
+
+    .line 297
+    .local v1, "tbb":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v1, v5}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+
+    .line 298
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mTexBuffer:Ljava/nio/FloatBuffer;
+
+    .line 300
+    const/4 v2, 0x6
+
+    invoke-static {v2}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+
+    move-result-object v2
+
+    .line 301
+    .local v2, "ibb":Ljava/nio/ByteBuffer;
+    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 302
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
 
-    move-result-object v5
+    move-result-object v3
 
-    iput-object v5, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mIndexBuffer:Ljava/nio/ShortBuffer;
+    iput-object v3, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mIndexBuffer:Ljava/nio/ShortBuffer;
 
     .line 304
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    .local v0, "i":I
+    .local v3, "i":I
     :goto_0
-    if-ge v0, v8, :cond_1
+    const/4 v4, 0x3
+
+    if-ge v3, v4, :cond_1
 
     .line 305
-    const/4 v2, 0x0
+    const/4 v5, 0x0
 
-    .local v2, "j":I
+    .local v5, "j":I
     :goto_1
-    if-ge v2, v8, :cond_0
+    if-ge v5, v4, :cond_0
 
     .line 306
-    iget-object v5, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mFVertexBuffer:Ljava/nio/FloatBuffer;
+    iget-object v6, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mFVertexBuffer:Ljava/nio/FloatBuffer;
 
-    sget-object v6, Lio/appium/android/apis/graphics/spritetext/Triangle;->sCoords:[F
+    sget-object v7, Lio/appium/android/apis/graphics/spritetext/Triangle;->sCoords:[F
 
-    mul-int/lit8 v7, v0, 0x3
+    mul-int/lit8 v8, v3, 0x3
 
-    add-int/2addr v7, v2
+    add-int/2addr v8, v5
 
-    aget v6, v6, v7
+    aget v7, v7, v8
 
-    invoke-virtual {v5, v6}, Ljava/nio/FloatBuffer;->put(F)Ljava/nio/FloatBuffer;
+    invoke-virtual {v6, v7}, Ljava/nio/FloatBuffer;->put(F)Ljava/nio/FloatBuffer;
 
     .line 305
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_1
 
     .line 304
+    .end local v5    # "j":I
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 310
-    .end local v2    # "j":I
+    .end local v3    # "i":I
     :cond_1
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
+    .restart local v3    # "i":I
     :goto_2
-    if-ge v0, v8, :cond_3
+    if-ge v3, v4, :cond_3
 
     .line 311
-    const/4 v2, 0x0
+    const/4 v5, 0x0
 
-    .restart local v2    # "j":I
+    .restart local v5    # "j":I
     :goto_3
-    const/4 v5, 0x2
+    const/4 v6, 0x2
 
-    if-ge v2, v5, :cond_2
+    if-ge v5, v6, :cond_2
 
     .line 312
-    iget-object v5, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mTexBuffer:Ljava/nio/FloatBuffer;
+    iget-object v6, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mTexBuffer:Ljava/nio/FloatBuffer;
 
-    sget-object v6, Lio/appium/android/apis/graphics/spritetext/Triangle;->sCoords:[F
+    sget-object v7, Lio/appium/android/apis/graphics/spritetext/Triangle;->sCoords:[F
 
-    mul-int/lit8 v7, v0, 0x3
+    mul-int/lit8 v8, v3, 0x3
 
-    add-int/2addr v7, v2
+    add-int/2addr v8, v5
 
-    aget v6, v6, v7
+    aget v7, v7, v8
 
-    const/high16 v7, 0x40000000    # 2.0f
+    const/high16 v8, 0x40000000    # 2.0f
 
-    mul-float/2addr v6, v7
+    mul-float v7, v7, v8
 
-    const/high16 v7, 0x3f000000    # 0.5f
+    const/high16 v8, 0x3f000000    # 0.5f
 
-    add-float/2addr v6, v7
+    add-float/2addr v7, v8
 
-    invoke-virtual {v5, v6}, Ljava/nio/FloatBuffer;->put(F)Ljava/nio/FloatBuffer;
+    invoke-virtual {v6, v7}, Ljava/nio/FloatBuffer;->put(F)Ljava/nio/FloatBuffer;
 
     .line 311
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_3
 
     .line 310
+    .end local v5    # "j":I
     :cond_2
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
     .line 316
-    .end local v2    # "j":I
+    .end local v3    # "i":I
     :cond_3
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
+    .restart local v3    # "i":I
     :goto_4
-    if-ge v0, v8, :cond_4
+    if-ge v3, v4, :cond_4
 
     .line 317
     iget-object v5, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mIndexBuffer:Ljava/nio/ShortBuffer;
 
-    int-to-short v6, v0
+    int-to-short v6, v3
 
     invoke-virtual {v5, v6}, Ljava/nio/ShortBuffer;->put(S)Ljava/nio/ShortBuffer;
 
     .line 316
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_4
 
     .line 320
+    .end local v3    # "i":I
     :cond_4
-    iget-object v5, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mFVertexBuffer:Ljava/nio/FloatBuffer;
+    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mFVertexBuffer:Ljava/nio/FloatBuffer;
 
-    invoke-virtual {v5, v9}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 321
-    iget-object v5, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mTexBuffer:Ljava/nio/FloatBuffer;
+    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mTexBuffer:Ljava/nio/FloatBuffer;
 
-    invoke-virtual {v5, v9}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v3, v4}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 322
-    iget-object v5, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mIndexBuffer:Ljava/nio/ShortBuffer;
+    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mIndexBuffer:Ljava/nio/ShortBuffer;
 
-    invoke-virtual {v5, v9}, Ljava/nio/ShortBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v3, v4}, Ljava/nio/ShortBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 323
     return-void
@@ -257,13 +260,6 @@
     .locals 5
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
 
-    .prologue
-    const/16 v4, 0x1406
-
-    const/4 v3, 0x3
-
-    const/4 v2, 0x0
-
     .line 326
     const/16 v0, 0x901
 
@@ -272,7 +268,13 @@
     .line 327
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mFVertexBuffer:Ljava/nio/FloatBuffer;
 
-    invoke-interface {p1, v3, v4, v2, v0}, Ljavax/microedition/khronos/opengles/GL10;->glVertexPointer(IIILjava/nio/Buffer;)V
+    const/4 v1, 0x0
+
+    const/16 v2, 0x1406
+
+    const/4 v3, 0x3
+
+    invoke-interface {p1, v3, v2, v1, v0}, Ljavax/microedition/khronos/opengles/GL10;->glVertexPointer(IIILjava/nio/Buffer;)V
 
     .line 328
     const/16 v0, 0xde1
@@ -280,20 +282,20 @@
     invoke-interface {p1, v0}, Ljavax/microedition/khronos/opengles/GL10;->glEnable(I)V
 
     .line 329
-    const/4 v0, 0x2
+    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mTexBuffer:Ljava/nio/FloatBuffer;
 
-    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mTexBuffer:Ljava/nio/FloatBuffer;
+    const/4 v4, 0x2
 
-    invoke-interface {p1, v0, v4, v2, v1}, Ljavax/microedition/khronos/opengles/GL10;->glTexCoordPointer(IIILjava/nio/Buffer;)V
+    invoke-interface {p1, v4, v2, v1, v0}, Ljavax/microedition/khronos/opengles/GL10;->glTexCoordPointer(IIILjava/nio/Buffer;)V
 
     .line 330
-    const/4 v0, 0x5
+    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mIndexBuffer:Ljava/nio/ShortBuffer;
 
-    const/16 v1, 0x1403
+    const/4 v1, 0x5
 
-    iget-object v2, p0, Lio/appium/android/apis/graphics/spritetext/Triangle;->mIndexBuffer:Ljava/nio/ShortBuffer;
+    const/16 v2, 0x1403
 
-    invoke-interface {p1, v0, v3, v1, v2}, Ljavax/microedition/khronos/opengles/GL10;->glDrawElements(IIILjava/nio/Buffer;)V
+    invoke-interface {p1, v1, v3, v2, v0}, Ljavax/microedition/khronos/opengles/GL10;->glDrawElements(IIILjava/nio/Buffer;)V
 
     .line 332
     return-void
@@ -303,7 +305,6 @@
     .locals 2
     .param p1, "vertex"    # I
 
-    .prologue
     .line 335
     sget-object v0, Lio/appium/android/apis/graphics/spritetext/Triangle;->sCoords:[F
 
@@ -318,7 +319,6 @@
     .locals 2
     .param p1, "vertex"    # I
 
-    .prologue
     .line 339
     sget-object v0, Lio/appium/android/apis/graphics/spritetext/Triangle;->sCoords:[F
 

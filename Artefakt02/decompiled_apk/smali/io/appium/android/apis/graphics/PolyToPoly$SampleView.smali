@@ -27,7 +27,6 @@
     .locals 2
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 65
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
@@ -82,17 +81,10 @@
 .end method
 
 .method private doDraw(Landroid/graphics/Canvas;[F[F)V
-    .locals 10
+    .locals 6
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "src"    # [F
     .param p3, "dst"    # [F
-
-    .prologue
-    const/4 v2, 0x0
-
-    const/high16 v9, 0x42800000    # 64.0f
-
-    const/4 v8, 0x0
 
     .line 42
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -104,11 +96,13 @@
 
     shr-int/lit8 v5, v1, 0x1
 
+    const/4 v2, 0x0
+
+    const/4 v4, 0x0
+
     move-object v1, p2
 
     move-object v3, p3
-
-    move v4, v2
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Matrix;->setPolyToPoly([FI[FII)Z
 
@@ -134,45 +128,29 @@
     .line 48
     iget-object v5, p0, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->mPaint:Landroid/graphics/Paint;
 
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    const/high16 v3, 0x42800000    # 64.0f
+
+    const/high16 v4, 0x42800000    # 64.0f
+
     move-object v0, p1
-
-    move v1, v8
-
-    move v2, v8
-
-    move v3, v9
-
-    move v4, v9
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
     .line 49
     iget-object v5, p0, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->mPaint:Landroid/graphics/Paint;
 
-    move-object v0, p1
-
-    move v1, v8
-
-    move v2, v8
-
-    move v3, v9
-
-    move v4, v9
-
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
     .line 50
     iget-object v5, p0, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->mPaint:Landroid/graphics/Paint;
 
-    move-object v0, p1
+    const/high16 v2, 0x42800000    # 64.0f
 
-    move v1, v8
-
-    move v2, v9
-
-    move v3, v9
-
-    move v4, v8
+    const/4 v4, 0x0
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
@@ -191,12 +169,10 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 56
-    const/high16 v6, 0x42000000    # 32.0f
-
-    .line 58
-    .local v6, "x":F
     const/high16 v0, 0x42000000    # 32.0f
 
+    .line 58
+    .local v0, "x":F
     iget-object v1, p0, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->mFontMetrics:Landroid/graphics/Paint$FontMetrics;
 
     iget v1, v1, Landroid/graphics/Paint$FontMetrics;->ascent:F
@@ -211,35 +187,33 @@
 
     div-float/2addr v1, v2
 
-    sub-float v7, v0, v1
+    const/high16 v2, 0x42000000    # 32.0f
+
+    sub-float/2addr v2, v1
 
     .line 59
-    .local v7, "y":F
-    new-instance v0, Ljava/lang/StringBuilder;
+    .local v2, "y":F
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    array-length v1, p2
+    array-length v3, p2
 
-    div-int/lit8 v1, v1, 0x2
+    div-int/lit8 v3, v3, 0x2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    const-string v3, ""
 
-    const-string v1, ""
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v3, p0, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->mPaint:Landroid/graphics/Paint;
 
-    move-result-object v0
-
-    iget-object v1, p0, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->mPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p1, v0, v6, v7, v1}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+    invoke-virtual {p1, v1, v0, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
     .line 61
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
@@ -251,19 +225,8 @@
 
 # virtual methods
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 6
+    .locals 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
-
-    .prologue
-    const/4 v5, 0x4
-
-    const/4 v1, 0x2
-
-    const/high16 v4, 0x43200000    # 160.0f
-
-    const/high16 v3, 0x42dc0000    # 110.0f
-
-    const/high16 v2, 0x41200000    # 10.0f
 
     .line 77
     const/4 v0, -0x1
@@ -274,18 +237,22 @@
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 80
-    invoke-virtual {p1, v2, v2}, Landroid/graphics/Canvas;->translate(FF)V
+    const/high16 v0, 0x41200000    # 10.0f
+
+    invoke-virtual {p1, v0, v0}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 82
-    new-array v0, v1, [F
+    const/4 v1, 0x2
 
-    fill-array-data v0, :array_0
+    new-array v2, v1, [F
+
+    fill-array-data v2, :array_0
 
     new-array v1, v1, [F
 
     fill-array-data v1, :array_1
 
-    invoke-direct {p0, p1, v0, v1}, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->doDraw(Landroid/graphics/Canvas;[F[F)V
+    invoke-direct {p0, p1, v2, v1}, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->doDraw(Landroid/graphics/Canvas;[F[F)V
 
     .line 83
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
@@ -294,18 +261,22 @@
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 86
-    invoke-virtual {p1, v4, v2}, Landroid/graphics/Canvas;->translate(FF)V
+    const/high16 v1, 0x43200000    # 160.0f
+
+    invoke-virtual {p1, v1, v0}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 88
-    new-array v0, v5, [F
+    const/4 v2, 0x4
 
-    fill-array-data v0, :array_2
+    new-array v3, v2, [F
 
-    new-array v1, v5, [F
+    fill-array-data v3, :array_2
 
-    fill-array-data v1, :array_3
+    new-array v2, v2, [F
 
-    invoke-direct {p0, p1, v0, v1}, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->doDraw(Landroid/graphics/Canvas;[F[F)V
+    fill-array-data v2, :array_3
+
+    invoke-direct {p0, p1, v3, v2}, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->doDraw(Landroid/graphics/Canvas;[F[F)V
 
     .line 90
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
@@ -314,22 +285,22 @@
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 93
-    invoke-virtual {p1, v2, v3}, Landroid/graphics/Canvas;->translate(FF)V
+    const/high16 v2, 0x42dc0000    # 110.0f
+
+    invoke-virtual {p1, v0, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 95
     const/4 v0, 0x6
 
+    new-array v3, v0, [F
+
+    fill-array-data v3, :array_4
+
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_4
+    fill-array-data v0, :array_5
 
-    const/4 v1, 0x6
-
-    new-array v1, v1, [F
-
-    fill-array-data v1, :array_5
-
-    invoke-direct {p0, p1, v0, v1}, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->doDraw(Landroid/graphics/Canvas;[F[F)V
+    invoke-direct {p0, p1, v3, v0}, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->doDraw(Landroid/graphics/Canvas;[F[F)V
 
     .line 97
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
@@ -338,31 +309,26 @@
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 100
-    invoke-virtual {p1, v4, v3}, Landroid/graphics/Canvas;->translate(FF)V
+    invoke-virtual {p1, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 102
     const/16 v0, 0x8
 
+    new-array v1, v0, [F
+
+    fill-array-data v1, :array_6
+
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_6
+    fill-array-data v0, :array_7
 
-    const/16 v1, 0x8
-
-    new-array v1, v1, [F
-
-    fill-array-data v1, :array_7
-
-    invoke-direct {p0, p1, v0, v1}, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->doDraw(Landroid/graphics/Canvas;[F[F)V
+    invoke-direct {p0, p1, v1, v0}, Lio/appium/android/apis/graphics/PolyToPoly$SampleView;->doDraw(Landroid/graphics/Canvas;[F[F)V
 
     .line 104
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 105
     return-void
-
-    .line 82
-    nop
 
     :array_0
     .array-data 4
@@ -376,7 +342,6 @@
         0x40a00000    # 5.0f
     .end array-data
 
-    .line 88
     :array_2
     .array-data 4
         0x42000000    # 32.0f
@@ -393,7 +358,6 @@
         0x42400000    # 48.0f
     .end array-data
 
-    .line 95
     :array_4
     .array-data 4
         0x0
@@ -414,7 +378,6 @@
         0x42800000    # 64.0f
     .end array-data
 
-    .line 102
     :array_6
     .array-data 4
         0x0

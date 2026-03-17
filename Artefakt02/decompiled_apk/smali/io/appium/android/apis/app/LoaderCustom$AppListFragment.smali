@@ -21,10 +21,8 @@
     value = {
         "Landroid/app/ListFragment;",
         "Landroid/widget/SearchView$OnQueryTextListener;",
-        "Landroid/app/LoaderManager$LoaderCallbacks",
-        "<",
-        "Ljava/util/List",
-        "<",
+        "Landroid/app/LoaderManager$LoaderCallbacks<",
+        "Ljava/util/List<",
         "Lio/appium/android/apis/app/LoaderCustom$AppEntry;",
         ">;>;"
     }
@@ -41,7 +39,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 399
     invoke-direct {p0}, Landroid/app/ListFragment;-><init>()V
 
@@ -53,9 +50,6 @@
 .method public onActivityCreated(Landroid/os/Bundle;)V
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v2, 0x0
 
     .line 409
     invoke-super {p0, p1}, Landroid/app/ListFragment;->onActivityCreated(Landroid/os/Bundle;)V
@@ -87,16 +81,18 @@
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;->setListAdapter(Landroid/widget/ListAdapter;)V
 
     .line 423
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;->setListShown(Z)V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;->setListShown(Z)V
 
     .line 427
     invoke-virtual {p0}, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;->getLoaderManager()Landroid/app/LoaderManager;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v2, v1, p0}, Landroid/app/LoaderManager;->initLoader(ILandroid/os/Bundle;Landroid/app/LoaderManager$LoaderCallbacks;)Landroid/content/Loader;
+    invoke-virtual {v1, v0, v2, p0}, Landroid/app/LoaderManager;->initLoader(ILandroid/os/Bundle;Landroid/app/LoaderManager$LoaderCallbacks;)Landroid/content/Loader;
 
     .line 428
     return-void
@@ -111,16 +107,13 @@
             "(I",
             "Landroid/os/Bundle;",
             ")",
-            "Landroid/content/Loader",
-            "<",
-            "Ljava/util/List",
-            "<",
+            "Landroid/content/Loader<",
+            "Ljava/util/List<",
             "Lio/appium/android/apis/app/LoaderCustom$AppEntry;",
             ">;>;"
         }
     .end annotation
 
-    .prologue
     .line 462
     new-instance v0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;
 
@@ -138,24 +131,23 @@
     .param p1, "menu"    # Landroid/view/Menu;
     .param p2, "inflater"    # Landroid/view/MenuInflater;
 
-    .prologue
     .line 432
-    const-string v2, "Search"
+    const-string v0, "Search"
 
-    invoke-interface {p1, v2}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {p1, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
 
     .line 433
     .local v0, "item":Landroid/view/MenuItem;
-    const v2, 0x108004f
+    const v1, 0x108004f
 
-    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     .line 434
-    const/16 v2, 0x9
+    const/16 v1, 0x9
 
-    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 436
     new-instance v1, Landroid/widget/SearchView;
@@ -184,7 +176,6 @@
     .param p3, "position"    # I
     .param p4, "id"    # J
 
-    .prologue
     .line 456
     const-string v0, "LoaderCustom"
 
@@ -196,11 +187,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p4, p5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -214,14 +201,10 @@
 
 .method public bridge synthetic onLoadFinished(Landroid/content/Loader;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "x0"    # Landroid/content/Loader;
-    .param p2, "x1"    # Ljava/lang/Object;
 
-    .prologue
     .line 399
     check-cast p2, Ljava/util/List;
 
-    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;->onLoadFinished(Landroid/content/Loader;Ljava/util/List;)V
 
     return-void
@@ -232,25 +215,19 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/content/Loader",
-            "<",
-            "Ljava/util/List",
-            "<",
+            "Landroid/content/Loader<",
+            "Ljava/util/List<",
             "Lio/appium/android/apis/app/LoaderCustom$AppEntry;",
             ">;>;",
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Lio/appium/android/apis/app/LoaderCustom$AppEntry;",
             ">;)V"
         }
     .end annotation
 
-    .prologue
+    .line 467
     .local p1, "loader":Landroid/content/Loader;, "Landroid/content/Loader<Ljava/util/List<Lio/appium/android/apis/app/LoaderCustom$AppEntry;>;>;"
     .local p2, "data":Ljava/util/List;, "Ljava/util/List<Lio/appium/android/apis/app/LoaderCustom$AppEntry;>;"
-    const/4 v1, 0x1
-
-    .line 467
     iget-object v0, p0, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;->mAdapter:Lio/appium/android/apis/app/LoaderCustom$AppListAdapter;
 
     invoke-virtual {v0, p2}, Lio/appium/android/apis/app/LoaderCustom$AppListAdapter;->setData(Ljava/util/List;)V
@@ -260,20 +237,22 @@
 
     move-result v0
 
+    const/4 v1, 0x1
+
     if-eqz v0, :cond_0
 
     .line 471
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;->setListShown(Z)V
 
-    .line 475
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 473
     :cond_0
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;->setListShownNoAnimation(Z)V
 
-    goto :goto_0
+    .line 475
+    :goto_0
+    return-void
 .end method
 
 .method public onLoaderReset(Landroid/content/Loader;)V
@@ -281,16 +260,13 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/content/Loader",
-            "<",
-            "Ljava/util/List",
-            "<",
+            "Landroid/content/Loader<",
+            "Ljava/util/List<",
             "Lio/appium/android/apis/app/LoaderCustom$AppEntry;",
             ">;>;)V"
         }
     .end annotation
 
-    .prologue
     .line 479
     .local p1, "loader":Landroid/content/Loader;, "Landroid/content/Loader<Ljava/util/List<Lio/appium/android/apis/app/LoaderCustom$AppEntry;>;>;"
     iget-object v0, p0, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;->mAdapter:Lio/appium/android/apis/app/LoaderCustom$AppListAdapter;
@@ -307,7 +283,6 @@
     .locals 2
     .param p1, "newText"    # Ljava/lang/String;
 
-    .prologue
     .line 444
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -315,9 +290,15 @@
 
     if-nez v0, :cond_0
 
-    .end local p1    # "newText":Ljava/lang/String;
+    move-object v0, p1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
     :goto_0
-    iput-object p1, p0, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;->mCurFilter:Ljava/lang/String;
+    iput-object v0, p0, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;->mCurFilter:Ljava/lang/String;
 
     .line 445
     iget-object v0, p0, Lio/appium/android/apis/app/LoaderCustom$AppListFragment;->mAdapter:Lio/appium/android/apis/app/LoaderCustom$AppListAdapter;
@@ -334,20 +315,12 @@
     const/4 v0, 0x1
 
     return v0
-
-    .line 444
-    .restart local p1    # "newText":Ljava/lang/String;
-    :cond_0
-    const/4 p1, 0x0
-
-    goto :goto_0
 .end method
 
 .method public onQueryTextSubmit(Ljava/lang/String;)Z
     .locals 1
     .param p1, "query"    # Ljava/lang/String;
 
-    .prologue
     .line 451
     const/4 v0, 0x1
 

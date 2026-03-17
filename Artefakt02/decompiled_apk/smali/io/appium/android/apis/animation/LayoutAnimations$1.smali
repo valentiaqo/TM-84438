@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/animation/LayoutAnimations;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/LayoutAnimations;
 
-    .prologue
     .line 82
     iput-object p1, p0, Lio/appium/android/apis/animation/LayoutAnimations$1;->this$0:Lio/appium/android/apis/animation/LayoutAnimations;
 
@@ -40,7 +40,6 @@
     .locals 4
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 84
     new-instance v0, Landroid/widget/Button;
 
@@ -74,17 +73,17 @@
 
     iget-object v1, v1, Lio/appium/android/apis/animation/LayoutAnimations;->container:Landroid/view/ViewGroup;
 
-    const/4 v2, 0x1
+    iget-object v2, p0, Lio/appium/android/apis/animation/LayoutAnimations$1;->this$0:Lio/appium/android/apis/animation/LayoutAnimations;
 
-    iget-object v3, p0, Lio/appium/android/apis/animation/LayoutAnimations$1;->this$0:Lio/appium/android/apis/animation/LayoutAnimations;
+    iget-object v2, v2, Lio/appium/android/apis/animation/LayoutAnimations;->container:Landroid/view/ViewGroup;
 
-    iget-object v3, v3, Lio/appium/android/apis/animation/LayoutAnimations;->container:Landroid/view/ViewGroup;
+    invoke-virtual {v2}, Landroid/view/ViewGroup;->getChildCount()I
 
-    invoke-virtual {v3}, Landroid/view/ViewGroup;->getChildCount()I
+    move-result v2
 
-    move-result v3
+    const/4 v3, 0x1
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
+    invoke-static {v3, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v2
 

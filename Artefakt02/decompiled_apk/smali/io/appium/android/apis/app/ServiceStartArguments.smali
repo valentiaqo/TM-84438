@@ -26,11 +26,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 54
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    .line 209
     return-void
 .end method
 
@@ -39,7 +37,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/app/ServiceStartArguments;
     .param p1, "x1"    # Ljava/lang/String;
 
-    .prologue
     .line 54
     invoke-direct {p0, p1}, Lio/appium/android/apis/app/ServiceStartArguments;->showNotification(Ljava/lang/String;)V
 
@@ -50,7 +47,6 @@
     .locals 0
     .param p0, "x0"    # Lio/appium/android/apis/app/ServiceStartArguments;
 
-    .prologue
     .line 54
     invoke-direct {p0}, Lio/appium/android/apis/app/ServiceStartArguments;->hideNotification()V
 
@@ -60,73 +56,100 @@
 .method private hideNotification()V
     .locals 2
 
-    .prologue
-    .line 198
+    .line 197
     iget-object v0, p0, Lio/appium/android/apis/app/ServiceStartArguments;->mNM:Landroid/app/NotificationManager;
 
-    const v1, 0x7f0c00a3
+    const v1, 0x7f0e02d5
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
-    .line 199
+    .line 198
     return-void
 .end method
 
 .method private showNotification(Ljava/lang/String;)V
-    .locals 6
+    .locals 5
     .param p1, "text"    # Ljava/lang/String;
 
-    .prologue
-    const/4 v5, 0x0
-
     .line 178
-    new-instance v1, Landroid/app/Notification;
+    new-instance v0, Landroid/content/Intent;
 
-    const v2, 0x7f02005d
+    const-class v1, Lio/appium/android/apis/app/ServiceStartArguments$Controller;
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    move-result-wide v3
+    const/4 v1, 0x0
 
-    invoke-direct {v1, v2, p1, v3, v4}, Landroid/app/Notification;-><init>(ILjava/lang/CharSequence;J)V
-
-    .line 182
-    .local v1, "notification":Landroid/app/Notification;
-    new-instance v2, Landroid/content/Intent;
-
-    const-class v3, Lio/appium/android/apis/app/ServiceStartArguments$Controller;
-
-    invoke-direct {v2, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    invoke-static {p0, v5, v2, v5}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    invoke-static {p0, v1, v0, v1}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v0
 
-    .line 186
+    .line 181
     .local v0, "contentIntent":Landroid/app/PendingIntent;
-    const v2, 0x7f0c009c
+    new-instance v1, Landroid/app/Notification$Builder;
+
+    invoke-direct {v1, p0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 182
+    const v2, 0x7f0800c1
+
+    invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
+
+    move-result-object v1
+
+    .line 183
+    invoke-virtual {v1, p1}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v1
+
+    .line 184
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v2
+
+    invoke-virtual {v1, v2, v3}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
+
+    move-result-object v1
+
+    .line 185
+    const v2, 0x7f0e02d8
 
     invoke-virtual {p0, v2}, Lio/appium/android/apis/app/ServiceStartArguments;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    invoke-virtual {v1, p0, v2, p1, v0}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
+    invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 190
-    iget v2, v1, Landroid/app/Notification;->flags:I
+    move-result-object v1
 
-    or-int/lit8 v2, v2, 0x2
+    .line 186
+    invoke-virtual {v1, p1}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    iput v2, v1, Landroid/app/Notification;->flags:I
+    move-result-object v1
 
-    .line 194
+    .line 187
+    invoke-virtual {v1, v0}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
+
+    move-result-object v1
+
+    .line 189
+    .local v1, "noteBuilder":Landroid/app/Notification$Builder;
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
+
+    .line 193
     iget-object v2, p0, Lio/appium/android/apis/app/ServiceStartArguments;->mNM:Landroid/app/NotificationManager;
 
-    const v3, 0x7f0c00a3
+    invoke-virtual {v1}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
 
-    invoke-virtual {v2, v3, v1}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+    move-result-object v3
 
-    .line 195
+    const v4, 0x7f0e02d5
+
+    invoke-virtual {v2, v4, v3}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+
+    .line 194
     return-void
 .end method
 
@@ -136,7 +159,6 @@
     .locals 1
     .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 170
     const/4 v0, 0x0
 
@@ -146,37 +168,37 @@
 .method public onCreate()V
     .locals 3
 
-    .prologue
     .line 104
-    const-string v1, "notification"
+    const-string v0, "notification"
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/ServiceStartArguments;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/ServiceStartArguments;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/app/NotificationManager;
+    check-cast v0, Landroid/app/NotificationManager;
 
-    iput-object v1, p0, Lio/appium/android/apis/app/ServiceStartArguments;->mNM:Landroid/app/NotificationManager;
+    iput-object v0, p0, Lio/appium/android/apis/app/ServiceStartArguments;->mNM:Landroid/app/NotificationManager;
 
     .line 106
-    const v1, 0x7f0c00a3
+    const v0, 0x7f0e02d5
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+    .line 107
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 111
-    new-instance v1, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    const-class v2, Lio/appium/android/apis/app/ServiceStartArguments$Controller;
+    const-class v1, Lio/appium/android/apis/app/ServiceStartArguments$Controller;
 
-    invoke-direct {v1, p0, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    iput-object v1, p0, Lio/appium/android/apis/app/ServiceStartArguments;->mInvokeIntent:Landroid/content/Intent;
+    iput-object v0, p0, Lio/appium/android/apis/app/ServiceStartArguments;->mInvokeIntent:Landroid/content/Intent;
 
     .line 117
     new-instance v0, Landroid/os/HandlerThread;
@@ -214,7 +236,6 @@
 .method public onDestroy()V
     .locals 2
 
-    .prologue
     .line 159
     iget-object v0, p0, Lio/appium/android/apis/app/ServiceStartArguments;->mServiceLooper:Landroid/os/Looper;
 
@@ -224,7 +245,7 @@
     invoke-direct {p0}, Lio/appium/android/apis/app/ServiceStartArguments;->hideNotification()V
 
     .line 164
-    const v0, 0x7f0c00a4
+    const v0, 0x7f0e02d6
 
     const/4 v1, 0x0
 
@@ -232,6 +253,7 @@
 
     move-result-object v0
 
+    .line 165
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 166
@@ -239,55 +261,46 @@
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .locals 5
+    .locals 4
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "flags"    # I
     .param p3, "startId"    # I
 
-    .prologue
-    const/4 v4, 0x0
-
     .line 127
-    const-string v1, "ServiceStartArguments"
+    const-string v0, "ServiceStartArguments"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Starting #"
+    const-string v2, "Starting #"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v2, ": "
 
-    move-result-object v2
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ": "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
+    .line 128
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v1
+
+    .line 127
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 129
-    iget-object v1, p0, Lio/appium/android/apis/app/ServiceStartArguments;->mServiceHandler:Lio/appium/android/apis/app/ServiceStartArguments$ServiceHandler;
+    iget-object v0, p0, Lio/appium/android/apis/app/ServiceStartArguments;->mServiceHandler:Lio/appium/android/apis/app/ServiceStartArguments$ServiceHandler;
 
-    invoke-virtual {v1}, Lio/appium/android/apis/app/ServiceStartArguments$ServiceHandler;->obtainMessage()Landroid/os/Message;
+    invoke-virtual {v0}, Lio/appium/android/apis/app/ServiceStartArguments$ServiceHandler;->obtainMessage()Landroid/os/Message;
 
     move-result-object v0
 
@@ -321,11 +334,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
-
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -336,7 +345,9 @@
     .line 138
     const-string v1, "fail"
 
-    invoke-virtual {p1, v1, v4}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    const/4 v2, 0x0
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v1
 
@@ -358,7 +369,7 @@
     :cond_0
     const-string v1, "redeliver"
 
-    invoke-virtual {p1, v1, v4}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p1, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v1
 
@@ -366,11 +377,11 @@
 
     const/4 v1, 0x3
 
-    :goto_0
-    return v1
+    goto :goto_0
 
     :cond_1
     const/4 v1, 0x2
 
-    goto :goto_0
+    :goto_0
+    return v1
 .end method

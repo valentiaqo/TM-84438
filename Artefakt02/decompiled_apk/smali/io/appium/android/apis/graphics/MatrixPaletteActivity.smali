@@ -11,7 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 26
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -24,7 +23,6 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 29
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -56,7 +54,6 @@
 .method protected onPause()V
     .locals 1
 
-    .prologue
     .line 47
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
@@ -72,7 +69,6 @@
 .method protected onResume()V
     .locals 1
 
-    .prologue
     .line 39
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 

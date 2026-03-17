@@ -25,7 +25,6 @@
 .method private constructor <init>(Lio/appium/android/apis/view/OverscanActivity$IV;)V
     .locals 0
 
-    .prologue
     .line 79
     iput-object p1, p0, Lio/appium/android/apis/view/OverscanActivity$IV$MyActionModeCallback;->this$0:Lio/appium/android/apis/view/OverscanActivity$IV;
 
@@ -39,7 +38,6 @@
     .param p1, "x0"    # Lio/appium/android/apis/view/OverscanActivity$IV;
     .param p2, "x1"    # Lio/appium/android/apis/view/OverscanActivity$1;
 
-    .prologue
     .line 79
     invoke-direct {p0, p1}, Lio/appium/android/apis/view/OverscanActivity$IV$MyActionModeCallback;-><init>(Lio/appium/android/apis/view/OverscanActivity$IV;)V
 
@@ -53,7 +51,6 @@
     .param p1, "mode"    # Landroid/view/ActionMode;
     .param p2, "item"    # Landroid/view/MenuItem;
 
-    .prologue
     .line 94
     const/4 v0, 0x1
 
@@ -65,7 +62,6 @@
     .param p1, "mode"    # Landroid/view/ActionMode;
     .param p2, "menu"    # Landroid/view/Menu;
 
-    .prologue
     .line 81
     const-string v0, "My Action Mode!"
 
@@ -113,7 +109,6 @@
     .locals 2
     .param p1, "mode"    # Landroid/view/ActionMode;
 
-    .prologue
     .line 98
     iget-object v0, p0, Lio/appium/android/apis/view/OverscanActivity$IV$MyActionModeCallback;->this$0:Lio/appium/android/apis/view/OverscanActivity$IV;
 
@@ -139,7 +134,6 @@
     .param p1, "mode"    # Landroid/view/ActionMode;
     .param p2, "menu"    # Landroid/view/Menu;
 
-    .prologue
     .line 90
     const/4 v0, 0x1
 

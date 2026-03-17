@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/AlarmService_Service;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/AlarmService_Service;
 
-    .prologue
-    .line 71
+    .line 73
     iput-object p1, p0, Lio/appium/android/apis/app/AlarmService_Service$1;->this$0:Lio/appium/android/apis/app/AlarmService_Service;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,43 +39,42 @@
 .method public run()V
     .locals 6
 
-    .prologue
-    .line 75
+    .line 77
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    const-wide/16 v4, 0x3a98
+    const-wide/16 v2, 0x3a98
 
-    add-long v0, v2, v4
+    add-long/2addr v0, v2
 
-    .line 76
+    .line 78
     .local v0, "endTime":J
     :goto_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
-    cmp-long v2, v2, v0
+    cmp-long v4, v2, v0
 
-    if-gez v2, :cond_0
-
-    .line 77
-    iget-object v2, p0, Lio/appium/android/apis/app/AlarmService_Service$1;->this$0:Lio/appium/android/apis/app/AlarmService_Service;
-
-    invoke-static {v2}, Lio/appium/android/apis/app/AlarmService_Service;->access$000(Lio/appium/android/apis/app/AlarmService_Service;)Landroid/os/IBinder;
-
-    move-result-object v3
-
-    monitor-enter v3
+    if-gez v4, :cond_0
 
     .line 79
-    :try_start_0
     iget-object v2, p0, Lio/appium/android/apis/app/AlarmService_Service$1;->this$0:Lio/appium/android/apis/app/AlarmService_Service;
 
     invoke-static {v2}, Lio/appium/android/apis/app/AlarmService_Service;->access$000(Lio/appium/android/apis/app/AlarmService_Service;)Landroid/os/IBinder;
 
     move-result-object v2
+
+    monitor-enter v2
+
+    .line 81
+    :try_start_0
+    iget-object v3, p0, Lio/appium/android/apis/app/AlarmService_Service$1;->this$0:Lio/appium/android/apis/app/AlarmService_Service;
+
+    invoke-static {v3}, Lio/appium/android/apis/app/AlarmService_Service;->access$000(Lio/appium/android/apis/app/AlarmService_Service;)Landroid/os/IBinder;
+
+    move-result-object v3
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -83,39 +82,44 @@
 
     sub-long v4, v0, v4
 
-    invoke-virtual {v2, v4, v5}, Ljava/lang/Object;->wait(J)V
+    invoke-virtual {v3, v4, v5}, Ljava/lang/Object;->wait(J)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 83
+    goto :goto_1
+
+    .line 84
+    :catchall_0
+    move-exception v3
+
+    goto :goto_2
+
     .line 82
+    :catch_0
+    move-exception v3
+
+    .line 84
     :goto_1
     :try_start_1
-    monitor-exit v3
+    monitor-exit v2
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v2
-
-    monitor-exit v3
+    :goto_2
+    monitor-exit v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw v3
 
-    .line 86
+    .line 88
     :cond_0
     iget-object v2, p0, Lio/appium/android/apis/app/AlarmService_Service$1;->this$0:Lio/appium/android/apis/app/AlarmService_Service;
 
     invoke-virtual {v2}, Lio/appium/android/apis/app/AlarmService_Service;->stopSelf()V
 
-    .line 87
+    .line 89
     return-void
-
-    .line 80
-    :catch_0
-    move-exception v2
-
-    goto :goto_1
 .end method

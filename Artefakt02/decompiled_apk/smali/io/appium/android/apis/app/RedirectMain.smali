@@ -21,7 +21,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 33
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -43,39 +42,38 @@
 .end method
 
 .method private final loadPrefs()Z
-    .locals 5
-
-    .prologue
-    const/4 v2, 0x0
+    .locals 4
 
     .line 92
-    const-string v3, "RedirectData"
+    const-string v0, "RedirectData"
 
-    invoke-virtual {p0, v3, v2}, Lio/appium/android/apis/app/RedirectMain;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Lio/appium/android/apis/app/RedirectMain;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
     .line 94
     .local v0, "preferences":Landroid/content/SharedPreferences;
-    const-string v3, "text"
+    const-string v2, "text"
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-interface {v0, v3, v4}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    iput-object v3, p0, Lio/appium/android/apis/app/RedirectMain;->mTextPref:Ljava/lang/String;
+    iput-object v2, p0, Lio/appium/android/apis/app/RedirectMain;->mTextPref:Ljava/lang/String;
 
     .line 95
-    iget-object v3, p0, Lio/appium/android/apis/app/RedirectMain;->mTextPref:Ljava/lang/String;
+    iget-object v2, p0, Lio/appium/android/apis/app/RedirectMain;->mTextPref:Ljava/lang/String;
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     .line 96
-    const v2, 0x7f09000c
+    const v1, 0x7f09020c
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/app/RedirectMain;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/RedirectMain;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -90,10 +88,12 @@
     .line 98
     const/4 v2, 0x1
 
+    return v2
+
     .line 101
     .end local v1    # "text":Landroid/widget/TextView;
     :cond_0
-    return v2
+    return v1
 .end method
 
 
@@ -104,59 +104,57 @@
     .param p2, "resultCode"    # I
     .param p3, "data"    # Landroid/content/Intent;
 
-    .prologue
     .line 63
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1
 
     .line 66
-    if-nez p2, :cond_1
+    if-nez p2, :cond_0
 
     .line 67
     invoke-virtual {p0}, Lio/appium/android/apis/app/RedirectMain;->finish()V
 
-    .line 85
-    :cond_0
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 73
-    :cond_1
+    :cond_0
     invoke-direct {p0}, Lio/appium/android/apis/app/RedirectMain;->loadPrefs()Z
 
     goto :goto_0
 
     .line 76
-    :cond_2
+    :cond_1
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_2
 
     .line 80
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_2
 
     .line 81
     invoke-direct {p0}, Lio/appium/android/apis/app/RedirectMain;->loadPrefs()Z
 
-    goto :goto_0
+    .line 85
+    :cond_2
+    :goto_0
+    return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 39
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 41
-    const v3, 0x7f0300a8
+    const v0, 0x7f0b00cc
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/app/RedirectMain;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/RedirectMain;->setContentView(I)V
 
     .line 44
-    const v3, 0x7f0900b4
+    const v0, 0x7f09006b
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/app/RedirectMain;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/RedirectMain;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -164,47 +162,47 @@
 
     .line 45
     .local v0, "clearButton":Landroid/widget/Button;
-    iget-object v3, p0, Lio/appium/android/apis/app/RedirectMain;->mClearListener:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lio/appium/android/apis/app/RedirectMain;->mClearListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 46
-    const v3, 0x7f090121
+    const v1, 0x7f090141
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/app/RedirectMain;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/RedirectMain;->findViewById(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Landroid/widget/Button;
+    check-cast v1, Landroid/widget/Button;
 
     .line 47
-    .local v2, "newButton":Landroid/widget/Button;
-    iget-object v3, p0, Lio/appium/android/apis/app/RedirectMain;->mNewListener:Landroid/view/View$OnClickListener;
+    .local v1, "newButton":Landroid/widget/Button;
+    iget-object v2, p0, Lio/appium/android/apis/app/RedirectMain;->mNewListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 54
     invoke-direct {p0}, Lio/appium/android/apis/app/RedirectMain;->loadPrefs()Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_0
+    if-nez v2, :cond_0
 
     .line 55
-    new-instance v1, Landroid/content/Intent;
+    new-instance v2, Landroid/content/Intent;
 
     const-class v3, Lio/appium/android/apis/app/RedirectGetter;
 
-    invoke-direct {v1, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v2, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     .line 56
-    .local v1, "intent":Landroid/content/Intent;
+    .local v2, "intent":Landroid/content/Intent;
     const/4 v3, 0x0
 
-    invoke-virtual {p0, v1, v3}, Lio/appium/android/apis/app/RedirectMain;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v2, v3}, Lio/appium/android/apis/app/RedirectMain;->startActivityForResult(Landroid/content/Intent;I)V
 
     .line 58
-    .end local v1    # "intent":Landroid/content/Intent;
+    .end local v2    # "intent":Landroid/content/Intent;
     :cond_0
     return-void
 .end method

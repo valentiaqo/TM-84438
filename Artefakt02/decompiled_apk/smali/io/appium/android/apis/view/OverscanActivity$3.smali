@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/OverscanActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/OverscanActivity;
 
-    .prologue
     .line 189
     iput-object p1, p0, Lio/appium/android/apis/view/OverscanActivity$3;->this$0:Lio/appium/android/apis/view/OverscanActivity;
 
@@ -41,7 +41,6 @@
     .param p1, "buttonView"    # Landroid/widget/CompoundButton;
     .param p2, "isChecked"    # Z
 
-    .prologue
     .line 192
     if-eqz p2, :cond_0
 
@@ -54,9 +53,7 @@
 
     invoke-virtual {v0}, Landroid/app/ActionBar;->hide()V
 
-    .line 197
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 195
     :cond_0
@@ -68,5 +65,7 @@
 
     invoke-virtual {v0}, Landroid/app/ActionBar;->show()V
 
-    goto :goto_0
+    .line 197
+    :goto_0
+    return-void
 .end method

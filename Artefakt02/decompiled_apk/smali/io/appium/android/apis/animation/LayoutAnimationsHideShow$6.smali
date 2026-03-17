@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/animation/LayoutAnimationsHideShow;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
 
-    .prologue
     .line 159
     iput-object p1, p0, Lio/appium/android/apis/animation/LayoutAnimationsHideShow$6;->this$0:Lio/appium/android/apis/animation/LayoutAnimationsHideShow;
 
@@ -37,12 +37,12 @@
     .locals 2
     .param p1, "anim"    # Landroid/animation/Animator;
 
-    .prologue
     .line 161
-    check-cast p1, Landroid/animation/ObjectAnimator;
+    move-object v0, p1
 
-    .end local p1    # "anim":Landroid/animation/Animator;
-    invoke-virtual {p1}, Landroid/animation/ObjectAnimator;->getTarget()Ljava/lang/Object;
+    check-cast v0, Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->getTarget()Ljava/lang/Object;
 
     move-result-object v0
 

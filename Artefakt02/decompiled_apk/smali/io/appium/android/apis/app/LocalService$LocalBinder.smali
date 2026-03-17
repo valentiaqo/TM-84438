@@ -21,8 +21,8 @@
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/app/LocalService;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/LocalService;
 
-    .prologue
     .line 57
     iput-object p1, p0, Lio/appium/android/apis/app/LocalService$LocalBinder;->this$0:Lio/appium/android/apis/app/LocalService;
 
@@ -36,7 +36,6 @@
 .method getService()Lio/appium/android/apis/app/LocalService;
     .locals 1
 
-    .prologue
     .line 59
     iget-object v0, p0, Lio/appium/android/apis/app/LocalService$LocalBinder;->this$0:Lio/appium/android/apis/app/LocalService;
 

@@ -15,21 +15,20 @@
 
 
 # static fields
-.field public static final fragment_slide_left_enter:I = 0x7f050000
+.field public static final fragment_slide_left_enter:I = 0x7f020000
 
-.field public static final fragment_slide_left_exit:I = 0x7f050001
+.field public static final fragment_slide_left_exit:I = 0x7f020001
 
-.field public static final fragment_slide_right_enter:I = 0x7f050002
+.field public static final fragment_slide_right_enter:I = 0x7f020002
 
-.field public static final fragment_slide_right_exit:I = 0x7f050003
+.field public static final fragment_slide_right_exit:I = 0x7f020003
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 41
+    .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

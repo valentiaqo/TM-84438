@@ -17,7 +17,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 33
     invoke-direct {p0}, Landroid/app/ExpandableListActivity;-><init>()V
 
@@ -27,240 +26,223 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 15
+    .locals 13
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 41
-    invoke-super/range {p0 .. p1}, Landroid/app/ExpandableListActivity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/ExpandableListActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 43
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 44
-    .local v2, "groupData":Ljava/util/List;, "Ljava/util/List<Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;>;"
-    new-instance v6, Ljava/util/ArrayList;
+    .local v0, "groupData":Ljava/util/List;, "Ljava/util/List<Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;>;"
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    move-object v11, v1
 
     .line 45
-    .local v6, "childData":Ljava/util/List;, "Ljava/util/List<Ljava/util/List<Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;>;>;"
-    const/4 v13, 0x0
+    .local v11, "childData":Ljava/util/List;, "Ljava/util/List<Ljava/util/List<Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;>;>;"
+    const/4 v1, 0x0
 
-    .local v13, "i":I
+    .local v1, "i":I
     :goto_0
-    const/16 v0, 0x14
+    const/16 v2, 0x14
 
-    if-ge v13, v0, :cond_3
+    if-ge v1, v2, :cond_3
 
     .line 46
-    new-instance v12, Ljava/util/HashMap;
+    new-instance v2, Ljava/util/HashMap;
 
-    invoke-direct {v12}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
     .line 47
-    .local v12, "curGroupMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    invoke-interface {v2, v12}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    .local v2, "curGroupMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 48
-    const-string v0, "NAME"
+    const-string v3, "NAME"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Group "
+    const-string v5, "Group "
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-interface {v12, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 49
-    const-string v1, "IS_EVEN"
+    const-string v3, "IS_EVEN"
 
-    rem-int/lit8 v0, v13, 0x2
+    rem-int/lit8 v4, v1, 0x2
 
-    if-nez v0, :cond_0
+    if-nez v4, :cond_0
 
-    const-string v0, "This group is even"
-
-    :goto_1
-    invoke-interface {v12, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 51
-    new-instance v10, Ljava/util/ArrayList;
-
-    invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
-
-    .line 52
-    .local v10, "children":Ljava/util/List;, "Ljava/util/List<Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;>;"
-    const/4 v14, 0x0
-
-    .local v14, "j":I
-    :goto_2
-    const/16 v0, 0xf
-
-    if-ge v14, v0, :cond_2
-
-    .line 53
-    new-instance v11, Ljava/util/HashMap;
-
-    invoke-direct {v11}, Ljava/util/HashMap;-><init>()V
-
-    .line 54
-    .local v11, "curChildMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    invoke-interface {v10, v11}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 55
-    const-string v0, "NAME"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Child "
-
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-interface {v11, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 56
-    const-string v1, "IS_EVEN"
-
-    rem-int/lit8 v0, v14, 0x2
-
-    if-nez v0, :cond_1
-
-    const-string v0, "This child is even"
-
-    :goto_3
-    invoke-interface {v11, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 52
-    add-int/lit8 v14, v14, 0x1
-
-    goto :goto_2
-
-    .line 49
-    .end local v10    # "children":Ljava/util/List;, "Ljava/util/List<Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;>;"
-    .end local v11    # "curChildMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    .end local v14    # "j":I
-    :cond_0
-    const-string v0, "This group is odd"
+    const-string v4, "This group is even"
 
     goto :goto_1
 
+    :cond_0
+    const-string v4, "This group is odd"
+
+    :goto_1
+    invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 51
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    .line 52
+    .local v3, "children":Ljava/util/List;, "Ljava/util/List<Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;>;"
+    const/4 v4, 0x0
+
+    .local v4, "j":I
+    :goto_2
+    const/16 v5, 0xf
+
+    if-ge v4, v5, :cond_2
+
+    .line 53
+    new-instance v5, Ljava/util/HashMap;
+
+    invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
+
+    .line 54
+    .local v5, "curChildMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    invoke-interface {v3, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 55
+    const-string v6, "NAME"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Child "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     .line 56
-    .restart local v10    # "children":Ljava/util/List;, "Ljava/util/List<Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;>;"
-    .restart local v11    # "curChildMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    .restart local v14    # "j":I
-    :cond_1
-    const-string v0, "This child is odd"
+    const-string v6, "IS_EVEN"
+
+    rem-int/lit8 v7, v4, 0x2
+
+    if-nez v7, :cond_1
+
+    const-string v7, "This child is even"
 
     goto :goto_3
 
+    :cond_1
+    const-string v7, "This child is odd"
+
+    :goto_3
+    invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 52
+    .end local v5    # "curChildMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_2
+
     .line 58
-    .end local v11    # "curChildMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .end local v4    # "j":I
     :cond_2
-    invoke-interface {v6, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v11, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 45
-    add-int/lit8 v13, v13, 0x1
+    .end local v2    # "curGroupMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .end local v3    # "children":Ljava/util/List;, "Ljava/util/List<Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;>;"
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 62
-    .end local v10    # "children":Ljava/util/List;, "Ljava/util/List<Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;>;"
-    .end local v12    # "curGroupMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    .end local v14    # "j":I
+    .end local v1    # "i":I
     :cond_3
-    new-instance v0, Landroid/widget/SimpleExpandableListAdapter;
+    new-instance v12, Landroid/widget/SimpleExpandableListAdapter;
 
-    const v3, 0x1090006
-
-    const/4 v1, 0x2
-
-    new-array v4, v1, [Ljava/lang/String;
-
-    const/4 v1, 0x0
-
-    const-string v5, "NAME"
-
-    aput-object v5, v4, v1
-
-    const/4 v1, 0x1
-
-    const-string v5, "IS_EVEN"
-
-    aput-object v5, v4, v1
+    const v4, 0x1090006
 
     const/4 v1, 0x2
 
-    new-array v5, v1, [I
+    new-array v5, v1, [Ljava/lang/String;
 
-    fill-array-data v5, :array_0
+    const-string v2, "NAME"
 
-    const v7, 0x1090007
+    const/4 v3, 0x0
 
-    const/4 v1, 0x2
+    aput-object v2, v5, v3
 
-    new-array v8, v1, [Ljava/lang/String;
+    const-string v2, "IS_EVEN"
 
-    const/4 v1, 0x0
+    const/4 v6, 0x1
 
-    const-string v9, "NAME"
+    aput-object v2, v5, v6
 
-    aput-object v9, v8, v1
+    new-array v7, v1, [I
 
-    const/4 v1, 0x1
+    fill-array-data v7, :array_0
 
-    const-string v9, "IS_EVEN"
+    const v8, 0x1090007
 
-    aput-object v9, v8, v1
+    new-array v9, v1, [Ljava/lang/String;
 
-    const/4 v1, 0x2
+    const-string v2, "NAME"
 
-    new-array v9, v1, [I
+    aput-object v2, v9, v3
 
-    fill-array-data v9, :array_1
+    const-string v2, "IS_EVEN"
 
-    move-object v1, p0
+    aput-object v2, v9, v6
 
-    invoke-direct/range {v0 .. v9}, Landroid/widget/SimpleExpandableListAdapter;-><init>(Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[ILjava/util/List;I[Ljava/lang/String;[I)V
+    new-array v10, v1, [I
 
-    iput-object v0, p0, Lio/appium/android/apis/view/ExpandableList3;->mAdapter:Landroid/widget/ExpandableListAdapter;
+    fill-array-data v10, :array_1
+
+    move-object v1, v12
+
+    move-object v2, p0
+
+    move-object v3, v0
+
+    move-object v6, v7
+
+    move-object v7, v11
+
+    invoke-direct/range {v1 .. v10}, Landroid/widget/SimpleExpandableListAdapter;-><init>(Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[ILjava/util/List;I[Ljava/lang/String;[I)V
+
+    iput-object v12, p0, Lio/appium/android/apis/view/ExpandableList3;->mAdapter:Landroid/widget/ExpandableListAdapter;
 
     .line 73
-    iget-object v0, p0, Lio/appium/android/apis/view/ExpandableList3;->mAdapter:Landroid/widget/ExpandableListAdapter;
+    iget-object v1, p0, Lio/appium/android/apis/view/ExpandableList3;->mAdapter:Landroid/widget/ExpandableListAdapter;
 
-    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ExpandableList3;->setListAdapter(Landroid/widget/ExpandableListAdapter;)V
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/ExpandableList3;->setListAdapter(Landroid/widget/ExpandableListAdapter;)V
 
     .line 74
     return-void
 
-    .line 62
     nop
 
     :array_0

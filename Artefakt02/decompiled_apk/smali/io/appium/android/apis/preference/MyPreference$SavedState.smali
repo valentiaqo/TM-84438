@@ -18,8 +18,7 @@
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/Parcelable$Creator",
-            "<",
+            "Landroid/os/Parcelable$Creator<",
             "Lio/appium/android/apis/preference/MyPreference$SavedState;",
             ">;"
         }
@@ -35,7 +34,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     .line 159
     new-instance v0, Lio/appium/android/apis/preference/MyPreference$SavedState$1;
 
@@ -50,7 +48,6 @@
     .locals 1
     .param p1, "source"    # Landroid/os/Parcel;
 
-    .prologue
     .line 141
     invoke-direct {p0, p1}, Landroid/preference/Preference$BaseSavedState;-><init>(Landroid/os/Parcel;)V
 
@@ -69,7 +66,6 @@
     .locals 0
     .param p1, "superState"    # Landroid/os/Parcelable;
 
-    .prologue
     .line 156
     invoke-direct {p0, p1}, Landroid/preference/Preference$BaseSavedState;-><init>(Landroid/os/Parcelable;)V
 
@@ -84,7 +80,6 @@
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 
-    .prologue
     .line 149
     invoke-super {p0, p1, p2}, Landroid/preference/Preference$BaseSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 

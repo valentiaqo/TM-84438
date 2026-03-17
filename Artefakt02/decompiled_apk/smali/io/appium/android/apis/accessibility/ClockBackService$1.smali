@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/accessibility/ClockBackService;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/accessibility/ClockBackService;
 
-    .prologue
     .line 224
     iput-object p1, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
 
@@ -34,123 +34,41 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 8
+    .locals 4
     .param p1, "message"    # Landroid/os/Message;
 
-    .prologue
     .line 227
-    iget v4, p1, Landroid/os/Message;->what:I
+    iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
     .line 265
-    :cond_0
-    :goto_0
     return-void
 
-    .line 229
+    .line 262
     :pswitch_0
-    iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
 
-    check-cast v3, Ljava/lang/String;
+    invoke-static {v0}, Lio/appium/android/apis/accessibility/ClockBackService;->access$400(Lio/appium/android/apis/accessibility/ClockBackService;)Landroid/os/Vibrator;
 
-    .line 230
-    .local v3, "utterance":Ljava/lang/String;
-    iget-object v4, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
+    move-result-object v0
 
-    invoke-static {v4}, Lio/appium/android/apis/accessibility/ClockBackService;->access$000(Lio/appium/android/apis/accessibility/ClockBackService;)Landroid/speech/tts/TextToSpeech;
+    invoke-virtual {v0}, Landroid/os/Vibrator;->cancel()V
 
-    move-result-object v4
-
-    const/4 v5, 0x2
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v4, v3, v5, v6}, Landroid/speech/tts/TextToSpeech;->speak(Ljava/lang/String;ILjava/util/HashMap;)I
-
-    goto :goto_0
-
-    .line 233
-    .end local v3    # "utterance":Ljava/lang/String;
-    :pswitch_1
-    iget-object v4, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
-
-    invoke-static {v4}, Lio/appium/android/apis/accessibility/ClockBackService;->access$000(Lio/appium/android/apis/accessibility/ClockBackService;)Landroid/speech/tts/TextToSpeech;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/speech/tts/TextToSpeech;->stop()I
-
-    goto :goto_0
-
-    .line 236
-    :pswitch_2
-    iget-object v4, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
-
-    new-instance v5, Landroid/speech/tts/TextToSpeech;
-
-    iget-object v6, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
-
-    iget-object v6, v6, Lio/appium/android/apis/accessibility/ClockBackService;->mContext:Landroid/content/Context;
-
-    new-instance v7, Lio/appium/android/apis/accessibility/ClockBackService$1$1;
-
-    invoke-direct {v7, p0}, Lio/appium/android/apis/accessibility/ClockBackService$1$1;-><init>(Lio/appium/android/apis/accessibility/ClockBackService$1;)V
-
-    invoke-direct {v5, v6, v7}, Landroid/speech/tts/TextToSpeech;-><init>(Landroid/content/Context;Landroid/speech/tts/TextToSpeech$OnInitListener;)V
-
-    invoke-static {v4, v5}, Lio/appium/android/apis/accessibility/ClockBackService;->access$002(Lio/appium/android/apis/accessibility/ClockBackService;Landroid/speech/tts/TextToSpeech;)Landroid/speech/tts/TextToSpeech;
-
-    goto :goto_0
-
-    .line 245
-    :pswitch_3
-    iget-object v4, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
-
-    invoke-static {v4}, Lio/appium/android/apis/accessibility/ClockBackService;->access$000(Lio/appium/android/apis/accessibility/ClockBackService;)Landroid/speech/tts/TextToSpeech;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/speech/tts/TextToSpeech;->shutdown()V
-
-    goto :goto_0
-
-    .line 248
-    :pswitch_4
-    iget v2, p1, Landroid/os/Message;->arg1:I
-
-    .line 249
-    .local v2, "resourceId":I
-    iget-object v4, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
-
-    invoke-static {v4, v2}, Lio/appium/android/apis/accessibility/ClockBackService;->access$200(Lio/appium/android/apis/accessibility/ClockBackService;I)V
-
-    goto :goto_0
-
-    .line 252
-    .end local v2    # "resourceId":I
-    :pswitch_5
-    iget-object v4, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
-
-    invoke-static {v4}, Lio/appium/android/apis/accessibility/ClockBackService;->access$000(Lio/appium/android/apis/accessibility/ClockBackService;)Landroid/speech/tts/TextToSpeech;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/speech/tts/TextToSpeech;->stop()I
-
-    goto :goto_0
+    .line 263
+    return-void
 
     .line 255
-    :pswitch_6
+    :pswitch_1
     iget v0, p1, Landroid/os/Message;->arg1:I
 
     .line 256
     .local v0, "key":I
     invoke-static {}, Lio/appium/android/apis/accessibility/ClockBackService;->access$300()Landroid/util/SparseArray;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v4, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -161,44 +79,128 @@
     if-eqz v1, :cond_0
 
     .line 258
-    iget-object v4, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
+    iget-object v2, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
 
-    invoke-static {v4}, Lio/appium/android/apis/accessibility/ClockBackService;->access$400(Lio/appium/android/apis/accessibility/ClockBackService;)Landroid/os/Vibrator;
+    invoke-static {v2}, Lio/appium/android/apis/accessibility/ClockBackService;->access$400(Lio/appium/android/apis/accessibility/ClockBackService;)Landroid/os/Vibrator;
 
-    move-result-object v4
+    move-result-object v2
 
-    const/4 v5, -0x1
+    const/4 v3, -0x1
 
-    invoke-virtual {v4, v1, v5}, Landroid/os/Vibrator;->vibrate([JI)V
+    invoke-virtual {v2, v1, v3}, Landroid/os/Vibrator;->vibrate([JI)V
 
-    goto :goto_0
+    .line 260
+    :cond_0
+    return-void
 
-    .line 262
+    .line 252
     .end local v0    # "key":I
     .end local v1    # "pattern":[J
+    :pswitch_2
+    iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
+
+    invoke-static {v0}, Lio/appium/android/apis/accessibility/ClockBackService;->access$000(Lio/appium/android/apis/accessibility/ClockBackService;)Landroid/speech/tts/TextToSpeech;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/speech/tts/TextToSpeech;->stop()I
+
+    .line 253
+    return-void
+
+    .line 248
+    :pswitch_3
+    iget v0, p1, Landroid/os/Message;->arg1:I
+
+    .line 249
+    .local v0, "resourceId":I
+    iget-object v1, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
+
+    invoke-static {v1, v0}, Lio/appium/android/apis/accessibility/ClockBackService;->access$200(Lio/appium/android/apis/accessibility/ClockBackService;I)V
+
+    .line 250
+    return-void
+
+    .line 245
+    .end local v0    # "resourceId":I
+    :pswitch_4
+    iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
+
+    invoke-static {v0}, Lio/appium/android/apis/accessibility/ClockBackService;->access$000(Lio/appium/android/apis/accessibility/ClockBackService;)Landroid/speech/tts/TextToSpeech;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/speech/tts/TextToSpeech;->shutdown()V
+
+    .line 246
+    return-void
+
+    .line 236
+    :pswitch_5
+    iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
+
+    new-instance v1, Landroid/speech/tts/TextToSpeech;
+
+    iget-object v2, v0, Lio/appium/android/apis/accessibility/ClockBackService;->mContext:Landroid/content/Context;
+
+    new-instance v3, Lio/appium/android/apis/accessibility/ClockBackService$1$1;
+
+    invoke-direct {v3, p0}, Lio/appium/android/apis/accessibility/ClockBackService$1$1;-><init>(Lio/appium/android/apis/accessibility/ClockBackService$1;)V
+
+    invoke-direct {v1, v2, v3}, Landroid/speech/tts/TextToSpeech;-><init>(Landroid/content/Context;Landroid/speech/tts/TextToSpeech$OnInitListener;)V
+
+    invoke-static {v0, v1}, Lio/appium/android/apis/accessibility/ClockBackService;->access$002(Lio/appium/android/apis/accessibility/ClockBackService;Landroid/speech/tts/TextToSpeech;)Landroid/speech/tts/TextToSpeech;
+
+    .line 243
+    return-void
+
+    .line 233
+    :pswitch_6
+    iget-object v0, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
+
+    invoke-static {v0}, Lio/appium/android/apis/accessibility/ClockBackService;->access$000(Lio/appium/android/apis/accessibility/ClockBackService;)Landroid/speech/tts/TextToSpeech;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/speech/tts/TextToSpeech;->stop()I
+
+    .line 234
+    return-void
+
+    .line 229
     :pswitch_7
-    iget-object v4, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    invoke-static {v4}, Lio/appium/android/apis/accessibility/ClockBackService;->access$400(Lio/appium/android/apis/accessibility/ClockBackService;)Landroid/os/Vibrator;
+    check-cast v0, Ljava/lang/String;
 
-    move-result-object v4
+    .line 230
+    .local v0, "utterance":Ljava/lang/String;
+    iget-object v1, p0, Lio/appium/android/apis/accessibility/ClockBackService$1;->this$0:Lio/appium/android/apis/accessibility/ClockBackService;
 
-    invoke-virtual {v4}, Landroid/os/Vibrator;->cancel()V
+    invoke-static {v1}, Lio/appium/android/apis/accessibility/ClockBackService;->access$000(Lio/appium/android/apis/accessibility/ClockBackService;)Landroid/speech/tts/TextToSpeech;
 
-    goto :goto_0
+    move-result-object v1
 
-    .line 227
+    const/4 v2, 0x2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v0, v2, v3}, Landroid/speech/tts/TextToSpeech;->speak(Ljava/lang/String;ILjava/util/HashMap;)I
+
+    .line 231
+    return-void
+
     nop
 
     :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-        :pswitch_3
-        :pswitch_4
-        :pswitch_5
-        :pswitch_6
         :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method

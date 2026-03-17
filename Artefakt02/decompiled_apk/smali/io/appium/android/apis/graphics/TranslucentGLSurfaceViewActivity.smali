@@ -11,7 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 29
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -21,11 +20,8 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 7
+    .locals 8
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/16 v1, 0x8
 
     .line 32
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
@@ -38,19 +34,21 @@
     iput-object v0, p0, Lio/appium/android/apis/graphics/TranslucentGLSurfaceViewActivity;->mGLSurfaceView:Landroid/opengl/GLSurfaceView;
 
     .line 40
-    iget-object v0, p0, Lio/appium/android/apis/graphics/TranslucentGLSurfaceViewActivity;->mGLSurfaceView:Landroid/opengl/GLSurfaceView;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/TranslucentGLSurfaceViewActivity;->mGLSurfaceView:Landroid/opengl/GLSurfaceView;
 
-    const/16 v5, 0x10
+    const/16 v2, 0x8
 
-    const/4 v6, 0x0
+    const/16 v3, 0x8
 
-    move v2, v1
+    const/16 v4, 0x8
 
-    move v3, v1
+    const/16 v5, 0x8
 
-    move v4, v1
+    const/16 v6, 0x10
 
-    invoke-virtual/range {v0 .. v6}, Landroid/opengl/GLSurfaceView;->setEGLConfigChooser(IIIIII)V
+    const/4 v7, 0x0
+
+    invoke-virtual/range {v1 .. v7}, Landroid/opengl/GLSurfaceView;->setEGLConfigChooser(IIIIII)V
 
     .line 43
     iget-object v0, p0, Lio/appium/android/apis/graphics/TranslucentGLSurfaceViewActivity;->mGLSurfaceView:Landroid/opengl/GLSurfaceView;
@@ -86,7 +84,6 @@
 .method protected onPause()V
     .locals 1
 
-    .prologue
     .line 57
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
@@ -102,7 +99,6 @@
 .method protected onResume()V
     .locals 1
 
-    .prologue
     .line 51
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 

@@ -17,8 +17,7 @@
 .field final mCallbacks:Landroid/os/RemoteCallbackList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/os/RemoteCallbackList",
-            "<",
+            "Landroid/os/RemoteCallbackList<",
             "Lio/appium/android/apis/app/IRemoteServiceCallback;",
             ">;"
         }
@@ -32,7 +31,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 43
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
@@ -55,7 +53,6 @@
 
     iput-object v0, p0, Lio/appium/android/apis/app/IsolatedService;->mBinder:Lio/appium/android/apis/app/IRemoteService$Stub;
 
-    .line 105
     return-void
 .end method
 
@@ -63,11 +60,10 @@
     .locals 3
     .param p1, "value"    # I
 
-    .prologue
     .line 91
-    iget-object v2, p0, Lio/appium/android/apis/app/IsolatedService;->mCallbacks:Landroid/os/RemoteCallbackList;
+    iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v2}, Landroid/os/RemoteCallbackList;->beginBroadcast()I
+    invoke-virtual {v0}, Landroid/os/RemoteCallbackList;->beginBroadcast()I
 
     move-result v0
 
@@ -93,6 +89,13 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 98
+    goto :goto_1
+
+    .line 95
+    :catch_0
+    move-exception v2
+
     .line 92
     :goto_1
     add-int/lit8 v1, v1, 0x1
@@ -100,19 +103,14 @@
     goto :goto_0
 
     .line 100
+    .end local v1    # "i":I
     :cond_0
-    iget-object v2, p0, Lio/appium/android/apis/app/IsolatedService;->mCallbacks:Landroid/os/RemoteCallbackList;
+    iget-object v1, p0, Lio/appium/android/apis/app/IsolatedService;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v2}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+    invoke-virtual {v1}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
 
     .line 101
     return-void
-
-    .line 95
-    :catch_0
-    move-exception v2
-
-    goto :goto_1
 .end method
 
 
@@ -121,7 +119,6 @@
     .locals 1
     .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 68
     iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService;->mBinder:Lio/appium/android/apis/app/IRemoteService$Stub;
 
@@ -131,7 +128,6 @@
 .method public onCreate()V
     .locals 3
 
-    .prologue
     .line 56
     const-string v0, "IsolatedService"
 
@@ -143,11 +139,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -162,7 +154,6 @@
 .method public onDestroy()V
     .locals 3
 
-    .prologue
     .line 61
     const-string v0, "IsolatedService"
 
@@ -174,11 +165,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -199,7 +186,6 @@
     .locals 3
     .param p1, "rootIntent"    # Landroid/content/Intent;
 
-    .prologue
     .line 85
     const-string v0, "IsolatedService"
 
@@ -211,21 +197,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, ": "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

@@ -7,7 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 32
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -20,12 +19,11 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 35
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 36
-    const v0, 0x7f030096
+    const v0, 0x7f0b00ba
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/PopupMenu1;->setContentView(I)V
 
@@ -37,7 +35,6 @@
     .locals 4
     .param p1, "button"    # Landroid/view/View;
 
-    .prologue
     .line 40
     new-instance v0, Landroid/widget/PopupMenu;
 
@@ -49,13 +46,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e000c
-
     invoke-virtual {v0}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v1, v2, v3}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
+    const v3, 0x7f0c000c
+
+    invoke-virtual {v1, v3, v2}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
     .line 43
     new-instance v1, Lio/appium/android/apis/view/PopupMenu1$1;

@@ -11,7 +11,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
     .line 32
     new-instance v0, Landroid/content/Intent;
 
@@ -27,7 +26,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 29
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
@@ -37,7 +35,6 @@
 .method static synthetic access$000()Landroid/content/Intent;
     .locals 1
 
-    .prologue
     .line 29
     sget-object v0, Lio/appium/android/apis/accessibility/TaskListActivity;->sSettingsIntent:Landroid/content/Intent;
 
@@ -47,102 +44,100 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 6
+    .locals 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v5, 0x7
 
     .line 38
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 39
-    const v4, 0x7f0300ec
+    const v0, 0x7f0b0114
 
-    invoke-virtual {p0, v4}, Lio/appium/android/apis/accessibility/TaskListActivity;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/accessibility/TaskListActivity;->setContentView(I)V
 
     .line 42
-    new-array v1, v5, [Z
+    const/4 v0, 0x7
+
+    new-array v1, v0, [Z
 
     fill-array-data v1, :array_0
 
     .line 43
     .local v1, "checkboxes":[Z
-    new-array v2, v5, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    const/4 v4, 0x0
+    const-string v2, "Take out Trash"
 
-    const-string v5, "Take out Trash"
+    const/4 v3, 0x0
 
-    aput-object v5, v2, v4
+    aput-object v2, v0, v3
 
-    const/4 v4, 0x1
+    const-string v2, "Do Laundry"
 
-    const-string v5, "Do Laundry"
+    const/4 v3, 0x1
 
-    aput-object v5, v2, v4
+    aput-object v2, v0, v3
 
-    const/4 v4, 0x2
+    const-string v2, "Conquer World"
 
-    const-string v5, "Conquer World"
+    const/4 v3, 0x2
 
-    aput-object v5, v2, v4
+    aput-object v2, v0, v3
 
-    const/4 v4, 0x3
+    const-string v2, "Nap"
 
-    const-string v5, "Nap"
+    const/4 v3, 0x3
 
-    aput-object v5, v2, v4
+    aput-object v2, v0, v3
 
-    const/4 v4, 0x4
+    const-string v2, "Do Taxes"
 
-    const-string v5, "Do Taxes"
+    const/4 v3, 0x4
 
-    aput-object v5, v2, v4
+    aput-object v2, v0, v3
 
-    const/4 v4, 0x5
+    const-string v2, "Abolish IRS"
 
-    const-string v5, "Abolish IRS"
+    const/4 v3, 0x5
 
-    aput-object v5, v2, v4
+    aput-object v2, v0, v3
 
-    const/4 v4, 0x6
+    const-string v2, "Tea with Aunt Sharon"
 
-    const-string v5, "Tea with Aunt Sharon"
+    const/4 v3, 0x6
 
-    aput-object v5, v2, v4
+    aput-object v2, v0, v3
 
     .line 47
-    .local v2, "labels":[Ljava/lang/String;
-    new-instance v3, Lio/appium/android/apis/accessibility/TaskAdapter;
+    .local v0, "labels":[Ljava/lang/String;
+    new-instance v2, Lio/appium/android/apis/accessibility/TaskAdapter;
 
-    invoke-direct {v3, p0, v2, v1}, Lio/appium/android/apis/accessibility/TaskAdapter;-><init>(Landroid/content/Context;[Ljava/lang/String;[Z)V
+    invoke-direct {v2, p0, v0, v1}, Lio/appium/android/apis/accessibility/TaskAdapter;-><init>(Landroid/content/Context;[Ljava/lang/String;[Z)V
 
     .line 48
-    .local v3, "myAdapter":Lio/appium/android/apis/accessibility/TaskAdapter;
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/accessibility/TaskListActivity;->setListAdapter(Landroid/widget/ListAdapter;)V
+    .local v2, "myAdapter":Lio/appium/android/apis/accessibility/TaskAdapter;
+    invoke-virtual {p0, v2}, Lio/appium/android/apis/accessibility/TaskListActivity;->setListAdapter(Landroid/widget/ListAdapter;)V
 
     .line 51
-    const v4, 0x7f090004
+    const v3, 0x7f090048
 
-    invoke-virtual {p0, v4}, Lio/appium/android/apis/accessibility/TaskListActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Lio/appium/android/apis/accessibility/TaskListActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Landroid/widget/ImageButton;
+    check-cast v3, Landroid/widget/ImageButton;
 
     .line 52
-    .local v0, "button":Landroid/widget/ImageButton;
+    .local v3, "button":Landroid/widget/ImageButton;
     new-instance v4, Lio/appium/android/apis/accessibility/TaskListActivity$1;
 
     invoke-direct {v4, p0}, Lio/appium/android/apis/accessibility/TaskListActivity$1;-><init>(Lio/appium/android/apis/accessibility/TaskListActivity;)V
 
-    invoke-virtual {v0, v4}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v3, v4}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 58
     return-void
 
-    .line 42
     :array_0
     .array-data 1
         0x1t

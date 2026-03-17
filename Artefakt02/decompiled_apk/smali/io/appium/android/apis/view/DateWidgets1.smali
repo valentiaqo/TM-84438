@@ -6,7 +6,9 @@
 # static fields
 .field static final DATE_DIALOG_ID:I = 0x1
 
-.field static final TIME_DIALOG_ID:I
+.field static final TIME_DIALOG_ID:I = 0x0
+
+.field static final TIME_DIALOG_SPINNER_ID:I = 0x2
 
 
 # instance fields
@@ -31,21 +33,20 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 42
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 128
-    new-instance v0, Lio/appium/android/apis/view/DateWidgets1$3;
-
-    invoke-direct {v0, p0}, Lio/appium/android/apis/view/DateWidgets1$3;-><init>(Lio/appium/android/apis/view/DateWidgets1;)V
-
-    iput-object v0, p0, Lio/appium/android/apis/view/DateWidgets1;->mDateSetListener:Landroid/app/DatePickerDialog$OnDateSetListener;
-
-    .line 140
+    .line 143
     new-instance v0, Lio/appium/android/apis/view/DateWidgets1$4;
 
     invoke-direct {v0, p0}, Lio/appium/android/apis/view/DateWidgets1$4;-><init>(Lio/appium/android/apis/view/DateWidgets1;)V
+
+    iput-object v0, p0, Lio/appium/android/apis/view/DateWidgets1;->mDateSetListener:Landroid/app/DatePickerDialog$OnDateSetListener;
+
+    .line 155
+    new-instance v0, Lio/appium/android/apis/view/DateWidgets1$5;
+
+    invoke-direct {v0, p0}, Lio/appium/android/apis/view/DateWidgets1$5;-><init>(Lio/appium/android/apis/view/DateWidgets1;)V
 
     iput-object v0, p0, Lio/appium/android/apis/view/DateWidgets1;->mTimeSetListener:Landroid/app/TimePickerDialog$OnTimeSetListener;
 
@@ -57,7 +58,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/view/DateWidgets1;
     .param p1, "x1"    # I
 
-    .prologue
     .line 42
     iput p1, p0, Lio/appium/android/apis/view/DateWidgets1;->mYear:I
 
@@ -69,7 +69,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/view/DateWidgets1;
     .param p1, "x1"    # I
 
-    .prologue
     .line 42
     iput p1, p0, Lio/appium/android/apis/view/DateWidgets1;->mMonth:I
 
@@ -81,7 +80,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/view/DateWidgets1;
     .param p1, "x1"    # I
 
-    .prologue
     .line 42
     iput p1, p0, Lio/appium/android/apis/view/DateWidgets1;->mDay:I
 
@@ -92,7 +90,6 @@
     .locals 0
     .param p0, "x0"    # Lio/appium/android/apis/view/DateWidgets1;
 
-    .prologue
     .line 42
     invoke-direct {p0}, Lio/appium/android/apis/view/DateWidgets1;->updateDisplay()V
 
@@ -104,7 +101,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/view/DateWidgets1;
     .param p1, "x1"    # I
 
-    .prologue
     .line 42
     iput p1, p0, Lio/appium/android/apis/view/DateWidgets1;->mHour:I
 
@@ -116,7 +112,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/view/DateWidgets1;
     .param p1, "x1"    # I
 
-    .prologue
     .line 42
     iput p1, p0, Lio/appium/android/apis/view/DateWidgets1;->mMinute:I
 
@@ -127,21 +122,19 @@
     .locals 2
     .param p0, "c"    # I
 
-    .prologue
-    .line 151
+    .line 166
     const/16 v0, 0xa
 
     if-lt p0, v0, :cond_0
 
-    .line 152
+    .line 167
     invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 154
-    :goto_0
     return-object v0
 
+    .line 169
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -151,28 +144,23 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
-
     invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
-
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    return-object v0
 .end method
 
 .method private updateDisplay()V
     .locals 3
 
-    .prologue
-    .line 118
+    .line 133
     iget-object v0, p0, Lio/appium/android/apis/view/DateWidgets1;->mDateDisplay:Landroid/widget/TextView;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -183,296 +171,328 @@
 
     add-int/lit8 v2, v2, 0x1
 
+    .line 136
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, "-"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     iget v2, p0, Lio/appium/android/apis/view/DateWidgets1;->mDay:I
 
+    .line 137
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, "-"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     iget v2, p0, Lio/appium/android/apis/view/DateWidgets1;->mYear:I
 
+    .line 138
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, " "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     iget v2, p0, Lio/appium/android/apis/view/DateWidgets1;->mHour:I
 
+    .line 139
     invoke-static {v2}, Lio/appium/android/apis/view/DateWidgets1;->pad(I)Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, ":"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     iget v2, p0, Lio/appium/android/apis/view/DateWidgets1;->mMinute:I
 
+    .line 140
     invoke-static {v2}, Lio/appium/android/apis/view/DateWidgets1;->pad(I)Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
+    .line 133
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 126
+    .line 141
     return-void
 .end method
 
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 7
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 59
+    .line 60
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 61
-    const v3, 0x7f030037
+    .line 62
+    const v0, 0x7f0b0054
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/DateWidgets1;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/DateWidgets1;->setContentView(I)V
 
-    .line 63
-    const v3, 0x7f090073
+    .line 64
+    const v0, 0x7f090085
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/DateWidgets1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/DateWidgets1;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    iput-object v3, p0, Lio/appium/android/apis/view/DateWidgets1;->mDateDisplay:Landroid/widget/TextView;
+    iput-object v0, p0, Lio/appium/android/apis/view/DateWidgets1;->mDateDisplay:Landroid/widget/TextView;
 
-    .line 65
-    const v3, 0x7f090074
+    .line 66
+    const v0, 0x7f09015f
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/DateWidgets1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/DateWidgets1;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/Button;
+
+    .line 67
+    .local v0, "pickDate":Landroid/widget/Button;
+    new-instance v1, Lio/appium/android/apis/view/DateWidgets1$1;
+
+    invoke-direct {v1, p0}, Lio/appium/android/apis/view/DateWidgets1$1;-><init>(Lio/appium/android/apis/view/DateWidgets1;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 74
+    const v1, 0x7f090160
+
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/DateWidgets1;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     check-cast v1, Landroid/widget/Button;
 
-    .line 66
-    .local v1, "pickDate":Landroid/widget/Button;
-    new-instance v3, Lio/appium/android/apis/view/DateWidgets1$1;
+    .line 75
+    .local v1, "pickTime":Landroid/widget/Button;
+    new-instance v2, Lio/appium/android/apis/view/DateWidgets1$2;
 
-    invoke-direct {v3, p0}, Lio/appium/android/apis/view/DateWidgets1$1;-><init>(Lio/appium/android/apis/view/DateWidgets1;)V
+    invoke-direct {v2, p0}, Lio/appium/android/apis/view/DateWidgets1$2;-><init>(Lio/appium/android/apis/view/DateWidgets1;)V
 
-    invoke-virtual {v1, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 73
-    const v3, 0x7f090075
+    .line 82
+    const v2, 0x7f090161
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/DateWidgets1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/DateWidgets1;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
     check-cast v2, Landroid/widget/Button;
 
-    .line 74
-    .local v2, "pickTime":Landroid/widget/Button;
-    new-instance v3, Lio/appium/android/apis/view/DateWidgets1$2;
+    .line 83
+    .local v2, "pickTimeSpinner":Landroid/widget/Button;
+    new-instance v3, Lio/appium/android/apis/view/DateWidgets1$3;
 
-    invoke-direct {v3, p0}, Lio/appium/android/apis/view/DateWidgets1$2;-><init>(Lio/appium/android/apis/view/DateWidgets1;)V
+    invoke-direct {v3, p0}, Lio/appium/android/apis/view/DateWidgets1$3;-><init>(Lio/appium/android/apis/view/DateWidgets1;)V
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 81
+    .line 90
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
-    move-result-object v0
+    move-result-object v3
 
-    .line 82
-    .local v0, "c":Ljava/util/Calendar;
-    const/4 v3, 0x1
+    .line 91
+    .local v3, "c":Ljava/util/Calendar;
+    const/4 v4, 0x1
 
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v3, v4}, Ljava/util/Calendar;->get(I)I
 
-    move-result v3
+    move-result v5
 
-    iput v3, p0, Lio/appium/android/apis/view/DateWidgets1;->mYear:I
+    iput v5, p0, Lio/appium/android/apis/view/DateWidgets1;->mYear:I
 
-    .line 83
-    const/4 v3, 0x2
+    .line 92
+    const/4 v5, 0x2
 
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v3, v5}, Ljava/util/Calendar;->get(I)I
 
-    move-result v3
+    move-result v6
 
-    iput v3, p0, Lio/appium/android/apis/view/DateWidgets1;->mMonth:I
+    iput v6, p0, Lio/appium/android/apis/view/DateWidgets1;->mMonth:I
 
-    .line 84
-    const/4 v3, 0x5
+    .line 93
+    const/4 v6, 0x5
 
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v3, v6}, Ljava/util/Calendar;->get(I)I
 
-    move-result v3
+    move-result v6
 
-    iput v3, p0, Lio/appium/android/apis/view/DateWidgets1;->mDay:I
+    iput v6, p0, Lio/appium/android/apis/view/DateWidgets1;->mDay:I
 
-    .line 85
-    const/16 v3, 0xb
+    .line 94
+    iput v4, p0, Lio/appium/android/apis/view/DateWidgets1;->mHour:I
 
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
+    .line 95
+    iput v5, p0, Lio/appium/android/apis/view/DateWidgets1;->mMinute:I
 
-    move-result v3
-
-    iput v3, p0, Lio/appium/android/apis/view/DateWidgets1;->mHour:I
-
-    .line 86
-    const/16 v3, 0xc
-
-    invoke-virtual {v0, v3}, Ljava/util/Calendar;->get(I)I
-
-    move-result v3
-
-    iput v3, p0, Lio/appium/android/apis/view/DateWidgets1;->mMinute:I
-
-    .line 88
+    .line 97
     invoke-direct {p0}, Lio/appium/android/apis/view/DateWidgets1;->updateDisplay()V
 
-    .line 89
+    .line 98
     return-void
 .end method
 
 .method protected onCreateDialog(I)Landroid/app/Dialog;
-    .locals 6
+    .locals 14
     .param p1, "id"    # I
 
-    .prologue
-    .line 93
+    .line 102
     packed-switch p1, :pswitch_data_0
 
-    .line 102
+    .line 114
     const/4 v0, 0x0
 
-    :goto_0
     return-object v0
 
-    .line 95
+    .line 107
     :pswitch_0
-    new-instance v0, Landroid/app/TimePickerDialog;
+    new-instance v7, Landroid/app/TimePickerDialog;
 
-    iget-object v2, p0, Lio/appium/android/apis/view/DateWidgets1;->mTimeSetListener:Landroid/app/TimePickerDialog$OnTimeSetListener;
+    const v2, 0x1030071
 
-    iget v3, p0, Lio/appium/android/apis/view/DateWidgets1;->mHour:I
+    iget-object v3, p0, Lio/appium/android/apis/view/DateWidgets1;->mTimeSetListener:Landroid/app/TimePickerDialog$OnTimeSetListener;
 
-    iget v4, p0, Lio/appium/android/apis/view/DateWidgets1;->mMinute:I
+    iget v4, p0, Lio/appium/android/apis/view/DateWidgets1;->mHour:I
 
-    const/4 v5, 0x0
+    iget v5, p0, Lio/appium/android/apis/view/DateWidgets1;->mMinute:I
+
+    const/4 v6, 0x0
+
+    move-object v0, v7
 
     move-object v1, p0
 
-    invoke-direct/range {v0 .. v5}, Landroid/app/TimePickerDialog;-><init>(Landroid/content/Context;Landroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V
+    invoke-direct/range {v0 .. v6}, Landroid/app/TimePickerDialog;-><init>(Landroid/content/Context;ILandroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V
 
-    goto :goto_0
+    return-object v7
 
-    .line 98
+    .line 110
     :pswitch_1
     new-instance v0, Landroid/app/DatePickerDialog;
 
-    iget-object v2, p0, Lio/appium/android/apis/view/DateWidgets1;->mDateSetListener:Landroid/app/DatePickerDialog$OnDateSetListener;
+    iget-object v10, p0, Lio/appium/android/apis/view/DateWidgets1;->mDateSetListener:Landroid/app/DatePickerDialog$OnDateSetListener;
 
-    iget v3, p0, Lio/appium/android/apis/view/DateWidgets1;->mYear:I
+    iget v11, p0, Lio/appium/android/apis/view/DateWidgets1;->mYear:I
 
-    iget v4, p0, Lio/appium/android/apis/view/DateWidgets1;->mMonth:I
+    iget v12, p0, Lio/appium/android/apis/view/DateWidgets1;->mMonth:I
 
-    iget v5, p0, Lio/appium/android/apis/view/DateWidgets1;->mDay:I
+    iget v13, p0, Lio/appium/android/apis/view/DateWidgets1;->mDay:I
 
-    move-object v1, p0
+    move-object v8, v0
 
-    invoke-direct/range {v0 .. v5}, Landroid/app/DatePickerDialog;-><init>(Landroid/content/Context;Landroid/app/DatePickerDialog$OnDateSetListener;III)V
+    move-object v9, p0
 
-    goto :goto_0
+    invoke-direct/range {v8 .. v13}, Landroid/app/DatePickerDialog;-><init>(Landroid/content/Context;Landroid/app/DatePickerDialog$OnDateSetListener;III)V
 
-    .line 93
+    return-object v0
+
+    .line 104
+    :pswitch_2
+    new-instance v0, Landroid/app/TimePickerDialog;
+
+    iget-object v3, p0, Lio/appium/android/apis/view/DateWidgets1;->mTimeSetListener:Landroid/app/TimePickerDialog$OnTimeSetListener;
+
+    iget v4, p0, Lio/appium/android/apis/view/DateWidgets1;->mHour:I
+
+    iget v5, p0, Lio/appium/android/apis/view/DateWidgets1;->mMinute:I
+
+    const/4 v6, 0x0
+
+    move-object v1, v0
+
+    move-object v2, p0
+
+    invoke-direct/range {v1 .. v6}, Landroid/app/TimePickerDialog;-><init>(Landroid/content/Context;Landroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V
+
+    return-object v0
+
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_2
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method protected onPrepareDialog(ILandroid/app/Dialog;)V
-    .locals 3
+    .locals 4
     .param p1, "id"    # I
     .param p2, "dialog"    # Landroid/app/Dialog;
 
-    .prologue
-    .line 107
+    .line 119
     packed-switch p1, :pswitch_data_0
 
-    .line 115
-    .end local p2    # "dialog":Landroid/app/Dialog;
+    goto :goto_0
+
+    .line 124
+    :pswitch_0
+    move-object v0, p2
+
+    check-cast v0, Landroid/app/TimePickerDialog;
+
+    iget v1, p0, Lio/appium/android/apis/view/DateWidgets1;->mHour:I
+
+    iget v2, p0, Lio/appium/android/apis/view/DateWidgets1;->mMinute:I
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/TimePickerDialog;->updateTime(II)V
+
+    .line 125
+    goto :goto_0
+
+    .line 127
+    :pswitch_1
+    move-object v0, p2
+
+    check-cast v0, Landroid/app/DatePickerDialog;
+
+    iget v1, p0, Lio/appium/android/apis/view/DateWidgets1;->mYear:I
+
+    iget v2, p0, Lio/appium/android/apis/view/DateWidgets1;->mMonth:I
+
+    iget v3, p0, Lio/appium/android/apis/view/DateWidgets1;->mDay:I
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/app/DatePickerDialog;->updateDate(III)V
+
+    goto :goto_0
+
+    .line 121
+    :pswitch_2
+    move-object v0, p2
+
+    check-cast v0, Landroid/app/TimePickerDialog;
+
+    iget v1, p0, Lio/appium/android/apis/view/DateWidgets1;->mHour:I
+
+    iget v2, p0, Lio/appium/android/apis/view/DateWidgets1;->mMinute:I
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/TimePickerDialog;->updateTime(II)V
+
+    .line 122
+    nop
+
+    .line 130
     :goto_0
     return-void
 
-    .line 109
-    .restart local p2    # "dialog":Landroid/app/Dialog;
-    :pswitch_0
-    check-cast p2, Landroid/app/TimePickerDialog;
-
-    .end local p2    # "dialog":Landroid/app/Dialog;
-    iget v0, p0, Lio/appium/android/apis/view/DateWidgets1;->mHour:I
-
-    iget v1, p0, Lio/appium/android/apis/view/DateWidgets1;->mMinute:I
-
-    invoke-virtual {p2, v0, v1}, Landroid/app/TimePickerDialog;->updateTime(II)V
-
-    goto :goto_0
-
-    .line 112
-    .restart local p2    # "dialog":Landroid/app/Dialog;
-    :pswitch_1
-    check-cast p2, Landroid/app/DatePickerDialog;
-
-    .end local p2    # "dialog":Landroid/app/Dialog;
-    iget v0, p0, Lio/appium/android/apis/view/DateWidgets1;->mYear:I
-
-    iget v1, p0, Lio/appium/android/apis/view/DateWidgets1;->mMonth:I
-
-    iget v2, p0, Lio/appium/android/apis/view/DateWidgets1;->mDay:I
-
-    invoke-virtual {p2, v0, v1, v2}, Landroid/app/DatePickerDialog;->updateDate(III)V
-
-    goto :goto_0
-
-    .line 107
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_0
+        :pswitch_2
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method

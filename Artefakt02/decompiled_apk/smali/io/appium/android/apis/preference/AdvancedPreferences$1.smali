@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/preference/AdvancedPreferences;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/preference/AdvancedPreferences;
 
-    .prologue
     .line 42
     iput-object p1, p0, Lio/appium/android/apis/preference/AdvancedPreferences$1;->this$0:Lio/appium/android/apis/preference/AdvancedPreferences;
 
@@ -39,7 +39,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
     .line 44
     iget-object v0, p0, Lio/appium/android/apis/preference/AdvancedPreferences$1;->this$0:Lio/appium/android/apis/preference/AdvancedPreferences;
 
@@ -54,24 +53,21 @@
 
     invoke-static {v0}, Lio/appium/android/apis/preference/AdvancedPreferences;->access$000(Lio/appium/android/apis/preference/AdvancedPreferences;)Landroid/preference/CheckBoxPreference;
 
-    move-result-object v1
-
-    iget-object v0, p0, Lio/appium/android/apis/preference/AdvancedPreferences$1;->this$0:Lio/appium/android/apis/preference/AdvancedPreferences;
-
-    invoke-static {v0}, Lio/appium/android/apis/preference/AdvancedPreferences;->access$000(Lio/appium/android/apis/preference/AdvancedPreferences;)Landroid/preference/CheckBoxPreference;
-
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    iget-object v1, p0, Lio/appium/android/apis/preference/AdvancedPreferences$1;->this$0:Lio/appium/android/apis/preference/AdvancedPreferences;
 
-    move-result v0
+    invoke-static {v1}, Lio/appium/android/apis/preference/AdvancedPreferences;->access$000(Lio/appium/android/apis/preference/AdvancedPreferences;)Landroid/preference/CheckBoxPreference;
 
-    if-nez v0, :cond_1
+    move-result-object v1
 
-    const/4 v0, 0x1
+    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isChecked()Z
 
-    :goto_0
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
     .line 49
     :cond_0
@@ -87,10 +83,4 @@
 
     .line 50
     return-void
-
-    .line 45
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method

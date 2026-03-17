@@ -36,7 +36,6 @@
 .method public constructor <init>()V
     .locals 2
 
-    .prologue
     .line 42
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
@@ -73,7 +72,6 @@
     .locals 0
     .param p0, "x0"    # Lio/appium/android/apis/view/List9;
 
-    .prologue
     .line 42
     invoke-direct {p0}, Lio/appium/android/apis/view/List9;->removeWindow()V
 
@@ -85,7 +83,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/view/List9;
     .param p1, "x1"    # Z
 
-    .prologue
     .line 42
     iput-boolean p1, p0, Lio/appium/android/apis/view/List9;->mReady:Z
 
@@ -96,7 +93,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/view/List9;
 
-    .prologue
     .line 42
     iget-object v0, p0, Lio/appium/android/apis/view/List9;->mDialogText:Landroid/widget/TextView;
 
@@ -107,7 +103,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/view/List9;
 
-    .prologue
     .line 42
     iget-object v0, p0, Lio/appium/android/apis/view/List9;->mWindowManager:Landroid/view/WindowManager;
 
@@ -117,7 +112,6 @@
 .method private removeWindow()V
     .locals 2
 
-    .prologue
     .line 137
     iget-boolean v0, p0, Lio/appium/android/apis/view/List9;->mShowing:Z
 
@@ -143,46 +137,45 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 60
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 62
-    const-string v1, "window"
+    const-string v0, "window"
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/List9;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/List9;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/view/WindowManager;
+    check-cast v0, Landroid/view/WindowManager;
 
-    iput-object v1, p0, Lio/appium/android/apis/view/List9;->mWindowManager:Landroid/view/WindowManager;
+    iput-object v0, p0, Lio/appium/android/apis/view/List9;->mWindowManager:Landroid/view/WindowManager;
 
     .line 66
-    new-instance v1, Landroid/widget/ArrayAdapter;
+    new-instance v0, Landroid/widget/ArrayAdapter;
+
+    iget-object v1, p0, Lio/appium/android/apis/view/List9;->mStrings:[Ljava/lang/String;
 
     const v2, 0x1090003
 
-    iget-object v3, p0, Lio/appium/android/apis/view/List9;->mStrings:[Ljava/lang/String;
+    invoke-direct {v0, p0, v2, v1}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
-    invoke-direct {v1, p0, v2, v3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
-
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/List9;->setListAdapter(Landroid/widget/ListAdapter;)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/List9;->setListAdapter(Landroid/widget/ListAdapter;)V
 
     .line 69
     invoke-virtual {p0}, Lio/appium/android/apis/view/List9;->getListView()Landroid/widget/ListView;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p0}, Landroid/widget/ListView;->setOnScrollListener(Landroid/widget/AbsListView$OnScrollListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/ListView;->setOnScrollListener(Landroid/widget/AbsListView$OnScrollListener;)V
 
     .line 71
-    const-string v1, "layout_inflater"
+    const-string v0, "layout_inflater"
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/List9;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/List9;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -190,7 +183,7 @@
 
     .line 73
     .local v0, "inflate":Landroid/view/LayoutInflater;
-    const v1, 0x7f030087
+    const v1, 0x7f0b00a5
 
     const/4 v2, 0x0
 
@@ -225,7 +218,6 @@
 .method protected onDestroy()V
     .locals 2
 
-    .prologue
     .line 106
     invoke-super {p0}, Landroid/app/ListActivity;->onDestroy()V
 
@@ -248,7 +240,6 @@
 .method protected onPause()V
     .locals 1
 
-    .prologue
     .line 99
     invoke-super {p0}, Landroid/app/ListActivity;->onPause()V
 
@@ -267,7 +258,6 @@
 .method protected onResume()V
     .locals 1
 
-    .prologue
     .line 92
     invoke-super {p0}, Landroid/app/ListActivity;->onResume()V
 
@@ -287,42 +277,41 @@
     .param p3, "visibleItemCount"    # I
     .param p4, "totalItemCount"    # I
 
-    .prologue
-    const/4 v2, 0x0
-
     .line 116
-    iget-boolean v1, p0, Lio/appium/android/apis/view/List9;->mReady:Z
+    iget-boolean v0, p0, Lio/appium/android/apis/view/List9;->mReady:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 117
-    iget-object v1, p0, Lio/appium/android/apis/view/List9;->mStrings:[Ljava/lang/String;
+    iget-object v0, p0, Lio/appium/android/apis/view/List9;->mStrings:[Ljava/lang/String;
 
-    aget-object v1, v1, p2
+    aget-object v0, v0, p2
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->charAt(I)C
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
     .line 119
     .local v0, "firstLetter":C
-    iget-boolean v1, p0, Lio/appium/android/apis/view/List9;->mShowing:Z
+    iget-boolean v2, p0, Lio/appium/android/apis/view/List9;->mShowing:Z
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    iget-char v1, p0, Lio/appium/android/apis/view/List9;->mPrevLetter:C
+    iget-char v2, p0, Lio/appium/android/apis/view/List9;->mPrevLetter:C
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v2, :cond_0
 
     .line 121
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    iput-boolean v1, p0, Lio/appium/android/apis/view/List9;->mShowing:Z
+    iput-boolean v2, p0, Lio/appium/android/apis/view/List9;->mShowing:Z
 
     .line 122
-    iget-object v1, p0, Lio/appium/android/apis/view/List9;->mDialogText:Landroid/widget/TextView;
+    iget-object v2, p0, Lio/appium/android/apis/view/List9;->mDialogText:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 124
     :cond_0
@@ -368,7 +357,6 @@
     .param p1, "view"    # Landroid/widget/AbsListView;
     .param p2, "scrollState"    # I
 
-    .prologue
     .line 133
     return-void
 .end method

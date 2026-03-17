@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/PresentationWithMediaRouterActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/PresentationWithMediaRouterActivity;
 
-    .prologue
     .line 242
     iput-object p1, p0, Lio/appium/android/apis/app/PresentationWithMediaRouterActivity$2;->this$0:Lio/appium/android/apis/app/PresentationWithMediaRouterActivity;
 
@@ -40,7 +40,6 @@
     .locals 2
     .param p1, "dialog"    # Landroid/content/DialogInterface;
 
-    .prologue
     .line 245
     iget-object v0, p0, Lio/appium/android/apis/app/PresentationWithMediaRouterActivity$2;->this$0:Lio/appium/android/apis/app/PresentationWithMediaRouterActivity;
 

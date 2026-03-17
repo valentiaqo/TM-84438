@@ -26,8 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/RotatingButton;Landroid/widget/Button;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/RotatingButton;
 
-    .prologue
     .line 44
     iput-object p1, p0, Lio/appium/android/apis/view/RotatingButton$1;->this$0:Lio/appium/android/apis/view/RotatingButton;
 
@@ -46,7 +46,6 @@
     .param p2, "progress"    # I
     .param p3, "fromUser"    # Z
 
-    .prologue
     .line 53
     iget-object v0, p0, Lio/appium/android/apis/view/RotatingButton$1;->val$rotatingButton:Landroid/widget/Button;
 
@@ -62,7 +61,6 @@
     .locals 0
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
-    .prologue
     .line 49
     return-void
 .end method
@@ -71,7 +69,6 @@
     .locals 0
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
-    .prologue
     .line 46
     return-void
 .end method

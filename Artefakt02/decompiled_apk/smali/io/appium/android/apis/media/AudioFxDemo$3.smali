@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/media/AudioFxDemo;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/media/AudioFxDemo;
 
-    .prologue
     .line 175
     iput-object p1, p0, Lio/appium/android/apis/media/AudioFxDemo$3;->this$0:Lio/appium/android/apis/media/AudioFxDemo;
 
@@ -42,7 +42,6 @@
     .param p2, "bytes"    # [B
     .param p3, "samplingRate"    # I
 
-    .prologue
     .line 181
     return-void
 .end method
@@ -53,7 +52,6 @@
     .param p2, "bytes"    # [B
     .param p3, "samplingRate"    # I
 
-    .prologue
     .line 178
     iget-object v0, p0, Lio/appium/android/apis/media/AudioFxDemo$3;->this$0:Lio/appium/android/apis/media/AudioFxDemo;
 

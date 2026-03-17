@@ -21,8 +21,8 @@
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/view/LayoutAnimation4;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/LayoutAnimation4;
 
-    .prologue
     .line 55
     iput-object p1, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
 
@@ -36,21 +36,20 @@
 .method public final getCount()I
     .locals 2
 
-    .prologue
     .line 70
-    const/16 v0, 0x20
+    iget-object v0, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
 
-    iget-object v1, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
+    invoke-static {v0}, Lio/appium/android/apis/view/LayoutAnimation4;->access$000(Lio/appium/android/apis/view/LayoutAnimation4;)Ljava/util/List;
 
-    invoke-static {v1}, Lio/appium/android/apis/view/LayoutAnimation4;->access$000(Lio/appium/android/apis/view/LayoutAnimation4;)Ljava/util/List;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    move-result v0
 
-    move-result v1
+    const/16 v1, 0x20
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+    invoke-static {v1, v0}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
@@ -61,7 +60,6 @@
     .locals 2
     .param p1, "position"    # I
 
-    .prologue
     .line 74
     iget-object v0, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
 
@@ -92,7 +90,6 @@
     .locals 2
     .param p1, "position"    # I
 
-    .prologue
     .line 78
     int-to-long v0, p1
 
@@ -100,40 +97,39 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 5
+    .locals 4
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
     .line 57
     new-instance v0, Landroid/widget/ImageView;
 
-    iget-object v3, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
+    iget-object v1, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
 
-    invoke-direct {v0, v3}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     .line 59
     .local v0, "i":Landroid/widget/ImageView;
-    iget-object v3, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
+    iget-object v1, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
 
-    invoke-static {v3}, Lio/appium/android/apis/view/LayoutAnimation4;->access$000(Lio/appium/android/apis/view/LayoutAnimation4;)Ljava/util/List;
+    invoke-static {v1}, Lio/appium/android/apis/view/LayoutAnimation4;->access$000(Lio/appium/android/apis/view/LayoutAnimation4;)Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v1
 
-    iget-object v4, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
+    iget-object v2, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
 
-    invoke-static {v4}, Lio/appium/android/apis/view/LayoutAnimation4;->access$000(Lio/appium/android/apis/view/LayoutAnimation4;)Ljava/util/List;
+    invoke-static {v2}, Lio/appium/android/apis/view/LayoutAnimation4;->access$000(Lio/appium/android/apis/view/LayoutAnimation4;)Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v2
 
-    rem-int v4, p1, v4
+    rem-int v2, p1, v2
 
-    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -141,47 +137,47 @@
 
     .line 61
     .local v1, "info":Landroid/content/pm/ResolveInfo;
-    iget-object v3, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v2, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v4, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
+    iget-object v3, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
 
-    invoke-virtual {v4}, Lio/appium/android/apis/view/LayoutAnimation4;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/content/pm/ActivityInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v3}, Lio/appium/android/apis/view/LayoutAnimation4;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v2, v3}, Landroid/content/pm/ActivityInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 62
-    sget-object v3, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
+    sget-object v2, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
     .line 63
+    iget-object v2, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
+
+    invoke-virtual {v2}, Lio/appium/android/apis/view/LayoutAnimation4;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v2
+
+    iget v2, v2, Landroid/util/DisplayMetrics;->density:F
+
     const/high16 v3, 0x42100000    # 36.0f
 
-    iget-object v4, p0, Lio/appium/android/apis/view/LayoutAnimation4$AppsAdapter;->this$0:Lio/appium/android/apis/view/LayoutAnimation4;
+    mul-float v2, v2, v3
 
-    invoke-virtual {v4}, Lio/appium/android/apis/view/LayoutAnimation4;->getResources()Landroid/content/res/Resources;
+    const/high16 v3, 0x3f000000    # 0.5f
 
-    move-result-object v4
+    add-float/2addr v2, v3
 
-    invoke-virtual {v4}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v4
-
-    iget v4, v4, Landroid/util/DisplayMetrics;->density:F
-
-    mul-float/2addr v3, v4
-
-    const/high16 v4, 0x3f000000    # 0.5f
-
-    add-float/2addr v3, v4
-
-    float-to-int v2, v3
+    float-to-int v2, v2
 
     .line 64
     .local v2, "w":I

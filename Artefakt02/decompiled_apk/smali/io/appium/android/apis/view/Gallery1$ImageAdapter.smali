@@ -34,11 +34,9 @@
 
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/view/Gallery1;Landroid/content/Context;)V
-    .locals 5
+    .locals 4
+    .param p1, "this$0"    # Lio/appium/android/apis/view/Gallery1;
     .param p2, "c"    # Landroid/content/Context;
-
-    .prologue
-    const/4 v4, 0x0
 
     .line 93
     iput-object p1, p0, Lio/appium/android/apis/view/Gallery1$ImageAdapter;->this$0:Lio/appium/android/apis/view/Gallery1;
@@ -46,103 +44,113 @@
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
     .line 80
-    const/16 v1, 0x8
+    const/16 v0, 0x8
 
-    new-array v1, v1, [Ljava/lang/Integer;
+    new-array v0, v0, [Ljava/lang/Integer;
 
-    const v2, 0x7f020015
+    .line 81
+    const v1, 0x7f08006a
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    aput-object v2, v1, v4
+    const/4 v2, 0x0
 
-    const/4 v2, 0x1
+    aput-object v1, v0, v2
 
-    const v3, 0x7f020016
+    .line 82
+    const v1, 0x7f08006b
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v1
 
-    aput-object v3, v1, v2
+    const/4 v3, 0x1
 
-    const/4 v2, 0x2
+    aput-object v1, v0, v3
 
-    const v3, 0x7f020017
+    .line 83
+    const v1, 0x7f08006c
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v1
 
-    aput-object v3, v1, v2
+    const/4 v3, 0x2
 
-    const/4 v2, 0x3
+    aput-object v1, v0, v3
 
-    const v3, 0x7f020018
+    .line 84
+    const v1, 0x7f08006d
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v1
 
-    aput-object v3, v1, v2
+    const/4 v3, 0x3
 
-    const/4 v2, 0x4
+    aput-object v1, v0, v3
 
-    const v3, 0x7f020019
+    .line 85
+    const v1, 0x7f08006e
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v1
 
-    aput-object v3, v1, v2
+    const/4 v3, 0x4
 
-    const/4 v2, 0x5
+    aput-object v1, v0, v3
 
-    const v3, 0x7f02001a
+    .line 86
+    const v1, 0x7f08006f
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v1
 
-    aput-object v3, v1, v2
+    const/4 v3, 0x5
 
-    const/4 v2, 0x6
+    aput-object v1, v0, v3
 
-    const v3, 0x7f02001b
+    .line 87
+    const v1, 0x7f080070
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v1
 
-    aput-object v3, v1, v2
+    const/4 v3, 0x6
 
-    const/4 v2, 0x7
+    aput-object v1, v0, v3
 
-    const v3, 0x7f02001c
+    .line 88
+    const v1, 0x7f080071
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v1
 
-    aput-object v3, v1, v2
+    const/4 v3, 0x7
 
-    iput-object v1, p0, Lio/appium/android/apis/view/Gallery1$ImageAdapter;->mImageIds:[Ljava/lang/Integer;
+    aput-object v1, v0, v3
+
+    iput-object v0, p0, Lio/appium/android/apis/view/Gallery1$ImageAdapter;->mImageIds:[Ljava/lang/Integer;
 
     .line 94
     iput-object p2, p0, Lio/appium/android/apis/view/Gallery1$ImageAdapter;->mContext:Landroid/content/Context;
 
     .line 97
-    sget-object v1, Lio/appium/android/apis/R$styleable;->Gallery1:[I
+    sget-object v0, Lio/appium/android/apis/R$styleable;->Gallery1:[I
 
-    invoke-virtual {p1, v1}, Lio/appium/android/apis/view/Gallery1;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+    invoke-virtual {p1, v0}, Lio/appium/android/apis/view/Gallery1;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
     .line 98
     .local v0, "a":Landroid/content/res/TypedArray;
-    invoke-virtual {v0, v4, v4}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {v0, v2, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
 
@@ -173,7 +181,6 @@
 .method public getCount()I
     .locals 1
 
-    .prologue
     .line 106
     iget-object v0, p0, Lio/appium/android/apis/view/Gallery1$ImageAdapter;->mImageIds:[Ljava/lang/Integer;
 
@@ -186,7 +193,6 @@
     .locals 1
     .param p1, "position"    # I
 
-    .prologue
     .line 110
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -199,7 +205,6 @@
     .locals 2
     .param p1, "position"    # I
 
-    .prologue
     .line 114
     int-to-long v0, p1
 
@@ -212,24 +217,21 @@
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
-    const/high16 v5, 0x3f000000    # 0.5f
-
     .line 119
     if-nez p2, :cond_0
 
     .line 120
-    new-instance p2, Landroid/widget/ImageView;
+    new-instance v0, Landroid/widget/ImageView;
 
-    .end local p2    # "convertView":Landroid/view/View;
     iget-object v1, p0, Lio/appium/android/apis/view/Gallery1$ImageAdapter;->mContext:Landroid/content/Context;
 
-    invoke-direct {p2, v1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    .restart local p2    # "convertView":Landroid/view/View;
-    move-object v0, p2
+    move-object p2, v0
 
     .line 122
+    move-object v0, p2
+
     check-cast v0, Landroid/widget/ImageView;
 
     .line 123
@@ -245,19 +247,19 @@
 
     iget v3, p0, Lio/appium/android/apis/view/Gallery1$ImageAdapter;->mDensity:F
 
-    mul-float/2addr v2, v3
+    mul-float v2, v2, v3
 
-    add-float/2addr v2, v5
+    const/high16 v4, 0x3f000000    # 0.5f
+
+    add-float/2addr v2, v4
 
     float-to-int v2, v2
 
-    const/high16 v3, 0x42b00000    # 88.0f
+    const/high16 v5, 0x42b00000    # 88.0f
 
-    iget v4, p0, Lio/appium/android/apis/view/Gallery1$ImageAdapter;->mDensity:F
+    mul-float v3, v3, v5
 
-    mul-float/2addr v3, v4
-
-    add-float/2addr v3, v5
+    add-float/2addr v3, v4
 
     float-to-int v3, v3
 
@@ -270,7 +272,17 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
+    goto :goto_0
+
+    .line 131
+    .end local v0    # "imageView":Landroid/widget/ImageView;
+    :cond_0
+    move-object v0, p2
+
+    check-cast v0, Landroid/widget/ImageView;
+
     .line 134
+    .restart local v0    # "imageView":Landroid/widget/ImageView;
     :goto_0
     iget-object v1, p0, Lio/appium/android/apis/view/Gallery1$ImageAdapter;->mImageIds:[Ljava/lang/Integer;
 
@@ -284,14 +296,4 @@
 
     .line 136
     return-object v0
-
-    .end local v0    # "imageView":Landroid/widget/ImageView;
-    :cond_0
-    move-object v0, p2
-
-    .line 131
-    check-cast v0, Landroid/widget/ImageView;
-
-    .restart local v0    # "imageView":Landroid/widget/ImageView;
-    goto :goto_0
 .end method

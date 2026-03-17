@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/NotifyWithText;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/NotifyWithText;
 
-    .prologue
     .line 47
     iput-object p1, p0, Lio/appium/android/apis/app/NotifyWithText$1;->this$0:Lio/appium/android/apis/app/NotifyWithText;
 
@@ -40,11 +40,10 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 58
     iget-object v0, p0, Lio/appium/android/apis/app/NotifyWithText$1;->this$0:Lio/appium/android/apis/app/NotifyWithText;
 
-    const v1, 0x7f0c00cf
+    const v1, 0x7f0e02e2
 
     const/4 v2, 0x0
 
@@ -52,6 +51,7 @@
 
     move-result-object v0
 
+    .line 59
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 60

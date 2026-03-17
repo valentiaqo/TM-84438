@@ -10,7 +10,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 30
     invoke-direct {p0}, Landroid/app/TabActivity;-><init>()V
 
@@ -23,7 +22,6 @@
     .locals 3
     .param p1, "tag"    # Ljava/lang/String;
 
-    .prologue
     .line 50
     new-instance v0, Landroid/widget/TextView;
 
@@ -39,11 +37,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -56,75 +50,74 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 5
+    .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 34
     invoke-super {p0, p1}, Landroid/app/TabActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 36
-    const v3, 0x7f0300eb
+    const v0, 0x7f0b0113
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/Tabs5;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Tabs5;->setContentView(I)V
 
     .line 38
     invoke-virtual {p0}, Lio/appium/android/apis/view/Tabs5;->getTabHost()Landroid/widget/TabHost;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 40
-    .local v2, "tabHost":Landroid/widget/TabHost;
-    const/4 v0, 0x1
+    .local v0, "tabHost":Landroid/widget/TabHost;
+    const/4 v1, 0x1
 
-    .local v0, "i":I
+    .local v1, "i":I
     :goto_0
-    const/16 v3, 0x1e
+    const/16 v2, 0x1e
 
-    if-gt v0, v3, :cond_0
+    if-gt v1, v2, :cond_0
 
     .line 41
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Tab "
+    const-string v3, "Tab "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
+    move-result-object v2
 
     .line 42
-    .local v1, "name":Ljava/lang/String;
-    invoke-virtual {v2, v1}, Landroid/widget/TabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
+    .local v2, "name":Ljava/lang/String;
+    invoke-virtual {v0, v2}, Landroid/widget/TabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v3
 
-    invoke-virtual {v3, v1}, Landroid/widget/TabHost$TabSpec;->setIndicator(Ljava/lang/CharSequence;)Landroid/widget/TabHost$TabSpec;
+    .line 43
+    invoke-virtual {v3, v2}, Landroid/widget/TabHost$TabSpec;->setIndicator(Ljava/lang/CharSequence;)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v3
 
+    .line 44
     invoke-virtual {v3, p0}, Landroid/widget/TabHost$TabSpec;->setContent(Landroid/widget/TabHost$TabContentFactory;)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/widget/TabHost;->addTab(Landroid/widget/TabHost$TabSpec;)V
+    .line 42
+    invoke-virtual {v0, v3}, Landroid/widget/TabHost;->addTab(Landroid/widget/TabHost$TabSpec;)V
 
     .line 40
-    add-int/lit8 v0, v0, 0x1
+    .end local v2    # "name":Ljava/lang/String;
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 46
-    .end local v1    # "name":Ljava/lang/String;
+    .end local v1    # "i":I
     :cond_0
     return-void
 .end method

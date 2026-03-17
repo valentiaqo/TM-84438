@@ -25,7 +25,6 @@
 .method private constructor <init>(Lio/appium/android/apis/view/List9;)V
     .locals 0
 
-    .prologue
     .line 44
     iput-object p1, p0, Lio/appium/android/apis/view/List9$RemoveWindow;->this$0:Lio/appium/android/apis/view/List9;
 
@@ -39,7 +38,6 @@
     .param p1, "x0"    # Lio/appium/android/apis/view/List9;
     .param p2, "x1"    # Lio/appium/android/apis/view/List9$1;
 
-    .prologue
     .line 44
     invoke-direct {p0, p1}, Lio/appium/android/apis/view/List9$RemoveWindow;-><init>(Lio/appium/android/apis/view/List9;)V
 
@@ -51,7 +49,6 @@
 .method public run()V
     .locals 1
 
-    .prologue
     .line 46
     iget-object v0, p0, Lio/appium/android/apis/view/List9$RemoveWindow;->this$0:Lio/appium/android/apis/view/List9;
 

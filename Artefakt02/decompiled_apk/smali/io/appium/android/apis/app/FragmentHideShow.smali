@@ -16,11 +16,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 36
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 96
     return-void
 .end method
 
@@ -31,7 +29,6 @@
     .param p1, "buttonId"    # I
     .param p2, "fragment"    # Landroid/app/Fragment;
 
-    .prologue
     .line 51
     invoke-virtual {p0, p1}, Lio/appium/android/apis/app/FragmentHideShow;->findViewById(I)Landroid/view/View;
 
@@ -55,14 +52,13 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 40
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 41
-    const v1, 0x7f03004c
+    const v0, 0x7f0b0069
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/FragmentHideShow;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/FragmentHideShow;->setContentView(I)V
 
     .line 45
     invoke-virtual {p0}, Lio/appium/android/apis/app/FragmentHideShow;->getFragmentManager()Landroid/app/FragmentManager;
@@ -71,26 +67,26 @@
 
     .line 46
     .local v0, "fm":Landroid/app/FragmentManager;
-    const v1, 0x7f0900a0
+    const v1, 0x7f0900d1
 
-    const v2, 0x7f0900a1
+    invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
-    invoke-virtual {v0, v2}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
+    move-result-object v1
 
-    move-result-object v2
+    const v2, 0x7f0900cf
 
-    invoke-virtual {p0, v1, v2}, Lio/appium/android/apis/app/FragmentHideShow;->addShowHideListener(ILandroid/app/Fragment;)V
+    invoke-virtual {p0, v2, v1}, Lio/appium/android/apis/app/FragmentHideShow;->addShowHideListener(ILandroid/app/Fragment;)V
 
     .line 47
-    const v1, 0x7f0900a2
+    const v1, 0x7f0900d2
 
-    const v2, 0x7f0900a3
+    invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
-    invoke-virtual {v0, v2}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
+    move-result-object v1
 
-    move-result-object v2
+    const v2, 0x7f0900d0
 
-    invoke-virtual {p0, v1, v2}, Lio/appium/android/apis/app/FragmentHideShow;->addShowHideListener(ILandroid/app/Fragment;)V
+    invoke-virtual {p0, v2, v1}, Lio/appium/android/apis/app/FragmentHideShow;->addShowHideListener(ILandroid/app/Fragment;)V
 
     .line 48
     return-void

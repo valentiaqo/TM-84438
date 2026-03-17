@@ -11,7 +11,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
     .line 35
     new-instance v0, Landroid/content/Intent;
 
@@ -27,7 +26,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 32
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -37,7 +35,6 @@
 .method static synthetic access$000()Landroid/content/Intent;
     .locals 1
 
-    .prologue
     .line 32
     sget-object v0, Lio/appium/android/apis/accessibility/ClockBackActivity;->sSettingsIntent:Landroid/content/Intent;
 
@@ -50,19 +47,18 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 43
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 44
-    const v1, 0x7f030001
+    const v0, 0x7f0b001d
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/accessibility/ClockBackActivity;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/accessibility/ClockBackActivity;->setContentView(I)V
 
     .line 47
-    const v1, 0x7f090004
+    const v0, 0x7f090048
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/accessibility/ClockBackActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/accessibility/ClockBackActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

@@ -28,8 +28,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/FragmentHideShow;Landroid/app/Fragment;Landroid/widget/Button;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/FragmentHideShow;
 
-    .prologue
     .line 52
     iput-object p1, p0, Lio/appium/android/apis/app/FragmentHideShow$1;->this$0:Lio/appium/android/apis/app/FragmentHideShow;
 
@@ -48,15 +48,14 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 54
-    iget-object v1, p0, Lio/appium/android/apis/app/FragmentHideShow$1;->this$0:Lio/appium/android/apis/app/FragmentHideShow;
+    iget-object v0, p0, Lio/appium/android/apis/app/FragmentHideShow$1;->this$0:Lio/appium/android/apis/app/FragmentHideShow;
 
-    invoke-virtual {v1}, Lio/appium/android/apis/app/FragmentHideShow;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {v0}, Lio/appium/android/apis/app/FragmentHideShow;->getFragmentManager()Landroid/app/FragmentManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
 
     move-result-object v0
 
@@ -89,12 +88,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 64
-    :goto_0
-    invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
-
-    .line 65
-    return-void
+    goto :goto_0
 
     .line 61
     :cond_0
@@ -109,5 +103,10 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    .line 64
+    :goto_0
+    invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
+
+    .line 65
+    return-void
 .end method

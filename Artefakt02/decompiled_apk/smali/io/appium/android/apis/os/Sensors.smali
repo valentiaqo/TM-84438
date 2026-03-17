@@ -21,11 +21,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 50
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 54
     return-void
 .end method
 
@@ -35,7 +33,6 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 215
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -67,10 +64,7 @@
 .end method
 
 .method protected onResume()V
-    .locals 5
-
-    .prologue
-    const/4 v4, 0x0
+    .locals 4
 
     .line 224
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
@@ -80,45 +74,47 @@
 
     iget-object v1, p0, Lio/appium/android/apis/os/Sensors;->mGraphView:Lio/appium/android/apis/os/Sensors$GraphView;
 
-    iget-object v2, p0, Lio/appium/android/apis/os/Sensors;->mSensorManager:Landroid/hardware/SensorManager;
+    .line 226
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
-
-    invoke-virtual {v2, v3}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
+    invoke-virtual {v0, v2}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2, v4}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
+    .line 225
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
 
     .line 228
     iget-object v0, p0, Lio/appium/android/apis/os/Sensors;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Lio/appium/android/apis/os/Sensors;->mGraphView:Lio/appium/android/apis/os/Sensors$GraphView;
 
-    iget-object v2, p0, Lio/appium/android/apis/os/Sensors;->mSensorManager:Landroid/hardware/SensorManager;
+    .line 229
+    const/4 v2, 0x2
 
-    const/4 v3, 0x2
-
-    invoke-virtual {v2, v3}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
+    invoke-virtual {v0, v2}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2, v4}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
+    .line 228
+    invoke-virtual {v0, v1, v2, v3}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
 
     .line 231
     iget-object v0, p0, Lio/appium/android/apis/os/Sensors;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Lio/appium/android/apis/os/Sensors;->mGraphView:Lio/appium/android/apis/os/Sensors$GraphView;
 
-    iget-object v2, p0, Lio/appium/android/apis/os/Sensors;->mSensorManager:Landroid/hardware/SensorManager;
+    .line 232
+    const/4 v2, 0x3
 
-    const/4 v3, 0x3
-
-    invoke-virtual {v2, v3}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
+    invoke-virtual {v0, v2}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2, v4}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
+    .line 231
+    invoke-virtual {v0, v1, v2, v3}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
 
     .line 234
     return-void
@@ -127,7 +123,6 @@
 .method protected onStop()V
     .locals 2
 
-    .prologue
     .line 238
     iget-object v0, p0, Lio/appium/android/apis/os/Sensors;->mSensorManager:Landroid/hardware/SensorManager;
 

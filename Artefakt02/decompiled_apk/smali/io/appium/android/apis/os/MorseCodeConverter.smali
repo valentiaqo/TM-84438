@@ -25,323 +25,303 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
-
-    .prologue
-    const/4 v9, 0x0
-
-    const/4 v8, 0x3
-
-    const/4 v7, 0x5
-
-    const/16 v6, 0x9
-
-    const/4 v5, 0x7
+    .locals 17
 
     .line 29
     const/16 v0, 0x1a
 
     new-array v0, v0, [[J
 
-    new-array v1, v8, [J
+    const/4 v1, 0x3
 
-    fill-array-data v1, :array_0
+    new-array v2, v1, [J
 
-    aput-object v1, v0, v9
+    fill-array-data v2, :array_0
 
-    const/4 v1, 0x1
+    const/4 v3, 0x0
 
-    new-array v2, v5, [J
+    aput-object v2, v0, v3
 
-    fill-array-data v2, :array_1
+    const/4 v2, 0x7
 
-    aput-object v2, v0, v1
+    new-array v4, v2, [J
 
-    const/4 v1, 0x2
+    fill-array-data v4, :array_1
 
-    new-array v2, v5, [J
+    const/4 v5, 0x1
 
-    fill-array-data v2, :array_2
+    aput-object v4, v0, v5
 
-    aput-object v2, v0, v1
+    new-array v4, v2, [J
 
-    new-array v1, v7, [J
+    fill-array-data v4, :array_2
 
-    fill-array-data v1, :array_3
+    const/4 v6, 0x2
 
-    aput-object v1, v0, v8
+    aput-object v4, v0, v6
 
-    const/4 v1, 0x4
+    const/4 v4, 0x5
 
-    const/4 v2, 0x1
+    new-array v7, v4, [J
 
-    new-array v2, v2, [J
+    fill-array-data v7, :array_3
 
-    const-wide/16 v3, 0x64
+    aput-object v7, v0, v1
 
-    aput-wide v3, v2, v9
+    new-array v7, v5, [J
 
-    aput-object v2, v0, v1
+    const-wide/16 v8, 0x64
 
-    new-array v1, v5, [J
+    aput-wide v8, v7, v3
 
-    fill-array-data v1, :array_4
+    const/4 v10, 0x4
 
-    aput-object v1, v0, v7
+    aput-object v7, v0, v10
 
-    const/4 v1, 0x6
+    new-array v7, v2, [J
 
-    new-array v2, v7, [J
+    fill-array-data v7, :array_4
 
-    fill-array-data v2, :array_5
+    aput-object v7, v0, v4
 
-    aput-object v2, v0, v1
+    new-array v7, v4, [J
 
-    new-array v1, v5, [J
+    fill-array-data v7, :array_5
 
-    fill-array-data v1, :array_6
+    const/4 v11, 0x6
 
-    aput-object v1, v0, v5
+    aput-object v7, v0, v11
 
-    const/16 v1, 0x8
+    new-array v7, v2, [J
 
-    new-array v2, v8, [J
+    fill-array-data v7, :array_6
 
-    fill-array-data v2, :array_7
+    aput-object v7, v0, v2
 
-    aput-object v2, v0, v1
+    new-array v7, v1, [J
 
-    new-array v1, v5, [J
+    fill-array-data v7, :array_7
 
-    fill-array-data v1, :array_8
+    const/16 v12, 0x8
 
-    aput-object v1, v0, v6
+    aput-object v7, v0, v12
 
-    const/16 v1, 0xa
+    new-array v7, v2, [J
 
-    new-array v2, v7, [J
+    fill-array-data v7, :array_8
 
-    fill-array-data v2, :array_9
+    const/16 v13, 0x9
 
-    aput-object v2, v0, v1
+    aput-object v7, v0, v13
 
-    const/16 v1, 0xb
+    new-array v7, v4, [J
 
-    new-array v2, v5, [J
+    fill-array-data v7, :array_9
 
-    fill-array-data v2, :array_a
+    const/16 v14, 0xa
 
-    aput-object v2, v0, v1
+    aput-object v7, v0, v14
 
-    const/16 v1, 0xc
+    new-array v7, v2, [J
 
-    new-array v2, v8, [J
+    fill-array-data v7, :array_a
 
-    fill-array-data v2, :array_b
+    const/16 v15, 0xb
 
-    aput-object v2, v0, v1
+    aput-object v7, v0, v15
 
-    const/16 v1, 0xd
+    new-array v7, v1, [J
 
-    new-array v2, v8, [J
+    fill-array-data v7, :array_b
 
-    fill-array-data v2, :array_c
+    const/16 v15, 0xc
 
-    aput-object v2, v0, v1
+    aput-object v7, v0, v15
 
-    const/16 v1, 0xe
+    new-array v7, v1, [J
 
-    new-array v2, v7, [J
+    fill-array-data v7, :array_c
 
-    fill-array-data v2, :array_d
+    const/16 v15, 0xd
 
-    aput-object v2, v0, v1
+    aput-object v7, v0, v15
 
-    const/16 v1, 0xf
+    new-array v7, v4, [J
 
-    new-array v2, v5, [J
+    fill-array-data v7, :array_d
 
-    fill-array-data v2, :array_e
+    const/16 v15, 0xe
 
-    aput-object v2, v0, v1
+    aput-object v7, v0, v15
 
-    const/16 v1, 0x10
+    new-array v7, v2, [J
 
-    new-array v2, v5, [J
+    fill-array-data v7, :array_e
 
-    fill-array-data v2, :array_f
+    const/16 v15, 0xf
 
-    aput-object v2, v0, v1
+    aput-object v7, v0, v15
 
-    const/16 v1, 0x11
+    new-array v7, v2, [J
 
-    new-array v2, v7, [J
+    fill-array-data v7, :array_f
 
-    fill-array-data v2, :array_10
+    const/16 v15, 0x10
 
-    aput-object v2, v0, v1
+    aput-object v7, v0, v15
 
-    const/16 v1, 0x12
+    new-array v7, v4, [J
 
-    new-array v2, v7, [J
+    fill-array-data v7, :array_10
 
-    fill-array-data v2, :array_11
+    const/16 v15, 0x11
 
-    aput-object v2, v0, v1
+    aput-object v7, v0, v15
 
-    const/16 v1, 0x13
+    new-array v7, v4, [J
 
-    const/4 v2, 0x1
+    fill-array-data v7, :array_11
 
-    new-array v2, v2, [J
+    const/16 v15, 0x12
 
-    const-wide/16 v3, 0x12c
+    aput-object v7, v0, v15
 
-    aput-wide v3, v2, v9
+    new-array v7, v5, [J
 
-    aput-object v2, v0, v1
+    const-wide/16 v15, 0x12c
 
-    const/16 v1, 0x14
+    aput-wide v15, v7, v3
 
-    new-array v2, v7, [J
+    const/16 v15, 0x13
 
-    fill-array-data v2, :array_12
+    aput-object v7, v0, v15
 
-    aput-object v2, v0, v1
+    new-array v7, v4, [J
 
-    const/16 v1, 0x15
+    fill-array-data v7, :array_12
 
-    new-array v2, v5, [J
+    const/16 v15, 0x14
 
-    fill-array-data v2, :array_13
+    aput-object v7, v0, v15
 
-    aput-object v2, v0, v1
+    new-array v7, v2, [J
 
-    const/16 v1, 0x16
+    fill-array-data v7, :array_13
 
-    new-array v2, v7, [J
+    const/16 v15, 0x15
 
-    fill-array-data v2, :array_14
+    aput-object v7, v0, v15
 
-    aput-object v2, v0, v1
+    new-array v7, v4, [J
 
-    const/16 v1, 0x17
+    fill-array-data v7, :array_14
 
-    new-array v2, v5, [J
+    const/16 v15, 0x16
 
-    fill-array-data v2, :array_15
+    aput-object v7, v0, v15
 
-    aput-object v2, v0, v1
+    new-array v7, v2, [J
 
-    const/16 v1, 0x18
+    fill-array-data v7, :array_15
 
-    new-array v2, v5, [J
+    const/16 v15, 0x17
 
-    fill-array-data v2, :array_16
+    aput-object v7, v0, v15
 
-    aput-object v2, v0, v1
+    new-array v7, v2, [J
 
-    const/16 v1, 0x19
+    fill-array-data v7, :array_16
 
-    new-array v2, v5, [J
+    const/16 v15, 0x18
 
-    fill-array-data v2, :array_17
+    aput-object v7, v0, v15
 
-    aput-object v2, v0, v1
+    new-array v7, v2, [J
+
+    fill-array-data v7, :array_17
+
+    const/16 v15, 0x19
+
+    aput-object v7, v0, v15
 
     sput-object v0, Lio/appium/android/apis/os/MorseCodeConverter;->LETTERS:[[J
 
     .line 59
-    const/16 v0, 0xa
+    new-array v0, v14, [[J
 
-    new-array v0, v0, [[J
+    new-array v7, v13, [J
 
-    new-array v1, v6, [J
+    fill-array-data v7, :array_18
 
-    fill-array-data v1, :array_18
+    aput-object v7, v0, v3
 
-    aput-object v1, v0, v9
+    new-array v7, v13, [J
 
-    const/4 v1, 0x1
+    fill-array-data v7, :array_19
 
-    new-array v2, v6, [J
+    aput-object v7, v0, v5
 
-    fill-array-data v2, :array_19
+    new-array v7, v13, [J
 
-    aput-object v2, v0, v1
+    fill-array-data v7, :array_1a
 
-    const/4 v1, 0x2
+    aput-object v7, v0, v6
 
-    new-array v2, v6, [J
+    new-array v6, v13, [J
 
-    fill-array-data v2, :array_1a
+    fill-array-data v6, :array_1b
 
-    aput-object v2, v0, v1
+    aput-object v6, v0, v1
 
-    new-array v1, v6, [J
+    new-array v1, v13, [J
 
-    fill-array-data v1, :array_1b
+    fill-array-data v1, :array_1c
 
-    aput-object v1, v0, v8
+    aput-object v1, v0, v10
 
-    const/4 v1, 0x4
-
-    new-array v2, v6, [J
-
-    fill-array-data v2, :array_1c
-
-    aput-object v2, v0, v1
-
-    new-array v1, v6, [J
+    new-array v1, v13, [J
 
     fill-array-data v1, :array_1d
 
-    aput-object v1, v0, v7
+    aput-object v1, v0, v4
 
-    const/4 v1, 0x6
+    new-array v1, v13, [J
 
-    new-array v2, v6, [J
+    fill-array-data v1, :array_1e
 
-    fill-array-data v2, :array_1e
+    aput-object v1, v0, v11
 
-    aput-object v2, v0, v1
-
-    new-array v1, v6, [J
+    new-array v1, v13, [J
 
     fill-array-data v1, :array_1f
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x8
+    new-array v1, v13, [J
 
-    new-array v2, v6, [J
+    fill-array-data v1, :array_20
 
-    fill-array-data v2, :array_20
+    aput-object v1, v0, v12
 
-    aput-object v2, v0, v1
-
-    new-array v1, v6, [J
+    new-array v1, v13, [J
 
     fill-array-data v1, :array_21
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v13
 
     sput-object v0, Lio/appium/android/apis/os/MorseCodeConverter;->NUMBERS:[[J
 
     .line 72
-    const/4 v0, 0x1
+    new-array v0, v5, [J
 
-    new-array v0, v0, [J
-
-    const-wide/16 v1, 0x64
-
-    aput-wide v1, v0, v9
+    aput-wide v8, v0, v3
 
     sput-object v0, Lio/appium/android/apis/os/MorseCodeConverter;->ERROR_GAP:[J
 
     return-void
 
-    .line 29
+    nop
+
     :array_0
     .array-data 8
         0x64
@@ -574,7 +554,6 @@
         0x64
     .end array-data
 
-    .line 59
     :array_18
     .array-data 8
         0x12c
@@ -709,7 +688,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -720,7 +698,6 @@
     .locals 2
     .param p0, "c"    # C
 
-    .prologue
     .line 76
     const/16 v0, 0x41
 
@@ -737,8 +714,6 @@
 
     aget-object v0, v0, v1
 
-    .line 86
-    :goto_0
     return-object v0
 
     .line 79
@@ -758,7 +733,7 @@
 
     aget-object v0, v0, v1
 
-    goto :goto_0
+    return-object v0
 
     .line 82
     :cond_1
@@ -777,191 +752,193 @@
 
     aget-object v0, v0, v1
 
-    goto :goto_0
+    return-object v0
 
     .line 86
     :cond_2
     sget-object v0, Lio/appium/android/apis/os/MorseCodeConverter;->ERROR_GAP:[J
 
-    goto :goto_0
+    return-object v0
 .end method
 
 .method static pattern(Ljava/lang/String;)[J
-    .locals 11
+    .locals 10
     .param p0, "str"    # Ljava/lang/String;
-
-    .prologue
-    const/4 v10, 0x0
 
     .line 92
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v7
+    move-result v0
 
     .line 95
-    .local v7, "strlen":I
-    const/4 v3, 0x1
+    .local v0, "strlen":I
+    const/4 v1, 0x1
 
     .line 96
-    .local v3, "len":I
+    .local v1, "len":I
     const/4 v2, 0x1
 
     .line 97
     .local v2, "lastWasWhitespace":Z
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    .local v1, "i":I
+    .local v3, "i":I
     :goto_0
-    if-ge v1, v7, :cond_3
+    if-ge v3, v0, :cond_3
 
     .line 98
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result v4
 
     .line 99
-    .local v0, "c":C
-    invoke-static {v0}, Ljava/lang/Character;->isWhitespace(C)Z
+    .local v4, "c":C
+    invoke-static {v4}, Ljava/lang/Character;->isWhitespace(C)Z
 
-    move-result v8
+    move-result v5
 
-    if-eqz v8, :cond_1
+    if-eqz v5, :cond_0
 
     .line 100
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2
 
     .line 101
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     .line 102
     const/4 v2, 0x1
 
-    .line 97
-    :cond_0
-    :goto_1
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
+    goto :goto_1
 
     .line 105
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_0
+    if-nez v2, :cond_1
 
     .line 106
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     .line 108
-    :cond_2
+    :cond_1
     const/4 v2, 0x0
 
     .line 109
-    invoke-static {v0}, Lio/appium/android/apis/os/MorseCodeConverter;->pattern(C)[J
+    invoke-static {v4}, Lio/appium/android/apis/os/MorseCodeConverter;->pattern(C)[J
 
-    move-result-object v8
+    move-result-object v5
 
-    array-length v8, v8
+    array-length v5, v5
 
-    add-int/2addr v3, v8
+    add-int/2addr v1, v5
 
-    goto :goto_1
+    .line 97
+    .end local v4    # "c":C
+    :cond_2
+    :goto_1
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
 
     .line 116
-    .end local v0    # "c":C
+    .end local v3    # "i":I
     :cond_3
-    add-int/lit8 v8, v3, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    new-array v6, v8, [J
+    new-array v3, v3, [J
 
     .line 117
-    .local v6, "result":[J
-    const-wide/16 v8, 0x0
+    .local v3, "result":[J
+    const-wide/16 v4, 0x0
 
-    aput-wide v8, v6, v10
+    const/4 v6, 0x0
+
+    aput-wide v4, v3, v6
 
     .line 118
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
     .line 119
-    .local v5, "pos":I
+    .local v4, "pos":I
     const/4 v2, 0x1
 
     .line 120
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
+    .local v5, "i":I
     :goto_2
-    if-ge v1, v7, :cond_7
+    if-ge v5, v0, :cond_7
 
     .line 121
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v5}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result v7
 
     .line 122
-    .restart local v0    # "c":C
-    invoke-static {v0}, Ljava/lang/Character;->isWhitespace(C)Z
+    .local v7, "c":C
+    invoke-static {v7}, Ljava/lang/Character;->isWhitespace(C)Z
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_4
 
     .line 123
-    if-nez v2, :cond_4
+    if-nez v2, :cond_6
 
     .line 124
     const-wide/16 v8, 0x2bc
 
-    aput-wide v8, v6, v5
+    aput-wide v8, v3, v4
 
     .line 125
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     .line 126
     const/4 v2, 0x1
 
-    .line 120
-    :cond_4
-    :goto_3
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_2
+    goto :goto_3
 
     .line 129
-    :cond_5
-    if-nez v2, :cond_6
+    :cond_4
+    if-nez v2, :cond_5
 
     .line 130
     const-wide/16 v8, 0x12c
 
-    aput-wide v8, v6, v5
+    aput-wide v8, v3, v4
 
     .line 131
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     .line 133
-    :cond_6
+    :cond_5
     const/4 v2, 0x0
 
     .line 134
-    invoke-static {v0}, Lio/appium/android/apis/os/MorseCodeConverter;->pattern(C)[J
+    invoke-static {v7}, Lio/appium/android/apis/os/MorseCodeConverter;->pattern(C)[J
 
-    move-result-object v4
+    move-result-object v8
 
     .line 135
-    .local v4, "letter":[J
-    array-length v8, v4
+    .local v8, "letter":[J
+    array-length v9, v8
 
-    invoke-static {v4, v10, v6, v5, v8}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v8, v6, v3, v4, v9}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 136
-    array-length v8, v4
+    array-length v9, v8
 
-    add-int/2addr v5, v8
+    add-int/2addr v4, v9
 
-    goto :goto_3
+    .line 120
+    .end local v7    # "c":C
+    .end local v8    # "letter":[J
+    :cond_6
+    :goto_3
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_2
 
     .line 139
-    .end local v0    # "c":C
-    .end local v4    # "letter":[J
+    .end local v5    # "i":I
     :cond_7
-    return-object v6
+    return-object v3
 .end method

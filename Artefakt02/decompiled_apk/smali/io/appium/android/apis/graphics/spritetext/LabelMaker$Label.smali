@@ -35,7 +35,6 @@
     .param p6, "cropW"    # I
     .param p7, "cropH"    # I
 
-    .prologue
     .line 372
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,9 +48,9 @@
     iput p3, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;->baseline:F
 
     .line 376
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    new-array v0, v1, [I
+    new-array v0, v0, [I
 
     .line 377
     .local v0, "crop":[I

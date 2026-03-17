@@ -7,7 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 62
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -19,9 +18,8 @@
 .method getSavedText()Ljava/lang/CharSequence;
     .locals 1
 
-    .prologue
     .line 88
-    const v0, 0x7f0900d1
+    const v0, 0x7f09019d
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/SaveRestoreState;->findViewById(I)Landroid/view/View;
 
@@ -40,17 +38,16 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 73
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 78
-    const v0, 0x7f0300bd
+    const v0, 0x7f0b00e1
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/SaveRestoreState;->setContentView(I)V
 
     .line 81
-    const v0, 0x7f0900d0
+    const v0, 0x7f090136
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/SaveRestoreState;->findViewById(I)Landroid/view/View;
 
@@ -58,7 +55,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0c0022
+    const v1, 0x7f0e029a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -70,9 +67,8 @@
     .locals 1
     .param p1, "text"    # Ljava/lang/CharSequence;
 
-    .prologue
     .line 95
-    const v0, 0x7f0900d1
+    const v0, 0x7f09019d
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/SaveRestoreState;->findViewById(I)Landroid/view/View;
 

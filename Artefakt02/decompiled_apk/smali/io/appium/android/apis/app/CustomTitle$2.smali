@@ -28,8 +28,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/CustomTitle;Landroid/widget/TextView;Landroid/widget/EditText;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/CustomTitle;
 
-    .prologue
     .line 79
     iput-object p1, p0, Lio/appium/android/apis/app/CustomTitle$2;->this$0:Lio/appium/android/apis/app/CustomTitle;
 
@@ -48,7 +48,6 @@
     .locals 2
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 81
     iget-object v0, p0, Lio/appium/android/apis/app/CustomTitle$2;->val$rightText:Landroid/widget/TextView;
 

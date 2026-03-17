@@ -38,16 +38,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/view/GameView;)V
-    .locals 9
-
-    .prologue
-    const/high16 v2, 0x3f000000    # 0.5f
-
-    const-wide v7, 0x4000c15240000000L    # 2.094395160675049
-
-    const-wide v5, -0x3fff3eadc0000000L    # -2.094395160675049
-
-    const/4 v4, 0x0
+    .locals 5
 
     .line 601
     iput-object p1, p0, Lio/appium/android/apis/view/GameView$Ship;->this$0:Lio/appium/android/apis/view/GameView;
@@ -77,44 +68,61 @@
 
     int-to-float v0, v0
 
-    mul-float/2addr v0, v2
+    const/high16 v1, 0x3f000000    # 0.5f
+
+    mul-float v0, v0, v1
 
     invoke-virtual {p1}, Lio/appium/android/apis/view/GameView;->getHeight()I
 
-    move-result v1
+    move-result v2
 
-    int-to-float v1, v1
+    int-to-float v2, v2
 
-    mul-float/2addr v1, v2
+    mul-float v2, v2, v1
 
-    invoke-virtual {p0, v0, v1}, Lio/appium/android/apis/view/GameView$Ship;->setPosition(FF)V
+    invoke-virtual {p0, v0, v2}, Lio/appium/android/apis/view/GameView$Ship;->setPosition(FF)V
 
     .line 606
-    invoke-virtual {p0, v4, v4}, Lio/appium/android/apis/view/GameView$Ship;->setVelocity(FF)V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0, v0}, Lio/appium/android/apis/view/GameView$Ship;->setVelocity(FF)V
 
     .line 607
     invoke-static {p1}, Lio/appium/android/apis/view/GameView;->access$100(Lio/appium/android/apis/view/GameView;)F
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/GameView$Ship;->setSize(F)V
+    invoke-virtual {p0, p1}, Lio/appium/android/apis/view/GameView$Ship;->setSize(F)V
 
     .line 609
-    new-instance v0, Landroid/graphics/Path;
+    new-instance p1, Landroid/graphics/Path;
 
-    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Path;-><init>()V
 
-    iput-object v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mPath:Landroid/graphics/Path;
+    iput-object p1, p0, Lio/appium/android/apis/view/GameView$Ship;->mPath:Landroid/graphics/Path;
 
     .line 610
-    iget-object v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mPath:Landroid/graphics/Path;
+    iget-object p1, p0, Lio/appium/android/apis/view/GameView$Ship;->mPath:Landroid/graphics/Path;
 
-    invoke-virtual {v0, v4, v4}, Landroid/graphics/Path;->moveTo(FF)V
+    invoke-virtual {p1, v0, v0}, Landroid/graphics/Path;->moveTo(FF)V
 
     .line 611
-    iget-object v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mPath:Landroid/graphics/Path;
+    iget-object p1, p0, Lio/appium/android/apis/view/GameView$Ship;->mPath:Landroid/graphics/Path;
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->cos(D)D
+    const-wide v1, -0x3fff3eadc0000000L    # -2.094395160675049
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->cos(D)D
+
+    move-result-wide v3
+
+    double-to-float v3, v3
+
+    iget v4, p0, Lio/appium/android/apis/view/GameView$Ship;->mSize:F
+
+    mul-float v3, v3, v4
+
+    .line 612
+    invoke-static {v1, v2}, Ljava/lang/Math;->sin(D)D
 
     move-result-wide v1
 
@@ -122,31 +130,35 @@
 
     iget v2, p0, Lio/appium/android/apis/view/GameView$Ship;->mSize:F
 
-    mul-float/2addr v1, v2
+    mul-float v1, v1, v2
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->sin(D)D
-
-    move-result-wide v2
-
-    double-to-float v2, v2
-
-    iget v3, p0, Lio/appium/android/apis/view/GameView$Ship;->mSize:F
-
-    mul-float/2addr v2, v3
-
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/Path;->lineTo(FF)V
+    .line 611
+    invoke-virtual {p1, v3, v1}, Landroid/graphics/Path;->lineTo(FF)V
 
     .line 613
-    iget-object v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mPath:Landroid/graphics/Path;
+    iget-object p1, p0, Lio/appium/android/apis/view/GameView$Ship;->mPath:Landroid/graphics/Path;
 
     iget v1, p0, Lio/appium/android/apis/view/GameView$Ship;->mSize:F
 
-    invoke-virtual {v0, v1, v4}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {p1, v1, v0}, Landroid/graphics/Path;->lineTo(FF)V
 
     .line 614
-    iget-object v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mPath:Landroid/graphics/Path;
+    iget-object p1, p0, Lio/appium/android/apis/view/GameView$Ship;->mPath:Landroid/graphics/Path;
 
-    invoke-static {v7, v8}, Ljava/lang/Math;->cos(D)D
+    const-wide v1, 0x4000c15240000000L    # 2.094395160675049
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->cos(D)D
+
+    move-result-wide v3
+
+    double-to-float v3, v3
+
+    iget v4, p0, Lio/appium/android/apis/view/GameView$Ship;->mSize:F
+
+    mul-float v3, v3, v4
+
+    .line 615
+    invoke-static {v1, v2}, Ljava/lang/Math;->sin(D)D
 
     move-result-wide v1
 
@@ -154,24 +166,15 @@
 
     iget v2, p0, Lio/appium/android/apis/view/GameView$Ship;->mSize:F
 
-    mul-float/2addr v1, v2
+    mul-float v1, v1, v2
 
-    invoke-static {v7, v8}, Ljava/lang/Math;->sin(D)D
-
-    move-result-wide v2
-
-    double-to-float v2, v2
-
-    iget v3, p0, Lio/appium/android/apis/view/GameView$Ship;->mSize:F
-
-    mul-float/2addr v2, v3
-
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/Path;->lineTo(FF)V
+    .line 614
+    invoke-virtual {p1, v3, v1}, Landroid/graphics/Path;->lineTo(FF)V
 
     .line 616
-    iget-object v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mPath:Landroid/graphics/Path;
+    iget-object p1, p0, Lio/appium/android/apis/view/GameView$Ship;->mPath:Landroid/graphics/Path;
 
-    invoke-virtual {v0, v4, v4}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {p1, v0, v0}, Landroid/graphics/Path;->lineTo(FF)V
 
     .line 617
     return-void
@@ -181,7 +184,6 @@
     .locals 2
     .param p1, "radius"    # F
 
-    .prologue
     .line 643
     iget v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mHeadingAngle:F
 
@@ -193,7 +195,7 @@
 
     double-to-float v0, v0
 
-    mul-float/2addr v0, p1
+    mul-float v0, v0, p1
 
     return v0
 .end method
@@ -202,7 +204,6 @@
     .locals 2
     .param p1, "radius"    # F
 
-    .prologue
     .line 647
     iget v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mHeadingAngle:F
 
@@ -214,7 +215,7 @@
 
     double-to-float v0, v0
 
-    mul-float/2addr v0, p1
+    mul-float v0, v0, p1
 
     return v0
 .end method
@@ -222,7 +223,6 @@
 .method private updateHeading()V
     .locals 4
 
-    .prologue
     .line 636
     iget v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mHeadingX:F
 
@@ -268,75 +268,74 @@
 
 # virtual methods
 .method public accelerate(FFF)V
-    .locals 5
+    .locals 4
     .param p1, "tau"    # F
     .param p2, "maxThrust"    # F
     .param p3, "maxSpeed"    # F
 
-    .prologue
     .line 667
-    iget v3, p0, Lio/appium/android/apis/view/GameView$Ship;->mHeadingMagnitude:F
+    iget v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mHeadingMagnitude:F
 
-    mul-float v2, v3, p2
+    mul-float v0, v0, p2
 
     .line 668
-    .local v2, "thrust":F
-    iget v3, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityX:F
+    .local v0, "thrust":F
+    iget v1, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityX:F
 
-    invoke-direct {p0, v2}, Lio/appium/android/apis/view/GameView$Ship;->polarX(F)F
+    invoke-direct {p0, v0}, Lio/appium/android/apis/view/GameView$Ship;->polarX(F)F
 
-    move-result v4
+    move-result v2
 
-    add-float/2addr v3, v4
+    add-float/2addr v1, v2
 
-    iput v3, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityX:F
+    iput v1, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityX:F
 
     .line 669
-    iget v3, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityY:F
+    iget v1, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityY:F
 
-    invoke-direct {p0, v2}, Lio/appium/android/apis/view/GameView$Ship;->polarY(F)F
+    invoke-direct {p0, v0}, Lio/appium/android/apis/view/GameView$Ship;->polarY(F)F
 
-    move-result v4
+    move-result v2
 
-    add-float/2addr v3, v4
+    add-float/2addr v1, v2
 
-    iput v3, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityY:F
+    iput v1, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityY:F
 
     .line 671
-    iget v3, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityX:F
+    iget v1, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityX:F
 
-    iget v4, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityY:F
+    iget v2, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityY:F
 
-    invoke-static {v3, v4}, Lio/appium/android/apis/view/GameView;->pythag(FF)F
+    invoke-static {v1, v2}, Lio/appium/android/apis/view/GameView;->pythag(FF)F
 
     move-result v1
 
     .line 672
     .local v1, "speed":F
-    cmpl-float v3, v1, p3
+    cmpl-float v2, v1, p3
 
-    if-lez v3, :cond_0
+    if-lez v2, :cond_0
 
     .line 673
-    div-float v0, p3, v1
+    div-float v2, p3, v1
 
     .line 674
-    .local v0, "scale":F
+    .local v2, "scale":F
     iget v3, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityX:F
 
-    mul-float/2addr v3, v0
+    mul-float v3, v3, v2
 
     iput v3, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityX:F
 
     .line 675
     iget v3, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityY:F
 
-    mul-float/2addr v3, v0
+    mul-float v3, v3, v2
 
     iput v3, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityY:F
 
     .line 677
-    .end local v0    # "scale":F
+    .end local v2    # "scale":F
     :cond_0
     return-void
 .end method
@@ -344,7 +343,6 @@
 .method public destroy()V
     .locals 1
 
-    .prologue
     .line 707
     invoke-super {p0}, Lio/appium/android/apis/view/GameView$Sprite;->destroy()V
 
@@ -361,34 +359,31 @@
     .locals 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
-    const/16 v3, 0x3f
-
-    const/16 v2, 0xff
-
-    const/4 v6, 0x0
-
     .line 689
     iget-object v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mPaint:Landroid/graphics/Paint;
 
     iget v1, p0, Lio/appium/android/apis/view/GameView$Ship;->mDestroyAnimProgress:F
 
-    move v4, v2
+    const/16 v2, 0xff
 
-    move v5, v3
+    const/16 v3, 0x3f
 
-    move v7, v2
+    const/16 v4, 0xff
 
-    move v8, v6
+    const/16 v5, 0x3f
 
-    move v9, v6
+    const/4 v6, 0x0
+
+    const/16 v7, 0xff
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
 
     invoke-static/range {v0 .. v9}, Lio/appium/android/apis/view/GameView;->setPaintARGBBlend(Landroid/graphics/Paint;FIIIIIIII)V
 
     .line 693
-    const/4 v0, 0x1
-
-    invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->save(I)I
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 694
     iget v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mPositionX:F
@@ -402,7 +397,7 @@
 
     const v1, 0x42652ee1
 
-    mul-float/2addr v0, v1
+    mul-float v0, v0, v1
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->rotate(F)V
 
@@ -423,7 +418,6 @@
 .method public getBulletInitialX()F
     .locals 2
 
-    .prologue
     .line 651
     iget v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mPositionX:F
 
@@ -441,7 +435,6 @@
 .method public getBulletInitialY()F
     .locals 2
 
-    .prologue
     .line 655
     iget v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mPositionY:F
 
@@ -460,7 +453,6 @@
     .locals 2
     .param p1, "relativeSpeed"    # F
 
-    .prologue
     .line 659
     iget v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityX:F
 
@@ -477,7 +469,6 @@
     .locals 2
     .param p1, "relativeSpeed"    # F
 
-    .prologue
     .line 663
     iget v0, p0, Lio/appium/android/apis/view/GameView$Ship;->mVelocityY:F
 
@@ -493,7 +484,6 @@
 .method public getDestroyAnimDuration()F
     .locals 1
 
-    .prologue
     .line 702
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -505,7 +495,6 @@
     .param p1, "x"    # F
     .param p2, "y"    # F
 
-    .prologue
     .line 630
     iput p1, p0, Lio/appium/android/apis/view/GameView$Ship;->mHeadingX:F
 
@@ -523,7 +512,6 @@
     .locals 0
     .param p1, "x"    # F
 
-    .prologue
     .line 620
     iput p1, p0, Lio/appium/android/apis/view/GameView$Ship;->mHeadingX:F
 
@@ -538,7 +526,6 @@
     .locals 0
     .param p1, "y"    # F
 
-    .prologue
     .line 625
     iput p1, p0, Lio/appium/android/apis/view/GameView$Ship;->mHeadingY:F
 
@@ -553,7 +540,6 @@
     .locals 1
     .param p1, "tau"    # F
 
-    .prologue
     .line 681
     invoke-super {p0, p1}, Lio/appium/android/apis/view/GameView$Sprite;->step(F)Z
 
@@ -564,8 +550,6 @@
     .line 682
     const/4 v0, 0x0
 
-    .line 685
-    :goto_0
     return v0
 
     .line 684
@@ -575,5 +559,5 @@
     .line 685
     const/4 v0, 0x1
 
-    goto :goto_0
+    return v0
 .end method

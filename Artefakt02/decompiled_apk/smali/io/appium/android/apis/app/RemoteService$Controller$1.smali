@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/RemoteService$Controller;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/RemoteService$Controller;
 
-    .prologue
     .line 228
     iput-object p1, p0, Lio/appium/android/apis/app/RemoteService$Controller$1;->this$0:Lio/appium/android/apis/app/RemoteService$Controller;
 
@@ -40,7 +40,6 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 235
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Controller$1;->this$0:Lio/appium/android/apis/app/RemoteService$Controller;
 

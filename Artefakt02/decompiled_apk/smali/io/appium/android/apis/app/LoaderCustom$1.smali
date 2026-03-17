@@ -19,8 +19,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator",
-        "<",
+        "Ljava/util/Comparator<",
         "Lio/appium/android/apis/app/LoaderCustom$AppEntry;",
         ">;"
     }
@@ -35,7 +34,6 @@
 .method constructor <init>()V
     .locals 1
 
-    .prologue
     .line 149
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -56,7 +54,6 @@
     .param p1, "object1"    # Lio/appium/android/apis/app/LoaderCustom$AppEntry;
     .param p2, "object2"    # Lio/appium/android/apis/app/LoaderCustom$AppEntry;
 
-    .prologue
     .line 153
     iget-object v0, p0, Lio/appium/android/apis/app/LoaderCustom$1;->sCollator:Ljava/text/Collator;
 
@@ -76,21 +73,16 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Object;
+    .locals 0
 
-    .prologue
     .line 149
     check-cast p1, Lio/appium/android/apis/app/LoaderCustom$AppEntry;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lio/appium/android/apis/app/LoaderCustom$AppEntry;
 
-    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lio/appium/android/apis/app/LoaderCustom$1;->compare(Lio/appium/android/apis/app/LoaderCustom$AppEntry;Lio/appium/android/apis/app/LoaderCustom$AppEntry;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

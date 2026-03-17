@@ -46,56 +46,55 @@
 .method static constructor <clinit>()V
     .locals 7
 
-    .prologue
-    const/4 v6, 0x4
-
-    const/4 v5, 0x3
-
-    const/4 v4, 0x2
-
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
-
     .line 39
-    new-array v0, v6, [Landroid/graphics/Matrix$ScaleToFit;
+    const/4 v0, 0x4
 
-    sget-object v1, Landroid/graphics/Matrix$ScaleToFit;->FILL:Landroid/graphics/Matrix$ScaleToFit;
+    new-array v1, v0, [Landroid/graphics/Matrix$ScaleToFit;
 
-    aput-object v1, v0, v2
+    sget-object v2, Landroid/graphics/Matrix$ScaleToFit;->FILL:Landroid/graphics/Matrix$ScaleToFit;
 
-    sget-object v1, Landroid/graphics/Matrix$ScaleToFit;->START:Landroid/graphics/Matrix$ScaleToFit;
+    const/4 v3, 0x0
 
-    aput-object v1, v0, v3
+    aput-object v2, v1, v3
 
-    sget-object v1, Landroid/graphics/Matrix$ScaleToFit;->CENTER:Landroid/graphics/Matrix$ScaleToFit;
+    sget-object v2, Landroid/graphics/Matrix$ScaleToFit;->START:Landroid/graphics/Matrix$ScaleToFit;
 
-    aput-object v1, v0, v4
+    const/4 v4, 0x1
 
-    sget-object v1, Landroid/graphics/Matrix$ScaleToFit;->END:Landroid/graphics/Matrix$ScaleToFit;
+    aput-object v2, v1, v4
 
-    aput-object v1, v0, v5
+    sget-object v2, Landroid/graphics/Matrix$ScaleToFit;->CENTER:Landroid/graphics/Matrix$ScaleToFit;
 
-    sput-object v0, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->sFits:[Landroid/graphics/Matrix$ScaleToFit;
+    const/4 v5, 0x2
+
+    aput-object v2, v1, v5
+
+    sget-object v2, Landroid/graphics/Matrix$ScaleToFit;->END:Landroid/graphics/Matrix$ScaleToFit;
+
+    const/4 v6, 0x3
+
+    aput-object v2, v1, v6
+
+    sput-object v1, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->sFits:[Landroid/graphics/Matrix$ScaleToFit;
 
     .line 47
-    new-array v0, v6, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
     const-string v1, "FILL"
 
-    aput-object v1, v0, v2
+    aput-object v1, v0, v3
 
     const-string v1, "START"
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v4
 
     const-string v1, "CENTER"
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v5
 
     const-string v1, "END"
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v6
 
     sput-object v0, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->sFitLabels:[Ljava/lang/String;
 
@@ -130,21 +129,16 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 4
+    .locals 3
     .param p1, "context"    # Landroid/content/Context;
-
-    .prologue
-    const/high16 v3, 0x42500000    # 52.0f
-
-    const/4 v2, 0x0
-
-    const/4 v1, 0x1
 
     .line 64
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
     .line 33
     new-instance v0, Landroid/graphics/Paint;
+
+    const/4 v1, 0x1
 
     invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
 
@@ -181,7 +175,11 @@
     .line 61
     new-instance v0, Landroid/graphics/RectF;
 
-    invoke-direct {v0, v2, v2, v3, v3}, Landroid/graphics/RectF;-><init>(FFFF)V
+    const/high16 v1, 0x42500000    # 52.0f
+
+    const/4 v2, 0x0
+
+    invoke-direct {v0, v2, v2, v1, v1}, Landroid/graphics/RectF;-><init>(FFFF)V
 
     iput-object v0, p0, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->mDstR:Landroid/graphics/RectF;
 
@@ -209,7 +207,6 @@
     .param p2, "index"    # I
     .param p3, "stf"    # Landroid/graphics/Matrix$ScaleToFit;
 
-    .prologue
     .line 82
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
@@ -252,7 +249,6 @@
     .param p1, "canvas"    # Landroid/graphics/Canvas;
     .param p2, "index"    # I
 
-    .prologue
     .line 77
     iget-object v0, p0, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->mPaint:Landroid/graphics/Paint;
 
@@ -281,27 +277,22 @@
     .locals 6
     .param p1, "index"    # I
 
-    .prologue
-    const/4 v5, 0x0
-
     .line 71
-    sget-object v2, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->sSrcData:[I
+    sget-object v0, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->sSrcData:[I
 
-    mul-int/lit8 v3, p1, 0x3
+    mul-int/lit8 v1, p1, 0x3
 
-    add-int/lit8 v3, v3, 0x0
+    add-int/lit8 v1, v1, 0x0
 
-    aget v1, v2, v3
+    aget v1, v0, v1
 
     .line 72
     .local v1, "w":I
-    sget-object v2, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->sSrcData:[I
+    mul-int/lit8 v2, p1, 0x3
 
-    mul-int/lit8 v3, p1, 0x3
+    add-int/lit8 v2, v2, 0x1
 
-    add-int/lit8 v3, v3, 0x1
-
-    aget v0, v2, v3
+    aget v0, v0, v2
 
     .line 73
     .local v0, "h":I
@@ -310,6 +301,8 @@
     int-to-float v3, v1
 
     int-to-float v4, v0
+
+    const/4 v5, 0x0
 
     invoke-virtual {v2, v5, v5, v3, v4}, Landroid/graphics/RectF;->set(FFFF)V
 
@@ -320,23 +313,18 @@
 
 # virtual methods
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 7
+    .locals 6
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
-    const/4 v6, 0x4
-
-    const/high16 v3, 0x41200000    # 10.0f
-
-    const/4 v5, 0x0
-
     .line 96
-    const/4 v2, -0x1
+    const/4 v0, -0x1
 
-    invoke-virtual {p1, v2}, Landroid/graphics/Canvas;->drawColor(I)V
+    invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->drawColor(I)V
 
     .line 98
-    invoke-virtual {p1, v3, v3}, Landroid/graphics/Canvas;->translate(FF)V
+    const/high16 v0, 0x41200000    # 10.0f
+
+    invoke-virtual {p1, v0, v0}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 100
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -346,7 +334,11 @@
 
     .local v0, "i":I
     :goto_0
-    if-ge v0, v6, :cond_0
+    const/4 v1, 0x4
+
+    const/4 v2, 0x0
+
+    if-ge v0, v1, :cond_0
 
     .line 102
     invoke-direct {p0, v0}, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->setSrcR(I)V
@@ -355,17 +347,17 @@
     invoke-direct {p0, p1, v0}, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->drawSrcR(Landroid/graphics/Canvas;I)V
 
     .line 104
-    iget-object v2, p0, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->mSrcR:Landroid/graphics/RectF;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->mSrcR:Landroid/graphics/RectF;
 
-    invoke-virtual {v2}, Landroid/graphics/RectF;->width()F
+    invoke-virtual {v1}, Landroid/graphics/RectF;->width()F
 
-    move-result v2
+    move-result v1
 
     const/high16 v3, 0x41700000    # 15.0f
 
-    add-float/2addr v2, v3
+    add-float/2addr v1, v3
 
-    invoke-virtual {p1, v2, v5}, Landroid/graphics/Canvas;->translate(FF)V
+    invoke-virtual {p1, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 101
     add-int/lit8 v0, v0, 0x1
@@ -373,85 +365,89 @@
     goto :goto_0
 
     .line 106
+    .end local v0    # "i":I
     :cond_0
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 108
-    const/high16 v2, 0x42c80000    # 100.0f
+    const/high16 v0, 0x42c80000    # 100.0f
 
-    invoke-virtual {p1, v5, v2}, Landroid/graphics/Canvas;->translate(FF)V
+    invoke-virtual {p1, v2, v0}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 109
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .local v1, "j":I
+    .local v0, "j":I
     :goto_1
-    sget-object v2, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->sFits:[Landroid/graphics/Matrix$ScaleToFit;
+    sget-object v3, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->sFits:[Landroid/graphics/Matrix$ScaleToFit;
 
-    array-length v2, v2
+    array-length v3, v3
 
-    if-ge v1, v2, :cond_2
+    if-ge v0, v3, :cond_2
 
     .line 110
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 111
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
+    .local v3, "i":I
     :goto_2
-    if-ge v0, v6, :cond_1
+    if-ge v3, v1, :cond_1
 
     .line 112
-    sget-object v2, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->sFits:[Landroid/graphics/Matrix$ScaleToFit;
+    sget-object v4, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->sFits:[Landroid/graphics/Matrix$ScaleToFit;
 
-    aget-object v2, v2, v1
+    aget-object v4, v4, v0
 
-    invoke-direct {p0, p1, v0, v2}, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->drawFit(Landroid/graphics/Canvas;ILandroid/graphics/Matrix$ScaleToFit;)V
+    invoke-direct {p0, p1, v3, v4}, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->drawFit(Landroid/graphics/Canvas;ILandroid/graphics/Matrix$ScaleToFit;)V
 
     .line 113
-    iget-object v2, p0, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->mDstR:Landroid/graphics/RectF;
+    iget-object v4, p0, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->mDstR:Landroid/graphics/RectF;
 
-    invoke-virtual {v2}, Landroid/graphics/RectF;->width()F
+    invoke-virtual {v4}, Landroid/graphics/RectF;->width()F
 
-    move-result v2
+    move-result v4
 
-    const/high16 v3, 0x41000000    # 8.0f
+    const/high16 v5, 0x41000000    # 8.0f
 
-    add-float/2addr v2, v3
+    add-float/2addr v4, v5
 
-    invoke-virtual {p1, v2, v5}, Landroid/graphics/Canvas;->translate(FF)V
+    invoke-virtual {p1, v4, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 111
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
     .line 115
+    .end local v3    # "i":I
     :cond_1
-    sget-object v2, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->sFitLabels:[Ljava/lang/String;
+    sget-object v3, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->sFitLabels:[Ljava/lang/String;
 
-    aget-object v2, v2, v1
+    aget-object v3, v3, v0
 
-    const/high16 v3, 0x42080000    # 34.0f
+    const/high16 v4, 0x42080000    # 34.0f
 
-    iget-object v4, p0, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->mLabelPaint:Landroid/graphics/Paint;
+    iget-object v5, p0, Lio/appium/android/apis/graphics/ScaleToFit$SampleView;->mLabelPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v2, v5, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+    invoke-virtual {p1, v3, v2, v4, v5}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
     .line 116
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 117
-    const/high16 v2, 0x42a00000    # 80.0f
+    const/high16 v3, 0x42a00000    # 80.0f
 
-    invoke-virtual {p1, v5, v2}, Landroid/graphics/Canvas;->translate(FF)V
+    invoke-virtual {p1, v2, v3}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 109
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
     .line 119
+    .end local v0    # "j":I
     :cond_2
     return-void
 .end method

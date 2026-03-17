@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/RemoteService;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/RemoteService;
 
-    .prologue
     .line 116
     iput-object p1, p0, Lio/appium/android/apis/app/RemoteService$1;->this$0:Lio/appium/android/apis/app/RemoteService;
 
@@ -37,7 +37,6 @@
     .locals 1
     .param p1, "cb"    # Lio/appium/android/apis/app/IRemoteServiceCallback;
 
-    .prologue
     .line 118
     if-eqz p1, :cond_0
 
@@ -56,7 +55,6 @@
     .locals 1
     .param p1, "cb"    # Lio/appium/android/apis/app/IRemoteServiceCallback;
 
-    .prologue
     .line 121
     if-eqz p1, :cond_0
 

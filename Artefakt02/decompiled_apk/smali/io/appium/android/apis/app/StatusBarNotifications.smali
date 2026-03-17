@@ -4,6 +4,12 @@
 
 
 # static fields
+.field private static final CHANNEL_DESCRIPTION:Ljava/lang/String; = "Status Bar Notifications"
+
+.field private static final CHANNEL_ID:Ljava/lang/String; = "main_channel"
+
+.field private static final CHANNEL_NAME:Ljava/lang/String; = "Sample App"
+
 .field private static MOOD_NOTIFICATIONS:I
 
 
@@ -15,9 +21,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 40
-    const v0, 0x7f0300d9
+    .line 43
+    const v0, 0x7f0b0100
 
     sput v0, Lio/appium/android/apis/app/StatusBarNotifications;->MOOD_NOTIFICATIONS:I
 
@@ -27,8 +32,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 35
+    .line 38
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     return-void
@@ -41,8 +45,7 @@
     .param p2, "x2"    # I
     .param p3, "x3"    # Z
 
-    .prologue
-    .line 35
+    .line 38
     invoke-direct {p0, p1, p2, p3}, Lio/appium/android/apis/app/StatusBarNotifications;->setMood(IIZ)V
 
     return-void
@@ -54,8 +57,7 @@
     .param p1, "x1"    # I
     .param p2, "x2"    # I
 
-    .prologue
-    .line 35
+    .line 38
     invoke-direct {p0, p1, p2}, Lio/appium/android/apis/app/StatusBarNotifications;->setMoodView(II)V
 
     return-void
@@ -66,8 +68,7 @@
     .param p0, "x0"    # Lio/appium/android/apis/app/StatusBarNotifications;
     .param p1, "x1"    # I
 
-    .prologue
-    .line 35
+    .line 38
     invoke-direct {p0, p1}, Lio/appium/android/apis/app/StatusBarNotifications;->setDefault(I)V
 
     return-void
@@ -77,248 +78,400 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/app/StatusBarNotifications;
 
-    .prologue
-    .line 35
+    .line 38
     iget-object v0, p0, Lio/appium/android/apis/app/StatusBarNotifications;->mNotificationManager:Landroid/app/NotificationManager;
 
     return-object v0
 .end method
 
+.method private createChannel()V
+    .locals 5
+    .annotation build Landroidx/annotation/RequiresApi;
+        value = 0x1a
+    .end annotation
+
+    .line 204
+    const-string v0, "notification"
+
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/StatusBarNotifications;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/NotificationManager;
+
+    .line 205
+    .local v0, "mNotificationManager":Landroid/app/NotificationManager;
+    if-nez v0, :cond_0
+
+    .line 206
+    return-void
+
+    .line 208
+    :cond_0
+    new-instance v1, Landroid/app/NotificationChannel;
+
+    const-string v2, "main_channel"
+
+    const-string v3, "Sample App"
+
+    const/4 v4, 0x3
+
+    invoke-direct {v1, v2, v3, v4}, Landroid/app/NotificationChannel;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
+
+    .line 209
+    .local v1, "mChannel":Landroid/app/NotificationChannel;
+    const-string v2, "Status Bar Notifications"
+
+    invoke-virtual {v1, v2}, Landroid/app/NotificationChannel;->setDescription(Ljava/lang/String;)V
+
+    .line 210
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Landroid/app/NotificationChannel;->setShowBadge(Z)V
+
+    .line 211
+    invoke-virtual {v1, v2}, Landroid/app/NotificationChannel;->setLockscreenVisibility(I)V
+
+    .line 212
+    invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->createNotificationChannel(Landroid/app/NotificationChannel;)V
+
+    .line 213
+    return-void
+.end method
+
 .method private makeDefaultIntent()Landroid/app/PendingIntent;
-    .locals 7
-
-    .prologue
-    const/4 v6, 0x2
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    .line 165
-    const/4 v2, 0x4
-
-    new-array v1, v2, [Landroid/content/Intent;
+    .locals 5
 
     .line 170
-    .local v1, "intents":[Landroid/content/Intent;
-    new-instance v2, Landroid/content/ComponentName;
+    const/4 v0, 0x4
 
-    const-class v3, Lio/appium/android/apis/ApiDemos;
-
-    invoke-direct {v2, p0, v3}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    invoke-static {v2}, Landroid/content/Intent;->makeRestartActivityTask(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    move-result-object v2
-
-    aput-object v2, v1, v5
-
-    .line 174
-    new-instance v2, Landroid/content/Intent;
-
-    const-class v3, Lio/appium/android/apis/ApiDemos;
-
-    invoke-direct {v2, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    aput-object v2, v1, v4
+    new-array v0, v0, [Landroid/content/Intent;
 
     .line 175
-    aget-object v2, v1, v4
+    .local v0, "intents":[Landroid/content/Intent;
+    new-instance v1, Landroid/content/ComponentName;
+
+    const-class v2, Lio/appium/android/apis/ApiDemos;
+
+    invoke-direct {v1, p0, v2}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    invoke-static {v1}, Landroid/content/Intent;->makeRestartActivityTask(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    .line 179
+    new-instance v1, Landroid/content/Intent;
+
+    const-class v3, Lio/appium/android/apis/ApiDemos;
+
+    invoke-direct {v1, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    const/4 v3, 0x1
+
+    aput-object v1, v0, v3
+
+    .line 180
+    aget-object v1, v0, v3
 
     const-string v3, "io.appium.android.apis.Path"
 
     const-string v4, "App"
 
-    invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v1, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 177
-    new-instance v2, Landroid/content/Intent;
+    .line 182
+    new-instance v1, Landroid/content/Intent;
 
     const-class v3, Lio/appium/android/apis/ApiDemos;
 
-    invoke-direct {v2, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v1, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    aput-object v2, v1, v6
+    const/4 v3, 0x2
 
-    .line 178
-    aget-object v2, v1, v6
+    aput-object v1, v0, v3
+
+    .line 183
+    aget-object v1, v0, v3
 
     const-string v3, "io.appium.android.apis.Path"
 
     const-string v4, "App/Notification"
 
-    invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v1, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 181
-    const/4 v2, 0x3
+    .line 186
+    new-instance v1, Landroid/content/Intent;
 
-    new-instance v3, Landroid/content/Intent;
+    const-class v3, Lio/appium/android/apis/app/StatusBarNotifications;
 
-    const-class v4, Lio/appium/android/apis/app/StatusBarNotifications;
+    invoke-direct {v1, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    invoke-direct {v3, p0, v4}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    const/4 v3, 0x3
 
-    aput-object v3, v1, v2
+    aput-object v1, v0, v3
 
-    .line 187
-    const/high16 v2, 0x8000000
+    .line 192
+    const/high16 v1, 0x8000000
 
-    invoke-static {p0, v5, v1, v2}, Landroid/app/PendingIntent;->getActivities(Landroid/content/Context;I[Landroid/content/Intent;I)Landroid/app/PendingIntent;
+    invoke-static {p0, v2, v0, v1}, Landroid/app/PendingIntent;->getActivities(Landroid/content/Context;I[Landroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    move-result-object v0
+    move-result-object v1
 
-    .line 189
-    .local v0, "contentIntent":Landroid/app/PendingIntent;
-    return-object v0
+    .line 194
+    .local v1, "contentIntent":Landroid/app/PendingIntent;
+    return-object v1
 .end method
 
 .method private makeMoodIntent(I)Landroid/app/PendingIntent;
-    .locals 4
+    .locals 3
     .param p1, "moodId"    # I
 
-    .prologue
-    .line 153
-    const/4 v1, 0x0
+    .line 158
+    new-instance v0, Landroid/content/Intent;
 
-    new-instance v2, Landroid/content/Intent;
+    const-class v1, Lio/appium/android/apis/app/NotificationDisplay;
 
-    const-class v3, Lio/appium/android/apis/app/NotificationDisplay;
+    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    invoke-direct {v2, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    const-string v1, "moodimg"
 
-    const-string v3, "moodimg"
-
-    invoke-virtual {v2, v3, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    move-result-object v2
-
-    const/high16 v3, 0x8000000
-
-    invoke-static {p0, v1, v2, v3}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    .line 159
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 156
+    .line 158
+    const/4 v1, 0x0
+
+    const/high16 v2, 0x8000000
+
+    invoke-static {p0, v1, v0, v2}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+
+    move-result-object v0
+
+    .line 161
     .local v0, "contentIntent":Landroid/app/PendingIntent;
     return-object v0
 .end method
 
 .method private setDefault(I)V
-    .locals 6
+    .locals 7
     .param p1, "defaults"    # I
 
-    .prologue
-    .line 246
+    .line 274
     invoke-direct {p0}, Lio/appium/android/apis/app/StatusBarNotifications;->makeDefaultIntent()Landroid/app/PendingIntent;
 
     move-result-object v0
 
-    .line 249
+    .line 276
     .local v0, "contentIntent":Landroid/app/PendingIntent;
-    const v3, 0x7f0c011f
+    const v1, 0x7f0e030d
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/app/StatusBarNotifications;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    .line 278
+    .local v1, "text":Ljava/lang/CharSequence;
+    const v2, 0x7f0e0310
+
+    invoke-virtual {p0, v2}, Lio/appium/android/apis/app/StatusBarNotifications;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    .line 251
-    .local v2, "text":Ljava/lang/CharSequence;
-    new-instance v1, Landroid/app/Notification;
+    .line 281
+    .local v2, "title":Ljava/lang/CharSequence;
+    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const v3, 0x7f02005a
+    const/16 v4, 0x1a
 
+    if-lt v3, v4, :cond_0
+
+    .line 282
+    new-instance v3, Landroid/app/Notification$Builder;
+
+    const-string v4, "main_channel"
+
+    invoke-direct {v3, p0, v4}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 284
+    :cond_0
+    new-instance v3, Landroid/app/Notification$Builder;
+
+    invoke-direct {v3, p0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 288
+    .local v3, "notifBuilder":Landroid/app/Notification$Builder;
+    :goto_0
+    const v4, 0x7f0800be
+
+    .line 289
+    invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
+
+    move-result-object v4
+
+    .line 290
+    invoke-virtual {v4, v1}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v4
+
+    .line 291
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v4
+    move-result-wide v5
 
-    invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/Notification;-><init>(ILjava/lang/CharSequence;J)V
+    invoke-virtual {v4, v5, v6}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
-    .line 256
-    .local v1, "notification":Landroid/app/Notification;
-    const v3, 0x7f0c0123
+    move-result-object v4
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/app/StatusBarNotifications;->getText(I)Ljava/lang/CharSequence;
+    .line 292
+    invoke-virtual {v4, v2}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v1, p0, v3, v2, v0}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
+    .line 293
+    invoke-virtual {v4, v1}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 263
-    iput p1, v1, Landroid/app/Notification;->defaults:I
+    move-result-object v4
 
-    .line 265
-    iget-object v3, p0, Lio/appium/android/apis/app/StatusBarNotifications;->mNotificationManager:Landroid/app/NotificationManager;
+    .line 294
+    invoke-virtual {v4, v0}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 
-    sget v4, Lio/appium/android/apis/app/StatusBarNotifications;->MOOD_NOTIFICATIONS:I
+    move-result-object v4
 
-    invoke-virtual {v3, v4, v1}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+    .line 295
+    invoke-virtual {v4, p1}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
 
-    .line 269
+    move-result-object v4
+
+    .line 296
+    invoke-virtual {v4}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+
+    move-result-object v4
+
+    .line 297
+    .local v4, "notification":Landroid/app/Notification;
+    iget-object v5, p0, Lio/appium/android/apis/app/StatusBarNotifications;->mNotificationManager:Landroid/app/NotificationManager;
+
+    sget v6, Lio/appium/android/apis/app/StatusBarNotifications;->MOOD_NOTIFICATIONS:I
+
+    invoke-virtual {v5, v6, v4}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+
+    .line 301
     return-void
 .end method
 
 .method private setMood(IIZ)V
-    .locals 5
+    .locals 7
     .param p1, "moodId"    # I
     .param p2, "textId"    # I
     .param p3, "showTicker"    # Z
 
-    .prologue
-    .line 195
+    .line 217
     invoke-virtual {p0, p2}, Lio/appium/android/apis/app/StatusBarNotifications;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    .line 219
+    .local v0, "text":Ljava/lang/CharSequence;
+    const v1, 0x7f0e0310
+
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    .line 198
-    .local v1, "text":Ljava/lang/CharSequence;
-    if-eqz p3, :cond_0
+    .line 223
+    .local v1, "title":Ljava/lang/CharSequence;
+    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-virtual {p0, p2}, Lio/appium/android/apis/app/StatusBarNotifications;->getString(I)Ljava/lang/String;
+    const/16 v3, 0x1a
 
-    move-result-object v2
+    if-lt v2, v3, :cond_0
 
-    .line 201
-    .local v2, "tickerText":Ljava/lang/String;
+    .line 224
+    new-instance v2, Landroid/app/Notification$Builder;
+
+    const-string v3, "main_channel"
+
+    invoke-direct {v2, p0, v3}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 226
+    :cond_0
+    new-instance v2, Landroid/app/Notification$Builder;
+
+    invoke-direct {v2, p0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 229
+    .local v2, "builder":Landroid/app/Notification$Builder;
     :goto_0
-    new-instance v0, Landroid/app/Notification;
+    nop
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v3
-
-    invoke-direct {v0, p1, v2, v3, v4}, Landroid/app/Notification;-><init>(ILjava/lang/CharSequence;J)V
-
-    .line 205
-    .local v0, "notification":Landroid/app/Notification;
-    const v3, 0x7f0c0123
-
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/app/StatusBarNotifications;->getText(I)Ljava/lang/CharSequence;
+    .line 230
+    invoke-virtual {v2, p1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v3
 
+    .line 231
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v4
+
+    invoke-virtual {v3, v4, v5}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 232
+    invoke-virtual {v3, v1}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 233
+    invoke-virtual {v3, v0}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 234
     invoke-direct {p0, p1}, Lio/appium/android/apis/app/StatusBarNotifications;->makeMoodIntent(I)Landroid/app/PendingIntent;
 
     move-result-object v4
 
-    invoke-virtual {v0, p0, v3, v1, v4}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
+    invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 
-    .line 210
-    iget-object v3, p0, Lio/appium/android/apis/app/StatusBarNotifications;->mNotificationManager:Landroid/app/NotificationManager;
+    move-result-object v3
 
-    sget v4, Lio/appium/android/apis/app/StatusBarNotifications;->MOOD_NOTIFICATIONS:I
+    .line 235
+    .local v3, "notifBuidler":Landroid/app/Notification$Builder;
+    if-eqz p3, :cond_1
 
-    invoke-virtual {v3, v4, v0}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+    .line 237
+    invoke-virtual {p0, p2}, Lio/appium/android/apis/app/StatusBarNotifications;->getString(I)Ljava/lang/String;
 
-    .line 211
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    .line 241
+    :cond_1
+    iget-object v4, p0, Lio/appium/android/apis/app/StatusBarNotifications;->mNotificationManager:Landroid/app/NotificationManager;
+
+    sget v5, Lio/appium/android/apis/app/StatusBarNotifications;->MOOD_NOTIFICATIONS:I
+
+    invoke-virtual {v3}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+
+    move-result-object v6
+
+    invoke-virtual {v4, v5, v6}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+
+    .line 242
     return-void
-
-    .line 198
-    .end local v0    # "notification":Landroid/app/Notification;
-    .end local v2    # "tickerText":Ljava/lang/String;
-    :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
 .end method
 
 .method private setMoodView(II)V
@@ -326,65 +479,64 @@
     .param p1, "moodId"    # I
     .param p2, "textId"    # I
 
-    .prologue
-    .line 218
-    new-instance v1, Landroid/app/Notification;
+    .line 249
+    new-instance v0, Landroid/app/Notification;
 
-    invoke-direct {v1}, Landroid/app/Notification;-><init>()V
+    invoke-direct {v0}, Landroid/app/Notification;-><init>()V
 
-    .line 221
-    .local v1, "notif":Landroid/app/Notification;
+    .line 252
+    .local v0, "notif":Landroid/app/Notification;
     invoke-direct {p0, p1}, Lio/appium/android/apis/app/StatusBarNotifications;->makeMoodIntent(I)Landroid/app/PendingIntent;
 
-    move-result-object v3
+    move-result-object v1
 
-    iput-object v3, v1, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
+    iput-object v1, v0, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
-    .line 224
+    .line 255
     invoke-virtual {p0, p2}, Lio/appium/android/apis/app/StatusBarNotifications;->getText(I)Ljava/lang/CharSequence;
 
-    move-result-object v2
+    move-result-object v1
 
-    .line 225
-    .local v2, "text":Ljava/lang/CharSequence;
-    iput-object v2, v1, Landroid/app/Notification;->tickerText:Ljava/lang/CharSequence;
+    .line 256
+    .local v1, "text":Ljava/lang/CharSequence;
+    iput-object v1, v0, Landroid/app/Notification;->tickerText:Ljava/lang/CharSequence;
 
-    .line 228
-    iput p1, v1, Landroid/app/Notification;->icon:I
+    .line 259
+    iput p1, v0, Landroid/app/Notification;->icon:I
 
-    .line 231
-    new-instance v0, Landroid/widget/RemoteViews;
+    .line 262
+    new-instance v2, Landroid/widget/RemoteViews;
 
     invoke-virtual {p0}, Lio/appium/android/apis/app/StatusBarNotifications;->getPackageName()Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f0300d8
+    const v4, 0x7f0b00ff
 
-    invoke-direct {v0, v3, v4}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v3, v4}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
-    .line 232
-    .local v0, "contentView":Landroid/widget/RemoteViews;
-    const v3, 0x7f09000c
+    .line 263
+    .local v2, "contentView":Landroid/widget/RemoteViews;
+    const v3, 0x7f09020c
 
-    invoke-virtual {v0, v3, v2}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
+    invoke-virtual {v2, v3, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    .line 233
-    const v3, 0x7f0900e6
+    .line 264
+    const v3, 0x7f0900ef
 
-    invoke-virtual {v0, v3, p1}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
+    invoke-virtual {v2, v3, p1}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
-    .line 234
-    iput-object v0, v1, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
+    .line 265
+    iput-object v2, v0, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
-    .line 238
+    .line 269
     iget-object v3, p0, Lio/appium/android/apis/app/StatusBarNotifications;->mNotificationManager:Landroid/app/NotificationManager;
 
     sget v4, Lio/appium/android/apis/app/StatusBarNotifications;->MOOD_NOTIFICATIONS:I
 
-    invoke-virtual {v3, v4, v1}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+    invoke-virtual {v3, v4, v0}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
-    .line 239
+    .line 270
     return-void
 .end method
 
@@ -394,36 +546,35 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 44
+    .line 47
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 46
-    const v1, 0x7f0300d9
+    .line 49
+    const v0, 0x7f0b0100
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/StatusBarNotifications;->setContentView(I)V
 
-    .line 51
-    const-string v1, "notification"
+    .line 54
+    const-string v0, "notification"
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/StatusBarNotifications;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/app/NotificationManager;
+    check-cast v0, Landroid/app/NotificationManager;
 
-    iput-object v1, p0, Lio/appium/android/apis/app/StatusBarNotifications;->mNotificationManager:Landroid/app/NotificationManager;
+    iput-object v0, p0, Lio/appium/android/apis/app/StatusBarNotifications;->mNotificationManager:Landroid/app/NotificationManager;
 
-    .line 53
-    const v1, 0x7f090164
+    .line 56
+    const v0, 0x7f0900e1
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/widget/Button;
 
-    .line 54
+    .line 57
     .local v0, "button":Landroid/widget/Button;
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$1;
 
@@ -431,222 +582,225 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 61
-    const v1, 0x7f090165
+    .line 64
+    const v1, 0x7f09013d
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
-    .line 62
-    .restart local v0    # "button":Landroid/widget/Button;
+    .line 65
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$2;
 
     invoke-direct {v1, p0}, Lio/appium/android/apis/app/StatusBarNotifications$2;-><init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 69
-    const v1, 0x7f090166
+    .line 72
+    const v1, 0x7f090199
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
-    .line 70
-    .restart local v0    # "button":Landroid/widget/Button;
+    .line 73
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$3;
 
     invoke-direct {v1, p0}, Lio/appium/android/apis/app/StatusBarNotifications$3;-><init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 76
-    const v1, 0x7f090167
+    .line 79
+    const v1, 0x7f0900e2
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
-    .line 77
-    .restart local v0    # "button":Landroid/widget/Button;
+    .line 80
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$4;
 
     invoke-direct {v1, p0}, Lio/appium/android/apis/app/StatusBarNotifications$4;-><init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 84
-    const v1, 0x7f090168
+    .line 87
+    const v1, 0x7f09013e
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
-    .line 85
-    .restart local v0    # "button":Landroid/widget/Button;
+    .line 88
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$5;
 
     invoke-direct {v1, p0}, Lio/appium/android/apis/app/StatusBarNotifications$5;-><init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 91
-    const v1, 0x7f090169
+    .line 94
+    const v1, 0x7f09019a
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
-    .line 92
-    .restart local v0    # "button":Landroid/widget/Button;
+    .line 95
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$6;
 
     invoke-direct {v1, p0}, Lio/appium/android/apis/app/StatusBarNotifications$6;-><init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 98
-    const v1, 0x7f09016a
+    .line 101
+    const v1, 0x7f0900e3
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
-    .line 99
-    .restart local v0    # "button":Landroid/widget/Button;
+    .line 102
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$7;
 
     invoke-direct {v1, p0}, Lio/appium/android/apis/app/StatusBarNotifications$7;-><init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 105
-    const v1, 0x7f09016b
+    .line 108
+    const v1, 0x7f09013f
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
-    .line 106
-    .restart local v0    # "button":Landroid/widget/Button;
+    .line 109
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$8;
 
     invoke-direct {v1, p0}, Lio/appium/android/apis/app/StatusBarNotifications$8;-><init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 112
-    const v1, 0x7f09016c
+    .line 115
+    const v1, 0x7f09019b
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
-    .line 113
-    .restart local v0    # "button":Landroid/widget/Button;
+    .line 116
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$9;
 
     invoke-direct {v1, p0}, Lio/appium/android/apis/app/StatusBarNotifications$9;-><init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 119
-    const v1, 0x7f09016d
+    .line 122
+    const v1, 0x7f09008a
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
-    .line 120
-    .restart local v0    # "button":Landroid/widget/Button;
+    .line 123
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$10;
 
     invoke-direct {v1, p0}, Lio/appium/android/apis/app/StatusBarNotifications$10;-><init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 126
-    const v1, 0x7f09016e
+    .line 129
+    const v1, 0x7f09008b
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
-    .line 127
-    .restart local v0    # "button":Landroid/widget/Button;
+    .line 130
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$11;
 
     invoke-direct {v1, p0}, Lio/appium/android/apis/app/StatusBarNotifications$11;-><init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 133
-    const v1, 0x7f09016f
+    .line 136
+    const v1, 0x7f090089
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
-    .line 134
-    .restart local v0    # "button":Landroid/widget/Button;
+    .line 137
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$12;
 
     invoke-direct {v1, p0}, Lio/appium/android/apis/app/StatusBarNotifications$12;-><init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 140
-    const v1, 0x7f0900b4
+    .line 143
+    const v1, 0x7f09006b
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/StatusBarNotifications;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
-    .line 141
-    .restart local v0    # "button":Landroid/widget/Button;
+    .line 144
     new-instance v1, Lio/appium/android/apis/app/StatusBarNotifications$13;
 
     invoke-direct {v1, p0}, Lio/appium/android/apis/app/StatusBarNotifications$13;-><init>(Lio/appium/android/apis/app/StatusBarNotifications;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 146
+    .line 150
+    invoke-direct {p0}, Lio/appium/android/apis/app/StatusBarNotifications;->createChannel()V
+
+    .line 151
     return-void
 .end method

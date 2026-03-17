@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;
 
-    .prologue
     .line 146
     iput-object p1, p0, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition$1;->this$0:Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;
 
@@ -38,7 +38,6 @@
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
-    .prologue
     .line 149
     invoke-super {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
@@ -60,28 +59,27 @@
     .param p1, "host"    # Landroid/view/View;
     .param p2, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    .prologue
     .line 159
     invoke-super {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
     .line 163
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p2, v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setCheckable(Z)V
+    invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setCheckable(Z)V
 
     .line 164
-    iget-object v1, p0, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition$1;->this$0:Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;
+    iget-object v0, p0, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition$1;->this$0:Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;
 
-    invoke-virtual {v1}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;->isChecked()Z
+    invoke-virtual {v0}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;->isChecked()Z
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p2, v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setChecked(Z)V
+    invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setChecked(Z)V
 
     .line 166
-    iget-object v1, p0, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition$1;->this$0:Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;
+    iget-object v0, p0, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition$1;->this$0:Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;
 
-    invoke-virtual {v1}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -106,14 +104,13 @@
     .param p1, "host"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
-    .prologue
     .line 174
     invoke-super {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->onPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
     .line 178
-    iget-object v1, p0, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition$1;->this$0:Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;
+    iget-object v0, p0, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition$1;->this$0:Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;
 
-    invoke-virtual {v1}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonComposition;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
 

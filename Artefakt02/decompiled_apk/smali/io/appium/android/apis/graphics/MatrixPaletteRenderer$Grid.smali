@@ -48,558 +48,498 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 17
+    .locals 16
     .param p1, "w"    # I
     .param p2, "h"    # I
 
-    .prologue
     .line 89
+    move-object/from16 v0, p0
+
+    move/from16 v1, p1
+
+    move/from16 v2, p2
+
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 90
-    if-ltz p1, :cond_0
+    if-ltz v1, :cond_4
 
-    const/high16 v15, 0x10000
+    const/high16 v3, 0x10000
 
-    move/from16 v0, p1
-
-    if-lt v0, v15, :cond_1
-
-    .line 91
-    :cond_0
-    new-instance v15, Ljava/lang/IllegalArgumentException;
-
-    const-string v16, "w"
-
-    invoke-direct/range {v15 .. v16}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v15
+    if-ge v1, v3, :cond_4
 
     .line 93
-    :cond_1
-    if-ltz p2, :cond_2
+    if-ltz v2, :cond_3
 
-    const/high16 v15, 0x10000
-
-    move/from16 v0, p2
-
-    if-lt v0, v15, :cond_3
-
-    .line 94
-    :cond_2
-    new-instance v15, Ljava/lang/IllegalArgumentException;
-
-    const-string v16, "h"
-
-    invoke-direct/range {v15 .. v16}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v15
+    if-ge v2, v3, :cond_3
 
     .line 96
-    :cond_3
-    mul-int v15, p1, p2
+    mul-int v4, v1, v2
 
-    const/high16 v16, 0x10000
-
-    move/from16 v0, v16
-
-    if-lt v15, v0, :cond_4
-
-    .line 97
-    new-instance v15, Ljava/lang/IllegalArgumentException;
-
-    const-string v16, "w * h >= 65536"
-
-    invoke-direct/range {v15 .. v16}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v15
+    if-ge v4, v3, :cond_2
 
     .line 100
-    :cond_4
-    move/from16 v0, p1
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mW:I
+    iput v1, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mW:I
 
     .line 101
-    move/from16 v0, p2
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mH:I
+    iput v2, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mH:I
 
     .line 102
-    mul-int v12, p1, p2
+    mul-int v3, v1, v2
 
     .line 104
-    .local v12, "size":I
-    mul-int/lit8 v15, v12, 0x20
+    .local v3, "size":I
+    mul-int/lit8 v4, v3, 0x20
 
-    invoke-static {v15}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    invoke-static {v4}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v15
+    move-result-object v4
 
+    .line 105
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
-    move-result-object v16
+    move-result-object v5
 
-    invoke-virtual/range {v15 .. v16}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v4, v5}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    move-result-object v15
+    move-result-object v4
 
-    move-object/from16 v0, p0
-
-    iput-object v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexByteBuffer:Ljava/nio/ByteBuffer;
+    iput-object v4, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexByteBuffer:Ljava/nio/ByteBuffer;
 
     .line 106
-    move-object/from16 v0, p0
+    iget-object v4, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexByteBuffer:Ljava/nio/ByteBuffer;
 
-    iget-object v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexByteBuffer:Ljava/nio/ByteBuffer;
+    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
 
-    invoke-virtual {v15}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
+    move-result-object v4
 
-    move-result-object v15
-
-    move-object/from16 v0, p0
-
-    iput-object v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
+    iput-object v4, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
 
     .line 108
-    move-object/from16 v0, p0
+    iget v4, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mW:I
 
-    iget v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mW:I
-
-    add-int/lit8 v11, v15, -0x1
+    add-int/lit8 v4, v4, -0x1
 
     .line 109
-    .local v11, "quadW":I
-    move-object/from16 v0, p0
+    .local v4, "quadW":I
+    iget v5, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mH:I
 
-    iget v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mH:I
-
-    add-int/lit8 v10, v15, -0x1
+    add-int/lit8 v5, v5, -0x1
 
     .line 110
-    .local v10, "quadH":I
-    mul-int v9, v11, v10
+    .local v5, "quadH":I
+    mul-int v6, v4, v5
 
     .line 111
-    .local v9, "quadCount":I
-    mul-int/lit8 v8, v9, 0x6
+    .local v6, "quadCount":I
+    mul-int/lit8 v7, v6, 0x6
 
     .line 112
-    .local v8, "indexCount":I
-    move-object/from16 v0, p0
-
-    iput v8, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexCount:I
+    .local v7, "indexCount":I
+    iput v7, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexCount:I
 
     .line 113
-    mul-int/lit8 v15, v8, 0x2
+    mul-int/lit8 v8, v7, 0x2
 
-    invoke-static {v15}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    invoke-static {v8}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v15
+    move-result-object v8
 
+    .line 114
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
-    move-result-object v16
+    move-result-object v9
 
-    invoke-virtual/range {v15 .. v16}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v8, v9}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    move-result-object v15
+    move-result-object v8
 
-    invoke-virtual {v15}, Ljava/nio/ByteBuffer;->asCharBuffer()Ljava/nio/CharBuffer;
+    invoke-virtual {v8}, Ljava/nio/ByteBuffer;->asCharBuffer()Ljava/nio/CharBuffer;
 
-    move-result-object v15
+    move-result-object v8
 
-    move-object/from16 v0, p0
-
-    iput-object v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+    iput-object v8, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
 
     .line 129
-    const/4 v6, 0x0
+    const/4 v8, 0x0
 
     .line 130
-    .local v6, "i":I
-    const/4 v14, 0x0
+    .local v8, "i":I
+    const/4 v9, 0x0
 
-    .local v14, "y":I
+    .local v9, "y":I
     :goto_0
-    if-ge v14, v10, :cond_6
+    if-ge v9, v5, :cond_1
 
     .line 131
-    const/4 v13, 0x0
+    const/4 v10, 0x0
 
-    .local v13, "x":I
-    move v7, v6
-
-    .end local v6    # "i":I
-    .local v7, "i":I
+    .local v10, "x":I
     :goto_1
-    if-ge v13, v11, :cond_5
+    if-ge v10, v4, :cond_0
 
     .line 132
-    move-object/from16 v0, p0
+    iget v11, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mW:I
 
-    iget v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mW:I
+    mul-int v12, v9, v11
 
-    mul-int/2addr v15, v14
+    add-int/2addr v12, v10
 
-    add-int/2addr v15, v13
-
-    int-to-char v2, v15
+    int-to-char v12, v12
 
     .line 133
-    .local v2, "a":C
-    move-object/from16 v0, p0
+    .local v12, "a":C
+    mul-int v13, v9, v11
 
-    iget v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mW:I
+    add-int/2addr v13, v10
 
-    mul-int/2addr v15, v14
+    add-int/lit8 v13, v13, 0x1
 
-    add-int/2addr v15, v13
-
-    add-int/lit8 v15, v15, 0x1
-
-    int-to-char v3, v15
+    int-to-char v13, v13
 
     .line 134
-    .local v3, "b":C
-    add-int/lit8 v15, v14, 0x1
+    .local v13, "b":C
+    add-int/lit8 v14, v9, 0x1
 
-    move-object/from16 v0, p0
+    mul-int v14, v14, v11
 
-    iget v0, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mW:I
+    add-int/2addr v14, v10
 
-    move/from16 v16, v0
-
-    mul-int v15, v15, v16
-
-    add-int/2addr v15, v13
-
-    int-to-char v4, v15
+    int-to-char v14, v14
 
     .line 135
-    .local v4, "c":C
-    add-int/lit8 v15, v14, 0x1
+    .local v14, "c":C
+    add-int/lit8 v15, v9, 0x1
 
-    move-object/from16 v0, p0
+    mul-int v15, v15, v11
 
-    iget v0, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mW:I
-
-    move/from16 v16, v0
-
-    mul-int v15, v15, v16
-
-    add-int/2addr v15, v13
+    add-int/2addr v15, v10
 
     add-int/lit8 v15, v15, 0x1
 
-    int-to-char v5, v15
+    int-to-char v11, v15
 
     .line 137
-    .local v5, "d":C
-    move-object/from16 v0, p0
-
+    .local v11, "d":C
     iget-object v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
 
-    add-int/lit8 v6, v7, 0x1
+    add-int/lit8 v1, v8, 0x1
 
-    .end local v7    # "i":I
-    .restart local v6    # "i":I
-    invoke-virtual {v15, v7, v2}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
+    .end local v8    # "i":I
+    .local v1, "i":I
+    invoke-virtual {v15, v8, v12}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
 
     .line 138
-    move-object/from16 v0, p0
+    iget-object v8, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
 
-    iget-object v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+    add-int/lit8 v15, v1, 0x1
 
-    add-int/lit8 v7, v6, 0x1
-
-    .end local v6    # "i":I
-    .restart local v7    # "i":I
-    invoke-virtual {v15, v6, v4}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
+    .end local v1    # "i":I
+    .local v15, "i":I
+    invoke-virtual {v8, v1, v14}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
 
     .line 139
-    move-object/from16 v0, p0
+    iget-object v1, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
 
-    iget-object v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+    add-int/lit8 v8, v15, 0x1
 
-    add-int/lit8 v6, v7, 0x1
-
-    .end local v7    # "i":I
-    .restart local v6    # "i":I
-    invoke-virtual {v15, v7, v3}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
+    .end local v15    # "i":I
+    .restart local v8    # "i":I
+    invoke-virtual {v1, v15, v13}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
 
     .line 141
-    move-object/from16 v0, p0
+    iget-object v1, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
 
-    iget-object v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+    add-int/lit8 v15, v8, 0x1
 
-    add-int/lit8 v7, v6, 0x1
-
-    .end local v6    # "i":I
-    .restart local v7    # "i":I
-    invoke-virtual {v15, v6, v3}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
+    .end local v8    # "i":I
+    .restart local v15    # "i":I
+    invoke-virtual {v1, v8, v13}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
 
     .line 142
-    move-object/from16 v0, p0
+    iget-object v1, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
 
-    iget-object v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+    add-int/lit8 v8, v15, 0x1
 
-    add-int/lit8 v6, v7, 0x1
-
-    .end local v7    # "i":I
-    .restart local v6    # "i":I
-    invoke-virtual {v15, v7, v4}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
+    .end local v15    # "i":I
+    .restart local v8    # "i":I
+    invoke-virtual {v1, v15, v14}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
 
     .line 143
-    move-object/from16 v0, p0
+    iget-object v1, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
 
-    iget-object v15, v0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+    add-int/lit8 v15, v8, 0x1
 
-    add-int/lit8 v7, v6, 0x1
-
-    .end local v6    # "i":I
-    .restart local v7    # "i":I
-    invoke-virtual {v15, v6, v5}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
+    .end local v8    # "i":I
+    .restart local v15    # "i":I
+    invoke-virtual {v1, v8, v11}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
 
     .line 131
-    add-int/lit8 v13, v13, 0x1
+    .end local v11    # "d":C
+    .end local v12    # "a":C
+    .end local v13    # "b":C
+    .end local v14    # "c":C
+    add-int/lit8 v10, v10, 0x1
+
+    move v8, v15
+
+    move/from16 v1, p1
 
     goto :goto_1
 
     .line 130
-    .end local v2    # "a":C
-    .end local v3    # "b":C
-    .end local v4    # "c":C
-    .end local v5    # "d":C
-    :cond_5
-    add-int/lit8 v14, v14, 0x1
+    .end local v10    # "x":I
+    .end local v15    # "i":I
+    .restart local v8    # "i":I
+    :cond_0
+    add-int/lit8 v9, v9, 0x1
 
-    move v6, v7
+    move/from16 v1, p1
 
-    .end local v7    # "i":I
-    .restart local v6    # "i":I
     goto :goto_0
 
     .line 148
-    .end local v13    # "x":I
-    :cond_6
+    .end local v8    # "i":I
+    .end local v9    # "y":I
+    :cond_1
+    return-void
+
+    .line 97
+    .end local v3    # "size":I
+    .end local v4    # "quadW":I
+    .end local v5    # "quadH":I
+    .end local v6    # "quadCount":I
+    .end local v7    # "indexCount":I
+    :cond_2
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string v3, "w * h >= 65536"
+
+    invoke-direct {v1, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 94
+    :cond_3
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string v3, "h"
+
+    invoke-direct {v1, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 91
+    :cond_4
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string v3, "w"
+
+    invoke-direct {v1, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
     return-void
 .end method
 
 
 # virtual methods
 .method public createBufferObjects(Ljavax/microedition/khronos/opengles/GL;)V
-    .locals 9
+    .locals 8
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL;
 
-    .prologue
-    const v8, 0x8893
-
-    const v7, 0x8892
-
-    const/4 v2, 0x2
-
-    const/4 v6, 0x0
-
-    const/4 v5, 0x0
-
     .line 183
-    new-array v1, v2, [I
+    const/4 v0, 0x2
 
-    .local v1, "vboIds":[I
-    move-object v0, p1
+    new-array v1, v0, [I
 
     .line 184
-    check-cast v0, Ljavax/microedition/khronos/opengles/GL11;
+    .local v1, "vboIds":[I
+    move-object v2, p1
+
+    check-cast v2, Ljavax/microedition/khronos/opengles/GL11;
 
     .line 185
-    .local v0, "gl11":Ljavax/microedition/khronos/opengles/GL11;
-    invoke-interface {v0, v2, v1, v5}, Ljavax/microedition/khronos/opengles/GL11;->glGenBuffers(I[II)V
+    .local v2, "gl11":Ljavax/microedition/khronos/opengles/GL11;
+    const/4 v3, 0x0
+
+    invoke-interface {v2, v0, v1, v3}, Ljavax/microedition/khronos/opengles/GL11;->glGenBuffers(I[II)V
 
     .line 186
-    aget v2, v1, v5
+    aget v4, v1, v3
 
-    iput v2, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexBufferObjectId:I
+    iput v4, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexBufferObjectId:I
 
     .line 187
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    aget v2, v1, v2
+    aget v4, v1, v4
 
-    iput v2, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mElementBufferObjectId:I
+    iput v4, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mElementBufferObjectId:I
 
     .line 190
-    iget v2, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexBufferObjectId:I
+    iget v4, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexBufferObjectId:I
 
-    invoke-interface {v0, v7, v2}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
+    const v5, 0x8892
+
+    invoke-interface {v2, v5, v4}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
 
     .line 191
-    iget-object v2, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexByteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v4, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexByteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v2, v5}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v4, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 192
-    iget-object v2, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexByteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v4, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexByteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->capacity()I
+    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v2
+    move-result v4
 
-    iget-object v3, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexByteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v6, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexByteBuffer:Ljava/nio/ByteBuffer;
 
-    const v4, 0x88e4
+    const v7, 0x88e4
 
-    invoke-interface {v0, v7, v2, v3, v4}, Ljavax/microedition/khronos/opengles/GL11;->glBufferData(IILjava/nio/Buffer;I)V
+    invoke-interface {v2, v5, v4, v6, v7}, Ljavax/microedition/khronos/opengles/GL11;->glBufferData(IILjava/nio/Buffer;I)V
 
     .line 194
-    iget v2, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mElementBufferObjectId:I
+    iget v4, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mElementBufferObjectId:I
 
-    invoke-interface {v0, v8, v2}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
+    const v5, 0x8893
+
+    invoke-interface {v2, v5, v4}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
 
     .line 195
-    iget-object v2, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+    iget-object v4, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
 
-    invoke-virtual {v2, v5}, Ljava/nio/CharBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v4, v3}, Ljava/nio/CharBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 196
-    iget-object v2, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
-
-    invoke-virtual {v2}, Ljava/nio/CharBuffer;->capacity()I
-
-    move-result v2
-
-    mul-int/lit8 v2, v2, 0x2
-
     iget-object v3, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
 
-    const v4, 0x88e4
+    invoke-virtual {v3}, Ljava/nio/CharBuffer;->capacity()I
 
-    invoke-interface {v0, v8, v2, v3, v4}, Ljavax/microedition/khronos/opengles/GL11;->glBufferData(IILjava/nio/Buffer;I)V
+    move-result v3
+
+    mul-int/lit8 v3, v3, 0x2
+
+    iget-object v0, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+
+    invoke-interface {v2, v5, v3, v0, v7}, Ljavax/microedition/khronos/opengles/GL11;->glBufferData(IILjava/nio/Buffer;I)V
 
     .line 199
-    iput-object v6, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
 
     .line 200
-    iput-object v6, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexByteBuffer:Ljava/nio/ByteBuffer;
+    iput-object v0, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexByteBuffer:Ljava/nio/ByteBuffer;
 
     .line 201
-    iput-object v6, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+    iput-object v0, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
 
     .line 202
     return-void
 .end method
 
 .method public draw(Ljavax/microedition/khronos/opengles/GL10;)V
-    .locals 9
+    .locals 11
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
-
-    .prologue
-    const v8, 0x8074
-
-    const/16 v7, 0x1406
-
-    const/4 v6, 0x2
-
-    const/16 v4, 0x20
-
-    const/4 v5, 0x0
 
     .line 205
     move-object v0, p1
 
     check-cast v0, Ljavax/microedition/khronos/opengles/GL11;
 
+    .line 206
     .local v0, "gl11":Ljavax/microedition/khronos/opengles/GL11;
     move-object v1, p1
 
-    .line 206
     check-cast v1, Ljavax/microedition/khronos/opengles/GL11Ext;
 
     .line 208
     .local v1, "gl11Ext":Ljavax/microedition/khronos/opengles/GL11Ext;
-    invoke-interface {p1, v8}, Ljavax/microedition/khronos/opengles/GL10;->glEnableClientState(I)V
+    const v2, 0x8074
+
+    invoke-interface {p1, v2}, Ljavax/microedition/khronos/opengles/GL10;->glEnableClientState(I)V
 
     .line 210
-    const v2, 0x8892
-
     iget v3, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mVertexBufferObjectId:I
 
-    invoke-interface {v0, v2, v3}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
+    const v4, 0x8892
+
+    invoke-interface {v0, v4, v3}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
 
     .line 211
-    const/4 v2, 0x3
+    const/16 v3, 0x1406
 
-    invoke-interface {v0, v2, v7, v4, v5}, Ljavax/microedition/khronos/opengles/GL11;->glVertexPointer(IIII)V
+    const/4 v5, 0x0
+
+    const/16 v6, 0x20
+
+    const/4 v7, 0x3
+
+    invoke-interface {v0, v7, v3, v6, v5}, Ljavax/microedition/khronos/opengles/GL11;->glVertexPointer(IIII)V
 
     .line 212
-    const/16 v2, 0xc
+    const/4 v7, 0x2
 
-    invoke-interface {v0, v6, v7, v4, v2}, Ljavax/microedition/khronos/opengles/GL11;->glTexCoordPointer(IIII)V
+    const/16 v8, 0xc
+
+    invoke-interface {v0, v7, v3, v6, v8}, Ljavax/microedition/khronos/opengles/GL11;->glTexCoordPointer(IIII)V
 
     .line 214
-    const v2, 0x8844
+    const v8, 0x8844
 
-    invoke-interface {p1, v2}, Ljavax/microedition/khronos/opengles/GL10;->glEnableClientState(I)V
+    invoke-interface {p1, v8}, Ljavax/microedition/khronos/opengles/GL10;->glEnableClientState(I)V
 
     .line 215
-    const v2, 0x86ad
+    const v9, 0x86ad
 
-    invoke-interface {p1, v2}, Ljavax/microedition/khronos/opengles/GL10;->glEnableClientState(I)V
+    invoke-interface {p1, v9}, Ljavax/microedition/khronos/opengles/GL10;->glEnableClientState(I)V
 
     .line 217
-    const/16 v2, 0x14
+    const/16 v10, 0x14
 
-    invoke-interface {v1, v6, v7, v4, v2}, Ljavax/microedition/khronos/opengles/GL11Ext;->glWeightPointerOES(IIII)V
+    invoke-interface {v1, v7, v3, v6, v10}, Ljavax/microedition/khronos/opengles/GL11Ext;->glWeightPointerOES(IIII)V
 
     .line 218
-    const/16 v2, 0x1401
+    const/16 v3, 0x1401
 
-    const/16 v3, 0x1c
+    const/16 v10, 0x1c
 
-    invoke-interface {v1, v6, v2, v4, v3}, Ljavax/microedition/khronos/opengles/GL11Ext;->glMatrixIndexPointerOES(IIII)V
+    invoke-interface {v1, v7, v3, v6, v10}, Ljavax/microedition/khronos/opengles/GL11Ext;->glMatrixIndexPointerOES(IIII)V
 
     .line 220
-    const v2, 0x8893
-
     iget v3, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mElementBufferObjectId:I
 
-    invoke-interface {v0, v2, v3}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
+    const v6, 0x8893
+
+    invoke-interface {v0, v6, v3}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
 
     .line 221
-    const/4 v2, 0x4
-
     iget v3, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mIndexCount:I
 
-    const/16 v4, 0x1403
+    const/4 v7, 0x4
 
-    invoke-interface {v0, v2, v3, v4, v5}, Ljavax/microedition/khronos/opengles/GL11;->glDrawElements(IIII)V
+    const/16 v10, 0x1403
+
+    invoke-interface {v0, v7, v3, v10, v5}, Ljavax/microedition/khronos/opengles/GL11;->glDrawElements(IIII)V
 
     .line 222
-    invoke-interface {p1, v8}, Ljavax/microedition/khronos/opengles/GL10;->glDisableClientState(I)V
+    invoke-interface {p1, v2}, Ljavax/microedition/khronos/opengles/GL10;->glDisableClientState(I)V
 
     .line 223
-    const v2, 0x8844
-
-    invoke-interface {p1, v2}, Ljavax/microedition/khronos/opengles/GL10;->glDisableClientState(I)V
+    invoke-interface {p1, v8}, Ljavax/microedition/khronos/opengles/GL10;->glDisableClientState(I)V
 
     .line 224
-    const v2, 0x86ad
-
-    invoke-interface {p1, v2}, Ljavax/microedition/khronos/opengles/GL10;->glDisableClientState(I)V
+    invoke-interface {p1, v9}, Ljavax/microedition/khronos/opengles/GL10;->glDisableClientState(I)V
 
     .line 225
-    const v2, 0x8892
-
-    invoke-interface {v0, v2, v5}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
+    invoke-interface {v0, v4, v5}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
 
     .line 226
-    const v2, 0x8893
-
-    invoke-interface {v0, v2, v5}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
+    invoke-interface {v0, v6, v5}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
 
     .line 227
     return-void
@@ -619,68 +559,33 @@
     .param p10, "p0"    # I
     .param p11, "p1"    # I
 
-    .prologue
     .line 154
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_2
 
-    iget v1, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mW:I
+    iget v0, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mW:I
 
-    if-lt p1, v1, :cond_1
-
-    .line 155
-    :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    const-string v2, "i"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    if-ge p1, v0, :cond_2
 
     .line 157
-    :cond_1
-    if-ltz p2, :cond_2
+    if-ltz p2, :cond_1
 
     iget v1, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mH:I
 
-    if-lt p2, v1, :cond_3
-
-    .line 158
-    :cond_2
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    const-string v2, "j"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    if-ge p2, v1, :cond_1
 
     .line 161
-    :cond_3
     add-float v1, p8, p9
 
     const/high16 v2, 0x3f800000    # 1.0f
 
     cmpl-float v1, v1, v2
 
-    if-eqz v1, :cond_4
-
-    .line 162
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    const-string v2, "Weights must add up to 1.0f"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    if-nez v1, :cond_0
 
     .line 165
-    :cond_4
-    iget v1, p0, Lio/appium/android/apis/graphics/MatrixPaletteRenderer$Grid;->mW:I
+    mul-int v0, v0, p2
 
-    mul-int/2addr v1, p2
-
-    add-int v0, v1, p1
+    add-int/2addr v0, p1
 
     .line 167
     .local v0, "index":I
@@ -752,4 +657,35 @@
 
     .line 179
     return-void
+
+    .line 162
+    .end local v0    # "index":I
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "Weights must add up to 1.0f"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 158
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "j"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 155
+    :cond_2
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "i"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method

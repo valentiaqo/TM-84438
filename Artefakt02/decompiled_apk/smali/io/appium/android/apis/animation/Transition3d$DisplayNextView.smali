@@ -28,7 +28,6 @@
     .locals 0
     .param p2, "position"    # I
 
-    .prologue
     .line 122
     iput-object p1, p0, Lio/appium/android/apis/animation/Transition3d$DisplayNextView;->this$0:Lio/appium/android/apis/animation/Transition3d;
 
@@ -47,7 +46,6 @@
     .param p2, "x1"    # I
     .param p3, "x2"    # Lio/appium/android/apis/animation/Transition3d$1;
 
-    .prologue
     .line 119
     invoke-direct {p0, p1, p2}, Lio/appium/android/apis/animation/Transition3d$DisplayNextView;-><init>(Lio/appium/android/apis/animation/Transition3d;I)V
 
@@ -60,7 +58,6 @@
     .locals 4
     .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
     .line 130
     iget-object v0, p0, Lio/appium/android/apis/animation/Transition3d$DisplayNextView;->this$0:Lio/appium/android/apis/animation/Transition3d;
 
@@ -86,7 +83,6 @@
     .locals 0
     .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
     .line 134
     return-void
 .end method
@@ -95,7 +91,6 @@
     .locals 0
     .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
     .line 127
     return-void
 .end method

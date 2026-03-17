@@ -23,9 +23,9 @@
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/animation/CustomEvaluator;Lio/appium/android/apis/animation/ShapeHolder;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/CustomEvaluator;
     .param p2, "ball"    # Lio/appium/android/apis/animation/ShapeHolder;
 
-    .prologue
     .line 98
     iput-object p1, p0, Lio/appium/android/apis/animation/CustomEvaluator$BallXYHolder;->this$0:Lio/appium/android/apis/animation/CustomEvaluator;
 
@@ -43,7 +43,6 @@
 .method public getXY()Lio/appium/android/apis/animation/CustomEvaluator$XYHolder;
     .locals 4
 
-    .prologue
     .line 108
     new-instance v0, Lio/appium/android/apis/animation/CustomEvaluator$XYHolder;
 
@@ -70,7 +69,6 @@
     .locals 2
     .param p1, "xyHolder"    # Lio/appium/android/apis/animation/CustomEvaluator$XYHolder;
 
-    .prologue
     .line 103
     iget-object v0, p0, Lio/appium/android/apis/animation/CustomEvaluator$BallXYHolder;->mBall:Lio/appium/android/apis/animation/ShapeHolder;
 

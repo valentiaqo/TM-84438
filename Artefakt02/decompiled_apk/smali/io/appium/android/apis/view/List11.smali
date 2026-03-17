@@ -11,95 +11,94 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
     .line 45
     const/16 v0, 0xe
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const-string v1, "Action"
 
-    const-string v2, "Action"
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    const-string v1, "Adventure"
 
-    const-string v2, "Adventure"
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x2
+    const-string v1, "Animation"
 
-    const-string v2, "Animation"
+    const/4 v2, 0x2
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x3
+    const-string v1, "Children"
 
-    const-string v2, "Children"
+    const/4 v2, 0x3
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x4
+    const-string v1, "Comedy"
 
-    const-string v2, "Comedy"
+    const/4 v2, 0x4
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x5
+    const-string v1, "Documentary"
 
-    const-string v2, "Documentary"
+    const/4 v2, 0x5
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x6
+    const-string v1, "Drama"
 
-    const-string v2, "Drama"
+    const/4 v2, 0x6
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x7
+    const-string v1, "Foreign"
 
-    const-string v2, "Foreign"
+    const/4 v2, 0x7
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x8
+    const-string v1, "History"
 
-    const-string v2, "History"
+    const/16 v2, 0x8
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x9
+    const-string v1, "Independent"
 
-    const-string v2, "Independent"
+    const/16 v2, 0x9
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0xa
+    const-string v1, "Romance"
 
-    const-string v2, "Romance"
+    const/16 v2, 0xa
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0xb
+    const-string v1, "Sci-Fi"
 
-    const-string v2, "Sci-Fi"
+    const/16 v2, 0xb
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0xc
+    const-string v1, "Television"
 
-    const-string v2, "Television"
+    const/16 v2, 0xc
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0xd
+    const-string v1, "Thriller"
 
-    const-string v2, "Thriller"
+    const/16 v2, 0xd
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     sput-object v0, Lio/appium/android/apis/view/List11;->GENRES:[Ljava/lang/String;
 
@@ -109,7 +108,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 29
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
@@ -119,23 +117,22 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 33
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 35
-    new-instance v1, Landroid/widget/ArrayAdapter;
+    new-instance v0, Landroid/widget/ArrayAdapter;
+
+    sget-object v1, Lio/appium/android/apis/view/List11;->GENRES:[Ljava/lang/String;
 
     const v2, 0x1090010
 
-    sget-object v3, Lio/appium/android/apis/view/List11;->GENRES:[Ljava/lang/String;
+    invoke-direct {v0, p0, v2, v1}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
-    invoke-direct {v1, p0, v2, v3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
-
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/List11;->setListAdapter(Landroid/widget/ListAdapter;)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/List11;->setListAdapter(Landroid/widget/ListAdapter;)V
 
     .line 38
     invoke-virtual {p0}, Lio/appium/android/apis/view/List11;->getListView()Landroid/widget/ListView;

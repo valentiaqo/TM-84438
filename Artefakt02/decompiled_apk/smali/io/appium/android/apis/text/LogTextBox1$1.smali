@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/text/LogTextBox1;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/text/LogTextBox1;
 
-    .prologue
     .line 44
     iput-object p1, p0, Lio/appium/android/apis/text/LogTextBox1$1;->this$0:Lio/appium/android/apis/text/LogTextBox1;
 
@@ -40,7 +40,6 @@
     .locals 2
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 47
     iget-object v0, p0, Lio/appium/android/apis/text/LogTextBox1$1;->this$0:Lio/appium/android/apis/text/LogTextBox1;
 

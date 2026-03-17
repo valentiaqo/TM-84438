@@ -7,7 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 24
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -20,12 +19,11 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 27
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 29
-    const v0, 0x7f030072
+    const v0, 0x7f0b0090
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/LayoutAnimation7;->setContentView(I)V
 

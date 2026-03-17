@@ -15,7 +15,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 59
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -26,7 +25,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/view/Hover;
 
-    .prologue
     .line 59
     iget-object v0, p0, Lio/appium/android/apis/view/Hover;->mMessageTextView:Landroid/widget/TextView;
 
@@ -37,7 +35,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/view/Hover;
 
-    .prologue
     .line 59
     iget-object v0, p0, Lio/appium/android/apis/view/Hover;->mInterceptor:Lio/appium/android/apis/view/HoverInterceptorView;
 
@@ -50,52 +47,51 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 66
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 68
-    const v1, 0x7f03005e
+    const v0, 0x7f0b007b
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Hover;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Hover;->setContentView(I)V
 
     .line 70
-    const v1, 0x7f0900b8
+    const v0, 0x7f09012a
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Hover;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Hover;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    iput-object v1, p0, Lio/appium/android/apis/view/Hover;->mMessageTextView:Landroid/widget/TextView;
+    iput-object v0, p0, Lio/appium/android/apis/view/Hover;->mMessageTextView:Landroid/widget/TextView;
 
     .line 71
-    const v1, 0x7f0900b9
+    const v0, 0x7f0900fa
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Hover;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Hover;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/CheckBox;
+    check-cast v0, Landroid/widget/CheckBox;
 
-    iput-object v1, p0, Lio/appium/android/apis/view/Hover;->mInterceptCheckBox:Landroid/widget/CheckBox;
+    iput-object v0, p0, Lio/appium/android/apis/view/Hover;->mInterceptCheckBox:Landroid/widget/CheckBox;
 
     .line 72
-    const v1, 0x7f0900ba
+    const v0, 0x7f0900fc
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Hover;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Hover;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lio/appium/android/apis/view/HoverInterceptorView;
+    check-cast v0, Lio/appium/android/apis/view/HoverInterceptorView;
 
-    iput-object v1, p0, Lio/appium/android/apis/view/Hover;->mInterceptor:Lio/appium/android/apis/view/HoverInterceptorView;
+    iput-object v0, p0, Lio/appium/android/apis/view/Hover;->mInterceptor:Lio/appium/android/apis/view/HoverInterceptorView;
 
     .line 74
-    const v1, 0x7f090036
+    const v0, 0x7f090073
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Hover;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Hover;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

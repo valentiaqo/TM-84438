@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/PopupMenu1;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/PopupMenu1;
 
-    .prologue
     .line 43
     iput-object p1, p0, Lio/appium/android/apis/view/PopupMenu1$1;->this$0:Lio/appium/android/apis/view/PopupMenu1;
 
@@ -40,7 +40,6 @@
     .locals 3
     .param p1, "item"    # Landroid/view/MenuItem;
 
-    .prologue
     .line 45
     iget-object v0, p0, Lio/appium/android/apis/view/PopupMenu1$1;->this$0:Lio/appium/android/apis/view/PopupMenu1;
 
@@ -52,15 +51,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -72,6 +67,7 @@
 
     move-result-object v0
 
+    .line 46
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 47

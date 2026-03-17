@@ -11,67 +11,64 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
-
-    .prologue
-    const/4 v7, 0x4
-
-    const/4 v6, 0x3
-
-    const/4 v5, 0x2
-
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
+    .locals 11
 
     .line 7
     const/16 v0, 0x8
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v1, v0, [Ljava/lang/String;
 
-    const-string v1, "Henry IV (1)"
+    const-string v2, "Henry IV (1)"
 
-    aput-object v1, v0, v3
+    const/4 v3, 0x0
 
-    const-string v1, "Henry V"
+    aput-object v2, v1, v3
 
-    aput-object v1, v0, v4
+    const-string v2, "Henry V"
 
-    const-string v1, "Henry VIII"
+    const/4 v4, 0x1
 
-    aput-object v1, v0, v5
+    aput-object v2, v1, v4
 
-    const-string v1, "Richard II"
+    const-string v2, "Henry VIII"
 
-    aput-object v1, v0, v6
+    const/4 v5, 0x2
 
-    const-string v1, "Richard III"
+    aput-object v2, v1, v5
 
-    aput-object v1, v0, v7
+    const-string v2, "Richard II"
 
-    const/4 v1, 0x5
+    const/4 v6, 0x3
+
+    aput-object v2, v1, v6
+
+    const-string v2, "Richard III"
+
+    const/4 v7, 0x4
+
+    aput-object v2, v1, v7
 
     const-string v2, "Merchant of Venice"
 
-    aput-object v2, v0, v1
+    const/4 v8, 0x5
 
-    const/4 v1, 0x6
+    aput-object v2, v1, v8
 
     const-string v2, "Othello"
 
-    aput-object v2, v0, v1
+    const/4 v9, 0x6
 
-    const/4 v1, 0x7
+    aput-object v2, v1, v9
 
     const-string v2, "King Lear"
 
-    aput-object v2, v0, v1
+    const/4 v10, 0x7
 
-    sput-object v0, Lio/appium/android/apis/Shakespeare;->TITLES:[Ljava/lang/String;
+    aput-object v2, v1, v10
+
+    sput-object v1, Lio/appium/android/apis/Shakespeare;->TITLES:[Ljava/lang/String;
 
     .line 22
-    const/16 v0, 0x8
-
     new-array v0, v0, [Ljava/lang/String;
 
     const-string v1, "So shaken as we are, so wan with care,Find we a time for frighted peace to pant,And breathe short-winded accents of new broilsTo be commenced in strands afar remote.No more the thirsty entrance of this soilShall daub her lips with her own children\'s blood;Nor more shall trenching war channel her fields,Nor bruise her flowerets with the armed hoofsOf hostile paces: those opposed eyes,Which, like the meteors of a troubled heaven,All of one nature, of one substance bred,Did lately meet in the intestine shockAnd furious close of civil butcheryShall now, in mutual well-beseeming ranks,March all one way and be no more opposedAgainst acquaintance, kindred and allies:The edge of war, like an ill-sheathed knife,No more shall cut his master. Therefore, friends,As far as to the sepulchre of Christ,Whose soldier now, under whose blessed crossWe are impressed and engaged to fight,Forthwith a power of English shall we levy;Whose arms were moulded in their mothers\' wombTo chase these pagans in those holy fieldsOver whose acres walk\'d those blessed feetWhich fourteen hundred years ago were nail\'dFor our advantage on the bitter cross.But this our purpose now is twelve month old,And bootless \'tis to tell you we will go:Therefore we meet not now. Then let me hearOf you, my gentle cousin Westmoreland,What yesternight our council did decreeIn forwarding this dear expedience."
@@ -94,23 +91,17 @@
 
     aput-object v1, v0, v7
 
-    const/4 v1, 0x5
+    const-string v1, "To bait fish withal: if it will feed nothing else,it will feed my revenge. He hath disgraced me, andhindered me half a million; laughed at my losses,mocked at my gains, scorned my nation, thwarted mybargains, cooled my friends, heated mineenemies; and what\'s his reason? I am a Jew. Hathnot a Jew eyes? hath not a Jew hands, organs,dimensions, senses, affections, passions? fed withthe same food, hurt with the same weapons, subjectto the same diseases, healed by the same means,warmed and cooled by the same winter and summer, asa Christian is? If you prick us, do we not bleed?if you tickle us, do we not laugh? if you poisonus, do we not die? and if you wrong us, shall we notrevenge? If we are like you in the rest, we willresemble you in that. If a Jew wrong a Christian,what is his humility? Revenge. If a Christianwrong a Jew, what should his sufferance be byChristian example? Why, revenge. The villany youteach me, I will execute, and it shall go hard but Iwill better the instruction."
 
-    const-string v2, "To bait fish withal: if it will feed nothing else,it will feed my revenge. He hath disgraced me, andhindered me half a million; laughed at my losses,mocked at my gains, scorned my nation, thwarted mybargains, cooled my friends, heated mineenemies; and what\'s his reason? I am a Jew. Hathnot a Jew eyes? hath not a Jew hands, organs,dimensions, senses, affections, passions? fed withthe same food, hurt with the same weapons, subjectto the same diseases, healed by the same means,warmed and cooled by the same winter and summer, asa Christian is? If you prick us, do we not bleed?if you tickle us, do we not laugh? if you poisonus, do we not die? and if you wrong us, shall we notrevenge? If we are like you in the rest, we willresemble you in that. If a Jew wrong a Christian,what is his humility? Revenge. If a Christianwrong a Jew, what should his sufferance be byChristian example? Why, revenge. The villany youteach me, I will execute, and it shall go hard but Iwill better the instruction."
+    aput-object v1, v0, v8
 
-    aput-object v2, v0, v1
+    const-string v1, "Virtue! a fig! \'tis in ourselves that we are thusor thus. Our bodies are our gardens, to the whichour wills are gardeners: so that if we will plantnettles, or sow lettuce, set hyssop and weed upthyme, supply it with one gender of herbs, ordistract it with many, either to have it sterilewith idleness, or manured with industry, why, thepower and corrigible authority of this lies in ourwills. If the balance of our lives had not onescale of reason to poise another of sensuality, theblood and baseness of our natures would conduct usto most preposterous conclusions: but we havereason to cool our raging motions, our carnalstings, our unbitted lusts, whereof I take this thatyou call love to be a sect or scion."
 
-    const/4 v1, 0x6
+    aput-object v1, v0, v9
 
-    const-string v2, "Virtue! a fig! \'tis in ourselves that we are thusor thus. Our bodies are our gardens, to the whichour wills are gardeners: so that if we will plantnettles, or sow lettuce, set hyssop and weed upthyme, supply it with one gender of herbs, ordistract it with many, either to have it sterilewith idleness, or manured with industry, why, thepower and corrigible authority of this lies in ourwills. If the balance of our lives had not onescale of reason to poise another of sensuality, theblood and baseness of our natures would conduct usto most preposterous conclusions: but we havereason to cool our raging motions, our carnalstings, our unbitted lusts, whereof I take this thatyou call love to be a sect or scion."
+    const-string v1, "Blow, winds, and crack your cheeks! rage! blow!You cataracts and hurricanoes, spoutTill you have drench\'d our steeples, drown\'d the cocks!You sulphurous and thought-executing fires,Vaunt-couriers to oak-cleaving thunderbolts,Singe my white head! And thou, all-shaking thunder,Smite flat the thick rotundity o\' the world!Crack nature\'s moulds, an germens spill at once,That make ingrateful man!"
 
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x7
-
-    const-string v2, "Blow, winds, and crack your cheeks! rage! blow!You cataracts and hurricanoes, spoutTill you have drench\'d our steeples, drown\'d the cocks!You sulphurous and thought-executing fires,Vaunt-couriers to oak-cleaving thunderbolts,Singe my white head! And thou, all-shaking thunder,Smite flat the thick rotundity o\' the world!Crack nature\'s moulds, an germens spill at once,That make ingrateful man!"
-
-    aput-object v2, v0, v1
+    aput-object v1, v0, v10
 
     sput-object v0, Lio/appium/android/apis/Shakespeare;->DIALOGUE:[Ljava/lang/String;
 
@@ -120,7 +111,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

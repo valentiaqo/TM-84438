@@ -18,7 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 59
     invoke-direct {p0}, Landroid/preference/PreferenceFragment;-><init>()V
 
@@ -31,7 +30,6 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 62
     invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -40,14 +38,14 @@
 
     move-result-object v0
 
-    const/high16 v1, 0x7f060000
+    const/high16 v1, 0x7f110000
 
     const/4 v2, 0x0
 
     invoke-static {v0, v1, v2}, Landroid/preference/PreferenceManager;->setDefaultValues(Landroid/content/Context;IZ)V
 
     .line 71
-    const v0, 0x7f06000b
+    const v0, 0x7f11000b
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/preference/PreferenceWithHeaders$Prefs1Fragment;->addPreferencesFromResource(I)V
 

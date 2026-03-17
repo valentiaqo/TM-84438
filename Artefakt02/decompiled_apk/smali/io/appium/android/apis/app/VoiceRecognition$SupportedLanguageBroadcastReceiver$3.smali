@@ -26,8 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;Landroid/os/Bundle;)V
     .locals 0
+    .param p1, "this$1"    # Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;
 
-    .prologue
     .line 204
     iput-object p1, p0, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver$3;->this$1:Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;
 
@@ -43,7 +43,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
     .line 208
     iget-object v0, p0, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver$3;->this$1:Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;
 

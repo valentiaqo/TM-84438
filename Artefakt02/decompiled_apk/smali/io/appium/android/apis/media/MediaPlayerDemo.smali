@@ -45,7 +45,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 27
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -86,17 +85,16 @@
     .locals 2
     .param p1, "icicle"    # Landroid/os/Bundle;
 
-    .prologue
     .line 45
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 46
-    const v0, 0x7f03008e
+    const v0, 0x7f0b00ac
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/media/MediaPlayerDemo;->setContentView(I)V
 
     .line 47
-    const v0, 0x7f0900ec
+    const v0, 0x7f09011b
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/media/MediaPlayerDemo;->findViewById(I)Landroid/view/View;
 
@@ -114,7 +112,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 49
-    const v0, 0x7f0900ed
+    const v0, 0x7f090188
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/media/MediaPlayerDemo;->findViewById(I)Landroid/view/View;
 
@@ -132,7 +130,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 52
-    const v0, 0x7f0900ea
+    const v0, 0x7f09011c
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/media/MediaPlayerDemo;->findViewById(I)Landroid/view/View;
 
@@ -150,7 +148,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 54
-    const v0, 0x7f0900eb
+    const v0, 0x7f0901fa
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/media/MediaPlayerDemo;->findViewById(I)Landroid/view/View;
 

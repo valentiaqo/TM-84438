@@ -26,9 +26,9 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/graphics/SurfaceViewOverlay;Landroid/view/View;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/graphics/SurfaceViewOverlay;
     .param p2, "target"    # Landroid/view/View;
 
-    .prologue
     .line 83
     iput-object p1, p0, Lio/appium/android/apis/graphics/SurfaceViewOverlay$HideMeListener;->this$0:Lio/appium/android/apis/graphics/SurfaceViewOverlay;
 
@@ -47,7 +47,6 @@
     .locals 2
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 88
     iget-object v0, p0, Lio/appium/android/apis/graphics/SurfaceViewOverlay$HideMeListener;->mTarget:Landroid/view/View;
 

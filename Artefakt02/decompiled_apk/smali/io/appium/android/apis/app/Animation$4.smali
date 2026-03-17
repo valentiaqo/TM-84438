@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/Animation;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/Animation;
 
-    .prologue
     .line 105
     iput-object p1, p0, Lio/appium/android/apis/app/Animation$4;->this$0:Lio/appium/android/apis/app/Animation;
 
@@ -37,16 +37,15 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .locals 4
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    const v2, 0x7f04001a
-
     .line 112
-    iget-object v1, p0, Lio/appium/android/apis/app/Animation$4;->this$0:Lio/appium/android/apis/app/Animation;
+    iget-object v0, p0, Lio/appium/android/apis/app/Animation$4;->this$0:Lio/appium/android/apis/app/Animation;
 
-    invoke-static {v1, v2, v2}, Landroid/app/ActivityOptions;->makeCustomAnimation(Landroid/content/Context;II)Landroid/app/ActivityOptions;
+    const v1, 0x7f010026
+
+    invoke-static {v0, v1, v1}, Landroid/app/ActivityOptions;->makeCustomAnimation(Landroid/content/Context;II)Landroid/app/ActivityOptions;
 
     move-result-object v0
 
@@ -56,11 +55,9 @@
 
     new-instance v2, Landroid/content/Intent;
 
-    iget-object v3, p0, Lio/appium/android/apis/app/Animation$4;->this$0:Lio/appium/android/apis/app/Animation;
+    const-class v3, Lio/appium/android/apis/app/AlertDialogSamples;
 
-    const-class v4, Lio/appium/android/apis/app/AlertDialogSamples;
-
-    invoke-direct {v2, v3, v4}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v2, v1, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     invoke-virtual {v0}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
 

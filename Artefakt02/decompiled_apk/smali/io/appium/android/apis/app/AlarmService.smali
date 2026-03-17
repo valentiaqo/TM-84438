@@ -15,7 +15,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 40
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -40,7 +39,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/app/AlarmService;
 
-    .prologue
     .line 40
     iget-object v0, p0, Lio/appium/android/apis/app/AlarmService;->mAlarmSender:Landroid/app/PendingIntent;
 
@@ -50,37 +48,36 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v3, 0x0
 
     .line 45
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 49
-    new-instance v1, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    const-class v2, Lio/appium/android/apis/app/AlarmService_Service;
+    const-class v1, Lio/appium/android/apis/app/AlarmService_Service;
 
-    invoke-direct {v1, p0, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    invoke-static {p0, v3, v1, v3}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    const/4 v1, 0x0
 
-    move-result-object v1
+    invoke-static {p0, v1, v0, v1}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    iput-object v1, p0, Lio/appium/android/apis/app/AlarmService;->mAlarmSender:Landroid/app/PendingIntent;
+    move-result-object v0
+
+    iput-object v0, p0, Lio/appium/android/apis/app/AlarmService;->mAlarmSender:Landroid/app/PendingIntent;
 
     .line 52
-    const v1, 0x7f03000b
+    const v0, 0x7f0b0027
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/AlarmService;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/AlarmService;->setContentView(I)V
 
     .line 55
-    const v1, 0x7f09001f
+    const v0, 0x7f0901ec
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/AlarmService;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/AlarmService;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -93,17 +90,17 @@
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 57
-    const v1, 0x7f090020
+    const v1, 0x7f0901f8
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/AlarmService;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
     .line 58
-    .restart local v0    # "button":Landroid/widget/Button;
     iget-object v1, p0, Lio/appium/android/apis/app/AlarmService;->mStopAlarmListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V

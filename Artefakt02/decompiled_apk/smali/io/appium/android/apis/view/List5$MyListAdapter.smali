@@ -25,7 +25,6 @@
     .locals 0
     .param p2, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 44
     iput-object p1, p0, Lio/appium/android/apis/view/List5$MyListAdapter;->this$0:Lio/appium/android/apis/view/List5;
 
@@ -43,7 +42,6 @@
 .method public areAllItemsEnabled()Z
     .locals 1
 
-    .prologue
     .line 54
     const/4 v0, 0x0
 
@@ -53,7 +51,6 @@
 .method public getCount()I
     .locals 1
 
-    .prologue
     .line 49
     iget-object v0, p0, Lio/appium/android/apis/view/List5$MyListAdapter;->this$0:Lio/appium/android/apis/view/List5;
 
@@ -70,7 +67,6 @@
     .locals 1
     .param p1, "position"    # I
 
-    .prologue
     .line 63
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -83,7 +79,6 @@
     .locals 2
     .param p1, "position"    # I
 
-    .prologue
     .line 67
     int-to-long v0, p1
 
@@ -91,29 +86,36 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 4
+    .locals 3
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
     .line 72
     if-nez p2, :cond_0
 
     .line 73
-    iget-object v1, p0, Lio/appium/android/apis/view/List5$MyListAdapter;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lio/appium/android/apis/view/List5$MyListAdapter;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object v1
-
-    const v2, 0x1090006
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v1, v2, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
+
+    const v1, 0x1090006
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    goto :goto_0
+
+    .line 76
+    :cond_0
+    move-object v0, p2
 
     check-cast v0, Landroid/widget/TextView;
 
@@ -132,23 +134,12 @@
 
     .line 79
     return-object v0
-
-    .end local v0    # "tv":Landroid/widget/TextView;
-    :cond_0
-    move-object v0, p2
-
-    .line 76
-    check-cast v0, Landroid/widget/TextView;
-
-    .restart local v0    # "tv":Landroid/widget/TextView;
-    goto :goto_0
 .end method
 
 .method public isEnabled(I)Z
     .locals 2
     .param p1, "position"    # I
 
-    .prologue
     .line 59
     iget-object v0, p0, Lio/appium/android/apis/view/List5$MyListAdapter;->this$0:Lio/appium/android/apis/view/List5;
 
@@ -164,15 +155,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x1
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method

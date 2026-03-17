@@ -15,11 +15,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 34
     invoke-direct {p0}, Lio/appium/android/apis/graphics/GraphicsActivity;-><init>()V
 
-    .line 64
     return-void
 .end method
 
@@ -28,13 +26,10 @@
     .param p0, "w"    # I
     .param p1, "h"    # I
 
-    .prologue
-    const/4 v6, 0x0
-
     .line 38
-    sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    invoke-static {p0, p1, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    invoke-static {p0, p1, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
@@ -73,6 +68,8 @@
 
     int-to-float v5, v5
 
+    const/4 v6, 0x0
+
     invoke-direct {v3, v6, v6, v4, v5}, Landroid/graphics/RectF;-><init>(FFFF)V
 
     invoke-virtual {v1, v3, v2}, Landroid/graphics/Canvas;->drawOval(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
@@ -82,63 +79,66 @@
 .end method
 
 .method static makeSrc(II)Landroid/graphics/Bitmap;
-    .locals 7
+    .locals 8
     .param p0, "w"    # I
     .param p1, "h"    # I
 
-    .prologue
     .line 49
-    sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    invoke-static {p0, p1, v1}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    invoke-static {p0, p1, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move-result-object v6
+    move-result-object v0
 
     .line 50
-    .local v6, "bm":Landroid/graphics/Bitmap;
-    new-instance v0, Landroid/graphics/Canvas;
+    .local v0, "bm":Landroid/graphics/Bitmap;
+    new-instance v1, Landroid/graphics/Canvas;
 
-    invoke-direct {v0, v6}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v1, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 51
-    .local v0, "c":Landroid/graphics/Canvas;
-    new-instance v5, Landroid/graphics/Paint;
+    .local v1, "c":Landroid/graphics/Canvas;
+    new-instance v2, Landroid/graphics/Paint;
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    invoke-direct {v5, v1}, Landroid/graphics/Paint;-><init>(I)V
+    invoke-direct {v2, v3}, Landroid/graphics/Paint;-><init>(I)V
+
+    move-object v7, v2
 
     .line 53
-    .local v5, "p":Landroid/graphics/Paint;
-    const v1, -0x995501
+    .local v7, "p":Landroid/graphics/Paint;
+    const v2, -0x995501
 
-    invoke-virtual {v5, v1}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v7, v2}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 54
-    div-int/lit8 v1, p0, 0x3
-
-    int-to-float v1, v1
-
-    div-int/lit8 v2, p1, 0x3
+    div-int/lit8 v2, p0, 0x3
 
     int-to-float v2, v2
 
-    mul-int/lit8 v3, p0, 0x13
-
-    div-int/lit8 v3, v3, 0x14
+    div-int/lit8 v3, p1, 0x3
 
     int-to-float v3, v3
 
-    mul-int/lit8 v4, p1, 0x13
+    mul-int/lit8 v4, p0, 0x13
 
     div-int/lit8 v4, v4, 0x14
 
     int-to-float v4, v4
 
-    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
+    mul-int/lit8 v5, p1, 0x13
+
+    div-int/lit8 v5, v5, 0x14
+
+    int-to-float v5, v5
+
+    move-object v6, v7
+
+    invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
     .line 55
-    return-object v6
+    return-object v0
 .end method
 
 
@@ -147,7 +147,6 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 60
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -164,9 +163,7 @@
 
 .method public bridge synthetic setContentView(Landroid/view/View;)V
     .locals 0
-    .param p1, "x0"    # Landroid/view/View;
 
-    .prologue
     .line 34
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->setContentView(Landroid/view/View;)V
 

@@ -47,82 +47,87 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    const/4 v1, 0x6
-
-    const/4 v2, 0x0
-
     .line 363
-    new-array v0, v1, [I
+    const/4 v0, 0x6
 
-    fill-array-data v0, :array_0
+    new-array v1, v0, [I
 
-    sput-object v0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mPasswordQualityValues:[I
+    fill-array-data v1, :array_0
+
+    sput-object v1, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mPasswordQualityValues:[I
 
     .line 374
-    new-array v0, v1, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    .line 375
+    const/4 v1, 0x0
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    .line 376
+    const/high16 v1, 0x10000
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v1
 
+    const/4 v2, 0x1
+
     aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    .line 377
+    const/high16 v1, 0x20000
 
-    const/high16 v2, 0x10000
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x2
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x2
+    .line 378
+    const/high16 v1, 0x40000
 
-    const/high16 v2, 0x20000
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x3
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x3
+    .line 379
+    const/high16 v1, 0x50000
 
-    const/high16 v2, 0x40000
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x4
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x4
+    .line 380
+    const/high16 v1, 0x60000
 
-    const/high16 v2, 0x50000
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x5
 
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x5
-
-    const/high16 v2, 0x60000
-
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     sput-object v0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mPasswordQualityValueStrings:[Ljava/lang/String;
 
+    .line 374
     return-void
 
-    .line 363
     nop
 
     :array_0
@@ -139,7 +144,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 358
     invoke-direct {p0}, Lio/appium/android/apis/app/DeviceAdminSample$AdminSampleFragment;-><init>()V
 
@@ -147,38 +151,36 @@
 .end method
 
 .method private qualityValueToString(I)Ljava/lang/String;
-    .locals 4
+    .locals 3
     .param p1, "quality"    # I
 
-    .prologue
     .line 501
     const/4 v0, 0x0
 
     .local v0, "i":I
     :goto_0
-    sget-object v2, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mPasswordQualityValues:[I
+    sget-object v1, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mPasswordQualityValues:[I
 
-    array-length v2, v2
+    array-length v2, v1
 
     if-ge v0, v2, :cond_1
 
     .line 502
-    sget-object v2, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mPasswordQualityValues:[I
+    aget v1, v1, v0
 
-    aget v2, v2, v0
-
-    if-ne v2, p1, :cond_0
+    if-ne v1, p1, :cond_0
 
     .line 503
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mActivity:Lio/appium/android/apis/app/DeviceAdminSample;
+    iget-object v1, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mActivity:Lio/appium/android/apis/app/DeviceAdminSample;
 
-    invoke-virtual {v2}, Lio/appium/android/apis/app/DeviceAdminSample;->getResources()Landroid/content/res/Resources;
+    .line 504
+    invoke-virtual {v1}, Lio/appium/android/apis/app/DeviceAdminSample;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v1
 
-    const v3, 0x7f080009
+    const v2, 0x7f030005
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v1
 
@@ -186,50 +188,43 @@
     .local v1, "qualities":[Ljava/lang/String;
     aget-object v2, v1, v0
 
-    .line 508
-    .end local v1    # "qualities":[Ljava/lang/String;
-    :goto_1
     return-object v2
 
     .line 501
+    .end local v1    # "qualities":[Ljava/lang/String;
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 508
+    .end local v0    # "i":I
     :cond_1
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "(0x"
+    const-string v1, "(0x"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    const/16 v1, 0x10
 
-    const/16 v3, 0x10
+    invoke-static {p1, v1}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
 
-    invoke-static {p1, v3}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ")"
 
-    move-result-object v2
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ")"
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    goto :goto_1
+    return-object v0
 .end method
 
 
@@ -238,12 +233,11 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 396
     invoke-super {p0, p1}, Lio/appium/android/apis/app/DeviceAdminSample$AdminSampleFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 397
-    const v0, 0x7f060008
+    const v0, 0x7f110008
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->addPreferencesFromResource(I)V
 
@@ -398,220 +392,219 @@
 .end method
 
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .locals 9
+    .locals 8
     .param p1, "preference"    # Landroid/preference/Preference;
     .param p2, "newValue"    # Ljava/lang/Object;
-
-    .prologue
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
 
     .line 465
     invoke-super {p0, p1, p2}, Lio/appium/android/apis/app/DeviceAdminSample$AdminSampleFragment;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v0
 
-    if-eqz v6, :cond_0
+    const/4 v1, 0x1
 
-    .line 497
-    :goto_0
-    return v4
+    if-eqz v0, :cond_0
 
-    :cond_0
-    move-object v2, p2
+    .line 466
+    return v1
 
     .line 468
-    check-cast v2, Ljava/lang/String;
+    :cond_0
+    move-object v0, p2
+
+    check-cast v0, Ljava/lang/String;
 
     .line 469
-    .local v2, "valueString":Ljava/lang/String;
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    .local v0, "valueString":Ljava/lang/String;
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v6
+    move-result v2
 
-    if-eqz v6, :cond_1
+    const/4 v3, 0x0
 
-    move v4, v5
+    if-eqz v2, :cond_1
 
     .line 470
-    goto :goto_0
+    return v3
 
     .line 472
     :cond_1
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     .line 474
-    .local v1, "value":I
+    .local v2, "value":I
     :try_start_0
-    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v3
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
+    move v2, v3
 
-    .line 479
-    :goto_1
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mPasswordQuality:Landroid/preference/ListPreference;
-
-    if-ne p1, v5, :cond_3
-
-    .line 480
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
-
-    iget-object v6, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
-
-    invoke-virtual {v5, v6, v1}, Landroid/app/admin/DevicePolicyManager;->setPasswordQuality(Landroid/content/ComponentName;I)V
-
-    .line 496
-    :cond_2
-    :goto_2
-    invoke-virtual {p0}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->reloadSummaries()V
-
+    .line 478
     goto :goto_0
 
     .line 475
     :catch_0
-    move-exception v0
+    move-exception v4
 
     .line 476
-    .local v0, "nfe":Ljava/lang/NumberFormatException;
-    iget-object v6, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mActivity:Lio/appium/android/apis/app/DeviceAdminSample;
+    .local v4, "nfe":Ljava/lang/NumberFormatException;
+    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mActivity:Lio/appium/android/apis/app/DeviceAdminSample;
 
-    const v7, 0x7f0c01d4
+    const v6, 0x7f0e0222
 
-    new-array v8, v4, [Ljava/lang/Object;
+    new-array v7, v1, [Ljava/lang/Object;
 
-    aput-object v2, v8, v5
+    aput-object v0, v7, v3
 
-    invoke-virtual {v6, v7, v8}, Lio/appium/android/apis/app/DeviceAdminSample;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 477
-    .local v3, "warning":Ljava/lang/String;
-    iget-object v6, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mActivity:Lio/appium/android/apis/app/DeviceAdminSample;
-
-    invoke-static {v6, v3, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-virtual {v5, v6, v7}, Lio/appium/android/apis/app/DeviceAdminSample;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/widget/Toast;->show()V
+    .line 477
+    .local v5, "warning":Ljava/lang/String;
+    iget-object v6, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mActivity:Lio/appium/android/apis/app/DeviceAdminSample;
+
+    invoke-static {v6, v5, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/widget/Toast;->show()V
+
+    .line 479
+    .end local v4    # "nfe":Ljava/lang/NumberFormatException;
+    .end local v5    # "warning":Ljava/lang/String;
+    :goto_0
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mPasswordQuality:Landroid/preference/ListPreference;
+
+    if-ne p1, v3, :cond_2
+
+    .line 480
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+
+    invoke-virtual {v3, v4, v2}, Landroid/app/admin/DevicePolicyManager;->setPasswordQuality(Landroid/content/ComponentName;I)V
 
     goto :goto_1
 
     .line 481
-    .end local v0    # "nfe":Ljava/lang/NumberFormatException;
-    .end local v3    # "warning":Ljava/lang/String;
-    :cond_3
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinLength:Landroid/preference/EditTextPreference;
+    :cond_2
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinLength:Landroid/preference/EditTextPreference;
 
-    if-ne p1, v5, :cond_4
+    if-ne p1, v3, :cond_3
 
     .line 482
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v6, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v5, v6, v1}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumLength(Landroid/content/ComponentName;I)V
+    invoke-virtual {v3, v4, v2}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumLength(Landroid/content/ComponentName;I)V
 
-    goto :goto_2
+    goto :goto_1
 
     .line 483
-    :cond_4
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinLetters:Landroid/preference/EditTextPreference;
+    :cond_3
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinLetters:Landroid/preference/EditTextPreference;
 
-    if-ne p1, v5, :cond_5
+    if-ne p1, v3, :cond_4
 
     .line 484
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v6, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v5, v6, v1}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumLetters(Landroid/content/ComponentName;I)V
+    invoke-virtual {v3, v4, v2}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumLetters(Landroid/content/ComponentName;I)V
 
-    goto :goto_2
+    goto :goto_1
 
     .line 485
-    :cond_5
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinNumeric:Landroid/preference/EditTextPreference;
+    :cond_4
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinNumeric:Landroid/preference/EditTextPreference;
 
-    if-ne p1, v5, :cond_6
+    if-ne p1, v3, :cond_5
 
     .line 486
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v6, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v5, v6, v1}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumNumeric(Landroid/content/ComponentName;I)V
+    invoke-virtual {v3, v4, v2}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumNumeric(Landroid/content/ComponentName;I)V
 
-    goto :goto_2
+    goto :goto_1
 
     .line 487
-    :cond_6
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinLowerCase:Landroid/preference/EditTextPreference;
+    :cond_5
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinLowerCase:Landroid/preference/EditTextPreference;
 
-    if-ne p1, v5, :cond_7
+    if-ne p1, v3, :cond_6
 
     .line 488
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v6, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v5, v6, v1}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumLowerCase(Landroid/content/ComponentName;I)V
+    invoke-virtual {v3, v4, v2}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumLowerCase(Landroid/content/ComponentName;I)V
 
-    goto :goto_2
+    goto :goto_1
 
     .line 489
-    :cond_7
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinUpperCase:Landroid/preference/EditTextPreference;
+    :cond_6
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinUpperCase:Landroid/preference/EditTextPreference;
 
-    if-ne p1, v5, :cond_8
+    if-ne p1, v3, :cond_7
 
     .line 490
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v6, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v5, v6, v1}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumUpperCase(Landroid/content/ComponentName;I)V
+    invoke-virtual {v3, v4, v2}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumUpperCase(Landroid/content/ComponentName;I)V
 
-    goto :goto_2
+    goto :goto_1
 
     .line 491
-    :cond_8
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinSymbols:Landroid/preference/EditTextPreference;
+    :cond_7
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinSymbols:Landroid/preference/EditTextPreference;
 
-    if-ne p1, v5, :cond_9
+    if-ne p1, v3, :cond_8
 
     .line 492
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v6, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v5, v6, v1}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumSymbols(Landroid/content/ComponentName;I)V
+    invoke-virtual {v3, v4, v2}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumSymbols(Landroid/content/ComponentName;I)V
 
-    goto :goto_2
+    goto :goto_1
 
     .line 493
-    :cond_9
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinNonLetter:Landroid/preference/EditTextPreference;
+    :cond_8
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinNonLetter:Landroid/preference/EditTextPreference;
 
-    if-ne p1, v5, :cond_2
+    if-ne p1, v3, :cond_9
 
     .line 494
-    iget-object v5, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v6, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v5, v6, v1}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumNonLetter(Landroid/content/ComponentName;I)V
+    invoke-virtual {v3, v4, v2}, Landroid/app/admin/DevicePolicyManager;->setPasswordMinimumNonLetter(Landroid/content/ComponentName;I)V
 
-    goto :goto_2
+    .line 496
+    :cond_9
+    :goto_1
+    invoke-virtual {p0}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->reloadSummaries()V
+
+    .line 497
+    return v1
 .end method
 
 .method public onResume()V
     .locals 2
 
-    .prologue
     .line 424
     invoke-super {p0}, Lio/appium/android/apis/app/DeviceAdminSample$AdminSampleFragment;->onResume()V
 
@@ -629,269 +622,270 @@
 .method protected reloadSummaries()V
     .locals 6
 
-    .prologue
-    const/4 v5, 0x0
-
     .line 433
     invoke-super {p0}, Lio/appium/android/apis/app/DeviceAdminSample$AdminSampleFragment;->reloadSummaries()V
 
     .line 436
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v0, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v1, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v2, v3}, Landroid/app/admin/DevicePolicyManager;->getPasswordQuality(Landroid/content/ComponentName;)I
-
-    move-result v1
-
-    .line 437
-    .local v1, "local":I
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
-
-    invoke-virtual {v2, v5}, Landroid/app/admin/DevicePolicyManager;->getPasswordQuality(Landroid/content/ComponentName;)I
+    invoke-virtual {v0, v1}, Landroid/app/admin/DevicePolicyManager;->getPasswordQuality(Landroid/content/ComponentName;)I
 
     move-result v0
 
+    .line 437
+    .local v0, "local":I
+    iget-object v1, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/app/admin/DevicePolicyManager;->getPasswordQuality(Landroid/content/ComponentName;)I
+
+    move-result v1
+
     .line 438
-    .local v0, "global":I
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mPasswordQuality:Landroid/preference/ListPreference;
+    .local v1, "global":I
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mPasswordQuality:Landroid/preference/ListPreference;
 
-    invoke-direct {p0, v1}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->qualityValueToString(I)Ljava/lang/String;
-
-    move-result-object v3
-
+    .line 439
     invoke-direct {p0, v0}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->qualityValueToString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {p0, v3, v4}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->qualityValueToString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v2, v3}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v4, v5}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 438
+    invoke-virtual {v3, v4}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 440
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v2, v3}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumLength(Landroid/content/ComponentName;)I
+    invoke-virtual {v3, v4}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumLength(Landroid/content/ComponentName;)I
 
-    move-result v1
+    move-result v0
 
     .line 441
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v2, v5}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumLength(Landroid/content/ComponentName;)I
+    invoke-virtual {v3, v2}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumLength(Landroid/content/ComponentName;)I
 
-    move-result v0
+    move-result v1
 
     .line 442
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinLength:Landroid/preference/EditTextPreference;
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinLength:Landroid/preference/EditTextPreference;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-virtual {p0, v3, v4}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v2, v3}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v4, v5}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 443
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v2, v3}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumLetters(Landroid/content/ComponentName;)I
+    invoke-virtual {v3, v4}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumLetters(Landroid/content/ComponentName;)I
 
-    move-result v1
+    move-result v0
 
     .line 444
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v2, v5}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumLetters(Landroid/content/ComponentName;)I
+    invoke-virtual {v3, v2}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumLetters(Landroid/content/ComponentName;)I
 
-    move-result v0
+    move-result v1
 
     .line 445
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinLetters:Landroid/preference/EditTextPreference;
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinLetters:Landroid/preference/EditTextPreference;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-virtual {p0, v3, v4}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v2, v3}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v4, v5}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 446
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v2, v3}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumNumeric(Landroid/content/ComponentName;)I
+    invoke-virtual {v3, v4}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumNumeric(Landroid/content/ComponentName;)I
 
-    move-result v1
+    move-result v0
 
     .line 447
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v2, v5}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumNumeric(Landroid/content/ComponentName;)I
+    invoke-virtual {v3, v2}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumNumeric(Landroid/content/ComponentName;)I
 
-    move-result v0
+    move-result v1
 
     .line 448
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinNumeric:Landroid/preference/EditTextPreference;
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinNumeric:Landroid/preference/EditTextPreference;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-virtual {p0, v3, v4}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v2, v3}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v4, v5}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 449
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v2, v3}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumLowerCase(Landroid/content/ComponentName;)I
+    invoke-virtual {v3, v4}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumLowerCase(Landroid/content/ComponentName;)I
 
-    move-result v1
+    move-result v0
 
     .line 450
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v2, v5}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumLowerCase(Landroid/content/ComponentName;)I
+    invoke-virtual {v3, v2}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumLowerCase(Landroid/content/ComponentName;)I
 
-    move-result v0
+    move-result v1
 
     .line 451
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinLowerCase:Landroid/preference/EditTextPreference;
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinLowerCase:Landroid/preference/EditTextPreference;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-virtual {p0, v3, v4}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v2, v3}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v4, v5}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 452
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v2, v3}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumUpperCase(Landroid/content/ComponentName;)I
+    invoke-virtual {v3, v4}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumUpperCase(Landroid/content/ComponentName;)I
 
-    move-result v1
+    move-result v0
 
     .line 453
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v2, v5}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumUpperCase(Landroid/content/ComponentName;)I
+    invoke-virtual {v3, v2}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumUpperCase(Landroid/content/ComponentName;)I
 
-    move-result v0
+    move-result v1
 
     .line 454
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinUpperCase:Landroid/preference/EditTextPreference;
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinUpperCase:Landroid/preference/EditTextPreference;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-virtual {p0, v3, v4}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v2, v3}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v4, v5}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 455
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v2, v3}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumSymbols(Landroid/content/ComponentName;)I
-
-    move-result v1
-
-    .line 456
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
-
-    invoke-virtual {v2, v5}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumSymbols(Landroid/content/ComponentName;)I
+    invoke-virtual {v3, v4}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumSymbols(Landroid/content/ComponentName;)I
 
     move-result v0
 
+    .line 456
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v3, v2}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumSymbols(Landroid/content/ComponentName;)I
+
+    move-result v1
+
     .line 457
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinSymbols:Landroid/preference/EditTextPreference;
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinSymbols:Landroid/preference/EditTextPreference;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-virtual {p0, v3, v4}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v2, v3}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v4, v5}, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->localGlobalSummary(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 458
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
+    iget-object v4, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDeviceAdminSample:Landroid/content/ComponentName;
 
-    invoke-virtual {v2, v3}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumNonLetter(Landroid/content/ComponentName;)I
-
-    move-result v1
-
-    .line 459
-    iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
-
-    invoke-virtual {v2, v5}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumNonLetter(Landroid/content/ComponentName;)I
+    invoke-virtual {v3, v4}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumNonLetter(Landroid/content/ComponentName;)I
 
     move-result v0
+
+    .line 459
+    iget-object v3, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mDPM:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v3, v2}, Landroid/app/admin/DevicePolicyManager;->getPasswordMinimumNonLetter(Landroid/content/ComponentName;)I
+
+    move-result v1
 
     .line 460
     iget-object v2, p0, Lio/appium/android/apis/app/DeviceAdminSample$QualityFragment;->mMinNonLetter:Landroid/preference/EditTextPreference;
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 

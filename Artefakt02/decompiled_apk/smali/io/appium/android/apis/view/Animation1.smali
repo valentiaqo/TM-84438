@@ -10,7 +10,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 29
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -23,17 +22,16 @@
     .locals 2
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 41
-    const v1, 0x7f040015
+    const v0, 0x7f010021
 
-    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+    invoke-static {p0, v0}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v0
 
     .line 42
     .local v0, "shake":Landroid/view/animation/Animation;
-    const v1, 0x7f090031
+    const v1, 0x7f090170
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Animation1;->findViewById(I)Landroid/view/View;
 
@@ -46,22 +44,21 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 33
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 34
-    const v1, 0x7f03000e
+    const v0, 0x7f0b002a
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Animation1;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Animation1;->setContentView(I)V
 
     .line 36
-    const v1, 0x7f090032
+    const v0, 0x7f09011d
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Animation1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Animation1;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

@@ -23,9 +23,9 @@
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/view/ImageSwitcher1;Landroid/content/Context;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/ImageSwitcher1;
     .param p2, "c"    # Landroid/content/Context;
 
-    .prologue
     .line 78
     iput-object p1, p0, Lio/appium/android/apis/view/ImageSwitcher1$ImageAdapter;->this$0:Lio/appium/android/apis/view/ImageSwitcher1;
 
@@ -43,7 +43,6 @@
 .method public getCount()I
     .locals 1
 
-    .prologue
     .line 83
     iget-object v0, p0, Lio/appium/android/apis/view/ImageSwitcher1$ImageAdapter;->this$0:Lio/appium/android/apis/view/ImageSwitcher1;
 
@@ -60,7 +59,6 @@
     .locals 1
     .param p1, "position"    # I
 
-    .prologue
     .line 87
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -73,7 +71,6 @@
     .locals 2
     .param p1, "position"    # I
 
-    .prologue
     .line 91
     int-to-long v0, p1
 
@@ -85,9 +82,6 @@
     .param p1, "position"    # I
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
-
-    .prologue
-    const/4 v2, -0x2
 
     .line 95
     new-instance v0, Landroid/widget/ImageView;
@@ -120,12 +114,14 @@
     .line 99
     new-instance v1, Landroid/widget/Gallery$LayoutParams;
 
+    const/4 v2, -0x2
+
     invoke-direct {v1, v2, v2}, Landroid/widget/Gallery$LayoutParams;-><init>(II)V
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 101
-    const v1, 0x7f020038
+    const v1, 0x7f08009a
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/ReorderThree;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/ReorderThree;
 
-    .prologue
     .line 39
     iput-object p1, p0, Lio/appium/android/apis/app/ReorderThree$1;->this$0:Lio/appium/android/apis/app/ReorderThree;
 
@@ -37,20 +37,17 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 41
     iget-object v0, p0, Lio/appium/android/apis/app/ReorderThree$1;->this$0:Lio/appium/android/apis/app/ReorderThree;
 
     new-instance v1, Landroid/content/Intent;
 
-    iget-object v2, p0, Lio/appium/android/apis/app/ReorderThree$1;->this$0:Lio/appium/android/apis/app/ReorderThree;
+    const-class v2, Lio/appium/android/apis/app/ReorderFour;
 
-    const-class v3, Lio/appium/android/apis/app/ReorderFour;
-
-    invoke-direct {v1, v2, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v1, v0, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     invoke-virtual {v0, v1}, Lio/appium/android/apis/app/ReorderThree;->startActivity(Landroid/content/Intent;)V
 

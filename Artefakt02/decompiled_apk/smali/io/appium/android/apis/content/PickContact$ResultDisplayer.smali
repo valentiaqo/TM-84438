@@ -28,10 +28,10 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/content/PickContact;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/content/PickContact;
     .param p2, "msg"    # Ljava/lang/String;
     .param p3, "mimeType"    # Ljava/lang/String;
 
-    .prologue
     .line 53
     iput-object p1, p0, Lio/appium/android/apis/content/PickContact$ResultDisplayer;->this$0:Lio/appium/android/apis/content/PickContact;
 
@@ -53,7 +53,6 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 59
     new-instance v0, Landroid/content/Intent;
 
@@ -73,8 +72,6 @@
     iput-object p0, v1, Lio/appium/android/apis/content/PickContact;->mPendingResult:Lio/appium/android/apis/content/PickContact$ResultDisplayer;
 
     .line 62
-    iget-object v1, p0, Lio/appium/android/apis/content/PickContact$ResultDisplayer;->this$0:Lio/appium/android/apis/content/PickContact;
-
     const/4 v2, 0x1
 
     invoke-virtual {v1, v0, v2}, Lio/appium/android/apis/content/PickContact;->startActivityForResult(Landroid/content/Intent;I)V

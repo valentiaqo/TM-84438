@@ -25,7 +25,6 @@
     .param p2, "listener"    # Lio/appium/android/apis/graphics/ColorPickerDialog$OnColorChangedListener;
     .param p3, "initialColor"    # I
 
-    .prologue
     .line 214
     invoke-direct {p0, p1}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
 
@@ -43,7 +42,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/graphics/ColorPickerDialog;
 
-    .prologue
     .line 26
     iget-object v0, p0, Lio/appium/android/apis/graphics/ColorPickerDialog;->mListener:Lio/appium/android/apis/graphics/ColorPickerDialog$OnColorChangedListener;
 
@@ -56,7 +54,6 @@
     .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 222
     invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V
 

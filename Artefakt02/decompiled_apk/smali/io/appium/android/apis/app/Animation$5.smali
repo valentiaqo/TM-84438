@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/Animation;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/Animation;
 
-    .prologue
     .line 119
     iput-object p1, p0, Lio/appium/android/apis/app/Animation$5;->this$0:Lio/appium/android/apis/app/Animation;
 
@@ -37,22 +37,25 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .locals 4
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    const/4 v3, 0x0
-
     .line 123
+    nop
+
+    .line 124
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
-    move-result v1
+    move-result v0
 
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
-    move-result v2
+    move-result v1
 
-    invoke-static {p1, v3, v3, v1, v2}, Landroid/app/ActivityOptions;->makeScaleUpAnimation(Landroid/view/View;IIII)Landroid/app/ActivityOptions;
+    .line 123
+    const/4 v2, 0x0
+
+    invoke-static {p1, v2, v2, v0, v1}, Landroid/app/ActivityOptions;->makeScaleUpAnimation(Landroid/view/View;IIII)Landroid/app/ActivityOptions;
 
     move-result-object v0
 
@@ -62,11 +65,9 @@
 
     new-instance v2, Landroid/content/Intent;
 
-    iget-object v3, p0, Lio/appium/android/apis/app/Animation$5;->this$0:Lio/appium/android/apis/app/Animation;
+    const-class v3, Lio/appium/android/apis/app/AlertDialogSamples;
 
-    const-class v4, Lio/appium/android/apis/app/AlertDialogSamples;
-
-    invoke-direct {v2, v3, v4}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v2, v1, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     invoke-virtual {v0}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
 

@@ -16,7 +16,6 @@
 .method public constructor <init>()V
     .locals 3
 
-    .prologue
     .line 33
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -25,29 +24,29 @@
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const-string v1, "Push up"
 
-    const-string v2, "Push up"
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    const-string v1, "Push left"
 
-    const-string v2, "Push left"
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x2
+    const-string v1, "Cross fade"
 
-    const-string v2, "Cross fade"
+    const/4 v2, 0x2
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x3
+    const-string v1, "Hyperspace"
 
-    const-string v2, "Hyperspace"
+    const/4 v2, 0x3
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     iput-object v0, p0, Lio/appium/android/apis/view/Animation2;->mStrings:[Ljava/lang/String;
 
@@ -60,61 +59,60 @@
     .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 38
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 39
-    const v2, 0x7f03000f
+    const v0, 0x7f0b002b
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/Animation2;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Animation2;->setContentView(I)V
 
     .line 41
-    const v2, 0x7f090033
+    const v0, 0x7f0900cb
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/Animation2;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Animation2;->findViewById(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroid/widget/ViewFlipper;
+    check-cast v0, Landroid/widget/ViewFlipper;
 
-    iput-object v2, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
+    iput-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
 
     .line 42
-    iget-object v2, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
+    iget-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
 
-    invoke-virtual {v2}, Landroid/widget/ViewFlipper;->startFlipping()V
+    invoke-virtual {v0}, Landroid/widget/ViewFlipper;->startFlipping()V
 
     .line 44
-    const v2, 0x7f090034
+    const v0, 0x7f0901da
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/Animation2;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Animation2;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/Spinner;
+    check-cast v0, Landroid/widget/Spinner;
 
     .line 45
-    .local v1, "s":Landroid/widget/Spinner;
-    new-instance v0, Landroid/widget/ArrayAdapter;
+    .local v0, "s":Landroid/widget/Spinner;
+    new-instance v1, Landroid/widget/ArrayAdapter;
 
-    const v2, 0x1090008
+    iget-object v2, p0, Lio/appium/android/apis/view/Animation2;->mStrings:[Ljava/lang/String;
 
-    iget-object v3, p0, Lio/appium/android/apis/view/Animation2;->mStrings:[Ljava/lang/String;
+    const v3, 0x1090008
 
-    invoke-direct {v0, p0, v2, v3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
+    invoke-direct {v1, p0, v3, v2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
     .line 47
-    .local v0, "adapter":Landroid/widget/ArrayAdapter;, "Landroid/widget/ArrayAdapter<Ljava/lang/String;>;"
+    .local v1, "adapter":Landroid/widget/ArrayAdapter;, "Landroid/widget/ArrayAdapter<Ljava/lang/String;>;"
     const v2, 0x1090009
 
-    invoke-virtual {v0, v2}, Landroid/widget/ArrayAdapter;->setDropDownViewResource(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/ArrayAdapter;->setDropDownViewResource(I)V
 
     .line 48
-    invoke-virtual {v1, v0}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
+    invoke-virtual {v0, v1}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
     .line 49
-    invoke-virtual {v1, p0}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
     .line 50
     return-void
@@ -128,14 +126,13 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView",
-            "<*>;",
+            "Landroid/widget/AdapterView<",
+            "*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
-    .prologue
     .line 53
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     packed-switch p3, :pswitch_data_0
@@ -143,7 +140,7 @@
     .line 74
     iget-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
 
-    const v1, 0x7f040006
+    const v1, 0x7f010012
 
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -154,59 +151,7 @@
     .line 76
     iget-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
 
-    const v1, 0x7f040007
-
-    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/ViewFlipper;->setOutAnimation(Landroid/view/animation/Animation;)V
-
-    .line 80
-    :goto_0
-    return-void
-
-    .line 56
-    :pswitch_0
-    iget-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
-
-    const v1, 0x7f040013
-
-    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/ViewFlipper;->setInAnimation(Landroid/view/animation/Animation;)V
-
-    .line 58
-    iget-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
-
-    const v1, 0x7f040014
-
-    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/ViewFlipper;->setOutAnimation(Landroid/view/animation/Animation;)V
-
-    goto :goto_0
-
-    .line 62
-    :pswitch_1
-    iget-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
-
-    const v1, 0x7f040011
-
-    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/ViewFlipper;->setInAnimation(Landroid/view/animation/Animation;)V
-
-    .line 64
-    iget-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
-
-    const v1, 0x7f040012
+    const v1, 0x7f010013
 
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -217,7 +162,7 @@
     goto :goto_0
 
     .line 68
-    :pswitch_2
+    :pswitch_0
     iget-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
 
     const/high16 v1, 0x10a0000
@@ -239,14 +184,72 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ViewFlipper;->setOutAnimation(Landroid/view/animation/Animation;)V
 
+    .line 72
     goto :goto_0
 
-    .line 53
+    .line 62
+    :pswitch_1
+    iget-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
+
+    const v1, 0x7f01001d
+
+    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ViewFlipper;->setInAnimation(Landroid/view/animation/Animation;)V
+
+    .line 64
+    iget-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
+
+    const v1, 0x7f01001e
+
+    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ViewFlipper;->setOutAnimation(Landroid/view/animation/Animation;)V
+
+    .line 66
+    goto :goto_0
+
+    .line 56
+    :pswitch_2
+    iget-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
+
+    const v1, 0x7f01001f
+
+    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ViewFlipper;->setInAnimation(Landroid/view/animation/Animation;)V
+
+    .line 58
+    iget-object v0, p0, Lio/appium/android/apis/view/Animation2;->mFlipper:Landroid/widget/ViewFlipper;
+
+    const v1, 0x7f010020
+
+    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ViewFlipper;->setOutAnimation(Landroid/view/animation/Animation;)V
+
+    .line 60
+    nop
+
+    .line 80
+    :goto_0
+    return-void
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_0
-        :pswitch_1
         :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -255,12 +258,11 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView",
-            "<*>;)V"
+            "Landroid/widget/AdapterView<",
+            "*>;)V"
         }
     .end annotation
 
-    .prologue
     .line 83
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     return-void

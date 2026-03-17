@@ -25,7 +25,6 @@
     .locals 2
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 37
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
@@ -72,9 +71,6 @@
     .locals 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
-    const/high16 v3, 0x41200000    # 10.0f
-
     .line 46
     const/4 v0, -0x1
 
@@ -90,11 +86,13 @@
     .line 49
     const-string v0, "Default"
 
-    const/high16 v1, 0x42c80000    # 100.0f
+    iget-object v1, p0, Lio/appium/android/apis/graphics/Typefaces$SampleView;->mPaint:Landroid/graphics/Paint;
 
-    iget-object v2, p0, Lio/appium/android/apis/graphics/Typefaces$SampleView;->mPaint:Landroid/graphics/Paint;
+    const/high16 v2, 0x41200000    # 10.0f
 
-    invoke-virtual {p1, v0, v3, v1, v2}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+    const/high16 v3, 0x42c80000    # 100.0f
+
+    invoke-virtual {p1, v0, v2, v3, v1}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
     .line 50
     iget-object v0, p0, Lio/appium/android/apis/graphics/Typefaces$SampleView;->mPaint:Landroid/graphics/Paint;
@@ -106,11 +104,11 @@
     .line 51
     const-string v0, "Custom"
 
-    const/high16 v1, 0x43480000    # 200.0f
+    iget-object v1, p0, Lio/appium/android/apis/graphics/Typefaces$SampleView;->mPaint:Landroid/graphics/Paint;
 
-    iget-object v2, p0, Lio/appium/android/apis/graphics/Typefaces$SampleView;->mPaint:Landroid/graphics/Paint;
+    const/high16 v3, 0x43480000    # 200.0f
 
-    invoke-virtual {p1, v0, v3, v1, v2}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+    invoke-virtual {p1, v0, v2, v3, v1}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
     .line 52
     return-void

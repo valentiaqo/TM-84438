@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;
 
-    .prologue
     .line 84
     iput-object p1, p0, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure$1;->this$0:Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;
 
@@ -40,66 +40,65 @@
     .locals 6
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 86
-    iget-object v1, p0, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure$1;->this$0:Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;
+    iget-object v0, p0, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure$1;->this$0:Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;
 
     .line 90
-    .local v1, "context":Landroid/content/Context;
-    iget-object v4, p0, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure$1;->this$0:Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;
+    .local v0, "context":Landroid/content/Context;
+    iget-object v1, p0, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure$1;->this$0:Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;
 
-    iget-object v4, v4, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;->mAppWidgetPrefix:Landroid/widget/EditText;
+    iget-object v1, v1, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;->mAppWidgetPrefix:Landroid/widget/EditText;
 
-    invoke-virtual {v4}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 91
-    .local v3, "titlePrefix":Ljava/lang/String;
-    iget-object v4, p0, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure$1;->this$0:Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;
+    .local v1, "titlePrefix":Ljava/lang/String;
+    iget-object v2, p0, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure$1;->this$0:Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;
 
-    iget v4, v4, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;->mAppWidgetId:I
+    iget v2, v2, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;->mAppWidgetId:I
 
-    invoke-static {v1, v4, v3}, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;->saveTitlePref(Landroid/content/Context;ILjava/lang/String;)V
+    invoke-static {v0, v2, v1}, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;->saveTitlePref(Landroid/content/Context;ILjava/lang/String;)V
 
     .line 94
-    invoke-static {v1}, Landroid/appwidget/AppWidgetManager;->getInstance(Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;
+    invoke-static {v0}, Landroid/appwidget/AppWidgetManager;->getInstance(Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;
 
-    move-result-object v0
+    move-result-object v2
 
     .line 95
-    .local v0, "appWidgetManager":Landroid/appwidget/AppWidgetManager;
-    iget-object v4, p0, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure$1;->this$0:Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;
+    .local v2, "appWidgetManager":Landroid/appwidget/AppWidgetManager;
+    iget-object v3, p0, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure$1;->this$0:Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;
 
-    iget v4, v4, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;->mAppWidgetId:I
+    iget v3, v3, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;->mAppWidgetId:I
 
-    invoke-static {v1, v0, v4, v3}, Lio/appium/android/apis/appwidget/ExampleAppWidgetProvider;->updateAppWidget(Landroid/content/Context;Landroid/appwidget/AppWidgetManager;ILjava/lang/String;)V
+    invoke-static {v0, v2, v3, v1}, Lio/appium/android/apis/appwidget/ExampleAppWidgetProvider;->updateAppWidget(Landroid/content/Context;Landroid/appwidget/AppWidgetManager;ILjava/lang/String;)V
 
     .line 99
-    new-instance v2, Landroid/content/Intent;
+    new-instance v3, Landroid/content/Intent;
 
-    invoke-direct {v2}, Landroid/content/Intent;-><init>()V
+    invoke-direct {v3}, Landroid/content/Intent;-><init>()V
 
     .line 100
-    .local v2, "resultValue":Landroid/content/Intent;
+    .local v3, "resultValue":Landroid/content/Intent;
     const-string v4, "appWidgetId"
 
     iget-object v5, p0, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure$1;->this$0:Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;
 
     iget v5, v5, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;->mAppWidgetId:I
 
-    invoke-virtual {v2, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v3, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 101
     iget-object v4, p0, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure$1;->this$0:Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;
 
     const/4 v5, -0x1
 
-    invoke-virtual {v4, v5, v2}, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;->setResult(ILandroid/content/Intent;)V
+    invoke-virtual {v4, v5, v3}, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;->setResult(ILandroid/content/Intent;)V
 
     .line 102
     iget-object v4, p0, Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure$1;->this$0:Lio/appium/android/apis/appwidget/ExampleAppWidgetConfigure;

@@ -22,8 +22,8 @@
 .field final mClz:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/lang/Class",
-            "<*>;"
+            "Ljava/lang/Class<",
+            "*>;"
         }
     .end annotation
 .end field
@@ -53,43 +53,42 @@
         value = {
             "(",
             "Landroid/app/Activity;",
-            "Ljava/lang/Class",
-            "<*>;IIII)V"
+            "Ljava/lang/Class<",
+            "*>;IIII)V"
         }
     .end annotation
 
-    .prologue
     .line 114
     .local p2, "clz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 132
-    new-instance v2, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$1;
+    new-instance v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$1;
 
-    invoke-direct {v2, p0}, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$1;-><init>(Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;)V
+    invoke-direct {v0, p0}, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$1;-><init>(Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;)V
 
-    iput-object v2, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mStartListener:Landroid/view/View$OnClickListener;
+    iput-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mStartListener:Landroid/view/View$OnClickListener;
 
     .line 138
-    new-instance v2, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$2;
+    new-instance v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$2;
 
-    invoke-direct {v2, p0}, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$2;-><init>(Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;)V
+    invoke-direct {v0, p0}, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$2;-><init>(Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;)V
 
-    iput-object v2, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mStopListener:Landroid/view/View$OnClickListener;
+    iput-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mStopListener:Landroid/view/View$OnClickListener;
 
     .line 144
-    new-instance v2, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;
+    new-instance v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;
 
-    invoke-direct {v2, p0}, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;-><init>(Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;)V
+    invoke-direct {v0, p0}, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;-><init>(Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;)V
 
-    iput-object v2, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mBindListener:Landroid/view/View$OnClickListener;
+    iput-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mBindListener:Landroid/view/View$OnClickListener;
 
     .line 164
-    new-instance v2, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$4;
+    new-instance v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$4;
 
-    invoke-direct {v2, p0}, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$4;-><init>(Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;)V
+    invoke-direct {v0, p0}, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$4;-><init>(Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;)V
 
-    iput-object v2, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mConnection:Landroid/content/ServiceConnection;
+    iput-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mConnection:Landroid/content/ServiceConnection;
 
     .line 115
     iput-object p1, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mActivity:Landroid/app/Activity;
@@ -98,9 +97,9 @@
     iput-object p2, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mClz:Ljava/lang/Class;
 
     .line 117
-    iget-object v2, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mActivity:Landroid/app/Activity;
+    iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v2, p3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, p3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -108,30 +107,30 @@
 
     .line 118
     .local v0, "button":Landroid/widget/Button;
-    iget-object v2, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mStartListener:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mStartListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 119
-    iget-object v2, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mActivity:Landroid/app/Activity;
+    iget-object v1, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v2, p4}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, p4}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
     .line 120
-    .restart local v0    # "button":Landroid/widget/Button;
-    iget-object v2, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mStopListener:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mStopListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 121
-    iget-object v2, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mActivity:Landroid/app/Activity;
+    iget-object v1, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v2, p5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, p5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -162,7 +161,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
-    .prologue
     .line 106
     iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mConnection:Landroid/content/ServiceConnection;
 
@@ -174,7 +172,6 @@
 .method destroy()V
     .locals 2
 
-    .prologue
     .line 127
     iget-boolean v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mServiceBound:Z
 

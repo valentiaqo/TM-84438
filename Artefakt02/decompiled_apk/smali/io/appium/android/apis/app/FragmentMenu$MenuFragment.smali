@@ -18,7 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 101
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
@@ -31,7 +30,6 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 105
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -49,15 +47,14 @@
     .param p1, "menu"    # Landroid/view/Menu;
     .param p2, "inflater"    # Landroid/view/MenuInflater;
 
-    .prologue
-    const/4 v1, 0x1
-
     .line 111
     const-string v0, "Menu 1a"
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
+
+    const/4 v1, 0x1
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 

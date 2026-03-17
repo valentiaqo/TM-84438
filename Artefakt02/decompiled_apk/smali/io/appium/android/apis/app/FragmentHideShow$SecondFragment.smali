@@ -18,7 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 96
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
@@ -33,37 +32,37 @@
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 101
-    const v2, 0x7f03006b
+    const v0, 0x7f0b0089
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v2, p2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v1
-
-    .line 102
-    .local v1, "v":Landroid/view/View;
-    const v2, 0x7f0900d0
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
+    .line 102
+    .local v0, "v":Landroid/view/View;
+    const v1, 0x7f090136
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
     .line 103
-    .local v0, "tv":Landroid/view/View;
-    check-cast v0, Landroid/widget/TextView;
+    .local v1, "tv":Landroid/view/View;
+    move-object v2, v1
 
-    .end local v0    # "tv":Landroid/view/View;
-    const-string v2, "The TextView saves and restores this text."
+    check-cast v2, Landroid/widget/TextView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    const-string v3, "The TextView saves and restores this text."
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 109
-    const v2, 0x7f0900d1
+    const v2, 0x7f09019d
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -74,5 +73,5 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setSaveEnabled(Z)V
 
     .line 110
-    return-object v1
+    return-object v0
 .end method

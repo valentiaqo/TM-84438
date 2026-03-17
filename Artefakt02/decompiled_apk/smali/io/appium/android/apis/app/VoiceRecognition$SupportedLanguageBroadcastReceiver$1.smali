@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;)V
     .locals 0
+    .param p1, "this$1"    # Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;
 
-    .prologue
     .line 186
     iput-object p1, p0, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver$1;->this$1:Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;
 
@@ -39,7 +39,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
     .line 189
     iget-object v0, p0, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver$1;->this$1:Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;
 
@@ -51,8 +50,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     iget-object v2, p0, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver$1;->this$1:Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;
 
     invoke-virtual {v2}, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;->getResultCode()I
@@ -60,8 +57,6 @@
     move-result v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

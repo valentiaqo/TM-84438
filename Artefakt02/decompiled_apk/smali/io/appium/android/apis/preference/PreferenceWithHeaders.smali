@@ -17,11 +17,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 35
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
 
-    .line 95
     return-void
 .end method
 
@@ -32,17 +30,15 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Landroid/preference/PreferenceActivity$Header;",
             ">;)V"
         }
     .end annotation
 
-    .prologue
     .line 53
     .local p1, "target":Ljava/util/List;, "Ljava/util/List<Landroid/preference/PreferenceActivity$Header;>;"
-    const v0, 0x7f06000e
+    const v0, 0x7f11000e
 
     invoke-virtual {p0, v0, p1}, Lio/appium/android/apis/preference/PreferenceWithHeaders;->loadHeadersFromResource(ILjava/util/List;)V
 
@@ -54,16 +50,15 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 38
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 41
     invoke-virtual {p0}, Lio/appium/android/apis/preference/PreferenceWithHeaders;->hasHeaders()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 42
     new-instance v0, Landroid/widget/Button;

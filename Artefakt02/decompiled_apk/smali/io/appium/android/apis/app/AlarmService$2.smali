@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/AlarmService;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/AlarmService;
 
-    .prologue
     .line 77
     iput-object p1, p0, Lio/appium/android/apis/app/AlarmService$2;->this$0:Lio/appium/android/apis/app/AlarmService;
 
@@ -40,13 +40,12 @@
     .locals 4
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 80
-    iget-object v1, p0, Lio/appium/android/apis/app/AlarmService$2;->this$0:Lio/appium/android/apis/app/AlarmService;
+    iget-object v0, p0, Lio/appium/android/apis/app/AlarmService$2;->this$0:Lio/appium/android/apis/app/AlarmService;
 
-    const-string v2, "alarm"
+    const-string v1, "alarm"
 
-    invoke-virtual {v1, v2}, Lio/appium/android/apis/app/AlarmService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lio/appium/android/apis/app/AlarmService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -65,7 +64,7 @@
     .line 84
     iget-object v1, p0, Lio/appium/android/apis/app/AlarmService$2;->this$0:Lio/appium/android/apis/app/AlarmService;
 
-    const v2, 0x7f0c00bf
+    const v2, 0x7f0e028b
 
     const/4 v3, 0x1
 
@@ -73,6 +72,7 @@
 
     move-result-object v1
 
+    .line 85
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
     .line 87

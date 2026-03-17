@@ -24,7 +24,6 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "display"    # Landroid/view/Display;
 
-    .prologue
     .line 265
     invoke-direct {p0, p1, p2}, Landroid/app/Presentation;-><init>(Landroid/content/Context;Landroid/view/Display;)V
 
@@ -37,7 +36,6 @@
 .method public getSurfaceView()Landroid/opengl/GLSurfaceView;
     .locals 1
 
-    .prologue
     .line 286
     iget-object v0, p0, Lio/appium/android/apis/app/PresentationWithMediaRouterActivity$DemoPresentation;->mSurfaceView:Landroid/opengl/GLSurfaceView;
 
@@ -48,27 +46,26 @@
     .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 271
     invoke-super {p0, p1}, Landroid/app/Presentation;->onCreate(Landroid/os/Bundle;)V
 
     .line 275
     invoke-virtual {p0}, Lio/appium/android/apis/app/PresentationWithMediaRouterActivity$DemoPresentation;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
     .line 278
     .local v0, "r":Landroid/content/res/Resources;
-    const v1, 0x7f03009c
+    const v1, 0x7f0b00c0
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/PresentationWithMediaRouterActivity$DemoPresentation;->setContentView(I)V
 
     .line 281
-    const v1, 0x7f090109
+    const v1, 0x7f090202
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/PresentationWithMediaRouterActivity$DemoPresentation;->findViewById(I)Landroid/view/View;
 

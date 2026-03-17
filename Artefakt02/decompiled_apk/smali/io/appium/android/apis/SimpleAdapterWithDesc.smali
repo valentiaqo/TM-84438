@@ -14,10 +14,9 @@
         value = {
             "(",
             "Landroid/content/Context;",
-            "Ljava/util/List",
-            "<+",
-            "Ljava/util/Map",
-            "<",
+            "Ljava/util/List<",
+            "+",
+            "Ljava/util/Map<",
             "Ljava/lang/String;",
             "*>;>;I[",
             "Ljava/lang/String;",
@@ -25,7 +24,6 @@
         }
     .end annotation
 
-    .prologue
     .line 17
     .local p2, "data":Ljava/util/List;, "Ljava/util/List<+Ljava/util/Map<Ljava/lang/String;*>;>;"
     invoke-direct/range {p0 .. p5}, Landroid/widget/SimpleAdapter;-><init>(Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[I)V
@@ -42,7 +40,6 @@
     .param p2, "convertView"    # Landroid/view/View;
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
     .line 21
     invoke-super {p0, p1, p2, p3}, Landroid/widget/SimpleAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 

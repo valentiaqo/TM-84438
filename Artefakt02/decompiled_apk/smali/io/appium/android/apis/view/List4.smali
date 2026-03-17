@@ -16,11 +16,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 34
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
-    .line 117
     return-void
 .end method
 
@@ -30,7 +28,6 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 38
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
 

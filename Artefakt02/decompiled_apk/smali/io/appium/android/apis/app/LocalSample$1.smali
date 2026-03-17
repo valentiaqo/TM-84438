@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/LocalSample;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/LocalSample;
 
-    .prologue
     .line 46
     iput-object p1, p0, Lio/appium/android/apis/app/LocalSample$1;->this$0:Lio/appium/android/apis/app/LocalSample;
 
@@ -37,24 +37,21 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .locals 3
     .param p1, "v"    # Landroid/view/View;
-
-    .prologue
-    const/4 v4, 0x0
 
     .line 48
     iget-object v0, p0, Lio/appium/android/apis/app/LocalSample$1;->this$0:Lio/appium/android/apis/app/LocalSample;
 
     new-instance v1, Landroid/content/ComponentName;
 
-    iget-object v2, p0, Lio/appium/android/apis/app/LocalSample$1;->this$0:Lio/appium/android/apis/app/LocalSample;
+    const-class v2, Lio/appium/android/apis/app/LocalSampleInstrumentation;
 
-    const-class v3, Lio/appium/android/apis/app/LocalSampleInstrumentation;
+    invoke-direct {v1, v0, v2}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v4, v4}, Lio/appium/android/apis/app/LocalSample;->startInstrumentation(Landroid/content/ComponentName;Ljava/lang/String;Landroid/os/Bundle;)Z
+    invoke-virtual {v0, v1, v2, v2}, Lio/appium/android/apis/app/LocalSample;->startInstrumentation(Landroid/content/ComponentName;Ljava/lang/String;Landroid/os/Bundle;)Z
 
     .line 50
     return-void

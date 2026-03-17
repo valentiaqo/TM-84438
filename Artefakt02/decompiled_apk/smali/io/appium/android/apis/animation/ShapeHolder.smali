@@ -24,13 +24,12 @@
     .locals 1
     .param p1, "s"    # Landroid/graphics/drawable/ShapeDrawable;
 
-    .prologue
-    const/4 v0, 0x0
-
     .line 97
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 30
+    const/4 v0, 0x0
+
     iput v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->x:F
 
     iput v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->y:F
@@ -52,7 +51,6 @@
 .method public getColor()I
     .locals 1
 
-    .prologue
     .line 63
     iget v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->color:I
 
@@ -62,7 +60,6 @@
 .method public getGradient()Landroid/graphics/RadialGradient;
     .locals 1
 
-    .prologue
     .line 73
     iget-object v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->gradient:Landroid/graphics/RadialGradient;
 
@@ -72,7 +69,6 @@
 .method public getHeight()F
     .locals 1
 
-    .prologue
     .line 90
     iget-object v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->shape:Landroid/graphics/drawable/ShapeDrawable;
 
@@ -90,7 +86,6 @@
 .method public getPaint()Landroid/graphics/Paint;
     .locals 1
 
-    .prologue
     .line 41
     iget-object v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->paint:Landroid/graphics/Paint;
 
@@ -100,7 +95,6 @@
 .method public getShape()Landroid/graphics/drawable/ShapeDrawable;
     .locals 1
 
-    .prologue
     .line 60
     iget-object v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->shape:Landroid/graphics/drawable/ShapeDrawable;
 
@@ -110,7 +104,6 @@
 .method public getWidth()F
     .locals 1
 
-    .prologue
     .line 82
     iget-object v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->shape:Landroid/graphics/drawable/ShapeDrawable;
 
@@ -128,7 +121,6 @@
 .method public getX()F
     .locals 1
 
-    .prologue
     .line 48
     iget v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->x:F
 
@@ -138,7 +130,6 @@
 .method public getY()F
     .locals 1
 
-    .prologue
     .line 54
     iget v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->y:F
 
@@ -149,7 +140,6 @@
     .locals 3
     .param p1, "alpha"    # F
 
-    .prologue
     .line 77
     iput p1, p0, Lio/appium/android/apis/animation/ShapeHolder;->alpha:F
 
@@ -158,7 +148,7 @@
 
     const/high16 v1, 0x437f0000    # 255.0f
 
-    mul-float/2addr v1, p1
+    mul-float v1, v1, p1
 
     const/high16 v2, 0x3f000000    # 0.5f
 
@@ -176,7 +166,6 @@
     .locals 1
     .param p1, "value"    # I
 
-    .prologue
     .line 66
     iget-object v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->shape:Landroid/graphics/drawable/ShapeDrawable;
 
@@ -197,7 +186,6 @@
     .locals 0
     .param p1, "value"    # Landroid/graphics/RadialGradient;
 
-    .prologue
     .line 70
     iput-object p1, p0, Lio/appium/android/apis/animation/ShapeHolder;->gradient:Landroid/graphics/RadialGradient;
 
@@ -209,11 +197,10 @@
     .locals 2
     .param p1, "height"    # F
 
-    .prologue
     .line 93
-    iget-object v1, p0, Lio/appium/android/apis/animation/ShapeHolder;->shape:Landroid/graphics/drawable/ShapeDrawable;
+    iget-object v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->shape:Landroid/graphics/drawable/ShapeDrawable;
 
-    invoke-virtual {v1}, Landroid/graphics/drawable/ShapeDrawable;->getShape()Landroid/graphics/drawable/shapes/Shape;
+    invoke-virtual {v0}, Landroid/graphics/drawable/ShapeDrawable;->getShape()Landroid/graphics/drawable/shapes/Shape;
 
     move-result-object v0
 
@@ -233,7 +220,6 @@
     .locals 0
     .param p1, "value"    # Landroid/graphics/Paint;
 
-    .prologue
     .line 38
     iput-object p1, p0, Lio/appium/android/apis/animation/ShapeHolder;->paint:Landroid/graphics/Paint;
 
@@ -245,7 +231,6 @@
     .locals 0
     .param p1, "value"    # Landroid/graphics/drawable/ShapeDrawable;
 
-    .prologue
     .line 57
     iput-object p1, p0, Lio/appium/android/apis/animation/ShapeHolder;->shape:Landroid/graphics/drawable/ShapeDrawable;
 
@@ -257,11 +242,10 @@
     .locals 2
     .param p1, "width"    # F
 
-    .prologue
     .line 85
-    iget-object v1, p0, Lio/appium/android/apis/animation/ShapeHolder;->shape:Landroid/graphics/drawable/ShapeDrawable;
+    iget-object v0, p0, Lio/appium/android/apis/animation/ShapeHolder;->shape:Landroid/graphics/drawable/ShapeDrawable;
 
-    invoke-virtual {v1}, Landroid/graphics/drawable/ShapeDrawable;->getShape()Landroid/graphics/drawable/shapes/Shape;
+    invoke-virtual {v0}, Landroid/graphics/drawable/ShapeDrawable;->getShape()Landroid/graphics/drawable/shapes/Shape;
 
     move-result-object v0
 
@@ -281,7 +265,6 @@
     .locals 0
     .param p1, "value"    # F
 
-    .prologue
     .line 45
     iput p1, p0, Lio/appium/android/apis/animation/ShapeHolder;->x:F
 
@@ -293,7 +276,6 @@
     .locals 0
     .param p1, "value"    # F
 
-    .prologue
     .line 51
     iput p1, p0, Lio/appium/android/apis/animation/ShapeHolder;->y:F
 

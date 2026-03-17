@@ -11,23 +11,22 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
     .line 57
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const-string v1, "_id"
 
-    const-string v2, "_id"
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    const-string v1, "display_name"
 
-    const-string v2, "display_name"
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     sput-object v0, Lio/appium/android/apis/view/Gallery2;->CONTACT_PROJECTION:[Ljava/lang/String;
 
@@ -37,7 +36,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 31
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -47,79 +45,82 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 9
+    .locals 13
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v8, 0x1
-
-    const/4 v7, 0x0
-
-    const/4 v3, 0x0
 
     .line 35
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 36
-    const v1, 0x7f030053
+    const v0, 0x7f0b0070
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Gallery2;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Gallery2;->setContentView(I)V
 
     .line 39
     invoke-virtual {p0}, Lio/appium/android/apis/view/Gallery2;->getContentResolver()Landroid/content/ContentResolver;
 
+    move-result-object v1
+
+    sget-object v2, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
+
+    sget-object v3, Lio/appium/android/apis/view/Gallery2;->CONTACT_PROJECTION:[Ljava/lang/String;
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    invoke-virtual/range {v1 .. v6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
     move-result-object v0
 
-    sget-object v1, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
-
-    sget-object v2, Lio/appium/android/apis/view/Gallery2;->CONTACT_PROJECTION:[Ljava/lang/String;
-
-    move-object v4, v3
-
-    move-object v5, v3
-
-    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-
-    move-result-object v3
-
     .line 41
-    .local v3, "c":Landroid/database/Cursor;
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/Gallery2;->startManagingCursor(Landroid/database/Cursor;)V
+    .local v0, "c":Landroid/database/Cursor;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Gallery2;->startManagingCursor(Landroid/database/Cursor;)V
 
     .line 43
-    new-instance v0, Landroid/widget/SimpleCursorAdapter;
+    new-instance v1, Landroid/widget/SimpleCursorAdapter;
 
-    const v2, 0x109000b
+    const/4 v2, 0x1
 
-    new-array v4, v8, [Ljava/lang/String;
+    new-array v11, v2, [Ljava/lang/String;
 
-    const-string v1, "display_name"
+    const-string v3, "display_name"
 
-    aput-object v1, v4, v7
+    const/4 v4, 0x0
 
-    new-array v5, v8, [I
+    aput-object v3, v11, v4
 
-    const v1, 0x1020014
+    new-array v12, v2, [I
 
-    aput v1, v5, v7
+    const v2, 0x1020014
 
-    move-object v1, p0
+    aput v2, v12, v4
 
-    invoke-direct/range {v0 .. v5}, Landroid/widget/SimpleCursorAdapter;-><init>(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[I)V
+    const v9, 0x109000b
+
+    move-object v7, v1
+
+    move-object v8, p0
+
+    move-object v10, v0
+
+    invoke-direct/range {v7 .. v12}, Landroid/widget/SimpleCursorAdapter;-><init>(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[I)V
 
     .line 53
-    .local v0, "adapter":Landroid/widget/SpinnerAdapter;
-    const v1, 0x7f0900ae
+    .local v1, "adapter":Landroid/widget/SpinnerAdapter;
+    const v2, 0x7f0900d6
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Gallery2;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/Gallery2;->findViewById(I)Landroid/view/View;
 
-    move-result-object v6
+    move-result-object v2
 
-    check-cast v6, Landroid/widget/Gallery;
+    check-cast v2, Landroid/widget/Gallery;
 
     .line 54
-    .local v6, "g":Landroid/widget/Gallery;
-    invoke-virtual {v6, v0}, Landroid/widget/Gallery;->setAdapter(Landroid/widget/SpinnerAdapter;)V
+    .local v2, "g":Landroid/widget/Gallery;
+    invoke-virtual {v2, v1}, Landroid/widget/Gallery;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
     .line 55
     return-void

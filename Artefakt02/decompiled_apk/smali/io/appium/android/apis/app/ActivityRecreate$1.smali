@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/ActivityRecreate;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/ActivityRecreate;
 
-    .prologue
     .line 65
     iput-object p1, p0, Lio/appium/android/apis/app/ActivityRecreate$1;->this$0:Lio/appium/android/apis/app/ActivityRecreate;
 
@@ -40,7 +40,6 @@
     .locals 1
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 67
     iget-object v0, p0, Lio/appium/android/apis/app/ActivityRecreate$1;->this$0:Lio/appium/android/apis/app/ActivityRecreate;
 

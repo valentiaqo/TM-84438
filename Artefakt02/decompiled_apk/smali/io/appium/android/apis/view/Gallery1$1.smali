@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/Gallery1;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/Gallery1;
 
-    .prologue
     .line 51
     iput-object p1, p0, Lio/appium/android/apis/view/Gallery1$1;->this$0:Lio/appium/android/apis/view/Gallery1;
 
@@ -44,14 +44,13 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView",
-            "<*>;",
+            "Landroid/widget/AdapterView<",
+            "*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
-    .prologue
     .line 53
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lio/appium/android/apis/view/Gallery1$1;->this$0:Lio/appium/android/apis/view/Gallery1;
@@ -64,11 +63,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

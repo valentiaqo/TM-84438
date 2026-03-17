@@ -24,9 +24,9 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/DateWidgets1;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/DateWidgets1;
 
-    .prologue
-    .line 74
+    .line 75
     iput-object p1, p0, Lio/appium/android/apis/view/DateWidgets1$2;->this$0:Lio/appium/android/apis/view/DateWidgets1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,14 +40,13 @@
     .locals 2
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 77
+    .line 78
     iget-object v0, p0, Lio/appium/android/apis/view/DateWidgets1$2;->this$0:Lio/appium/android/apis/view/DateWidgets1;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lio/appium/android/apis/view/DateWidgets1;->showDialog(I)V
 
-    .line 78
+    .line 79
     return-void
 .end method

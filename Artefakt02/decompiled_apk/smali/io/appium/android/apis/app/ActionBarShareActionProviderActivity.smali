@@ -11,7 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 41
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -19,200 +18,208 @@
 .end method
 
 .method private copyPrivateRawResuorceToPubliclyAccessibleFile()V
-    .locals 6
+    .locals 5
 
-    .prologue
     .line 95
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 96
-    .local v1, "inputStream":Ljava/io/InputStream;
-    const/4 v3, 0x0
+    .local v0, "inputStream":Ljava/io/InputStream;
+    const/4 v1, 0x0
 
     .line 98
-    .local v3, "outputStream":Ljava/io/FileOutputStream;
+    .local v1, "outputStream":Ljava/io/FileOutputStream;
     :try_start_0
     invoke-virtual {p0}, Lio/appium/android/apis/app/ActionBarShareActionProviderActivity;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v4
+    move-result-object v2
 
-    const v5, 0x7f070001
+    const v3, 0x7f0d0001
 
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
 
-    move-result-object v1
+    move-result-object v2
+
+    move-object v0, v2
 
     .line 99
-    const-string v4, "shared.png"
+    const-string v2, "shared.png"
 
-    const v5, 0x8001
+    const v3, 0x8001
 
-    invoke-virtual {p0, v4, v5}, Lio/appium/android/apis/app/ActionBarShareActionProviderActivity;->openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;
+    invoke-virtual {p0, v2, v3}, Lio/appium/android/apis/app/ActionBarShareActionProviderActivity;->openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;
 
-    move-result-object v3
+    move-result-object v2
+
+    move-object v1, v2
 
     .line 101
-    const/16 v4, 0x400
+    const/16 v2, 0x400
 
-    new-array v0, v4, [B
+    new-array v2, v2, [B
     :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_5
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 102
-    .local v0, "buffer":[B
-    const/4 v2, 0x0
+    .local v2, "buffer":[B
+    const/4 v3, 0x0
 
     .line 104
-    .local v2, "length":I
+    .local v3, "length":I
     :goto_0
     :try_start_1
-    invoke-virtual {v1, v0}, Ljava/io/InputStream;->read([B)I
+    invoke-virtual {v0, v2}, Ljava/io/InputStream;->read([B)I
 
-    move-result v2
+    move-result v4
 
-    if-lez v2, :cond_0
+    move v3, v4
+
+    if-lez v4, :cond_0
 
     .line 105
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v0, v4, v2}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v1, v2, v4, v3}, Ljava/io/FileOutputStream;->write([BII)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_5
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
+
+    .line 109
+    :cond_0
+    goto :goto_1
 
     .line 107
     :catch_0
     move-exception v4
 
     .line 114
-    :cond_0
-    :try_start_2
-    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
-
-    .line 119
+    .end local v2    # "buffer":[B
+    .end local v3    # "length":I
     :goto_1
-    :try_start_3
-    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_4
+    :try_start_2
+    invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 124
-    .end local v0    # "buffer":[B
-    .end local v2    # "length":I
-    :goto_2
-    return-void
+    .line 117
+    goto :goto_2
 
-    .line 110
+    .line 115
     :catch_1
-    move-exception v4
-
-    .line 114
-    :try_start_4
-    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_5
+    move-exception v2
 
     .line 119
-    :goto_3
-    :try_start_5
-    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
+    :goto_2
+    :try_start_3
+    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
 
-    goto :goto_2
+    .line 122
+    :goto_3
+    goto :goto_7
 
     .line 120
     :catch_2
-    move-exception v4
+    move-exception v2
 
-    goto :goto_2
+    .line 123
+    goto :goto_7
 
     .line 113
     :catchall_0
-    move-exception v4
+    move-exception v2
 
     .line 114
-    :try_start_6
-    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_6
+    :try_start_4
+    invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+
+    .line 117
+    goto :goto_4
+
+    .line 115
+    :catch_3
+    move-exception v3
 
     .line 119
     :goto_4
-    :try_start_7
-    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_7
+    :try_start_5
+    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
 
     .line 122
-    :goto_5
-    throw v4
-
-    .line 115
-    .restart local v0    # "buffer":[B
-    .restart local v2    # "length":I
-    :catch_3
-    move-exception v4
-
-    goto :goto_1
+    goto :goto_5
 
     .line 120
     :catch_4
-    move-exception v4
+    move-exception v3
 
-    goto :goto_2
+    .line 122
+    :goto_5
+    throw v2
+
+    .line 110
+    :catch_5
+    move-exception v2
+
+    .line 114
+    :try_start_6
+    invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_6
+
+    .line 117
+    goto :goto_6
 
     .line 115
-    .end local v0    # "buffer":[B
-    .end local v2    # "length":I
-    :catch_5
-    move-exception v4
+    :catch_6
+    move-exception v2
+
+    .line 119
+    :goto_6
+    :try_start_7
+    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
 
     goto :goto_3
 
-    :catch_6
-    move-exception v5
-
-    goto :goto_4
-
-    .line 120
-    :catch_7
-    move-exception v5
-
-    goto :goto_5
+    .line 124
+    :goto_7
+    return-void
 .end method
 
 .method private createShareIntent()Landroid/content/Intent;
     .locals 3
 
-    .prologue
     .line 83
     new-instance v0, Landroid/content/Intent;
 
-    const-string v2, "android.intent.action.SEND"
+    const-string v1, "android.intent.action.SEND"
 
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 84
     .local v0, "shareIntent":Landroid/content/Intent;
-    const-string v2, "image/*"
+    const-string v1, "image/*"
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 85
-    const-string v2, "shared.png"
+    const-string v1, "shared.png"
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/app/ActionBarShareActionProviderActivity;->getFileStreamPath(Ljava/lang/String;)Ljava/io/File;
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/ActionBarShareActionProviderActivity;->getFileStreamPath(Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
+    invoke-static {v1}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
 
     move-result-object v1
 
@@ -232,7 +239,6 @@
     .locals 0
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 47
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -244,23 +250,22 @@
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .locals 6
+    .locals 5
     .param p1, "menu"    # Landroid/view/Menu;
 
-    .prologue
     .line 54
     invoke-virtual {p0}, Lio/appium/android/apis/app/ActionBarShareActionProviderActivity;->getMenuInflater()Landroid/view/MenuInflater;
 
-    move-result-object v4
+    move-result-object v0
 
-    const v5, 0x7f0e0001
+    const v1, 0x7f0c0001
 
-    invoke-virtual {v4, v5, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
+    invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
     .line 57
-    const v4, 0x7f090189
+    const v0, 0x7f090127
 
-    invoke-interface {p1, v4}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
@@ -274,26 +279,29 @@
 
     .line 59
     .local v1, "actionProvider":Landroid/widget/ShareActionProvider;
-    const-string v4, "share_history.xml"
+    const-string v2, "share_history.xml"
 
-    invoke-virtual {v1, v4}, Landroid/widget/ShareActionProvider;->setShareHistoryFileName(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Landroid/widget/ShareActionProvider;->setShareHistoryFileName(Ljava/lang/String;)V
 
     .line 62
     invoke-direct {p0}, Lio/appium/android/apis/app/ActionBarShareActionProviderActivity;->createShareIntent()Landroid/content/Intent;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v1, v4}, Landroid/widget/ShareActionProvider;->setShareIntent(Landroid/content/Intent;)V
+    invoke-virtual {v1, v2}, Landroid/widget/ShareActionProvider;->setShareIntent(Landroid/content/Intent;)V
 
     .line 65
-    const v4, 0x7f09018a
+    const v2, 0x7f090128
 
-    invoke-interface {p1, v4}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v2
 
     .line 66
     .local v2, "overflowItem":Landroid/view/MenuItem;
+    nop
+
+    .line 67
     invoke-interface {v2}, Landroid/view/MenuItem;->getActionProvider()Landroid/view/ActionProvider;
 
     move-result-object v3

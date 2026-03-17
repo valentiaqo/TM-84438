@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/RemoteService$Binding;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/RemoteService$Binding;
 
-    .prologue
     .line 358
     iput-object p1, p0, Lio/appium/android/apis/app/RemoteService$Binding$3;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 
@@ -39,9 +39,6 @@
 .method public onClick(Landroid/view/View;)V
     .locals 4
     .param p1, "v"    # Landroid/view/View;
-
-    .prologue
-    const/4 v3, 0x1
 
     .line 364
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding$3;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
@@ -58,9 +55,13 @@
 
     iget-object v2, p0, Lio/appium/android/apis/app/RemoteService$Binding$3;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 
+    .line 365
     invoke-static {v2}, Lio/appium/android/apis/app/RemoteService$Binding;->access$100(Lio/appium/android/apis/app/RemoteService$Binding;)Landroid/content/ServiceConnection;
 
     move-result-object v2
+
+    .line 364
+    const/4 v3, 0x1
 
     invoke-virtual {v0, v1, v2, v3}, Lio/appium/android/apis/app/RemoteService$Binding;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
@@ -79,10 +80,12 @@
 
     iget-object v2, p0, Lio/appium/android/apis/app/RemoteService$Binding$3;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 
+    .line 367
     invoke-static {v2}, Lio/appium/android/apis/app/RemoteService$Binding;->access$200(Lio/appium/android/apis/app/RemoteService$Binding;)Landroid/content/ServiceConnection;
 
     move-result-object v2
 
+    .line 366
     invoke-virtual {v0, v1, v2, v3}, Lio/appium/android/apis/app/RemoteService$Binding;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
     .line 368

@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lio/appium/android/apis/graphics/FrameBufferObjectActivity$1;,
         Lio/appium/android/apis/graphics/FrameBufferObjectActivity$Renderer;
     }
 .end annotation
@@ -20,11 +19,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 36
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 39
     return-void
 .end method
 
@@ -32,20 +29,24 @@
     .locals 4
     .param p0, "gl"    # Ljavax/microedition/khronos/opengles/GL;
 
-    .prologue
     .line 250
-    check-cast p0, Ljavax/microedition/khronos/opengles/GL10;
+    move-object v0, p0
 
-    .end local p0    # "gl":Ljavax/microedition/khronos/opengles/GL;
-    invoke-interface {p0}, Ljavax/microedition/khronos/opengles/GL10;->glGetError()I
+    check-cast v0, Ljavax/microedition/khronos/opengles/GL10;
+
+    invoke-interface {v0}, Ljavax/microedition/khronos/opengles/GL10;->glGetError()I
 
     move-result v0
 
     .line 251
     .local v0, "error":I
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
+
+    .line 254
+    return-void
 
     .line 252
+    :cond_0
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -56,15 +57,11 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
-
     invoke-static {v0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -73,10 +70,6 @@
     invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v1
-
-    .line 254
-    :cond_0
-    return-void
 .end method
 
 
@@ -85,7 +78,6 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 258
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -119,7 +111,6 @@
 .method protected onPause()V
     .locals 1
 
-    .prologue
     .line 279
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
@@ -135,7 +126,6 @@
 .method protected onResume()V
     .locals 1
 
-    .prologue
     .line 271
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 

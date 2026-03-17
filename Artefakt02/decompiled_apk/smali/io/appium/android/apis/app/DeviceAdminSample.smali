@@ -97,11 +97,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 56
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
 
-    .line 927
     return-void
 .end method
 
@@ -109,7 +107,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/app/DeviceAdminSample;
 
-    .prologue
     .line 56
     invoke-direct {p0}, Lio/appium/android/apis/app/DeviceAdminSample;->isActiveAdmin()Z
 
@@ -123,7 +120,6 @@
     .param p0, "x0"    # Landroid/content/Context;
     .param p1, "x1"    # I
 
-    .prologue
     .line 56
     invoke-static {p0, p1}, Lio/appium/android/apis/app/DeviceAdminSample;->alertIfMonkey(Landroid/content/Context;I)Z
 
@@ -137,7 +133,6 @@
     .param p0, "x0"    # Landroid/content/Context;
     .param p1, "x1"    # J
 
-    .prologue
     .line 56
     invoke-static {p0, p1, p2}, Lio/appium/android/apis/app/DeviceAdminSample;->timeToDaysMinutesSeconds(Landroid/content/Context;J)Ljava/lang/String;
 
@@ -151,13 +146,12 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "stringId"    # I
 
-    .prologue
     .line 909
     invoke-static {}, Landroid/app/ActivityManager;->isUserAMonkey()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 910
     new-instance v0, Landroid/app/AlertDialog$Builder;
@@ -169,7 +163,7 @@
     invoke-virtual {v0, p1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     .line 912
-    const v1, 0x7f0c01cd
+    const v1, 0x7f0e0216
 
     const/4 v2, 0x0
 
@@ -181,21 +175,19 @@
     .line 914
     const/4 v1, 0x1
 
-    .line 916
-    .end local v0    # "builder":Landroid/app/AlertDialog$Builder;
-    :goto_0
     return v1
 
+    .line 916
+    .end local v0    # "builder":Landroid/app/AlertDialog$Builder;
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    goto :goto_0
+    return v0
 .end method
 
 .method private isActiveAdmin()Z
     .locals 2
 
-    .prologue
     .line 128
     iget-object v0, p0, Lio/appium/android/apis/app/DeviceAdminSample;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
@@ -209,69 +201,68 @@
 .end method
 
 .method private static timeToDaysMinutesSeconds(Landroid/content/Context;J)Ljava/lang/String;
-    .locals 10
+    .locals 9
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "time"    # J
 
-    .prologue
     .line 898
-    const-wide/32 v6, 0x5265c00
+    const-wide/32 v0, 0x5265c00
 
-    div-long v0, p1, v6
+    div-long v0, p1, v0
 
     .line 899
     .local v0, "days":J
-    const-wide/32 v6, 0x36ee80
+    const-wide/32 v2, 0x36ee80
 
-    div-long v6, p1, v6
+    div-long v2, p1, v2
 
-    const-wide/16 v8, 0x18
+    const-wide/16 v4, 0x18
 
-    rem-long v2, v6, v8
+    rem-long/2addr v2, v4
 
     .line 900
     .local v2, "hours":J
-    const-wide/32 v6, 0xea60
+    const-wide/32 v4, 0xea60
 
-    div-long v6, p1, v6
+    div-long v4, p1, v4
 
-    const-wide/16 v8, 0x3c
+    const-wide/16 v6, 0x3c
 
-    rem-long v4, v6, v8
+    rem-long/2addr v4, v6
 
     .line 901
     .local v4, "minutes":J
-    const v6, 0x7f0c01d3
+    const/4 v6, 0x3
 
-    const/4 v7, 0x3
-
-    new-array v7, v7, [Ljava/lang/Object;
-
-    const/4 v8, 0x0
+    new-array v6, v6, [Ljava/lang/Object;
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v9
+    move-result-object v7
 
-    aput-object v9, v7, v8
+    const/4 v8, 0x0
 
-    const/4 v8, 0x1
+    aput-object v7, v6, v8
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v9
+    move-result-object v7
 
-    aput-object v9, v7, v8
+    const/4 v8, 0x1
 
-    const/4 v8, 0x2
+    aput-object v7, v6, v8
 
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v9
+    move-result-object v7
 
-    aput-object v9, v7, v8
+    const/4 v8, 0x2
 
-    invoke-virtual {p0, v6, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v7, v6, v8
+
+    const v7, 0x7f0e0316
+
+    invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -285,17 +276,15 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Landroid/preference/PreferenceActivity$Header;",
             ">;)V"
         }
     .end annotation
 
-    .prologue
     .line 121
     .local p1, "target":Ljava/util/List;, "Ljava/util/List<Landroid/preference/PreferenceActivity$Header;>;"
-    const v0, 0x7f060006
+    const v0, 0x7f110006
 
     invoke-virtual {p0, v0, p1}, Lio/appium/android/apis/app/DeviceAdminSample;->loadHeadersFromResource(ILjava/util/List;)V
 
@@ -307,7 +296,6 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 109
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 

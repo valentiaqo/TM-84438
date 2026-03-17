@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/ReorderFour;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/ReorderFour;
 
-    .prologue
     .line 39
     iput-object p1, p0, Lio/appium/android/apis/app/ReorderFour$1;->this$0:Lio/appium/android/apis/app/ReorderFour;
 
@@ -40,7 +40,6 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 41
     new-instance v0, Landroid/content/Intent;
 

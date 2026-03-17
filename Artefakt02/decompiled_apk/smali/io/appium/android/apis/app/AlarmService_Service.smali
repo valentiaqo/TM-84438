@@ -15,18 +15,17 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 42
+    .line 44
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    .line 71
+    .line 73
     new-instance v0, Lio/appium/android/apis/app/AlarmService_Service$1;
 
     invoke-direct {v0, p0}, Lio/appium/android/apis/app/AlarmService_Service$1;-><init>(Lio/appium/android/apis/app/AlarmService_Service;)V
 
     iput-object v0, p0, Lio/appium/android/apis/app/AlarmService_Service;->mTask:Ljava/lang/Runnable;
 
-    .line 123
+    .line 124
     new-instance v0, Lio/appium/android/apis/app/AlarmService_Service$2;
 
     invoke-direct {v0, p0}, Lio/appium/android/apis/app/AlarmService_Service$2;-><init>(Lio/appium/android/apis/app/AlarmService_Service;)V
@@ -40,66 +39,96 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/app/AlarmService_Service;
 
-    .prologue
-    .line 42
+    .line 44
     iget-object v0, p0, Lio/appium/android/apis/app/AlarmService_Service;->mBinder:Landroid/os/IBinder;
 
     return-object v0
 .end method
 
 .method private showNotification()V
-    .locals 8
+    .locals 6
 
-    .prologue
-    const v7, 0x7f0c00c0
+    .line 102
+    const v0, 0x7f0e0091
 
-    const/4 v6, 0x0
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/AlarmService_Service;->getText(I)Ljava/lang/CharSequence;
 
-    .line 100
-    invoke-virtual {p0, v7}, Lio/appium/android/apis/app/AlarmService_Service;->getText(I)Ljava/lang/CharSequence;
+    move-result-object v1
+
+    .line 104
+    .local v1, "text":Ljava/lang/CharSequence;
+    new-instance v2, Landroid/content/Intent;
+
+    const-class v3, Lio/appium/android/apis/app/AlarmService;
+
+    invoke-direct {v2, p0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    const/4 v3, 0x0
+
+    invoke-static {p0, v3, v2, v3}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v2
 
-    .line 103
-    .local v2, "text":Ljava/lang/CharSequence;
-    new-instance v1, Landroid/app/Notification;
+    .line 107
+    .local v2, "contentIntent":Landroid/app/PendingIntent;
+    new-instance v3, Landroid/app/Notification$Builder;
 
-    const v3, 0x7f02005d
+    invoke-direct {v3, p0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
+    .line 108
+    const v4, 0x7f0800c1
+
+    invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 109
+    invoke-virtual {v3, v1}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 110
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v4
 
-    invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/Notification;-><init>(ILjava/lang/CharSequence;J)V
-
-    .line 107
-    .local v1, "notification":Landroid/app/Notification;
-    new-instance v3, Landroid/content/Intent;
-
-    const-class v4, Lio/appium/android/apis/app/AlarmService;
-
-    invoke-direct {v3, p0, v4}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    invoke-static {p0, v6, v3, v6}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v0
-
-    .line 111
-    .local v0, "contentIntent":Landroid/app/PendingIntent;
-    const v3, 0x7f0c00c2
-
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/app/AlarmService_Service;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v4, v5}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v3
 
-    invoke-virtual {v1, p0, v3, v2, v0}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
+    .line 111
+    const v4, 0x7f0e008f
 
-    .line 116
-    iget-object v3, p0, Lio/appium/android/apis/app/AlarmService_Service;->mNM:Landroid/app/NotificationManager;
+    invoke-virtual {p0, v4}, Lio/appium/android/apis/app/AlarmService_Service;->getText(I)Ljava/lang/CharSequence;
 
-    invoke-virtual {v3, v7, v1}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 112
+    invoke-virtual {v3, v1}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 113
+    invoke-virtual {v3, v2}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
+
+    move-result-object v3
+
+    .line 114
+    invoke-virtual {v3}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+
+    move-result-object v3
 
     .line 117
+    .local v3, "notification":Landroid/app/Notification;
+    iget-object v4, p0, Lio/appium/android/apis/app/AlarmService_Service;->mNM:Landroid/app/NotificationManager;
+
+    invoke-virtual {v4, v0, v3}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+
+    .line 118
     return-void
 .end method
 
@@ -109,8 +138,7 @@
     .locals 1
     .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 92
+    .line 94
     iget-object v0, p0, Lio/appium/android/apis/app/AlarmService_Service;->mBinder:Landroid/os/IBinder;
 
     return-object v0
@@ -119,53 +147,51 @@
 .method public onCreate()V
     .locals 4
 
-    .prologue
-    .line 47
-    const-string v1, "notification"
+    .line 49
+    const-string v0, "notification"
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/AlarmService_Service;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/AlarmService_Service;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/app/NotificationManager;
+    check-cast v0, Landroid/app/NotificationManager;
 
-    iput-object v1, p0, Lio/appium/android/apis/app/AlarmService_Service;->mNM:Landroid/app/NotificationManager;
+    iput-object v0, p0, Lio/appium/android/apis/app/AlarmService_Service;->mNM:Landroid/app/NotificationManager;
 
-    .line 50
+    .line 52
     invoke-direct {p0}, Lio/appium/android/apis/app/AlarmService_Service;->showNotification()V
 
-    .line 55
+    .line 57
     new-instance v0, Ljava/lang/Thread;
 
-    const/4 v1, 0x0
+    iget-object v1, p0, Lio/appium/android/apis/app/AlarmService_Service;->mTask:Ljava/lang/Runnable;
 
-    iget-object v2, p0, Lio/appium/android/apis/app/AlarmService_Service;->mTask:Ljava/lang/Runnable;
+    const-string v2, "AlarmService_Service"
 
-    const-string v3, "AlarmService_Service"
+    const/4 v3, 0x0
 
-    invoke-direct {v0, v1, v2, v3}, Ljava/lang/Thread;-><init>(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V
+    invoke-direct {v0, v3, v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;)V
 
-    .line 56
+    .line 58
     .local v0, "thr":Ljava/lang/Thread;
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 57
+    .line 59
     return-void
 .end method
 
 .method public onDestroy()V
     .locals 2
 
-    .prologue
-    .line 62
+    .line 64
     iget-object v0, p0, Lio/appium/android/apis/app/AlarmService_Service;->mNM:Landroid/app/NotificationManager;
 
-    const v1, 0x7f0c00c0
+    const v1, 0x7f0e0091
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
-    .line 65
-    const v0, 0x7f0c00c1
+    .line 67
+    const v0, 0x7f0e008e
 
     const/4 v1, 0x0
 
@@ -175,6 +201,6 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 66
+    .line 68
     return-void
 .end method

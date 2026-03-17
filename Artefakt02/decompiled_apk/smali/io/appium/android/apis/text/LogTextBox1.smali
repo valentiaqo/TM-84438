@@ -11,7 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 31
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -22,7 +21,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/text/LogTextBox1;
 
-    .prologue
     .line 31
     iget-object v0, p0, Lio/appium/android/apis/text/LogTextBox1;->mText:Lio/appium/android/apis/text/LogTextBox;
 
@@ -35,30 +33,29 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 37
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 39
-    const v1, 0x7f03008b
+    const v0, 0x7f0b00a9
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/text/LogTextBox1;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/text/LogTextBox1;->setContentView(I)V
 
     .line 41
-    const v1, 0x7f09000c
+    const v0, 0x7f09020c
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/text/LogTextBox1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/text/LogTextBox1;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lio/appium/android/apis/text/LogTextBox;
+    check-cast v0, Lio/appium/android/apis/text/LogTextBox;
 
-    iput-object v1, p0, Lio/appium/android/apis/text/LogTextBox1;->mText:Lio/appium/android/apis/text/LogTextBox;
+    iput-object v0, p0, Lio/appium/android/apis/text/LogTextBox1;->mText:Lio/appium/android/apis/text/LogTextBox;
 
     .line 43
-    const v1, 0x7f090078
+    const v0, 0x7f090022
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/text/LogTextBox1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/text/LogTextBox1;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

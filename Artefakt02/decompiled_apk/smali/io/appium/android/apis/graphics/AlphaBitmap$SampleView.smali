@@ -26,13 +26,8 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 9
+    .locals 10
     .param p1, "context"    # Landroid/content/Context;
-
-    .prologue
-    const/16 v3, 0xc8
-
-    const/4 v1, 0x0
 
     .line 61
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
@@ -47,70 +42,77 @@
 
     move-result-object v0
 
-    const v2, 0x7f020003
+    const v1, 0x7f080057
 
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
 
-    move-result-object v8
+    move-result-object v0
 
     .line 65
-    .local v8, "is":Ljava/io/InputStream;
-    invoke-static {v8}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+    .local v0, "is":Ljava/io/InputStream;
+    invoke-static {v0}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mBitmap:Landroid/graphics/Bitmap;
+    iput-object v1, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mBitmap:Landroid/graphics/Bitmap;
 
     .line 66
-    iget-object v0, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mBitmap:Landroid/graphics/Bitmap;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mBitmap:Landroid/graphics/Bitmap;
 
-    invoke-virtual {v0}, Landroid/graphics/Bitmap;->extractAlpha()Landroid/graphics/Bitmap;
+    invoke-virtual {v1}, Landroid/graphics/Bitmap;->extractAlpha()Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mBitmap2:Landroid/graphics/Bitmap;
+    iput-object v1, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mBitmap2:Landroid/graphics/Bitmap;
 
     .line 67
-    sget-object v0, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
+    sget-object v1, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
 
-    invoke-static {v3, v3, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    const/16 v2, 0xc8
 
-    move-result-object v0
+    invoke-static {v2, v2, v1}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    iput-object v0, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mBitmap3:Landroid/graphics/Bitmap;
+    move-result-object v1
+
+    iput-object v1, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mBitmap3:Landroid/graphics/Bitmap;
 
     .line 68
-    iget-object v0, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mBitmap3:Landroid/graphics/Bitmap;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mBitmap3:Landroid/graphics/Bitmap;
 
-    invoke-static {v0}, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->drawIntoBitmap(Landroid/graphics/Bitmap;)V
+    invoke-static {v1}, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->drawIntoBitmap(Landroid/graphics/Bitmap;)V
 
     .line 70
-    new-instance v0, Landroid/graphics/LinearGradient;
-
-    const/high16 v3, 0x42c80000    # 100.0f
-
-    const/high16 v4, 0x428c0000    # 70.0f
+    new-instance v1, Landroid/graphics/LinearGradient;
 
     const/4 v2, 0x3
 
-    new-array v5, v2, [I
+    new-array v7, v2, [I
 
-    fill-array-data v5, :array_0
+    fill-array-data v7, :array_0
 
-    const/4 v6, 0x0
+    sget-object v9, Landroid/graphics/Shader$TileMode;->MIRROR:Landroid/graphics/Shader$TileMode;
 
-    sget-object v7, Landroid/graphics/Shader$TileMode;->MIRROR:Landroid/graphics/Shader$TileMode;
+    const/4 v3, 0x0
 
-    move v2, v1
+    const/4 v4, 0x0
 
-    invoke-direct/range {v0 .. v7}, Landroid/graphics/LinearGradient;-><init>(FFFF[I[FLandroid/graphics/Shader$TileMode;)V
+    const/high16 v5, 0x42c80000    # 100.0f
 
-    iput-object v0, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mShader:Landroid/graphics/Shader;
+    const/high16 v6, 0x428c0000    # 70.0f
+
+    const/4 v8, 0x0
+
+    move-object v2, v1
+
+    invoke-direct/range {v2 .. v9}, Landroid/graphics/LinearGradient;-><init>(FFFF[I[FLandroid/graphics/Shader$TileMode;)V
+
+    iput-object v1, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mShader:Landroid/graphics/Shader;
 
     .line 73
     return-void
 
-    .line 70
+    nop
+
     :array_0
     .array-data 4
         -0x10000
@@ -123,60 +125,59 @@
     .locals 9
     .param p0, "bm"    # Landroid/graphics/Bitmap;
 
-    .prologue
-    const/high16 v8, 0x40000000    # 2.0f
-
     .line 43
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
-    move-result v5
+    move-result v0
 
-    int-to-float v3, v5
+    int-to-float v0, v0
 
     .line 44
-    .local v3, "x":F
+    .local v0, "x":F
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v5
+    move-result v1
 
-    int-to-float v4, v5
+    int-to-float v1, v1
 
     .line 45
-    .local v4, "y":F
-    new-instance v0, Landroid/graphics/Canvas;
+    .local v1, "y":F
+    new-instance v2, Landroid/graphics/Canvas;
 
-    invoke-direct {v0, p0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v2, p0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 46
-    .local v0, "c":Landroid/graphics/Canvas;
-    new-instance v2, Landroid/graphics/Paint;
+    .local v2, "c":Landroid/graphics/Canvas;
+    new-instance v3, Landroid/graphics/Paint;
 
-    invoke-direct {v2}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {v3}, Landroid/graphics/Paint;-><init>()V
 
     .line 47
-    .local v2, "p":Landroid/graphics/Paint;
-    const/4 v5, 0x1
+    .local v3, "p":Landroid/graphics/Paint;
+    const/4 v4, 0x1
 
-    invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 49
-    const/16 v5, 0x80
+    const/16 v4, 0x80
 
-    invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setAlpha(I)V
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setAlpha(I)V
 
     .line 50
-    div-float v5, v3, v8
+    const/high16 v4, 0x40000000    # 2.0f
 
-    div-float v6, v4, v8
+    div-float v5, v0, v4
 
-    div-float v7, v3, v8
+    div-float v6, v1, v4
 
-    invoke-virtual {v0, v5, v6, v7, v2}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+    div-float v7, v0, v4
+
+    invoke-virtual {v2, v5, v6, v7, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
     .line 52
     const/16 v5, 0x30
 
-    invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setAlpha(I)V
+    invoke-virtual {v3, v5}, Landroid/graphics/Paint;->setAlpha(I)V
 
     .line 53
     new-instance v5, Landroid/graphics/PorterDuffXfermode;
@@ -185,36 +186,36 @@
 
     invoke-direct {v5, v6}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
 
-    invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+    invoke-virtual {v3, v5}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     .line 54
     const/high16 v5, 0x42700000    # 60.0f
 
-    invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setTextSize(F)V
+    invoke-virtual {v3, v5}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 55
     sget-object v5, Landroid/graphics/Paint$Align;->CENTER:Landroid/graphics/Paint$Align;
 
-    invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setTextAlign(Landroid/graphics/Paint$Align;)V
+    invoke-virtual {v3, v5}, Landroid/graphics/Paint;->setTextAlign(Landroid/graphics/Paint$Align;)V
 
     .line 56
-    invoke-virtual {v2}, Landroid/graphics/Paint;->getFontMetrics()Landroid/graphics/Paint$FontMetrics;
+    invoke-virtual {v3}, Landroid/graphics/Paint;->getFontMetrics()Landroid/graphics/Paint$FontMetrics;
 
-    move-result-object v1
+    move-result-object v5
 
     .line 57
-    .local v1, "fm":Landroid/graphics/Paint$FontMetrics;
-    const-string v5, "Alpha"
+    .local v5, "fm":Landroid/graphics/Paint$FontMetrics;
+    const-string v6, "Alpha"
 
-    div-float v6, v3, v8
+    div-float v7, v0, v4
 
-    iget v7, v1, Landroid/graphics/Paint$FontMetrics;->ascent:F
+    iget v8, v5, Landroid/graphics/Paint$FontMetrics;->ascent:F
 
-    sub-float v7, v4, v7
+    sub-float v8, v1, v8
 
-    div-float/2addr v7, v8
+    div-float/2addr v8, v4
 
-    invoke-virtual {v0, v5, v6, v7, v2}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+    invoke-virtual {v2, v6, v7, v8, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
     .line 58
     return-void
@@ -226,13 +227,10 @@
     .locals 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
-    const/high16 v3, 0x41200000    # 10.0f
-
     .line 76
-    const/4 v2, -0x1
+    const/4 v0, -0x1
 
-    invoke-virtual {p1, v2}, Landroid/graphics/Canvas;->drawColor(I)V
+    invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->drawColor(I)V
 
     .line 78
     new-instance v0, Landroid/graphics/Paint;
@@ -251,6 +249,8 @@
 
     .line 82
     iget-object v2, p0, Lio/appium/android/apis/graphics/AlphaBitmap$SampleView;->mBitmap:Landroid/graphics/Bitmap;
+
+    const/high16 v3, 0x41200000    # 10.0f
 
     invoke-virtual {p1, v2, v3, v1, v0}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 

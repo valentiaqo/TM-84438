@@ -19,7 +19,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 34
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
@@ -41,33 +40,32 @@
     .param p2, "container"    # Landroid/view/ViewGroup;
     .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 50
-    const v3, 0x7f03004e
+    const v0, 0x7f0b006b
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v3, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v2
-
-    .line 53
-    .local v2, "v":Landroid/view/View;
-    invoke-virtual {p0}, Lio/appium/android/apis/app/FragmentMenuFragment;->getChildFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
-    .line 54
-    .local v0, "fm":Landroid/app/FragmentManager;
-    invoke-virtual {v0}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
+    .line 53
+    .local v0, "v":Landroid/view/View;
+    invoke-virtual {p0}, Lio/appium/android/apis/app/FragmentMenuFragment;->getChildFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
 
+    .line 54
+    .local v1, "fm":Landroid/app/FragmentManager;
+    invoke-virtual {v1}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
+
+    move-result-object v2
+
     .line 55
-    .local v1, "ft":Landroid/app/FragmentTransaction;
+    .local v2, "ft":Landroid/app/FragmentTransaction;
     const-string v3, "f1"
 
-    invoke-virtual {v0, v3}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
+    invoke-virtual {v1, v3}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
 
     move-result-object v3
 
@@ -90,13 +88,13 @@
 
     const-string v4, "f1"
 
-    invoke-virtual {v1, v3, v4}, Landroid/app/FragmentTransaction;->add(Landroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
+    invoke-virtual {v2, v3, v4}, Landroid/app/FragmentTransaction;->add(Landroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
     .line 60
     :cond_0
     const-string v3, "f2"
 
-    invoke-virtual {v0, v3}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
+    invoke-virtual {v1, v3}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
 
     move-result-object v3
 
@@ -119,16 +117,16 @@
 
     const-string v4, "f2"
 
-    invoke-virtual {v1, v3, v4}, Landroid/app/FragmentTransaction;->add(Landroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
+    invoke-virtual {v2, v3, v4}, Landroid/app/FragmentTransaction;->add(Landroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
     .line 65
     :cond_1
-    invoke-virtual {v1}, Landroid/app/FragmentTransaction;->commit()I
+    invoke-virtual {v2}, Landroid/app/FragmentTransaction;->commit()I
 
     .line 68
-    const v3, 0x7f0900a6
+    const v3, 0x7f090123
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -144,9 +142,9 @@
     invoke-virtual {v3, v4}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 70
-    const v3, 0x7f0900a7
+    const v3, 0x7f090124
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -165,14 +163,13 @@
     invoke-virtual {p0}, Lio/appium/android/apis/app/FragmentMenuFragment;->updateFragmentVisibility()V
 
     .line 76
-    return-object v2
+    return-object v0
 .end method
 
 .method public onViewStateRestored(Landroid/os/Bundle;)V
     .locals 0
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 81
     invoke-super {p0, p1}, Landroid/app/Fragment;->onViewStateRestored(Landroid/os/Bundle;)V
 
@@ -186,13 +183,12 @@
 .method updateFragmentVisibility()V
     .locals 2
 
-    .prologue
     .line 88
     invoke-virtual {p0}, Lio/appium/android/apis/app/FragmentMenuFragment;->getChildFragmentManager()Landroid/app/FragmentManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
 
     move-result-object v0
 
@@ -210,6 +206,14 @@
 
     invoke-virtual {v0, v1}, Landroid/app/FragmentTransaction;->show(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
+    goto :goto_0
+
+    .line 90
+    :cond_0
+    iget-object v1, p0, Lio/appium/android/apis/app/FragmentMenuFragment;->mFragment1:Landroid/app/Fragment;
+
+    invoke-virtual {v0, v1}, Landroid/app/FragmentTransaction;->hide(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
+
     .line 91
     :goto_0
     iget-object v1, p0, Lio/appium/android/apis/app/FragmentMenuFragment;->mCheckBox2:Landroid/widget/CheckBox;
@@ -224,20 +228,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/FragmentTransaction;->show(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    .line 93
-    :goto_1
-    invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
-
-    .line 94
-    return-void
-
-    .line 90
-    :cond_0
-    iget-object v1, p0, Lio/appium/android/apis/app/FragmentMenuFragment;->mFragment1:Landroid/app/Fragment;
-
-    invoke-virtual {v0, v1}, Landroid/app/FragmentTransaction;->hide(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
-
-    goto :goto_0
+    goto :goto_1
 
     .line 92
     :cond_1
@@ -245,5 +236,10 @@
 
     invoke-virtual {v0, v1}, Landroid/app/FragmentTransaction;->hide(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    goto :goto_1
+    .line 93
+    :goto_1
+    invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
+
+    .line 94
+    return-void
 .end method

@@ -11,7 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 53
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -24,17 +23,16 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 64
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 69
-    const v0, 0x7f0300ca
+    const v0, 0x7f0b00ee
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/SecureSurfaceViewActivity;->setContentView(I)V
 
     .line 74
-    const v0, 0x7f090109
+    const v0, 0x7f090202
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/SecureSurfaceViewActivity;->findViewById(I)Landroid/view/View;
 
@@ -69,7 +67,6 @@
 .method protected onPause()V
     .locals 1
 
-    .prologue
     .line 96
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
@@ -85,7 +82,6 @@
 .method protected onResume()V
     .locals 1
 
-    .prologue
     .line 87
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 

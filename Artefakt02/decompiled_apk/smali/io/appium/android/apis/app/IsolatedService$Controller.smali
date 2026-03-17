@@ -30,66 +30,65 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 105
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 106
     return-void
 .end method
 
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 7
+    .locals 8
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 189
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 191
-    const v0, 0x7f03006a
+    const v0, 0x7f0b0087
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/IsolatedService$Controller;->setContentView(I)V
 
     .line 193
-    new-instance v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
+    new-instance v7, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
     const-class v2, Lio/appium/android/apis/app/IsolatedService;
 
-    const v3, 0x7f0900c8
+    const v3, 0x7f0901e6
 
-    const v4, 0x7f0900c9
+    const v4, 0x7f0901f6
 
-    const v5, 0x7f0900ca
+    const v5, 0x7f090033
 
-    const v6, 0x7f0900cb
+    const v6, 0x7f0901f2
+
+    move-object v0, v7
 
     move-object v1, p0
 
     invoke-direct/range {v0 .. v6}, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;-><init>(Landroid/app/Activity;Ljava/lang/Class;IIII)V
 
-    iput-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller;->mService1:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
+    iput-object v7, p0, Lio/appium/android/apis/app/IsolatedService$Controller;->mService1:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
     .line 195
-    new-instance v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
+    new-instance v7, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
     const-class v2, Lio/appium/android/apis/app/IsolatedService2;
 
-    const v3, 0x7f0900cc
+    const v3, 0x7f0901e7
 
-    const v4, 0x7f0900cd
+    const v4, 0x7f0901f7
 
-    const v5, 0x7f0900ce
+    const v5, 0x7f090034
 
-    const v6, 0x7f0900cf
+    const v6, 0x7f0901f3
 
-    move-object v1, p0
+    move-object v0, v7
 
     invoke-direct/range {v0 .. v6}, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;-><init>(Landroid/app/Activity;Ljava/lang/Class;IIII)V
 
-    iput-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller;->mService2:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
+    iput-object v7, p0, Lio/appium/android/apis/app/IsolatedService$Controller;->mService2:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
     .line 197
     return-void
@@ -98,7 +97,6 @@
 .method protected onDestroy()V
     .locals 1
 
-    .prologue
     .line 201
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 

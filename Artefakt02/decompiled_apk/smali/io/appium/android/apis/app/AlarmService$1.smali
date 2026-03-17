@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/AlarmService;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/AlarmService;
 
-    .prologue
     .line 61
     iput-object p1, p0, Lio/appium/android/apis/app/AlarmService$1;->this$0:Lio/appium/android/apis/app/AlarmService;
 
@@ -37,53 +37,61 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 7
+    .locals 10
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 64
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v2
+    move-result-wide v7
 
     .line 67
-    .local v2, "firstTime":J
-    iget-object v1, p0, Lio/appium/android/apis/app/AlarmService$1;->this$0:Lio/appium/android/apis/app/AlarmService;
+    .local v7, "firstTime":J
+    iget-object v0, p0, Lio/appium/android/apis/app/AlarmService$1;->this$0:Lio/appium/android/apis/app/AlarmService;
 
-    const-string v4, "alarm"
+    const-string v1, "alarm"
 
-    invoke-virtual {v1, v4}, Lio/appium/android/apis/app/AlarmService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lio/appium/android/apis/app/AlarmService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Landroid/app/AlarmManager;
+    move-object v9, v0
+
+    check-cast v9, Landroid/app/AlarmManager;
 
     .line 68
-    .local v0, "am":Landroid/app/AlarmManager;
+    .local v9, "am":Landroid/app/AlarmManager;
+    iget-object v0, p0, Lio/appium/android/apis/app/AlarmService$1;->this$0:Lio/appium/android/apis/app/AlarmService;
+
+    .line 69
+    invoke-static {v0}, Lio/appium/android/apis/app/AlarmService;->access$000(Lio/appium/android/apis/app/AlarmService;)Landroid/app/PendingIntent;
+
+    move-result-object v6
+
+    .line 68
     const/4 v1, 0x2
 
     const-wide/16 v4, 0x7530
 
-    iget-object v6, p0, Lio/appium/android/apis/app/AlarmService$1;->this$0:Lio/appium/android/apis/app/AlarmService;
+    move-object v0, v9
 
-    invoke-static {v6}, Lio/appium/android/apis/app/AlarmService;->access$000(Lio/appium/android/apis/app/AlarmService;)Landroid/app/PendingIntent;
-
-    move-result-object v6
+    move-wide v2, v7
 
     invoke-virtual/range {v0 .. v6}, Landroid/app/AlarmManager;->setRepeating(IJJLandroid/app/PendingIntent;)V
 
     .line 72
-    iget-object v1, p0, Lio/appium/android/apis/app/AlarmService$1;->this$0:Lio/appium/android/apis/app/AlarmService;
+    iget-object v0, p0, Lio/appium/android/apis/app/AlarmService$1;->this$0:Lio/appium/android/apis/app/AlarmService;
 
-    const v4, 0x7f0c00be
+    const v1, 0x7f0e028a
 
-    const/4 v5, 0x1
+    const/4 v2, 0x1
 
-    invoke-static {v1, v4, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+    .line 73
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 74
     return-void

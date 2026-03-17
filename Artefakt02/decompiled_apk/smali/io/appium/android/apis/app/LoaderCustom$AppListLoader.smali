@@ -15,10 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/content/AsyncTaskLoader",
-        "<",
-        "Ljava/util/List",
-        "<",
+        "Landroid/content/AsyncTaskLoader<",
+        "Ljava/util/List<",
         "Lio/appium/android/apis/app/LoaderCustom$AppEntry;",
         ">;>;"
     }
@@ -29,8 +27,7 @@
 .field mApps:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Lio/appium/android/apis/app/LoaderCustom$AppEntry;",
             ">;"
         }
@@ -49,7 +46,6 @@
     .locals 1
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 215
     invoke-direct {p0, p1}, Landroid/content/AsyncTaskLoader;-><init>(Landroid/content/Context;)V
 
@@ -79,13 +75,10 @@
 # virtual methods
 .method public bridge synthetic deliverResult(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
     .line 207
     check-cast p1, Ljava/util/List;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->deliverResult(Ljava/util/List;)V
 
     return-void
@@ -96,21 +89,19 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Lio/appium/android/apis/app/LoaderCustom$AppEntry;",
             ">;)V"
         }
     .end annotation
 
-    .prologue
     .line 260
     .local p1, "apps":Ljava/util/List;, "Ljava/util/List<Lio/appium/android/apis/app/LoaderCustom$AppEntry;>;"
     invoke-virtual {p0}, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->isReset()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 263
     if-eqz p1, :cond_0
@@ -151,7 +142,6 @@
 .method public bridge synthetic loadInBackground()Ljava/lang/Object;
     .locals 1
 
-    .prologue
     .line 207
     invoke-virtual {p0}, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->loadInBackground()Ljava/util/List;
 
@@ -161,24 +151,22 @@
 .end method
 
 .method public loadInBackground()Ljava/util/List;
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Lio/appium/android/apis/app/LoaderCustom$AppEntry;",
             ">;"
         }
     .end annotation
 
-    .prologue
     .line 230
-    iget-object v5, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mPm:Landroid/content/pm/PackageManager;
+    iget-object v0, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mPm:Landroid/content/pm/PackageManager;
 
-    const/16 v6, 0x2200
+    const/16 v1, 0x2200
 
-    invoke-virtual {v5, v6}, Landroid/content/pm/PackageManager;->getInstalledApplications(I)Ljava/util/List;
+    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->getInstalledApplications(I)Ljava/util/List;
 
     move-result-object v0
 
@@ -187,13 +175,13 @@
     if-nez v0, :cond_0
 
     .line 234
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    .end local v0    # "apps":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    move-object v0, v1
 
     .line 237
-    .restart local v0    # "apps":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     :cond_0
     invoke-virtual {p0}, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->getContext()Landroid/content/Context;
 
@@ -205,51 +193,52 @@
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result v3
 
-    invoke-direct {v2, v5}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 241
     .local v2, "entries":Ljava/util/List;, "Ljava/util/List<Lio/appium/android/apis/app/LoaderCustom$AppEntry;>;"
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    .local v4, "i":I
+    .local v3, "i":I
     :goto_0
     invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result v4
 
-    if-ge v4, v5, :cond_1
+    if-ge v3, v4, :cond_1
 
     .line 242
-    new-instance v3, Lio/appium/android/apis/app/LoaderCustom$AppEntry;
+    new-instance v4, Lio/appium/android/apis/app/LoaderCustom$AppEntry;
 
-    invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Landroid/content/pm/ApplicationInfo;
 
-    invoke-direct {v3, p0, v5}, Lio/appium/android/apis/app/LoaderCustom$AppEntry;-><init>(Lio/appium/android/apis/app/LoaderCustom$AppListLoader;Landroid/content/pm/ApplicationInfo;)V
+    invoke-direct {v4, p0, v5}, Lio/appium/android/apis/app/LoaderCustom$AppEntry;-><init>(Lio/appium/android/apis/app/LoaderCustom$AppListLoader;Landroid/content/pm/ApplicationInfo;)V
 
     .line 243
-    .local v3, "entry":Lio/appium/android/apis/app/LoaderCustom$AppEntry;
-    invoke-virtual {v3, v1}, Lio/appium/android/apis/app/LoaderCustom$AppEntry;->loadLabel(Landroid/content/Context;)V
+    .local v4, "entry":Lio/appium/android/apis/app/LoaderCustom$AppEntry;
+    invoke-virtual {v4, v1}, Lio/appium/android/apis/app/LoaderCustom$AppEntry;->loadLabel(Landroid/content/Context;)V
 
     .line 244
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 241
-    add-int/lit8 v4, v4, 0x1
+    .end local v4    # "entry":Lio/appium/android/apis/app/LoaderCustom$AppEntry;
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 248
-    .end local v3    # "entry":Lio/appium/android/apis/app/LoaderCustom$AppEntry;
+    .end local v3    # "i":I
     :cond_1
-    sget-object v5, Lio/appium/android/apis/app/LoaderCustom;->ALPHA_COMPARATOR:Ljava/util/Comparator;
+    sget-object v3, Lio/appium/android/apis/app/LoaderCustom;->ALPHA_COMPARATOR:Ljava/util/Comparator;
 
-    invoke-static {v2, v5}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+    invoke-static {v2, v3}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
     .line 251
     return-object v2
@@ -257,13 +246,10 @@
 
 .method public bridge synthetic onCanceled(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
     .line 207
     check-cast p1, Ljava/util/List;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->onCanceled(Ljava/util/List;)V
 
     return-void
@@ -274,14 +260,12 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Lio/appium/android/apis/app/LoaderCustom$AppEntry;",
             ">;)V"
         }
     .end annotation
 
-    .prologue
     .line 322
     .local p1, "apps":Ljava/util/List;, "Ljava/util/List<Lio/appium/android/apis/app/LoaderCustom$AppEntry;>;"
     invoke-super {p0, p1}, Landroid/content/AsyncTaskLoader;->onCanceled(Ljava/lang/Object;)V
@@ -298,14 +282,12 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Lio/appium/android/apis/app/LoaderCustom$AppEntry;",
             ">;)V"
         }
     .end annotation
 
-    .prologue
     .line 359
     .local p1, "apps":Ljava/util/List;, "Ljava/util/List<Lio/appium/android/apis/app/LoaderCustom$AppEntry;>;"
     return-void
@@ -313,9 +295,6 @@
 
 .method protected onReset()V
     .locals 3
-
-    .prologue
-    const/4 v2, 0x0
 
     .line 333
     invoke-super {p0}, Landroid/content/AsyncTaskLoader;->onReset()V
@@ -326,15 +305,15 @@
     .line 340
     iget-object v0, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mApps:Ljava/util/List;
 
+    const/4 v1, 0x0
+
     if-eqz v0, :cond_0
 
     .line 341
-    iget-object v0, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mApps:Ljava/util/List;
-
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->onReleaseResources(Ljava/util/List;)V
 
     .line 342
-    iput-object v2, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mApps:Ljava/util/List;
+    iput-object v1, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mApps:Ljava/util/List;
 
     .line 346
     :cond_0
@@ -347,12 +326,12 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mPackageObserver:Lio/appium/android/apis/app/LoaderCustom$PackageIntentReceiver;
+    iget-object v2, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mPackageObserver:Lio/appium/android/apis/app/LoaderCustom$PackageIntentReceiver;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {v0, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 348
-    iput-object v2, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mPackageObserver:Lio/appium/android/apis/app/LoaderCustom$PackageIntentReceiver;
+    iput-object v1, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mPackageObserver:Lio/appium/android/apis/app/LoaderCustom$PackageIntentReceiver;
 
     .line 350
     :cond_1
@@ -360,45 +339,42 @@
 .end method
 
 .method protected onStartLoading()V
-    .locals 3
+    .locals 2
 
-    .prologue
     .line 288
-    iget-object v1, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mApps:Ljava/util/List;
+    iget-object v0, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mApps:Ljava/util/List;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 291
-    iget-object v1, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mApps:Ljava/util/List;
-
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->deliverResult(Ljava/util/List;)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->deliverResult(Ljava/util/List;)V
 
     .line 295
     :cond_0
-    iget-object v1, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mPackageObserver:Lio/appium/android/apis/app/LoaderCustom$PackageIntentReceiver;
+    iget-object v0, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mPackageObserver:Lio/appium/android/apis/app/LoaderCustom$PackageIntentReceiver;
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     .line 296
-    new-instance v1, Lio/appium/android/apis/app/LoaderCustom$PackageIntentReceiver;
+    new-instance v0, Lio/appium/android/apis/app/LoaderCustom$PackageIntentReceiver;
 
-    invoke-direct {v1, p0}, Lio/appium/android/apis/app/LoaderCustom$PackageIntentReceiver;-><init>(Lio/appium/android/apis/app/LoaderCustom$AppListLoader;)V
+    invoke-direct {v0, p0}, Lio/appium/android/apis/app/LoaderCustom$PackageIntentReceiver;-><init>(Lio/appium/android/apis/app/LoaderCustom$AppListLoader;)V
 
-    iput-object v1, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mPackageObserver:Lio/appium/android/apis/app/LoaderCustom$PackageIntentReceiver;
+    iput-object v0, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mPackageObserver:Lio/appium/android/apis/app/LoaderCustom$PackageIntentReceiver;
 
     .line 301
     :cond_1
-    iget-object v1, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mLastConfig:Lio/appium/android/apis/app/LoaderCustom$InterestingConfigChanges;
+    iget-object v0, p0, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->mLastConfig:Lio/appium/android/apis/app/LoaderCustom$InterestingConfigChanges;
 
     invoke-virtual {p0}, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Lio/appium/android/apis/app/LoaderCustom$InterestingConfigChanges;->applyNewConfig(Landroid/content/res/Resources;)Z
+    invoke-virtual {v0, v1}, Lio/appium/android/apis/app/LoaderCustom$InterestingConfigChanges;->applyNewConfig(Landroid/content/res/Resources;)Z
 
     move-result v0
 
@@ -428,7 +404,6 @@
 .method protected onStopLoading()V
     .locals 0
 
-    .prologue
     .line 315
     invoke-virtual {p0}, Lio/appium/android/apis/app/LoaderCustom$AppListLoader;->cancelLoad()Z
 

@@ -26,8 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/TableLayout8;Landroid/widget/TableLayout;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/TableLayout8;
 
-    .prologue
     .line 42
     iput-object p1, p0, Lio/appium/android/apis/view/TableLayout8$1;->this$0:Lio/appium/android/apis/view/TableLayout8;
 
@@ -44,42 +44,30 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    const/4 v1, 0x1
-
     .line 44
-    iget-object v2, p0, Lio/appium/android/apis/view/TableLayout8$1;->this$0:Lio/appium/android/apis/view/TableLayout8;
-
     iget-object v0, p0, Lio/appium/android/apis/view/TableLayout8$1;->this$0:Lio/appium/android/apis/view/TableLayout8;
 
     invoke-static {v0}, Lio/appium/android/apis/view/TableLayout8;->access$000(Lio/appium/android/apis/view/TableLayout8;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    const/4 v2, 0x1
 
-    move v0, v1
+    xor-int/2addr v1, v2
 
-    :goto_0
-    invoke-static {v2, v0}, Lio/appium/android/apis/view/TableLayout8;->access$002(Lio/appium/android/apis/view/TableLayout8;Z)Z
+    invoke-static {v0, v1}, Lio/appium/android/apis/view/TableLayout8;->access$002(Lio/appium/android/apis/view/TableLayout8;Z)Z
 
     .line 45
     iget-object v0, p0, Lio/appium/android/apis/view/TableLayout8$1;->val$table:Landroid/widget/TableLayout;
 
-    iget-object v2, p0, Lio/appium/android/apis/view/TableLayout8$1;->this$0:Lio/appium/android/apis/view/TableLayout8;
+    iget-object v1, p0, Lio/appium/android/apis/view/TableLayout8$1;->this$0:Lio/appium/android/apis/view/TableLayout8;
 
-    invoke-static {v2}, Lio/appium/android/apis/view/TableLayout8;->access$000(Lio/appium/android/apis/view/TableLayout8;)Z
+    invoke-static {v1}, Lio/appium/android/apis/view/TableLayout8;->access$000(Lio/appium/android/apis/view/TableLayout8;)Z
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v0, v1, v2}, Landroid/widget/TableLayout;->setColumnStretchable(IZ)V
+    invoke-virtual {v0, v2, v1}, Landroid/widget/TableLayout;->setColumnStretchable(IZ)V
 
     .line 46
     return-void
-
-    .line 44
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method

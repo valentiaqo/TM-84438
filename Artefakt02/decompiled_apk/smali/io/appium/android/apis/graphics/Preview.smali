@@ -18,8 +18,7 @@
 .field mSupportedPreviewSizes:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Landroid/hardware/Camera$Size;",
             ">;"
         }
@@ -34,7 +33,6 @@
     .locals 2
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 171
     invoke-direct {p0, p1}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;)V
 
@@ -81,317 +79,324 @@
 .end method
 
 .method private getOptimalPreviewSize(Ljava/util/List;II)Landroid/hardware/Camera$Size;
-    .locals 17
+    .locals 19
     .param p2, "w"    # I
     .param p3, "h"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Landroid/hardware/Camera$Size;",
             ">;II)",
             "Landroid/hardware/Camera$Size;"
         }
     .end annotation
 
-    .prologue
     .line 268
     .local p1, "sizes":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/Camera$Size;>;"
-    const-wide v1, 0x3fb999999999999aL    # 0.1
+    const-wide v0, 0x3fb999999999999aL    # 0.1
 
     .line 269
-    .local v1, "ASPECT_TOLERANCE":D
-    move/from16 v0, p2
+    .local v0, "ASPECT_TOLERANCE":D
+    move/from16 v2, p2
 
-    int-to-double v13, v0
+    int-to-double v3, v2
 
-    move/from16 v0, p3
+    move/from16 v5, p3
 
-    int-to-double v15, v0
+    int-to-double v6, v5
 
-    div-double v11, v13, v15
+    invoke-static {v3, v4}, Ljava/lang/Double;->isNaN(D)Z
+
+    invoke-static {v6, v7}, Ljava/lang/Double;->isNaN(D)Z
+
+    div-double/2addr v3, v6
 
     .line 270
-    .local v11, "targetRatio":D
-    if-nez p1, :cond_1
+    .local v3, "targetRatio":D
+    if-nez p1, :cond_0
 
     const/4 v6, 0x0
 
-    .line 297
-    :cond_0
     return-object v6
 
     .line 272
-    :cond_1
+    :cond_0
     const/4 v6, 0x0
 
     .line 273
     .local v6, "optimalSize":Landroid/hardware/Camera$Size;
-    const-wide v4, 0x7fefffffffffffffL    # Double.MAX_VALUE
+    const-wide v7, 0x7fefffffffffffffL    # Double.MAX_VALUE
 
     .line 275
-    .local v4, "minDiff":D
-    move/from16 v10, p3
+    .local v7, "minDiff":D
+    move/from16 v9, p3
 
     .line 278
-    .local v10, "targetHeight":I
+    .local v9, "targetHeight":I
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v10
 
-    .local v3, "i$":Ljava/util/Iterator;
-    :cond_2
     :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v13
+    move-result v11
 
-    if-eqz v13, :cond_3
+    if-eqz v11, :cond_3
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v11
 
-    check-cast v9, Landroid/hardware/Camera$Size;
+    check-cast v11, Landroid/hardware/Camera$Size;
 
     .line 279
-    .local v9, "size":Landroid/hardware/Camera$Size;
-    iget v13, v9, Landroid/hardware/Camera$Size;->width:I
+    .local v11, "size":Landroid/hardware/Camera$Size;
+    iget v12, v11, Landroid/hardware/Camera$Size;->width:I
 
-    int-to-double v13, v13
+    int-to-double v12, v12
 
-    iget v15, v9, Landroid/hardware/Camera$Size;->height:I
+    iget v14, v11, Landroid/hardware/Camera$Size;->height:I
 
-    int-to-double v15, v15
+    int-to-double v14, v14
 
-    div-double v7, v13, v15
+    invoke-static {v12, v13}, Ljava/lang/Double;->isNaN(D)Z
+
+    invoke-static {v14, v15}, Ljava/lang/Double;->isNaN(D)Z
+
+    div-double/2addr v12, v14
 
     .line 280
-    .local v7, "ratio":D
-    sub-double v13, v7, v11
+    .local v12, "ratio":D
+    sub-double v14, v12, v3
 
-    invoke-static {v13, v14}, Ljava/lang/Math;->abs(D)D
+    invoke-static {v14, v15}, Ljava/lang/Math;->abs(D)D
 
-    move-result-wide v13
+    move-result-wide v14
 
-    const-wide v15, 0x3fb999999999999aL    # 0.1
+    const-wide v16, 0x3fb999999999999aL    # 0.1
 
-    cmpl-double v13, v13, v15
+    cmpl-double v18, v14, v16
 
-    if-gtz v13, :cond_2
-
-    .line 281
-    iget v13, v9, Landroid/hardware/Camera$Size;->height:I
-
-    sub-int/2addr v13, v10
-
-    invoke-static {v13}, Ljava/lang/Math;->abs(I)I
-
-    move-result v13
-
-    int-to-double v13, v13
-
-    cmpg-double v13, v13, v4
-
-    if-gez v13, :cond_2
-
-    .line 282
-    move-object v6, v9
-
-    .line 283
-    iget v13, v9, Landroid/hardware/Camera$Size;->height:I
-
-    sub-int/2addr v13, v10
-
-    invoke-static {v13}, Ljava/lang/Math;->abs(I)I
-
-    move-result v13
-
-    int-to-double v4, v13
+    if-lez v18, :cond_1
 
     goto :goto_0
 
+    .line 281
+    :cond_1
+    iget v14, v11, Landroid/hardware/Camera$Size;->height:I
+
+    sub-int/2addr v14, v9
+
+    invoke-static {v14}, Ljava/lang/Math;->abs(I)I
+
+    move-result v14
+
+    int-to-double v14, v14
+
+    cmpg-double v16, v14, v7
+
+    if-gez v16, :cond_2
+
+    .line 282
+    move-object v6, v11
+
+    .line 283
+    iget v14, v11, Landroid/hardware/Camera$Size;->height:I
+
+    sub-int/2addr v14, v9
+
+    invoke-static {v14}, Ljava/lang/Math;->abs(I)I
+
+    move-result v14
+
+    int-to-double v7, v14
+
+    .line 285
+    .end local v11    # "size":Landroid/hardware/Camera$Size;
+    .end local v12    # "ratio":D
+    :cond_2
+    goto :goto_0
+
     .line 288
-    .end local v7    # "ratio":D
-    .end local v9    # "size":Landroid/hardware/Camera$Size;
     :cond_3
-    if-nez v6, :cond_0
+    if-nez v6, :cond_5
 
     .line 289
-    const-wide v4, 0x7fefffffffffffffL    # Double.MAX_VALUE
+    const-wide v7, 0x7fefffffffffffffL    # Double.MAX_VALUE
 
     .line 290
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v10
 
-    :cond_4
     :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v13
+    move-result v11
 
-    if-eqz v13, :cond_0
+    if-eqz v11, :cond_5
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v11
 
-    check-cast v9, Landroid/hardware/Camera$Size;
+    check-cast v11, Landroid/hardware/Camera$Size;
 
     .line 291
-    .restart local v9    # "size":Landroid/hardware/Camera$Size;
-    iget v13, v9, Landroid/hardware/Camera$Size;->height:I
+    .restart local v11    # "size":Landroid/hardware/Camera$Size;
+    iget v12, v11, Landroid/hardware/Camera$Size;->height:I
 
-    sub-int/2addr v13, v10
+    sub-int/2addr v12, v9
 
-    invoke-static {v13}, Ljava/lang/Math;->abs(I)I
+    invoke-static {v12}, Ljava/lang/Math;->abs(I)I
 
-    move-result v13
+    move-result v12
 
-    int-to-double v13, v13
+    int-to-double v12, v12
 
-    cmpg-double v13, v13, v4
+    cmpg-double v14, v12, v7
 
-    if-gez v13, :cond_4
+    if-gez v14, :cond_4
 
     .line 292
-    move-object v6, v9
+    move-object v6, v11
 
     .line 293
-    iget v13, v9, Landroid/hardware/Camera$Size;->height:I
+    iget v12, v11, Landroid/hardware/Camera$Size;->height:I
 
-    sub-int/2addr v13, v10
+    sub-int/2addr v12, v9
 
-    invoke-static {v13}, Ljava/lang/Math;->abs(I)I
+    invoke-static {v12}, Ljava/lang/Math;->abs(I)I
 
-    move-result v13
+    move-result v12
 
-    int-to-double v4, v13
+    int-to-double v7, v12
 
+    .line 295
+    .end local v11    # "size":Landroid/hardware/Camera$Size;
+    :cond_4
     goto :goto_1
+
+    .line 297
+    :cond_5
+    return-object v6
 .end method
 
 
 # virtual methods
 .method protected onLayout(ZIIII)V
-    .locals 10
+    .locals 9
     .param p1, "changed"    # Z
     .param p2, "l"    # I
     .param p3, "t"    # I
     .param p4, "r"    # I
     .param p5, "b"    # I
 
-    .prologue
-    const/4 v9, 0x0
-
     .line 221
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Lio/appium/android/apis/graphics/Preview;->getChildCount()I
 
-    move-result v7
+    move-result v0
 
-    if-lez v7, :cond_1
+    if-lez v0, :cond_2
 
     .line 222
-    invoke-virtual {p0, v9}, Lio/appium/android/apis/graphics/Preview;->getChildAt(I)Landroid/view/View;
+    const/4 v0, 0x0
 
-    move-result-object v0
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/graphics/Preview;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
 
     .line 224
-    .local v0, "child":Landroid/view/View;
-    sub-int v6, p4, p2
+    .local v1, "child":Landroid/view/View;
+    sub-int v2, p4, p2
 
     .line 225
-    .local v6, "width":I
-    sub-int v1, p5, p3
+    .local v2, "width":I
+    sub-int v3, p5, p3
 
     .line 227
-    .local v1, "height":I
-    move v3, v6
+    .local v3, "height":I
+    move v4, v2
 
     .line 228
-    .local v3, "previewWidth":I
-    move v2, v1
+    .local v4, "previewWidth":I
+    move v5, v3
 
     .line 229
-    .local v2, "previewHeight":I
-    iget-object v7, p0, Lio/appium/android/apis/graphics/Preview;->mPreviewSize:Landroid/hardware/Camera$Size;
+    .local v5, "previewHeight":I
+    iget-object v6, p0, Lio/appium/android/apis/graphics/Preview;->mPreviewSize:Landroid/hardware/Camera$Size;
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
 
     .line 230
-    iget-object v7, p0, Lio/appium/android/apis/graphics/Preview;->mPreviewSize:Landroid/hardware/Camera$Size;
-
-    iget v3, v7, Landroid/hardware/Camera$Size;->width:I
+    iget v4, v6, Landroid/hardware/Camera$Size;->width:I
 
     .line 231
-    iget-object v7, p0, Lio/appium/android/apis/graphics/Preview;->mPreviewSize:Landroid/hardware/Camera$Size;
+    iget-object v6, p0, Lio/appium/android/apis/graphics/Preview;->mPreviewSize:Landroid/hardware/Camera$Size;
 
-    iget v2, v7, Landroid/hardware/Camera$Size;->height:I
+    iget v5, v6, Landroid/hardware/Camera$Size;->height:I
 
     .line 235
     :cond_0
-    mul-int v7, v6, v2
+    mul-int v6, v2, v5
 
-    mul-int v8, v1, v3
+    mul-int v7, v3, v4
 
-    if-le v7, v8, :cond_2
+    if-le v6, v7, :cond_1
 
     .line 236
-    mul-int v7, v3, v1
+    mul-int v6, v4, v3
 
-    div-int v5, v7, v2
+    div-int/2addr v6, v5
 
     .line 237
-    .local v5, "scaledChildWidth":I
-    sub-int v7, v6, v5
+    .local v6, "scaledChildWidth":I
+    sub-int v7, v2, v6
 
     div-int/lit8 v7, v7, 0x2
 
-    add-int v8, v6, v5
+    add-int v8, v2, v6
 
     div-int/lit8 v8, v8, 0x2
 
-    invoke-virtual {v0, v7, v9, v8, v1}, Landroid/view/View;->layout(IIII)V
+    invoke-virtual {v1, v7, v0, v8, v3}, Landroid/view/View;->layout(IIII)V
 
-    .line 245
-    .end local v0    # "child":Landroid/view/View;
-    .end local v1    # "height":I
-    .end local v2    # "previewHeight":I
-    .end local v3    # "previewWidth":I
-    .end local v5    # "scaledChildWidth":I
-    .end local v6    # "width":I
-    :cond_1
-    :goto_0
-    return-void
+    .line 239
+    .end local v6    # "scaledChildWidth":I
+    goto :goto_0
 
     .line 240
-    .restart local v0    # "child":Landroid/view/View;
-    .restart local v1    # "height":I
-    .restart local v2    # "previewHeight":I
-    .restart local v3    # "previewWidth":I
-    .restart local v6    # "width":I
-    :cond_2
-    mul-int v7, v2, v6
+    :cond_1
+    mul-int v6, v5, v2
 
-    div-int v4, v7, v3
+    div-int/2addr v6, v4
 
     .line 241
-    .local v4, "scaledChildHeight":I
-    sub-int v7, v1, v4
+    .local v6, "scaledChildHeight":I
+    sub-int v7, v3, v6
 
     div-int/lit8 v7, v7, 0x2
 
-    add-int v8, v1, v4
+    add-int v8, v3, v6
 
     div-int/lit8 v8, v8, 0x2
 
-    invoke-virtual {v0, v9, v7, v6, v8}, Landroid/view/View;->layout(IIII)V
+    invoke-virtual {v1, v0, v7, v2, v8}, Landroid/view/View;->layout(IIII)V
 
-    goto :goto_0
+    .line 245
+    .end local v1    # "child":Landroid/view/View;
+    .end local v2    # "width":I
+    .end local v3    # "height":I
+    .end local v4    # "previewWidth":I
+    .end local v5    # "previewHeight":I
+    .end local v6    # "scaledChildHeight":I
+    :cond_2
+    :goto_0
+    return-void
 .end method
 
 .method protected onMeasure(II)V
@@ -399,29 +404,28 @@
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
-    .prologue
     .line 210
     invoke-virtual {p0}, Lio/appium/android/apis/graphics/Preview;->getSuggestedMinimumWidth()I
 
-    move-result v2
+    move-result v0
 
-    invoke-static {v2, p1}, Lio/appium/android/apis/graphics/Preview;->resolveSize(II)I
-
-    move-result v1
-
-    .line 211
-    .local v1, "width":I
-    invoke-virtual {p0}, Lio/appium/android/apis/graphics/Preview;->getSuggestedMinimumHeight()I
-
-    move-result v2
-
-    invoke-static {v2, p2}, Lio/appium/android/apis/graphics/Preview;->resolveSize(II)I
+    invoke-static {v0, p1}, Lio/appium/android/apis/graphics/Preview;->resolveSize(II)I
 
     move-result v0
 
+    .line 211
+    .local v0, "width":I
+    invoke-virtual {p0}, Lio/appium/android/apis/graphics/Preview;->getSuggestedMinimumHeight()I
+
+    move-result v1
+
+    invoke-static {v1, p2}, Lio/appium/android/apis/graphics/Preview;->resolveSize(II)I
+
+    move-result v1
+
     .line 212
-    .local v0, "height":I
-    invoke-virtual {p0, v1, v0}, Lio/appium/android/apis/graphics/Preview;->setMeasuredDimension(II)V
+    .local v1, "height":I
+    invoke-virtual {p0, v0, v1}, Lio/appium/android/apis/graphics/Preview;->setMeasuredDimension(II)V
 
     .line 214
     iget-object v2, p0, Lio/appium/android/apis/graphics/Preview;->mSupportedPreviewSizes:Ljava/util/List;
@@ -429,9 +433,7 @@
     if-eqz v2, :cond_0
 
     .line 215
-    iget-object v2, p0, Lio/appium/android/apis/graphics/Preview;->mSupportedPreviewSizes:Ljava/util/List;
-
-    invoke-direct {p0, v2, v1, v0}, Lio/appium/android/apis/graphics/Preview;->getOptimalPreviewSize(Ljava/util/List;II)Landroid/hardware/Camera$Size;
+    invoke-direct {p0, v2, v0, v1}, Lio/appium/android/apis/graphics/Preview;->getOptimalPreviewSize(Ljava/util/List;II)Landroid/hardware/Camera$Size;
 
     move-result-object v2
 
@@ -446,7 +448,6 @@
     .locals 1
     .param p1, "camera"    # Landroid/hardware/Camera;
 
-    .prologue
     .line 184
     iput-object p1, p0, Lio/appium/android/apis/graphics/Preview;->mCamera:Landroid/hardware/Camera;
 
@@ -456,8 +457,6 @@
     if-eqz v0, :cond_0
 
     .line 186
-    iget-object v0, p0, Lio/appium/android/apis/graphics/Preview;->mCamera:Landroid/hardware/Camera;
-
     invoke-virtual {v0}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
 
     move-result-object v0
@@ -483,11 +482,10 @@
     .param p3, "w"    # I
     .param p4, "h"    # I
 
-    .prologue
     .line 303
-    iget-object v1, p0, Lio/appium/android/apis/graphics/Preview;->mCamera:Landroid/hardware/Camera;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/Preview;->mCamera:Landroid/hardware/Camera;
 
-    invoke-virtual {v1}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
+    invoke-virtual {v0}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
 
     move-result-object v0
 
@@ -524,24 +522,22 @@
     .locals 3
     .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
-    .prologue
     .line 251
     :try_start_0
-    iget-object v1, p0, Lio/appium/android/apis/graphics/Preview;->mCamera:Landroid/hardware/Camera;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/Preview;->mCamera:Landroid/hardware/Camera;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 252
-    iget-object v1, p0, Lio/appium/android/apis/graphics/Preview;->mCamera:Landroid/hardware/Camera;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/Preview;->mCamera:Landroid/hardware/Camera;
 
-    invoke-virtual {v1, p1}, Landroid/hardware/Camera;->setPreviewDisplay(Landroid/view/SurfaceHolder;)V
+    invoke-virtual {v0, p1}, Landroid/hardware/Camera;->setPreviewDisplay(Landroid/view/SurfaceHolder;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 257
+    .line 256
     :cond_0
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 254
     :catch_0
@@ -555,22 +551,22 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    .line 257
+    .end local v0    # "exception":Ljava/io/IOException;
+    :goto_0
+    return-void
 .end method
 
 .method public surfaceDestroyed(Landroid/view/SurfaceHolder;)V
     .locals 1
     .param p1, "holder"    # Landroid/view/SurfaceHolder;
 
-    .prologue
     .line 261
     iget-object v0, p0, Lio/appium/android/apis/graphics/Preview;->mCamera:Landroid/hardware/Camera;
 
     if-eqz v0, :cond_0
 
     .line 262
-    iget-object v0, p0, Lio/appium/android/apis/graphics/Preview;->mCamera:Landroid/hardware/Camera;
-
     invoke-virtual {v0}, Landroid/hardware/Camera;->stopPreview()V
 
     .line 264
@@ -579,60 +575,60 @@
 .end method
 
 .method public switchCamera(Landroid/hardware/Camera;)V
-    .locals 4
+    .locals 3
     .param p1, "camera"    # Landroid/hardware/Camera;
 
-    .prologue
     .line 192
     invoke-virtual {p0, p1}, Lio/appium/android/apis/graphics/Preview;->setCamera(Landroid/hardware/Camera;)V
 
     .line 194
     :try_start_0
-    iget-object v2, p0, Lio/appium/android/apis/graphics/Preview;->mHolder:Landroid/view/SurfaceHolder;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/Preview;->mHolder:Landroid/view/SurfaceHolder;
 
-    invoke-virtual {p1, v2}, Landroid/hardware/Camera;->setPreviewDisplay(Landroid/view/SurfaceHolder;)V
+    invoke-virtual {p1, v0}, Landroid/hardware/Camera;->setPreviewDisplay(Landroid/view/SurfaceHolder;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 198
-    :goto_0
-    invoke-virtual {p1}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
-
-    move-result-object v1
-
-    .line 199
-    .local v1, "parameters":Landroid/hardware/Camera$Parameters;
-    iget-object v2, p0, Lio/appium/android/apis/graphics/Preview;->mPreviewSize:Landroid/hardware/Camera$Size;
-
-    iget v2, v2, Landroid/hardware/Camera$Size;->width:I
-
-    iget-object v3, p0, Lio/appium/android/apis/graphics/Preview;->mPreviewSize:Landroid/hardware/Camera$Size;
-
-    iget v3, v3, Landroid/hardware/Camera$Size;->height:I
-
-    invoke-virtual {v1, v2, v3}, Landroid/hardware/Camera$Parameters;->setPreviewSize(II)V
-
-    .line 200
-    invoke-virtual {p0}, Lio/appium/android/apis/graphics/Preview;->requestLayout()V
-
-    .line 202
-    invoke-virtual {p1, v1}, Landroid/hardware/Camera;->setParameters(Landroid/hardware/Camera$Parameters;)V
-
-    .line 203
-    return-void
+    .line 197
+    goto :goto_0
 
     .line 195
-    .end local v1    # "parameters":Landroid/hardware/Camera$Parameters;
     :catch_0
     move-exception v0
 
     .line 196
     .local v0, "exception":Ljava/io/IOException;
-    const-string v2, "Preview"
+    const-string v1, "Preview"
 
-    const-string v3, "IOException caused by setPreviewDisplay()"
+    const-string v2, "IOException caused by setPreviewDisplay()"
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    .line 198
+    .end local v0    # "exception":Ljava/io/IOException;
+    :goto_0
+    invoke-virtual {p1}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
+
+    move-result-object v0
+
+    .line 199
+    .local v0, "parameters":Landroid/hardware/Camera$Parameters;
+    iget-object v1, p0, Lio/appium/android/apis/graphics/Preview;->mPreviewSize:Landroid/hardware/Camera$Size;
+
+    iget v1, v1, Landroid/hardware/Camera$Size;->width:I
+
+    iget-object v2, p0, Lio/appium/android/apis/graphics/Preview;->mPreviewSize:Landroid/hardware/Camera$Size;
+
+    iget v2, v2, Landroid/hardware/Camera$Size;->height:I
+
+    invoke-virtual {v0, v1, v2}, Landroid/hardware/Camera$Parameters;->setPreviewSize(II)V
+
+    .line 200
+    invoke-virtual {p0}, Lio/appium/android/apis/graphics/Preview;->requestLayout()V
+
+    .line 202
+    invoke-virtual {p1, v0}, Landroid/hardware/Camera;->setParameters(Landroid/hardware/Camera$Parameters;)V
+
+    .line 203
+    return-void
 .end method

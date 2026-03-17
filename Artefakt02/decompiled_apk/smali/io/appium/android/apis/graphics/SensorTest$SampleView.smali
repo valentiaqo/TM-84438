@@ -26,13 +26,8 @@
 
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/graphics/SensorTest;Landroid/content/Context;)V
-    .locals 4
+    .locals 3
     .param p2, "context"    # Landroid/content/Context;
-
-    .prologue
-    const/high16 v3, 0x42700000    # 60.0f
-
-    const/4 v2, 0x0
 
     .line 166
     iput-object p1, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->this$0:Lio/appium/android/apis/graphics/SensorTest;
@@ -41,51 +36,55 @@
     invoke-direct {p0, p2}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
     .line 162
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance p1, Landroid/graphics/Paint;
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPaint:Landroid/graphics/Paint;
+    iput-object p1, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPaint:Landroid/graphics/Paint;
 
     .line 163
-    new-instance v0, Landroid/graphics/Path;
+    new-instance p1, Landroid/graphics/Path;
 
-    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Path;-><init>()V
 
-    iput-object v0, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPath:Landroid/graphics/Path;
+    iput-object p1, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPath:Landroid/graphics/Path;
 
     .line 170
-    iget-object v0, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPath:Landroid/graphics/Path;
+    iget-object p1, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPath:Landroid/graphics/Path;
+
+    const/4 v0, 0x0
 
     const/high16 v1, -0x3db80000    # -50.0f
 
-    invoke-virtual {v0, v2, v1}, Landroid/graphics/Path;->moveTo(FF)V
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/Path;->moveTo(FF)V
 
     .line 171
-    iget-object v0, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPath:Landroid/graphics/Path;
+    iget-object p1, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPath:Landroid/graphics/Path;
 
-    const/high16 v1, -0x3e600000    # -20.0f
+    const/high16 v1, 0x42700000    # 60.0f
 
-    invoke-virtual {v0, v1, v3}, Landroid/graphics/Path;->lineTo(FF)V
+    const/high16 v2, -0x3e600000    # -20.0f
+
+    invoke-virtual {p1, v2, v1}, Landroid/graphics/Path;->lineTo(FF)V
 
     .line 172
-    iget-object v0, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPath:Landroid/graphics/Path;
+    iget-object p1, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPath:Landroid/graphics/Path;
 
-    const/high16 v1, 0x42480000    # 50.0f
+    const/high16 v2, 0x42480000    # 50.0f
 
-    invoke-virtual {v0, v2, v1}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {p1, v0, v2}, Landroid/graphics/Path;->lineTo(FF)V
 
     .line 173
-    iget-object v0, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPath:Landroid/graphics/Path;
+    iget-object p1, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPath:Landroid/graphics/Path;
 
-    const/high16 v1, 0x41a00000    # 20.0f
+    const/high16 v0, 0x41a00000    # 20.0f
 
-    invoke-virtual {v0, v1, v3}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/Path;->lineTo(FF)V
 
     .line 174
-    iget-object v0, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPath:Landroid/graphics/Path;
+    iget-object p1, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPath:Landroid/graphics/Path;
 
-    invoke-virtual {v0}, Landroid/graphics/Path;->close()V
+    invoke-virtual {p1}, Landroid/graphics/Path;->close()V
 
     .line 175
     return-void
@@ -96,7 +95,6 @@
 .method protected onAttachedToWindow()V
     .locals 1
 
-    .prologue
     .line 201
     const/4 v0, 0x1
 
@@ -112,7 +110,6 @@
 .method protected onDetachedFromWindow()V
     .locals 1
 
-    .prologue
     .line 208
     const/4 v0, 0x0
 
@@ -129,55 +126,54 @@
     .locals 7
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
     .line 179
-    iget-object v3, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/SensorTest$SampleView;->mPaint:Landroid/graphics/Paint;
 
     .line 181
-    .local v3, "paint":Landroid/graphics/Paint;
-    const/4 v5, -0x1
+    .local v0, "paint":Landroid/graphics/Paint;
+    const/4 v1, -0x1
 
-    invoke-virtual {p1, v5}, Landroid/graphics/Canvas;->drawColor(I)V
+    invoke-virtual {p1, v1}, Landroid/graphics/Canvas;->drawColor(I)V
 
     .line 183
-    const/4 v5, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v3, v5}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 184
-    const/high16 v5, -0x1000000
+    const/high16 v1, -0x1000000
 
-    invoke-virtual {v3, v5}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 185
-    sget-object v5, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+    sget-object v1, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
-    invoke-virtual {v3, v5}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 187
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getWidth()I
 
-    move-result v4
+    move-result v1
 
     .line 188
-    .local v4, "w":I
+    .local v1, "w":I
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getHeight()I
 
     move-result v2
 
     .line 189
     .local v2, "h":I
-    div-int/lit8 v0, v4, 0x2
+    div-int/lit8 v3, v1, 0x2
 
     .line 190
-    .local v0, "cx":I
-    div-int/lit8 v1, v2, 0x2
+    .local v3, "cx":I
+    div-int/lit8 v4, v2, 0x2
 
     .line 192
-    .local v1, "cy":I
-    int-to-float v5, v0
+    .local v4, "cy":I
+    int-to-float v5, v3
 
-    int-to-float v6, v1
+    int-to-float v6, v4
 
     invoke-virtual {p1, v5, v6}, Landroid/graphics/Canvas;->translate(FF)V
 

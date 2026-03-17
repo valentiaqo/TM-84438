@@ -24,7 +24,6 @@
 .method public constructor <init>(Lio/appium/android/apis/view/GameView;)V
     .locals 2
 
-    .prologue
     .line 715
     iput-object p1, p0, Lio/appium/android/apis/view/GameView$Bullet;->this$0:Lio/appium/android/apis/view/GameView;
 
@@ -49,9 +48,9 @@
     .line 719
     invoke-static {p1}, Lio/appium/android/apis/view/GameView;->access$300(Lio/appium/android/apis/view/GameView;)F
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/GameView$Bullet;->setSize(F)V
+    invoke-virtual {p0, p1}, Lio/appium/android/apis/view/GameView$Bullet;->setSize(F)V
 
     .line 720
     return-void
@@ -63,27 +62,26 @@
     .locals 10
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
-    const/4 v5, 0x0
-
-    const/16 v2, 0xff
-
     .line 731
     iget-object v0, p0, Lio/appium/android/apis/view/GameView$Bullet;->mPaint:Landroid/graphics/Paint;
 
     iget v1, p0, Lio/appium/android/apis/view/GameView$Bullet;->mDestroyAnimProgress:F
 
-    move v3, v2
+    const/16 v2, 0xff
 
-    move v4, v2
+    const/16 v3, 0xff
 
-    move v6, v5
+    const/16 v4, 0xff
 
-    move v7, v2
+    const/4 v5, 0x0
 
-    move v8, v2
+    const/4 v6, 0x0
 
-    move v9, v2
+    const/16 v7, 0xff
+
+    const/16 v8, 0xff
+
+    const/16 v9, 0xff
 
     invoke-static/range {v0 .. v9}, Lio/appium/android/apis/view/GameView;->setPaintARGBBlend(Landroid/graphics/Paint;FIIIIIIII)V
 
@@ -105,7 +103,6 @@
 .method public getDestroyAnimDuration()F
     .locals 1
 
-    .prologue
     .line 739
     const/high16 v0, 0x3e000000    # 0.125f
 
@@ -113,32 +110,28 @@
 .end method
 
 .method public step(F)Z
-    .locals 2
+    .locals 1
     .param p1, "tau"    # F
-
-    .prologue
-    const/4 v0, 0x0
 
     .line 724
     invoke-super {p0, p1}, Lio/appium/android/apis/view/GameView$Sprite;->step(F)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_0
+
+    .line 725
+    const/4 v0, 0x0
+
+    return v0
 
     .line 727
     :cond_0
-    :goto_0
-    return v0
-
-    :cond_1
     invoke-virtual {p0}, Lio/appium/android/apis/view/GameView$Bullet;->isOutsidePlayfield()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x1
-
-    goto :goto_0
+    return v0
 .end method

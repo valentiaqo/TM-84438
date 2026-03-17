@@ -28,8 +28,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/media/AudioFxDemo;SS)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/media/AudioFxDemo;
 
-    .prologue
     .line 145
     iput-object p1, p0, Lio/appium/android/apis/media/AudioFxDemo$2;->this$0:Lio/appium/android/apis/media/AudioFxDemo;
 
@@ -50,7 +50,6 @@
     .param p2, "progress"    # I
     .param p3, "fromUser"    # Z
 
-    .prologue
     .line 148
     iget-object v0, p0, Lio/appium/android/apis/media/AudioFxDemo$2;->this$0:Lio/appium/android/apis/media/AudioFxDemo;
 
@@ -76,7 +75,6 @@
     .locals 0
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
-    .prologue
     .line 151
     return-void
 .end method
@@ -85,7 +83,6 @@
     .locals 0
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
-    .prologue
     .line 152
     return-void
 .end method

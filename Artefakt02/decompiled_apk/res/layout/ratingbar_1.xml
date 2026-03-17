@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="1" android:paddingLeft="10.0dp" android:layout_width="-1" android:layout_height="-1"
+<LinearLayout android:orientation="vertical" android:paddingLeft="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <RatingBar android:id="@id/ratingbar1" android:layout_width="-2" android:layout_height="-2" android:numStars="3" android:rating="2.5" />
-    <RatingBar android:id="@id/ratingbar2" android:layout_width="-2" android:layout_height="-2" android:numStars="5" android:rating="2.25" />
-    <LinearLayout android:layout_width="-1" android:layout_height="-2" android:layout_marginTop="10.0dp">
-        <TextView android:id="@id/rating" android:layout_width="-2" android:layout_height="-2" />
-        <RatingBar android:layout_gravity="0x10" android:id="@id/small_ratingbar" android:layout_width="-2" android:layout_height="-2" android:layout_marginLeft="5.0dp" style="?android:attr/ratingBarStyleSmall" />
+    <RatingBar android:id="@id/ratingbar1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:numStars="3" android:rating="2.5" />
+    <RatingBar android:id="@id/ratingbar2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:numStars="5" android:rating="2.25" />
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+        <TextView android:id="@id/rating" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <RatingBar android:layout_gravity="center_vertical" android:id="@id/small_ratingbar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" style="?android:ratingBarStyleSmall" />
     </LinearLayout>
-    <RatingBar android:layout_gravity="0x10" android:id="@id/indicator_ratingbar" android:layout_width="-2" android:layout_height="-2" android:layout_marginLeft="5.0dp" style="?android:attr/ratingBarStyleIndicator" />
+    <RatingBar android:layout_gravity="center_vertical" android:id="@id/indicator_ratingbar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" style="?android:ratingBarStyleIndicator" />
 </LinearLayout>

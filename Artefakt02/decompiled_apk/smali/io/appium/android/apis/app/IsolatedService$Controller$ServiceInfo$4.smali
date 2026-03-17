@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
-    .prologue
     .line 164
     iput-object p1, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$4;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
@@ -41,7 +41,6 @@
     .param p1, "className"    # Landroid/content/ComponentName;
     .param p2, "service"    # Landroid/os/IBinder;
 
-    .prologue
     .line 167
     iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$4;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
@@ -76,7 +75,6 @@
     .locals 2
     .param p1, "className"    # Landroid/content/ComponentName;
 
-    .prologue
     .line 176
     iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$4;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
@@ -85,8 +83,6 @@
     iput-object v1, v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mService:Lio/appium/android/apis/app/IRemoteService;
 
     .line 177
-    iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$4;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
-
     iget-boolean v0, v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mServiceBound:Z
 
     if-eqz v0, :cond_0

@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/animation/BouncingBalls$MyAnimationView;)V
     .locals 0
+    .param p1, "this$1"    # Lio/appium/android/apis/animation/BouncingBalls$MyAnimationView;
 
-    .prologue
     .line 134
     iput-object p1, p0, Lio/appium/android/apis/animation/BouncingBalls$MyAnimationView$1;->this$1:Lio/appium/android/apis/animation/BouncingBalls$MyAnimationView;
 
@@ -37,16 +37,16 @@
     .locals 2
     .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
     .line 137
     iget-object v0, p0, Lio/appium/android/apis/animation/BouncingBalls$MyAnimationView$1;->this$1:Lio/appium/android/apis/animation/BouncingBalls$MyAnimationView;
 
     iget-object v0, v0, Lio/appium/android/apis/animation/BouncingBalls$MyAnimationView;->balls:Ljava/util/ArrayList;
 
-    check-cast p1, Landroid/animation/ObjectAnimator;
+    move-object v1, p1
 
-    .end local p1    # "animation":Landroid/animation/Animator;
-    invoke-virtual {p1}, Landroid/animation/ObjectAnimator;->getTarget()Ljava/lang/Object;
+    check-cast v1, Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v1}, Landroid/animation/ObjectAnimator;->getTarget()Ljava/lang/Object;
 
     move-result-object v1
 

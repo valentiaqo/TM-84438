@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/SoftInputModes;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/SoftInputModes;
 
-    .prologue
     .line 56
     iput-object p1, p0, Lio/appium/android/apis/app/SoftInputModes$1;->this$0:Lio/appium/android/apis/app/SoftInputModes;
 
@@ -44,14 +44,13 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView",
-            "<*>;",
+            "Landroid/widget/AdapterView<",
+            "*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
-    .prologue
     .line 59
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lio/appium/android/apis/app/SoftInputModes$1;->this$0:Lio/appium/android/apis/app/SoftInputModes;
@@ -77,12 +76,11 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView",
-            "<*>;)V"
+            "Landroid/widget/AdapterView<",
+            "*>;)V"
         }
     .end annotation
 
-    .prologue
     .line 63
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lio/appium/android/apis/app/SoftInputModes$1;->this$0:Lio/appium/android/apis/app/SoftInputModes;

@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/MessengerServiceActivities$Binding;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
 
-    .prologue
     .line 65
     iput-object p1, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
 
@@ -37,108 +37,108 @@
 
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 6
+    .locals 5
     .param p1, "className"    # Landroid/content/ComponentName;
     .param p2, "service"    # Landroid/os/IBinder;
 
-    .prologue
-    const/4 v5, 0x0
-
     .line 73
-    iget-object v1, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
+    iget-object v0, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
 
-    new-instance v2, Landroid/os/Messenger;
+    new-instance v1, Landroid/os/Messenger;
 
-    invoke-direct {v2, p2}, Landroid/os/Messenger;-><init>(Landroid/os/IBinder;)V
+    invoke-direct {v1, p2}, Landroid/os/Messenger;-><init>(Landroid/os/IBinder;)V
 
-    iput-object v2, v1, Lio/appium/android/apis/app/MessengerServiceActivities$Binding;->mService:Landroid/os/Messenger;
+    iput-object v1, v0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding;->mService:Landroid/os/Messenger;
 
     .line 74
-    iget-object v1, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
+    iget-object v0, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
 
-    iget-object v1, v1, Lio/appium/android/apis/app/MessengerServiceActivities$Binding;->mCallbackText:Landroid/widget/TextView;
+    iget-object v0, v0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding;->mCallbackText:Landroid/widget/TextView;
 
-    const-string v2, "Attached."
+    const-string v1, "Attached."
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 79
+    const/4 v0, 0x1
+
     const/4 v1, 0x0
 
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
     :try_start_0
-    invoke-static {v1, v2}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
+    invoke-static {v2, v0}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
 
     move-result-object v0
 
     .line 81
     .local v0, "msg":Landroid/os/Message;
-    iget-object v1, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
+    iget-object v3, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
 
-    iget-object v1, v1, Lio/appium/android/apis/app/MessengerServiceActivities$Binding;->mMessenger:Landroid/os/Messenger;
+    iget-object v3, v3, Lio/appium/android/apis/app/MessengerServiceActivities$Binding;->mMessenger:Landroid/os/Messenger;
 
-    iput-object v1, v0, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
+    iput-object v3, v0, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
 
     .line 82
-    iget-object v1, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
+    iget-object v3, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
 
-    iget-object v1, v1, Lio/appium/android/apis/app/MessengerServiceActivities$Binding;->mService:Landroid/os/Messenger;
+    iget-object v3, v3, Lio/appium/android/apis/app/MessengerServiceActivities$Binding;->mService:Landroid/os/Messenger;
 
-    invoke-virtual {v1, v0}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
+    invoke-virtual {v3, v0}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
 
     .line 85
-    const/4 v1, 0x0
+    const/4 v3, 0x3
 
-    const/4 v2, 0x3
-
+    .line 86
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v3
+    move-result v4
 
-    const/4 v4, 0x0
+    .line 85
+    invoke-static {v2, v3, v4, v1}, Landroid/os/Message;->obtain(Landroid/os/Handler;III)Landroid/os/Message;
 
-    invoke-static {v1, v2, v3, v4}, Landroid/os/Message;->obtain(Landroid/os/Handler;III)Landroid/os/Message;
+    move-result-object v2
 
-    move-result-object v0
+    move-object v0, v2
 
     .line 87
-    iget-object v1, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
+    iget-object v2, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
 
-    iget-object v1, v1, Lio/appium/android/apis/app/MessengerServiceActivities$Binding;->mService:Landroid/os/Messenger;
+    iget-object v2, v2, Lio/appium/android/apis/app/MessengerServiceActivities$Binding;->mService:Landroid/os/Messenger;
 
-    invoke-virtual {v1, v0}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
+    invoke-virtual {v2, v0}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 96
+    .line 93
     .end local v0    # "msg":Landroid/os/Message;
-    :goto_0
-    iget-object v1, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
-
-    const v2, 0x7f0c0097
-
-    invoke-static {v1, v2, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
-
-    .line 98
-    return-void
+    goto :goto_0
 
     .line 88
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    goto :goto_0
+    .line 96
+    :goto_0
+    iget-object v0, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
+
+    const v2, 0x7f0e027a
+
+    invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    .line 97
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    .line 98
+    return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 3
     .param p1, "className"    # Landroid/content/ComponentName;
 
-    .prologue
     .line 103
     iget-object v0, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
 
@@ -147,8 +147,6 @@
     iput-object v1, v0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding;->mService:Landroid/os/Messenger;
 
     .line 104
-    iget-object v0, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
-
     iget-object v0, v0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding;->mCallbackText:Landroid/widget/TextView;
 
     const-string v1, "Disconnected."
@@ -158,7 +156,7 @@
     .line 107
     iget-object v0, p0, Lio/appium/android/apis/app/MessengerServiceActivities$Binding$1;->this$0:Lio/appium/android/apis/app/MessengerServiceActivities$Binding;
 
-    const v1, 0x7f0c0098
+    const v1, 0x7f0e027c
 
     const/4 v2, 0x0
 
@@ -166,6 +164,7 @@
 
     move-result-object v0
 
+    .line 108
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 109

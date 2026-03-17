@@ -28,8 +28,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/SetWallpaperActivity;Landroid/graphics/drawable/Drawable;Landroid/widget/ImageView;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/SetWallpaperActivity;
 
-    .prologue
     .line 67
     iput-object p1, p0, Lio/appium/android/apis/app/SetWallpaperActivity$1;->this$0:Lio/appium/android/apis/app/SetWallpaperActivity;
 
@@ -45,30 +45,31 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .locals 4
     .param p1, "view"    # Landroid/view/View;
 
-    .prologue
     .line 69
     invoke-static {}, Ljava/lang/Math;->random()D
 
-    move-result-wide v1
+    move-result-wide v0
 
     invoke-static {}, Lio/appium/android/apis/app/SetWallpaperActivity;->access$000()[I
 
-    move-result-object v3
+    move-result-object v2
 
-    array-length v3, v3
+    array-length v2, v2
 
-    int-to-double v3, v3
+    int-to-double v2, v2
 
-    mul-double/2addr v1, v3
+    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->floor(D)D
+    mul-double v0, v0, v2
 
-    move-result-wide v1
+    invoke-static {v0, v1}, Ljava/lang/Math;->floor(D)D
 
-    double-to-int v0, v1
+    move-result-wide v0
+
+    double-to-int v0, v0
 
     .line 70
     .local v0, "mColor":I

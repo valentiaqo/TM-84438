@@ -19,498 +19,418 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 19
+    .locals 17
     .param p1, "w"    # I
     .param p2, "h"    # I
 
-    .prologue
     .line 32
+    move-object/from16 v0, p0
+
+    move/from16 v1, p1
+
+    move/from16 v2, p2
+
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 33
-    if-ltz p1, :cond_0
+    if-ltz v1, :cond_4
 
-    const/high16 v17, 0x10000
+    const/high16 v3, 0x10000
 
-    move/from16 v0, p1
-
-    move/from16 v1, v17
-
-    if-lt v0, v1, :cond_1
-
-    .line 34
-    :cond_0
-    new-instance v17, Ljava/lang/IllegalArgumentException;
-
-    const-string v18, "w"
-
-    invoke-direct/range {v17 .. v18}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v17
+    if-ge v1, v3, :cond_4
 
     .line 36
-    :cond_1
-    if-ltz p2, :cond_2
+    if-ltz v2, :cond_3
 
-    const/high16 v17, 0x10000
-
-    move/from16 v0, p2
-
-    move/from16 v1, v17
-
-    if-lt v0, v1, :cond_3
-
-    .line 37
-    :cond_2
-    new-instance v17, Ljava/lang/IllegalArgumentException;
-
-    const-string v18, "h"
-
-    invoke-direct/range {v17 .. v18}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v17
+    if-ge v2, v3, :cond_3
 
     .line 39
-    :cond_3
-    mul-int v17, p1, p2
+    mul-int v4, v1, v2
 
-    const/high16 v18, 0x10000
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-lt v0, v1, :cond_4
-
-    .line 40
-    new-instance v17, Ljava/lang/IllegalArgumentException;
-
-    const-string v18, "w * h >= 65536"
-
-    invoke-direct/range {v17 .. v18}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v17
+    if-ge v4, v3, :cond_2
 
     .line 43
-    :cond_4
-    move/from16 v0, p1
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lio/appium/android/apis/graphics/spritetext/Grid;->mW:I
+    iput v1, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mW:I
 
     .line 44
-    move/from16 v0, p2
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lio/appium/android/apis/graphics/spritetext/Grid;->mH:I
+    iput v2, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mH:I
 
     .line 45
-    mul-int v14, p1, p2
+    mul-int v3, v1, v2
 
     .line 46
-    .local v14, "size":I
-    const/4 v3, 0x4
+    .local v3, "size":I
+    const/4 v4, 0x4
 
     .line 47
-    .local v3, "FLOAT_SIZE":I
-    const/4 v2, 0x2
+    .local v4, "FLOAT_SIZE":I
+    const/4 v5, 0x2
 
     .line 48
-    .local v2, "CHAR_SIZE":I
-    mul-int/lit8 v17, v14, 0x4
+    .local v5, "CHAR_SIZE":I
+    mul-int/lit8 v6, v3, 0x4
 
-    mul-int/lit8 v17, v17, 0x3
+    mul-int/lit8 v6, v6, 0x3
 
-    invoke-static/range {v17 .. v17}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    invoke-static {v6}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v17
+    move-result-object v6
 
+    .line 49
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
-    move-result-object v18
+    move-result-object v7
 
-    invoke-virtual/range {v17 .. v18}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v6, v7}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    move-result-object v17
+    move-result-object v6
 
-    invoke-virtual/range {v17 .. v17}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
+    invoke-virtual {v6}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
 
-    move-result-object v17
+    move-result-object v6
 
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lio/appium/android/apis/graphics/spritetext/Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
+    iput-object v6, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
 
     .line 50
-    mul-int/lit8 v17, v14, 0x4
+    mul-int/lit8 v6, v3, 0x4
 
-    mul-int/lit8 v17, v17, 0x2
+    mul-int/lit8 v6, v6, 0x2
 
-    invoke-static/range {v17 .. v17}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    invoke-static {v6}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v17
+    move-result-object v6
 
+    .line 51
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
-    move-result-object v18
+    move-result-object v7
 
-    invoke-virtual/range {v17 .. v18}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v6, v7}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    move-result-object v17
+    move-result-object v6
 
-    invoke-virtual/range {v17 .. v17}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
+    invoke-virtual {v6}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
 
-    move-result-object v17
+    move-result-object v6
 
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lio/appium/android/apis/graphics/spritetext/Grid;->mTexCoordBuffer:Ljava/nio/FloatBuffer;
+    iput-object v6, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mTexCoordBuffer:Ljava/nio/FloatBuffer;
 
     .line 53
-    move-object/from16 v0, p0
+    iget v6, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mW:I
 
-    iget v0, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mW:I
-
-    move/from16 v17, v0
-
-    add-int/lit8 v13, v17, -0x1
+    add-int/lit8 v6, v6, -0x1
 
     .line 54
-    .local v13, "quadW":I
-    move-object/from16 v0, p0
+    .local v6, "quadW":I
+    iget v7, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mH:I
 
-    iget v0, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mH:I
-
-    move/from16 v17, v0
-
-    add-int/lit8 v12, v17, -0x1
+    add-int/lit8 v7, v7, -0x1
 
     .line 55
-    .local v12, "quadH":I
-    mul-int v11, v13, v12
+    .local v7, "quadH":I
+    mul-int v8, v6, v7
 
     .line 56
-    .local v11, "quadCount":I
-    mul-int/lit8 v10, v11, 0x6
+    .local v8, "quadCount":I
+    mul-int/lit8 v9, v8, 0x6
 
     .line 57
-    .local v10, "indexCount":I
-    move-object/from16 v0, p0
-
-    iput v10, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexCount:I
+    .local v9, "indexCount":I
+    iput v9, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexCount:I
 
     .line 58
-    mul-int/lit8 v17, v10, 0x2
+    mul-int/lit8 v10, v9, 0x2
 
-    invoke-static/range {v17 .. v17}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    invoke-static {v10}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v17
+    move-result-object v10
 
+    .line 59
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
-    move-result-object v18
+    move-result-object v11
 
-    invoke-virtual/range {v17 .. v18}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v10, v11}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    move-result-object v17
+    move-result-object v10
 
-    invoke-virtual/range {v17 .. v17}, Ljava/nio/ByteBuffer;->asCharBuffer()Ljava/nio/CharBuffer;
+    invoke-virtual {v10}, Ljava/nio/ByteBuffer;->asCharBuffer()Ljava/nio/CharBuffer;
 
-    move-result-object v17
+    move-result-object v10
 
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+    iput-object v10, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
 
     .line 74
-    const/4 v8, 0x0
+    const/4 v10, 0x0
 
     .line 75
-    .local v8, "i":I
-    const/16 v16, 0x0
+    .local v10, "i":I
+    const/4 v11, 0x0
 
-    .local v16, "y":I
+    .local v11, "y":I
     :goto_0
-    move/from16 v0, v16
-
-    if-ge v0, v12, :cond_6
+    if-ge v11, v7, :cond_1
 
     .line 76
-    const/4 v15, 0x0
+    const/4 v12, 0x0
 
-    .local v15, "x":I
-    move v9, v8
-
-    .end local v8    # "i":I
-    .local v9, "i":I
+    .local v12, "x":I
     :goto_1
-    if-ge v15, v13, :cond_5
+    if-ge v12, v6, :cond_0
 
     .line 77
-    move-object/from16 v0, p0
+    iget v13, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mW:I
 
-    iget v0, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mW:I
+    mul-int v14, v11, v13
 
-    move/from16 v17, v0
+    add-int/2addr v14, v12
 
-    mul-int v17, v17, v16
-
-    add-int v17, v17, v15
-
-    move/from16 v0, v17
-
-    int-to-char v4, v0
+    int-to-char v14, v14
 
     .line 78
-    .local v4, "a":C
-    move-object/from16 v0, p0
+    .local v14, "a":C
+    mul-int v15, v11, v13
 
-    iget v0, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mW:I
+    add-int/2addr v15, v12
 
-    move/from16 v17, v0
-
-    mul-int v17, v17, v16
-
-    add-int v17, v17, v15
-
-    add-int/lit8 v17, v17, 0x1
-
-    move/from16 v0, v17
-
-    int-to-char v5, v0
-
-    .line 79
-    .local v5, "b":C
-    add-int/lit8 v17, v16, 0x1
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mW:I
-
-    move/from16 v18, v0
-
-    mul-int v17, v17, v18
-
-    add-int v17, v17, v15
-
-    move/from16 v0, v17
-
-    int-to-char v6, v0
-
-    .line 80
-    .local v6, "c":C
-    add-int/lit8 v17, v16, 0x1
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mW:I
-
-    move/from16 v18, v0
-
-    mul-int v17, v17, v18
-
-    add-int v17, v17, v15
-
-    add-int/lit8 v17, v17, 0x1
-
-    move/from16 v0, v17
-
-    int-to-char v7, v0
-
-    .line 82
-    .local v7, "d":C
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
-
-    move-object/from16 v17, v0
-
-    add-int/lit8 v8, v9, 0x1
-
-    .end local v9    # "i":I
-    .restart local v8    # "i":I
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v9, v4}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
-
-    .line 83
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
-
-    move-object/from16 v17, v0
-
-    add-int/lit8 v9, v8, 0x1
-
-    .end local v8    # "i":I
-    .restart local v9    # "i":I
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v8, v5}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
-
-    .line 84
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
-
-    move-object/from16 v17, v0
-
-    add-int/lit8 v8, v9, 0x1
-
-    .end local v9    # "i":I
-    .restart local v8    # "i":I
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v9, v6}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
-
-    .line 86
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
-
-    move-object/from16 v17, v0
-
-    add-int/lit8 v9, v8, 0x1
-
-    .end local v8    # "i":I
-    .restart local v9    # "i":I
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v8, v5}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
-
-    .line 87
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
-
-    move-object/from16 v17, v0
-
-    add-int/lit8 v8, v9, 0x1
-
-    .end local v9    # "i":I
-    .restart local v8    # "i":I
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v9, v6}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
-
-    .line 88
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
-
-    move-object/from16 v17, v0
-
-    add-int/lit8 v9, v8, 0x1
-
-    .end local v8    # "i":I
-    .restart local v9    # "i":I
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v8, v7}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
-
-    .line 76
     add-int/lit8 v15, v15, 0x1
 
-    goto/16 :goto_1
+    int-to-char v15, v15
+
+    .line 79
+    .local v15, "b":C
+    add-int/lit8 v16, v11, 0x1
+
+    mul-int v16, v16, v13
+
+    add-int v1, v16, v12
+
+    int-to-char v1, v1
+
+    .line 80
+    .local v1, "c":C
+    add-int/lit8 v16, v11, 0x1
+
+    mul-int v16, v16, v13
+
+    add-int v16, v16, v12
+
+    add-int/lit8 v13, v16, 0x1
+
+    int-to-char v13, v13
+
+    .line 82
+    .local v13, "d":C
+    iget-object v2, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+
+    move/from16 v16, v3
+
+    .end local v3    # "size":I
+    .local v16, "size":I
+    add-int/lit8 v3, v10, 0x1
+
+    .end local v10    # "i":I
+    .local v3, "i":I
+    invoke-virtual {v2, v10, v14}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
+
+    .line 83
+    iget-object v2, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+
+    add-int/lit8 v10, v3, 0x1
+
+    .end local v3    # "i":I
+    .restart local v10    # "i":I
+    invoke-virtual {v2, v3, v15}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
+
+    .line 84
+    iget-object v2, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+
+    add-int/lit8 v3, v10, 0x1
+
+    .end local v10    # "i":I
+    .restart local v3    # "i":I
+    invoke-virtual {v2, v10, v1}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
+
+    .line 86
+    iget-object v2, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+
+    add-int/lit8 v10, v3, 0x1
+
+    .end local v3    # "i":I
+    .restart local v10    # "i":I
+    invoke-virtual {v2, v3, v15}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
+
+    .line 87
+    iget-object v2, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+
+    add-int/lit8 v3, v10, 0x1
+
+    .end local v10    # "i":I
+    .restart local v3    # "i":I
+    invoke-virtual {v2, v10, v1}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
+
+    .line 88
+    iget-object v2, v0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+
+    add-int/lit8 v10, v3, 0x1
+
+    .end local v3    # "i":I
+    .restart local v10    # "i":I
+    invoke-virtual {v2, v3, v13}, Ljava/nio/CharBuffer;->put(IC)Ljava/nio/CharBuffer;
+
+    .line 76
+    .end local v1    # "c":C
+    .end local v13    # "d":C
+    .end local v14    # "a":C
+    .end local v15    # "b":C
+    add-int/lit8 v12, v12, 0x1
+
+    move/from16 v3, v16
+
+    move/from16 v1, p1
+
+    move/from16 v2, p2
+
+    goto :goto_1
+
+    .end local v16    # "size":I
+    .local v3, "size":I
+    :cond_0
+    move/from16 v16, v3
 
     .line 75
-    .end local v4    # "a":C
-    .end local v5    # "b":C
-    .end local v6    # "c":C
-    .end local v7    # "d":C
-    :cond_5
-    add-int/lit8 v16, v16, 0x1
+    .end local v3    # "size":I
+    .end local v12    # "x":I
+    .restart local v16    # "size":I
+    add-int/lit8 v11, v11, 0x1
 
-    move v8, v9
+    move/from16 v1, p1
 
-    .end local v9    # "i":I
-    .restart local v8    # "i":I
-    goto/16 :goto_0
+    move/from16 v2, p2
+
+    goto :goto_0
+
+    .end local v16    # "size":I
+    .restart local v3    # "size":I
+    :cond_1
+    move/from16 v16, v3
 
     .line 93
-    .end local v15    # "x":I
-    :cond_6
+    .end local v3    # "size":I
+    .end local v10    # "i":I
+    .end local v11    # "y":I
+    .restart local v16    # "size":I
+    return-void
+
+    .line 40
+    .end local v4    # "FLOAT_SIZE":I
+    .end local v5    # "CHAR_SIZE":I
+    .end local v6    # "quadW":I
+    .end local v7    # "quadH":I
+    .end local v8    # "quadCount":I
+    .end local v9    # "indexCount":I
+    .end local v16    # "size":I
+    :cond_2
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string v2, "w * h >= 65536"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 37
+    :cond_3
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string v2, "h"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 34
+    :cond_4
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string v2, "w"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
     return-void
 .end method
 
 
 # virtual methods
 .method public draw(Ljavax/microedition/khronos/opengles/GL10;Z)V
-    .locals 7
+    .locals 6
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
     .param p2, "useTexture"    # Z
 
-    .prologue
-    const v6, 0x8078
+    .line 116
+    const v0, 0x8074
 
-    const v5, 0x8074
+    invoke-interface {p1, v0}, Ljavax/microedition/khronos/opengles/GL10;->glEnableClientState(I)V
 
-    const/16 v4, 0x1406
-
-    const/16 v3, 0xde1
+    .line 117
+    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
 
     const/4 v2, 0x0
 
-    .line 116
-    invoke-interface {p1, v5}, Ljavax/microedition/khronos/opengles/GL10;->glEnableClientState(I)V
+    const/16 v3, 0x1406
 
-    .line 117
-    const/4 v0, 0x3
+    const/4 v4, 0x3
 
-    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
-
-    invoke-interface {p1, v0, v4, v2, v1}, Ljavax/microedition/khronos/opengles/GL10;->glVertexPointer(IIILjava/nio/Buffer;)V
+    invoke-interface {p1, v4, v3, v2, v1}, Ljavax/microedition/khronos/opengles/GL10;->glVertexPointer(IIILjava/nio/Buffer;)V
 
     .line 119
+    const/16 v1, 0xde1
+
+    const v4, 0x8078
+
     if-eqz p2, :cond_0
 
     .line 120
-    invoke-interface {p1, v6}, Ljavax/microedition/khronos/opengles/GL10;->glEnableClientState(I)V
+    invoke-interface {p1, v4}, Ljavax/microedition/khronos/opengles/GL10;->glEnableClientState(I)V
 
     .line 121
-    const/4 v0, 0x2
+    const/4 v4, 0x2
 
-    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mTexCoordBuffer:Ljava/nio/FloatBuffer;
+    iget-object v5, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mTexCoordBuffer:Ljava/nio/FloatBuffer;
 
-    invoke-interface {p1, v0, v4, v2, v1}, Ljavax/microedition/khronos/opengles/GL10;->glTexCoordPointer(IIILjava/nio/Buffer;)V
+    invoke-interface {p1, v4, v3, v2, v5}, Ljavax/microedition/khronos/opengles/GL10;->glTexCoordPointer(IIILjava/nio/Buffer;)V
 
     .line 122
-    invoke-interface {p1, v3}, Ljavax/microedition/khronos/opengles/GL10;->glEnable(I)V
+    invoke-interface {p1, v1}, Ljavax/microedition/khronos/opengles/GL10;->glEnable(I)V
 
-    .line 128
-    :goto_0
-    const/4 v0, 0x4
-
-    iget v1, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexCount:I
-
-    const/16 v2, 0x1403
-
-    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
-
-    invoke-interface {p1, v0, v1, v2, v3}, Ljavax/microedition/khronos/opengles/GL10;->glDrawElements(IIILjava/nio/Buffer;)V
-
-    .line 130
-    invoke-interface {p1, v5}, Ljavax/microedition/khronos/opengles/GL10;->glDisableClientState(I)V
-
-    .line 131
-    return-void
+    goto :goto_0
 
     .line 124
     :cond_0
-    invoke-interface {p1, v6}, Ljavax/microedition/khronos/opengles/GL10;->glDisableClientState(I)V
+    invoke-interface {p1, v4}, Ljavax/microedition/khronos/opengles/GL10;->glDisableClientState(I)V
 
     .line 125
-    invoke-interface {p1, v3}, Ljavax/microedition/khronos/opengles/GL10;->glDisable(I)V
+    invoke-interface {p1, v1}, Ljavax/microedition/khronos/opengles/GL10;->glDisable(I)V
 
-    goto :goto_0
+    .line 128
+    :goto_0
+    const/4 v1, 0x4
+
+    iget v2, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexCount:I
+
+    const/16 v3, 0x1403
+
+    iget-object v4, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mIndexBuffer:Ljava/nio/CharBuffer;
+
+    invoke-interface {p1, v1, v2, v3, v4}, Ljavax/microedition/khronos/opengles/GL10;->glDrawElements(IIILjava/nio/Buffer;)V
+
+    .line 130
+    invoke-interface {p1, v0}, Ljavax/microedition/khronos/opengles/GL10;->glDisableClientState(I)V
+
+    .line 131
+    return-void
 .end method
 
 .method set(IIFFFFF)V
@@ -523,49 +443,24 @@
     .param p6, "u"    # F
     .param p7, "v"    # F
 
-    .prologue
     .line 96
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_1
 
-    iget v3, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mW:I
+    iget v0, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mW:I
 
-    if-lt p1, v3, :cond_1
-
-    .line 97
-    :cond_0
-    new-instance v3, Ljava/lang/IllegalArgumentException;
-
-    const-string v4, "i"
-
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    if-ge p1, v0, :cond_1
 
     .line 99
-    :cond_1
-    if-ltz p2, :cond_2
+    if-ltz p2, :cond_0
 
-    iget v3, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mH:I
+    iget v1, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mH:I
 
-    if-lt p2, v3, :cond_3
-
-    .line 100
-    :cond_2
-    new-instance v3, Ljava/lang/IllegalArgumentException;
-
-    const-string v4, "j"
-
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    if-ge p2, v1, :cond_0
 
     .line 103
-    :cond_3
-    iget v3, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mW:I
+    mul-int v0, v0, p2
 
-    mul-int/2addr v3, p2
-
-    add-int v0, v3, p1
+    add-int/2addr v0, p1
 
     .line 105
     .local v0, "index":I
@@ -573,23 +468,23 @@
 
     .line 106
     .local v1, "posIndex":I
-    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
+    iget-object v2, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
 
-    invoke-virtual {v3, v1, p3}, Ljava/nio/FloatBuffer;->put(IF)Ljava/nio/FloatBuffer;
+    invoke-virtual {v2, v1, p3}, Ljava/nio/FloatBuffer;->put(IF)Ljava/nio/FloatBuffer;
 
     .line 107
-    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
+    iget-object v2, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
 
-    add-int/lit8 v4, v1, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    invoke-virtual {v3, v4, p4}, Ljava/nio/FloatBuffer;->put(IF)Ljava/nio/FloatBuffer;
+    invoke-virtual {v2, v3, p4}, Ljava/nio/FloatBuffer;->put(IF)Ljava/nio/FloatBuffer;
 
     .line 108
-    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
+    iget-object v2, p0, Lio/appium/android/apis/graphics/spritetext/Grid;->mVertexBuffer:Ljava/nio/FloatBuffer;
 
-    add-int/lit8 v4, v1, 0x2
+    add-int/lit8 v3, v1, 0x2
 
-    invoke-virtual {v3, v4, p5}, Ljava/nio/FloatBuffer;->put(IF)Ljava/nio/FloatBuffer;
+    invoke-virtual {v2, v3, p5}, Ljava/nio/FloatBuffer;->put(IF)Ljava/nio/FloatBuffer;
 
     .line 110
     mul-int/lit8 v2, v0, 0x2
@@ -609,4 +504,27 @@
 
     .line 113
     return-void
+
+    .line 100
+    .end local v0    # "index":I
+    .end local v1    # "posIndex":I
+    .end local v2    # "texIndex":I
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "j"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 97
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "i"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method

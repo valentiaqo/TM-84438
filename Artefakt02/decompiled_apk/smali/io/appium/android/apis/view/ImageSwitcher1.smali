@@ -25,18 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 8
-
-    .prologue
-    const/4 v7, 0x4
-
-    const/4 v6, 0x3
-
-    const/4 v5, 0x2
-
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
+    .locals 11
 
     .line 37
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
@@ -44,86 +33,99 @@
     .line 109
     const/16 v0, 0x8
 
-    new-array v0, v0, [Ljava/lang/Integer;
+    new-array v1, v0, [Ljava/lang/Integer;
 
-    const v1, 0x7f020046
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    aput-object v1, v0, v3
-
-    const v1, 0x7f020047
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    aput-object v1, v0, v4
-
-    const v1, 0x7f020048
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    aput-object v1, v0, v5
-
-    const v1, 0x7f020049
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    aput-object v1, v0, v6
-
-    const v1, 0x7f02004a
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    aput-object v1, v0, v7
-
-    const/4 v1, 0x5
-
-    const v2, 0x7f02004b
+    .line 110
+    const v2, 0x7f0800a9
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x0
 
-    const/4 v1, 0x6
+    aput-object v2, v1, v3
 
-    const v2, 0x7f02004c
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x7
-
-    const v2, 0x7f02004d
+    const v2, 0x7f0800aa
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    aput-object v2, v0, v1
+    const/4 v4, 0x1
 
-    iput-object v0, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mThumbIds:[Ljava/lang/Integer;
+    aput-object v2, v1, v4
+
+    .line 111
+    const v2, 0x7f0800ab
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v5, 0x2
+
+    aput-object v2, v1, v5
+
+    const v2, 0x7f0800ac
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v6, 0x3
+
+    aput-object v2, v1, v6
+
+    .line 112
+    const v2, 0x7f0800ad
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v7, 0x4
+
+    aput-object v2, v1, v7
+
+    const v2, 0x7f0800ae
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v8, 0x5
+
+    aput-object v2, v1, v8
+
+    .line 113
+    const v2, 0x7f0800af
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v9, 0x6
+
+    aput-object v2, v1, v9
+
+    const v2, 0x7f0800b0
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v10, 0x7
+
+    aput-object v2, v1, v10
+
+    iput-object v1, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mThumbIds:[Ljava/lang/Integer;
 
     .line 115
-    const/16 v0, 0x8
-
     new-array v0, v0, [Ljava/lang/Integer;
 
-    const v1, 0x7f02003e
+    .line 116
+    const v1, 0x7f0800a1
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -131,7 +133,7 @@
 
     aput-object v1, v0, v3
 
-    const v1, 0x7f02003f
+    const v1, 0x7f0800a2
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -139,7 +141,7 @@
 
     aput-object v1, v0, v4
 
-    const v1, 0x7f020040
+    const v1, 0x7f0800a3
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -147,7 +149,8 @@
 
     aput-object v1, v0, v5
 
-    const v1, 0x7f020041
+    .line 117
+    const v1, 0x7f0800a4
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -155,7 +158,7 @@
 
     aput-object v1, v0, v6
 
-    const v1, 0x7f020042
+    const v1, 0x7f0800a5
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -163,38 +166,34 @@
 
     aput-object v1, v0, v7
 
-    const/4 v1, 0x5
+    const v1, 0x7f0800a6
 
-    const v2, 0x7f020043
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    aput-object v1, v0, v8
 
-    aput-object v2, v0, v1
+    .line 118
+    const v1, 0x7f0800a7
 
-    const/4 v1, 0x6
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const v2, 0x7f020044
+    move-result-object v1
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aput-object v1, v0, v9
 
-    move-result-object v2
+    const v1, 0x7f0800a8
 
-    aput-object v2, v0, v1
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const/4 v1, 0x7
+    move-result-object v1
 
-    const v2, 0x7f020045
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
+    aput-object v1, v0, v10
 
     iput-object v0, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mImageIds:[Ljava/lang/Integer;
 
+    .line 115
     return-void
 .end method
 
@@ -202,7 +201,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/view/ImageSwitcher1;
 
-    .prologue
     .line 37
     iget-object v0, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mThumbIds:[Ljava/lang/Integer;
 
@@ -213,9 +211,6 @@
 # virtual methods
 .method public makeView()Landroid/view/View;
     .locals 3
-
-    .prologue
-    const/4 v2, -0x1
 
     .line 67
     new-instance v0, Landroid/widget/ImageView;
@@ -236,6 +231,8 @@
     .line 70
     new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
 
+    const/4 v2, -0x1
+
     invoke-direct {v1, v2, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
@@ -245,65 +242,64 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 42
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 43
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/ImageSwitcher1;->requestWindowFeature(I)Z
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ImageSwitcher1;->requestWindowFeature(I)Z
 
     .line 45
-    const v1, 0x7f030060
+    const v0, 0x7f0b007d
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/ImageSwitcher1;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ImageSwitcher1;->setContentView(I)V
 
     .line 47
-    const v1, 0x7f0900bc
+    const v0, 0x7f090204
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/ImageSwitcher1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ImageSwitcher1;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageSwitcher;
+
+    iput-object v0, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mSwitcher:Landroid/widget/ImageSwitcher;
+
+    .line 48
+    iget-object v0, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mSwitcher:Landroid/widget/ImageSwitcher;
+
+    invoke-virtual {v0, p0}, Landroid/widget/ImageSwitcher;->setFactory(Landroid/widget/ViewSwitcher$ViewFactory;)V
+
+    .line 49
+    iget-object v0, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mSwitcher:Landroid/widget/ImageSwitcher;
+
+    const/high16 v1, 0x10a0000
+
+    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v1
 
-    check-cast v1, Landroid/widget/ImageSwitcher;
-
-    iput-object v1, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mSwitcher:Landroid/widget/ImageSwitcher;
-
-    .line 48
-    iget-object v1, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mSwitcher:Landroid/widget/ImageSwitcher;
-
-    invoke-virtual {v1, p0}, Landroid/widget/ImageSwitcher;->setFactory(Landroid/widget/ViewSwitcher$ViewFactory;)V
-
-    .line 49
-    iget-object v1, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mSwitcher:Landroid/widget/ImageSwitcher;
-
-    const/high16 v2, 0x10a0000
-
-    invoke-static {p0, v2}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageSwitcher;->setInAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageSwitcher;->setInAnimation(Landroid/view/animation/Animation;)V
 
     .line 51
-    iget-object v1, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mSwitcher:Landroid/widget/ImageSwitcher;
+    iget-object v0, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mSwitcher:Landroid/widget/ImageSwitcher;
 
-    const v2, 0x10a0001
+    const v1, 0x10a0001
 
-    invoke-static {p0, v2}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageSwitcher;->setOutAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageSwitcher;->setOutAnimation(Landroid/view/animation/Animation;)V
 
     .line 54
-    const v1, 0x7f0900ae
+    const v0, 0x7f0900d6
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/ImageSwitcher1;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ImageSwitcher1;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -332,14 +328,13 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView",
-            "<*>;",
+            "Landroid/widget/AdapterView<",
+            "*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
-    .prologue
     .line 60
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lio/appium/android/apis/view/ImageSwitcher1;->mSwitcher:Landroid/widget/ImageSwitcher;
@@ -363,12 +358,11 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView",
-            "<*>;)V"
+            "Landroid/widget/AdapterView<",
+            "*>;)V"
         }
     .end annotation
 
-    .prologue
     .line 64
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     return-void

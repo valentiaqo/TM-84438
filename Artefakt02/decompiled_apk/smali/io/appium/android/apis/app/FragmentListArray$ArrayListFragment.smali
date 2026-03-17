@@ -18,7 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 46
     invoke-direct {p0}, Landroid/app/ListFragment;-><init>()V
 
@@ -31,7 +30,6 @@
     .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 50
     invoke-super {p0, p1}, Landroid/app/ListFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
@@ -42,11 +40,11 @@
 
     move-result-object v1
 
-    const v2, 0x1090003
+    sget-object v2, Lio/appium/android/apis/Shakespeare;->TITLES:[Ljava/lang/String;
 
-    sget-object v3, Lio/appium/android/apis/Shakespeare;->TITLES:[Ljava/lang/String;
+    const v3, 0x1090003
 
-    invoke-direct {v0, v1, v2, v3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
+    invoke-direct {v0, v1, v3, v2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/app/FragmentListArray$ArrayListFragment;->setListAdapter(Landroid/widget/ListAdapter;)V
 
@@ -61,7 +59,6 @@
     .param p3, "position"    # I
     .param p4, "id"    # J
 
-    .prologue
     .line 57
     const-string v0, "FragmentList"
 
@@ -73,11 +70,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p4, p5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

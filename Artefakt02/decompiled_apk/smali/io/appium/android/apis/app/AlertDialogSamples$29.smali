@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/AlertDialogSamples;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/AlertDialogSamples;
 
-    .prologue
     .line 352
     iput-object p1, p0, Lio/appium/android/apis/app/AlertDialogSamples$29;->this$0:Lio/appium/android/apis/app/AlertDialogSamples;
 
@@ -37,11 +37,8 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .locals 2
     .param p1, "v"    # Landroid/view/View;
-
-    .prologue
-    const/4 v2, 0x0
 
     .line 354
     iget-object v0, p0, Lio/appium/android/apis/app/AlertDialogSamples$29;->this$0:Lio/appium/android/apis/app/AlertDialogSamples;
@@ -53,7 +50,9 @@
     .line 355
     iget-object v0, p0, Lio/appium/android/apis/app/AlertDialogSamples$29;->this$0:Lio/appium/android/apis/app/AlertDialogSamples;
 
-    invoke-static {v0, v2}, Lio/appium/android/apis/app/AlertDialogSamples;->access$002(Lio/appium/android/apis/app/AlertDialogSamples;I)I
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lio/appium/android/apis/app/AlertDialogSamples;->access$002(Lio/appium/android/apis/app/AlertDialogSamples;I)I
 
     .line 356
     iget-object v0, p0, Lio/appium/android/apis/app/AlertDialogSamples$29;->this$0:Lio/appium/android/apis/app/AlertDialogSamples;
@@ -62,7 +61,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/app/ProgressDialog;->setProgress(I)V
+    invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setProgress(I)V
 
     .line 357
     iget-object v0, p0, Lio/appium/android/apis/app/AlertDialogSamples$29;->this$0:Lio/appium/android/apis/app/AlertDialogSamples;
@@ -71,7 +70,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     .line 358
     return-void

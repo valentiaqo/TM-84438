@@ -18,7 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 36
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -28,31 +27,30 @@
 .method private updateCounterText()V
     .locals 5
 
-    .prologue
     .line 96
     invoke-static {p0}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 97
-    .local v1, "sharedPref":Landroid/content/SharedPreferences;
-    const-string v2, "my_preference"
+    .local v0, "sharedPref":Landroid/content/SharedPreferences;
+    const-string v1, "my_preference"
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v1
 
     .line 98
-    .local v0, "counter":I
+    .local v1, "counter":I
     iget-object v2, p0, Lio/appium/android/apis/preference/LaunchingPreferences;->mCounterText:Landroid/widget/TextView;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0c015c
+    const v4, 0x7f0e0110
 
     invoke-virtual {p0, v4}, Lio/appium/android/apis/preference/LaunchingPreferences;->getString(I)Ljava/lang/String;
 
@@ -60,17 +58,11 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
-
     const-string v4, " "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -90,7 +82,6 @@
     .param p2, "resultCode"    # I
     .param p3, "data"    # Landroid/content/Intent;
 
-    .prologue
     .line 83
     invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
 
@@ -108,18 +99,17 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .locals 2
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 75
-    new-instance v1, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    const-class v2, Lio/appium/android/apis/preference/AdvancedPreferences;
+    const-class v1, Lio/appium/android/apis/preference/AdvancedPreferences;
 
-    invoke-virtual {v1, p0, v2}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
+    invoke-virtual {v0, p0, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -137,59 +127,58 @@
     .locals 6
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
-    const/4 v5, -0x1
-
-    const/4 v4, -0x2
-
     .line 44
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 51
-    const/high16 v2, 0x7f060000
+    const/high16 v0, 0x7f110000
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p0, v2, v3}, Landroid/preference/PreferenceManager;->setDefaultValues(Landroid/content/Context;IZ)V
+    invoke-static {p0, v0, v1}, Landroid/preference/PreferenceManager;->setDefaultValues(Landroid/content/Context;IZ)V
 
     .line 54
-    new-instance v1, Landroid/widget/LinearLayout;
+    new-instance v0, Landroid/widget/LinearLayout;
 
-    invoke-direct {v1, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     .line 55
-    .local v1, "layout":Landroid/widget/LinearLayout;
-    const/4 v2, 0x1
+    .local v0, "layout":Landroid/widget/LinearLayout;
+    const/4 v1, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOrientation(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     .line 56
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/preference/LaunchingPreferences;->setContentView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/preference/LaunchingPreferences;->setContentView(Landroid/view/View;)V
 
     .line 59
-    new-instance v0, Landroid/widget/Button;
+    new-instance v1, Landroid/widget/Button;
 
-    invoke-direct {v0, p0}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
 
     .line 60
-    .local v0, "launchPreferences":Landroid/widget/Button;
-    const v2, 0x7f0c015b
+    .local v1, "launchPreferences":Landroid/widget/Button;
+    const v2, 0x7f0e01c5
 
     invoke-virtual {p0, v2}, Lio/appium/android/apis/preference/LaunchingPreferences;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
     .line 61
-    invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 62
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-direct {v2, v5, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    const/4 v3, -0x2
 
-    invoke-virtual {v1, v0, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    const/4 v4, -0x1
+
+    invoke-direct {v2, v4, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v0, v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 65
     new-instance v2, Landroid/widget/TextView;
@@ -201,11 +190,11 @@
     .line 66
     iget-object v2, p0, Lio/appium/android/apis/preference/LaunchingPreferences;->mCounterText:Landroid/widget/TextView;
 
-    new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
+    new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-direct {v3, v5, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v5, v4, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v1, v2, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v0, v2, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 69
     invoke-direct {p0}, Lio/appium/android/apis/preference/LaunchingPreferences;->updateCounterText()V

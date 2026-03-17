@@ -15,8 +15,7 @@
 .field private mApps:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List",
-            "<",
+            "Ljava/util/List<",
             "Landroid/content/pm/ResolveInfo;",
             ">;"
         }
@@ -28,11 +27,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 33
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 54
     return-void
 .end method
 
@@ -40,7 +37,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/view/LayoutAnimation5;
 
-    .prologue
     .line 33
     iget-object v0, p0, Lio/appium/android/apis/view/LayoutAnimation5;->mApps:Ljava/util/List;
 
@@ -50,7 +46,6 @@
 .method private loadApps()V
     .locals 3
 
-    .prologue
     .line 48
     new-instance v0, Landroid/content/Intent;
 
@@ -89,7 +84,6 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 36
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -97,14 +91,14 @@
     invoke-direct {p0}, Lio/appium/android/apis/view/LayoutAnimation5;->loadApps()V
 
     .line 40
-    const v1, 0x7f030070
+    const v0, 0x7f0b008e
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/LayoutAnimation5;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/LayoutAnimation5;->setContentView(I)V
 
     .line 41
-    const v1, 0x7f0900d3
+    const v0, 0x7f0900dd
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/LayoutAnimation5;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/LayoutAnimation5;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

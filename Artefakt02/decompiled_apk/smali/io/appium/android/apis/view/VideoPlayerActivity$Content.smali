@@ -47,7 +47,6 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
     .line 81
     invoke-direct {p0, p1, p2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -77,7 +76,6 @@
     .param p3, "playButton"    # Landroid/widget/Button;
     .param p4, "seek"    # Landroid/widget/SeekBar;
 
-    .prologue
     .line 90
     iput-object p1, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mActivity:Landroid/app/Activity;
 
@@ -105,9 +103,8 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 1
+    .locals 2
 
-    .prologue
     .line 99
     invoke-super {p0}, Landroid/widget/ImageView;->onAttachedToWindow()V
 
@@ -117,13 +114,11 @@
     if-eqz v0, :cond_0
 
     .line 101
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v0, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mAddedMenuListener:Z
+    iput-boolean v1, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mAddedMenuListener:Z
 
     .line 102
-    iget-object v0, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mActivity:Landroid/app/Activity;
-
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
@@ -139,43 +134,34 @@
     .locals 2
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    const/4 v0, 0x1
-
     .line 133
-    iget-object v1, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mPlayButton:Landroid/widget/Button;
+    iget-object v0, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mPlayButton:Landroid/widget/Button;
 
-    if-ne p1, v1, :cond_1
+    const/4 v1, 0x1
+
+    if-ne p1, v0, :cond_0
 
     .line 135
-    iget-boolean v1, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mPaused:Z
+    iget-boolean v0, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mPaused:Z
 
-    if-nez v1, :cond_0
+    xor-int/2addr v0, v1
 
-    :goto_0
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->setPlayPaused(Z)V
-
-    .line 140
-    :goto_1
-    return-void
-
-    .line 135
-    :cond_0
-    const/4 v0, 0x0
 
     goto :goto_0
 
     .line 138
-    :cond_1
-    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->setNavVisibility(Z)V
+    :cond_0
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->setNavVisibility(Z)V
 
-    goto :goto_1
+    .line 140
+    :goto_0
+    return-void
 .end method
 
 .method protected onDetachedFromWindow()V
     .locals 1
 
-    .prologue
     .line 107
     invoke-super {p0}, Landroid/widget/ImageView;->onDetachedFromWindow()V
 
@@ -202,7 +188,6 @@
     .locals 1
     .param p1, "isVisible"    # Z
 
-    .prologue
     .line 143
     iput-boolean p1, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mMenusOpen:Z
 
@@ -219,11 +204,10 @@
     .locals 2
     .param p1, "visibility"    # I
 
-    .prologue
     .line 117
-    iget v1, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mLastSystemUiVis:I
+    iget v0, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mLastSystemUiVis:I
 
-    xor-int v0, v1, p1
+    xor-int/2addr v0, p1
 
     .line 118
     .local v0, "diff":I
@@ -252,7 +236,6 @@
     .locals 1
     .param p1, "visibility"    # I
 
-    .prologue
     .line 126
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onWindowVisibilityChanged(I)V
 
@@ -266,23 +249,18 @@
 .end method
 
 .method setNavVisibility(Z)V
-    .locals 7
+    .locals 5
     .param p1, "visible"    # Z
 
-    .prologue
-    const/4 v4, 0x4
-
-    const/4 v3, 0x0
-
     .line 155
-    const/16 v1, 0x700
+    const/16 v0, 0x700
 
     .line 158
-    .local v1, "newVis":I
+    .local v0, "newVis":I
     if-nez p1, :cond_0
 
     .line 159
-    or-int/lit8 v1, v1, 0x7
+    or-int/lit8 v0, v0, 0x7
 
     .line 164
     :cond_0
@@ -291,16 +269,16 @@
     .line 165
     invoke-virtual {p0}, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->getHandler()Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 166
-    .local v0, "h":Landroid/os/Handler;
-    if-eqz v0, :cond_1
+    .local v1, "h":Landroid/os/Handler;
+    if-eqz v1, :cond_1
 
     .line 167
     iget-object v2, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mNavHider:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 168
     iget-boolean v2, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mMenusOpen:Z
@@ -314,108 +292,106 @@
     .line 170
     iget-object v2, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mNavHider:Ljava/lang/Runnable;
 
-    const-wide/16 v5, 0x5dc
+    const-wide/16 v3, 0x5dc
 
-    invoke-virtual {v0, v2, v5, v6}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 176
-    .end local v0    # "h":Landroid/os/Handler;
+    .end local v1    # "h":Landroid/os/Handler;
     :cond_1
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->setSystemUiVisibility(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->setSystemUiVisibility(I)V
 
     .line 177
-    iget-object v5, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mTitleView:Landroid/widget/TextView;
+    iget-object v1, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mTitleView:Landroid/widget/TextView;
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x4
 
     if-eqz p1, :cond_2
 
-    move v2, v3
+    const/4 v4, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v4, 0x4
 
     :goto_0
-    invoke-virtual {v5, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 178
-    iget-object v5, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mPlayButton:Landroid/widget/Button;
+    iget-object v1, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mPlayButton:Landroid/widget/Button;
 
     if-eqz p1, :cond_3
 
-    move v2, v3
+    const/4 v4, 0x0
+
+    goto :goto_1
+
+    :cond_3
+    const/4 v4, 0x4
 
     :goto_1
-    invoke-virtual {v5, v2}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v1, v4}, Landroid/widget/Button;->setVisibility(I)V
 
     .line 179
-    iget-object v2, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mSeekView:Landroid/widget/SeekBar;
+    iget-object v1, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mSeekView:Landroid/widget/SeekBar;
 
     if-eqz p1, :cond_4
 
+    goto :goto_2
+
+    :cond_4
+    const/4 v2, 0x4
+
     :goto_2
-    invoke-virtual {v2, v3}, Landroid/widget/SeekBar;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setVisibility(I)V
 
     .line 180
     return-void
-
-    :cond_2
-    move v2, v4
-
-    .line 177
-    goto :goto_0
-
-    :cond_3
-    move v2, v4
-
-    .line 178
-    goto :goto_1
-
-    :cond_4
-    move v3, v4
-
-    .line 179
-    goto :goto_2
 .end method
 
 .method setPlayPaused(Z)V
-    .locals 3
+    .locals 2
     .param p1, "paused"    # Z
-
-    .prologue
-    const/4 v1, 0x1
 
     .line 148
     iput-boolean p1, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mPaused:Z
 
     .line 149
-    iget-object v2, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mPlayButton:Landroid/widget/Button;
+    iget-object v0, p0, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->mPlayButton:Landroid/widget/Button;
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0c037d
-
-    :goto_0
-    invoke-virtual {v2, v0}, Landroid/widget/Button;->setText(I)V
-
-    .line 150
-    if-nez p1, :cond_1
-
-    move v0, v1
-
-    :goto_1
-    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->setKeepScreenOn(Z)V
-
-    .line 151
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->setNavVisibility(Z)V
-
-    .line 152
-    return-void
-
-    .line 149
-    :cond_0
-    const v0, 0x7f0c037e
+    const v1, 0x7f0e0242
 
     goto :goto_0
 
-    .line 150
-    :cond_1
-    const/4 v0, 0x0
+    :cond_0
+    const v1, 0x7f0e0238
 
-    goto :goto_1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
+
+    .line 150
+    nop
+
+    xor-int/lit8 v0, p1, 0x1
+
+    nop
+
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->setKeepScreenOn(Z)V
+
+    .line 151
+    nop
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/VideoPlayerActivity$Content;->setNavVisibility(Z)V
+
+    .line 152
+    nop
+
+    return-void
 .end method

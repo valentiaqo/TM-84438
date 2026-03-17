@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/List8;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/List8;
 
-    .prologue
     .line 67
     iput-object p1, p0, Lio/appium/android/apis/view/List8$2;->this$0:Lio/appium/android/apis/view/List8;
 
@@ -40,7 +40,6 @@
     .locals 1
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 70
     iget-object v0, p0, Lio/appium/android/apis/view/List8$2;->this$0:Lio/appium/android/apis/view/List8;
 

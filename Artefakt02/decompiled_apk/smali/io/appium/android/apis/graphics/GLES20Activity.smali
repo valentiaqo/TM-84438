@@ -11,7 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 30
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -21,11 +20,11 @@
 .method private detectOpenGLES20()Z
     .locals 4
 
-    .prologue
     .line 49
-    const-string v2, "activity"
+    const-string v0, "activity"
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/graphics/GLES20Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    .line 50
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/graphics/GLES20Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -47,13 +46,13 @@
 
     const/4 v2, 0x1
 
-    :goto_0
-    return v2
+    goto :goto_0
 
     :cond_0
     const/4 v2, 0x0
 
-    goto :goto_0
+    :goto_0
+    return v2
 .end method
 
 
@@ -62,7 +61,6 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 33
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -96,14 +94,7 @@
 
     invoke-virtual {v0, v1}, Landroid/opengl/GLSurfaceView;->setRenderer(Landroid/opengl/GLSurfaceView$Renderer;)V
 
-    .line 45
-    :goto_0
-    iget-object v0, p0, Lio/appium/android/apis/graphics/GLES20Activity;->mGLSurfaceView:Landroid/opengl/GLSurfaceView;
-
-    invoke-virtual {p0, v0}, Lio/appium/android/apis/graphics/GLES20Activity;->setContentView(Landroid/view/View;)V
-
-    .line 46
-    return-void
+    goto :goto_0
 
     .line 43
     :cond_0
@@ -115,13 +106,19 @@
 
     invoke-virtual {v0, v1}, Landroid/opengl/GLSurfaceView;->setRenderer(Landroid/opengl/GLSurfaceView$Renderer;)V
 
-    goto :goto_0
+    .line 45
+    :goto_0
+    iget-object v0, p0, Lio/appium/android/apis/graphics/GLES20Activity;->mGLSurfaceView:Landroid/opengl/GLSurfaceView;
+
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/graphics/GLES20Activity;->setContentView(Landroid/view/View;)V
+
+    .line 46
+    return-void
 .end method
 
 .method protected onPause()V
     .locals 1
 
-    .prologue
     .line 67
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
@@ -137,7 +134,6 @@
 .method protected onResume()V
     .locals 1
 
-    .prologue
     .line 59
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 

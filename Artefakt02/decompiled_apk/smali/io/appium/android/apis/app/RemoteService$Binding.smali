@@ -48,13 +48,12 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    const/4 v0, 0x0
-
     .line 262
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     .line 264
+    const/4 v0, 0x0
+
     iput-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding;->mService:Lio/appium/android/apis/app/IRemoteService;
 
     .line 266
@@ -116,7 +115,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/app/RemoteService$Binding;
 
-    .prologue
     .line 262
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding;->mCallback:Lio/appium/android/apis/app/IRemoteServiceCallback;
 
@@ -127,7 +125,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/app/RemoteService$Binding;
 
-    .prologue
     .line 262
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding;->mConnection:Landroid/content/ServiceConnection;
 
@@ -138,7 +135,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/app/RemoteService$Binding;
 
-    .prologue
     .line 262
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding;->mSecondaryConnection:Landroid/content/ServiceConnection;
 
@@ -149,7 +145,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/app/RemoteService$Binding;
 
-    .prologue
     .line 262
     iget-boolean v0, p0, Lio/appium/android/apis/app/RemoteService$Binding;->mIsBound:Z
 
@@ -161,7 +156,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/app/RemoteService$Binding;
     .param p1, "x1"    # Z
 
-    .prologue
     .line 262
     iput-boolean p1, p0, Lio/appium/android/apis/app/RemoteService$Binding;->mIsBound:Z
 
@@ -172,7 +166,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/app/RemoteService$Binding;
 
-    .prologue
     .line 262
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding;->mHandler:Landroid/os/Handler;
 
@@ -185,19 +178,18 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 279
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 281
-    const v1, 0x7f0300ac
+    const v0, 0x7f0b00d0
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/RemoteService$Binding;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/RemoteService$Binding;->setContentView(I)V
 
     .line 284
-    const v1, 0x7f0900e7
+    const v0, 0x7f090032
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/RemoteService$Binding;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/RemoteService$Binding;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -210,23 +202,23 @@
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 286
-    const v1, 0x7f0900e8
+    const v1, 0x7f090237
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/RemoteService$Binding;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
     .line 287
-    .restart local v0    # "button":Landroid/widget/Button;
     iget-object v1, p0, Lio/appium/android/apis/app/RemoteService$Binding;->mUnbindListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 288
-    const v1, 0x7f09012e
+    const v1, 0x7f090101
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/RemoteService$Binding;->findViewById(I)Landroid/view/View;
 
@@ -251,7 +243,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
     .line 292
-    const v1, 0x7f0900ef
+    const v1, 0x7f090054
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/RemoteService$Binding;->findViewById(I)Landroid/view/View;
 

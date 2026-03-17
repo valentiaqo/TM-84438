@@ -34,36 +34,35 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .prologue
-    const/4 v4, 0x2
-
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
-
     .line 36
-    new-array v0, v4, [Ljava/lang/String;
+    const/4 v0, 0x2
 
-    const-string v1, "_id"
+    new-array v1, v0, [Ljava/lang/String;
 
-    aput-object v1, v0, v2
+    const-string v2, "_id"
 
-    const-string v1, "display_name"
+    const/4 v3, 0x0
 
-    aput-object v1, v0, v3
+    aput-object v2, v1, v3
 
-    sput-object v0, Lio/appium/android/apis/view/ExpandableList2;->CONTACTS_PROJECTION:[Ljava/lang/String;
+    const-string v2, "display_name"
+
+    const/4 v4, 0x1
+
+    aput-object v2, v1, v4
+
+    sput-object v1, Lio/appium/android/apis/view/ExpandableList2;->CONTACTS_PROJECTION:[Ljava/lang/String;
 
     .line 42
-    new-array v0, v4, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
     const-string v1, "_id"
 
-    aput-object v1, v0, v2
+    aput-object v1, v0, v3
 
     const-string v1, "data1"
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v4
 
     sput-object v0, Lio/appium/android/apis/view/ExpandableList2;->PHONE_NUMBER_PROJECTION:[Ljava/lang/String;
 
@@ -73,18 +72,15 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 34
     invoke-direct {p0}, Landroid/app/ExpandableListActivity;-><init>()V
 
-    .line 73
     return-void
 .end method
 
 .method static synthetic access$000()[Ljava/lang/String;
     .locals 1
 
-    .prologue
     .line 34
     sget-object v0, Lio/appium/android/apis/view/ExpandableList2;->PHONE_NUMBER_PROJECTION:[Ljava/lang/String;
 
@@ -95,7 +91,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/view/ExpandableList2;
 
-    .prologue
     .line 34
     iget-object v0, p0, Lio/appium/android/apis/view/ExpandableList2;->mQueryHandler:Lio/appium/android/apis/view/ExpandableList2$QueryHandler;
 
@@ -105,55 +100,54 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 11
+    .locals 10
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const v3, 0x1090006
-
-    const v4, 0x1020014
-
-    const/4 v10, 0x0
-
-    const/4 v2, 0x1
-
-    const/4 v9, 0x0
 
     .line 108
     invoke-super {p0, p1}, Landroid/app/ExpandableListActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 111
-    new-instance v0, Lio/appium/android/apis/view/ExpandableList2$MyExpandableListAdapter;
+    new-instance v9, Lio/appium/android/apis/view/ExpandableList2$MyExpandableListAdapter;
 
-    new-array v5, v2, [Ljava/lang/String;
+    const/4 v0, 0x1
+
+    new-array v5, v0, [Ljava/lang/String;
 
     const-string v1, "display_name"
 
-    aput-object v1, v5, v9
+    const/4 v2, 0x0
 
-    new-array v6, v2, [I
+    aput-object v1, v5, v2
 
-    aput v4, v6, v9
+    new-array v6, v0, [I
 
-    new-array v7, v2, [Ljava/lang/String;
+    const v1, 0x1020014
 
-    const-string v1, "data1"
+    aput v1, v6, v2
 
-    aput-object v1, v7, v9
+    new-array v7, v0, [Ljava/lang/String;
 
-    new-array v8, v2, [I
+    const-string v3, "data1"
 
-    aput v4, v8, v9
+    aput-object v3, v7, v2
+
+    new-array v8, v0, [I
+
+    aput v1, v8, v2
+
+    const v3, 0x1090006
+
+    const v4, 0x1090006
+
+    move-object v0, v9
 
     move-object v1, p0
 
     move-object v2, p0
 
-    move v4, v3
-
     invoke-direct/range {v0 .. v8}, Lio/appium/android/apis/view/ExpandableList2$MyExpandableListAdapter;-><init>(Lio/appium/android/apis/view/ExpandableList2;Landroid/content/Context;II[Ljava/lang/String;[I[Ljava/lang/String;[I)V
 
-    iput-object v0, p0, Lio/appium/android/apis/view/ExpandableList2;->mAdapter:Landroid/widget/CursorTreeAdapter;
+    iput-object v9, p0, Lio/appium/android/apis/view/ExpandableList2;->mAdapter:Landroid/widget/CursorTreeAdapter;
 
     .line 120
     iget-object v0, p0, Lio/appium/android/apis/view/ExpandableList2;->mAdapter:Landroid/widget/CursorTreeAdapter;
@@ -170,23 +164,23 @@
     iput-object v0, p0, Lio/appium/android/apis/view/ExpandableList2;->mQueryHandler:Lio/appium/android/apis/view/ExpandableList2$QueryHandler;
 
     .line 125
-    iget-object v0, p0, Lio/appium/android/apis/view/ExpandableList2;->mQueryHandler:Lio/appium/android/apis/view/ExpandableList2$QueryHandler;
+    iget-object v2, p0, Lio/appium/android/apis/view/ExpandableList2;->mQueryHandler:Lio/appium/android/apis/view/ExpandableList2$QueryHandler;
 
-    sget-object v3, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
+    sget-object v5, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
 
-    sget-object v4, Lio/appium/android/apis/view/ExpandableList2;->CONTACTS_PROJECTION:[Ljava/lang/String;
+    sget-object v6, Lio/appium/android/apis/view/ExpandableList2;->CONTACTS_PROJECTION:[Ljava/lang/String;
 
-    const-string v5, "has_phone_number=1"
+    const-string v7, "has_phone_number=1"
 
-    move v1, v9
+    const/4 v3, 0x0
 
-    move-object v2, v10
+    const/4 v4, 0x0
 
-    move-object v6, v10
+    const/4 v8, 0x0
 
-    move-object v7, v10
+    const/4 v9, 0x0
 
-    invoke-virtual/range {v0 .. v7}, Lio/appium/android/apis/view/ExpandableList2$QueryHandler;->startQuery(ILjava/lang/Object;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual/range {v2 .. v9}, Lio/appium/android/apis/view/ExpandableList2$QueryHandler;->startQuery(ILjava/lang/Object;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
 
     .line 127
     return-void
@@ -195,14 +189,13 @@
 .method protected onDestroy()V
     .locals 2
 
-    .prologue
-    const/4 v1, 0x0
-
     .line 131
     invoke-super {p0}, Landroid/app/ExpandableListActivity;->onDestroy()V
 
     .line 135
     iget-object v0, p0, Lio/appium/android/apis/view/ExpandableList2;->mAdapter:Landroid/widget/CursorTreeAdapter;
+
+    const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/CursorTreeAdapter;->changeCursor(Landroid/database/Cursor;)V
 

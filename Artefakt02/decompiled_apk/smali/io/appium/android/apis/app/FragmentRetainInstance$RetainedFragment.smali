@@ -30,13 +30,12 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    const/4 v0, 0x0
-
     .line 98
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
     .line 101
+    const/4 v0, 0x0
+
     iput-boolean v0, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mReady:Z
 
     .line 102
@@ -58,7 +57,6 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 175
     invoke-super {p0, p1}, Landroid/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
 
@@ -71,7 +69,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0900a8
+    const v1, 0x7f09016c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -82,43 +80,42 @@
     iput-object v0, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mProgressBar:Landroid/widget/ProgressBar;
 
     .line 182
-    iget-object v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mThread:Ljava/lang/Thread;
-
-    monitor-enter v1
-
-    .line 183
-    const/4 v0, 0x1
-
-    :try_start_0
-    iput-boolean v0, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mReady:Z
-
-    .line 184
     iget-object v0, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mThread:Ljava/lang/Thread;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notify()V
+    monitor-enter v0
+
+    .line 183
+    const/4 v1, 0x1
+
+    :try_start_0
+    iput-boolean v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mReady:Z
+
+    .line 184
+    iget-object v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mThread:Ljava/lang/Thread;
+
+    invoke-virtual {v1}, Ljava/lang/Object;->notify()V
 
     .line 185
-    monitor-exit v1
+    monitor-exit v0
 
     .line 186
     return-void
 
     .line 185
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 157
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -139,30 +136,29 @@
 .method public onDestroy()V
     .locals 2
 
-    .prologue
     .line 195
-    iget-object v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mThread:Ljava/lang/Thread;
-
-    monitor-enter v1
-
-    .line 196
-    const/4 v0, 0x0
-
-    :try_start_0
-    iput-boolean v0, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mReady:Z
-
-    .line 197
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mQuiting:Z
-
-    .line 198
     iget-object v0, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mThread:Ljava/lang/Thread;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notify()V
+    monitor-enter v0
+
+    .line 196
+    const/4 v1, 0x0
+
+    :try_start_0
+    iput-boolean v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mReady:Z
+
+    .line 197
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mQuiting:Z
+
+    .line 198
+    iget-object v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mThread:Ljava/lang/Thread;
+
+    invoke-virtual {v1}, Ljava/lang/Object;->notify()V
 
     .line 199
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -174,43 +170,42 @@
 
     .line 199
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     :try_start_1
-    monitor-exit v1
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public onDetach()V
     .locals 2
 
-    .prologue
     .line 213
-    iget-object v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mThread:Ljava/lang/Thread;
-
-    monitor-enter v1
-
-    .line 214
-    const/4 v0, 0x0
-
-    :try_start_0
-    iput-object v0, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mProgressBar:Landroid/widget/ProgressBar;
-
-    .line 215
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mReady:Z
-
-    .line 216
     iget-object v0, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mThread:Ljava/lang/Thread;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notify()V
+    monitor-enter v0
+
+    .line 214
+    const/4 v1, 0x0
+
+    :try_start_0
+    iput-object v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mProgressBar:Landroid/widget/ProgressBar;
+
+    .line 215
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mReady:Z
+
+    .line 216
+    iget-object v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mThread:Ljava/lang/Thread;
+
+    invoke-virtual {v1}, Ljava/lang/Object;->notify()V
 
     .line 217
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -222,49 +217,48 @@
 
     .line 217
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     :try_start_1
-    monitor-exit v1
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public restart()V
     .locals 2
 
-    .prologue
     .line 226
-    iget-object v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mThread:Ljava/lang/Thread;
-
-    monitor-enter v1
-
-    .line 227
-    const/4 v0, 0x0
-
-    :try_start_0
-    iput v0, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mPosition:I
-
-    .line 228
     iget-object v0, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mThread:Ljava/lang/Thread;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notify()V
+    monitor-enter v0
+
+    .line 227
+    const/4 v1, 0x0
+
+    :try_start_0
+    iput v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mPosition:I
+
+    .line 228
+    iget-object v1, p0, Lio/appium/android/apis/app/FragmentRetainInstance$RetainedFragment;->mThread:Ljava/lang/Thread;
+
+    invoke-virtual {v1}, Ljava/lang/Object;->notify()V
 
     .line 229
-    monitor-exit v1
+    monitor-exit v0
 
     .line 230
     return-void
 
     .line 229
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method

@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/RemoteService$Binding;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/RemoteService$Binding;
 
-    .prologue
     .line 435
     iput-object p1, p0, Lio/appium/android/apis/app/RemoteService$Binding$6;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 
@@ -37,7 +37,6 @@
     .locals 4
     .param p1, "value"    # I
 
-    .prologue
     .line 444
     iget-object v0, p0, Lio/appium/android/apis/app/RemoteService$Binding$6;->this$0:Lio/appium/android/apis/app/RemoteService$Binding;
 

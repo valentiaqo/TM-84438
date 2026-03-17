@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
-    .prologue
     .line 144
     iput-object p1, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
@@ -37,28 +37,26 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .locals 4
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    const/4 v4, 0x1
-
     .line 146
-    check-cast p1, Landroid/widget/CheckBox;
+    move-object v0, p1
 
-    .end local p1    # "v":Landroid/view/View;
-    invoke-virtual {p1}, Landroid/widget/CheckBox;->isChecked()Z
+    check-cast v0, Landroid/widget/CheckBox;
+
+    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 147
     iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
     iget-boolean v0, v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mServiceBound:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     .line 148
     iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
@@ -79,42 +77,41 @@
 
     iget-object v2, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
+    .line 149
     invoke-static {v2}, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->access$000(Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;)Landroid/content/ServiceConnection;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2, v4}, Landroid/app/Activity;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
+    .line 148
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/app/Activity;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     .line 150
     iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
-    iput-boolean v4, v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mServiceBound:Z
+    iput-boolean v3, v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mServiceBound:Z
 
     .line 151
-    iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
-
     iget-object v0, v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mStatus:Landroid/widget/TextView;
 
     const-string v1, "BOUND"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 161
-    :cond_0
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 155
-    :cond_1
+    :cond_0
     iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
 
     iget-boolean v0, v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mServiceBound:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     .line 156
     iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
@@ -137,13 +134,14 @@
     iput-boolean v1, v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mServiceBound:Z
 
     .line 158
-    iget-object v0, p0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo$3;->this$0:Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;
-
     iget-object v0, v0, Lio/appium/android/apis/app/IsolatedService$Controller$ServiceInfo;->mStatus:Landroid/widget/TextView;
 
     const-string v1, ""
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    .line 161
+    :cond_1
+    :goto_0
+    return-void
 .end method

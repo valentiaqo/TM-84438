@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/RedirectGetter;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/RedirectGetter;
 
-    .prologue
     .line 73
     iput-object p1, p0, Lio/appium/android/apis/app/RedirectGetter$1;->this$0:Lio/appium/android/apis/app/RedirectGetter;
 
@@ -37,29 +37,28 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .locals 4
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 76
-    iget-object v2, p0, Lio/appium/android/apis/app/RedirectGetter$1;->this$0:Lio/appium/android/apis/app/RedirectGetter;
+    iget-object v0, p0, Lio/appium/android/apis/app/RedirectGetter$1;->this$0:Lio/appium/android/apis/app/RedirectGetter;
 
-    const-string v3, "RedirectData"
+    const-string v1, "RedirectData"
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v2, v3, v4}, Lio/appium/android/apis/app/RedirectGetter;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    .line 77
-    .local v1, "preferences":Landroid/content/SharedPreferences;
-    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-virtual {v0, v1, v2}, Lio/appium/android/apis/app/RedirectGetter;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
+    .line 77
+    .local v0, "preferences":Landroid/content/SharedPreferences;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v1
+
     .line 78
-    .local v0, "editor":Landroid/content/SharedPreferences$Editor;
+    .local v1, "editor":Landroid/content/SharedPreferences$Editor;
     const-string v2, "text"
 
     iget-object v3, p0, Lio/appium/android/apis/app/RedirectGetter$1;->this$0:Lio/appium/android/apis/app/RedirectGetter;
@@ -76,10 +75,10 @@
 
     move-result-object v3
 
-    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     .line 80
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     move-result v2
 

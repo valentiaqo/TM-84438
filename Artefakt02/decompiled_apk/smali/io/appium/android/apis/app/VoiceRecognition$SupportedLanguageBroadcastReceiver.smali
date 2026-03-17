@@ -22,7 +22,6 @@
 .method private constructor <init>(Lio/appium/android/apis/app/VoiceRecognition;)V
     .locals 0
 
-    .prologue
     .line 177
     iput-object p1, p0, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;->this$0:Lio/appium/android/apis/app/VoiceRecognition;
 
@@ -36,7 +35,6 @@
     .param p1, "x0"    # Lio/appium/android/apis/app/VoiceRecognition;
     .param p2, "x1"    # Lio/appium/android/apis/app/VoiceRecognition$1;
 
-    .prologue
     .line 177
     invoke-direct {p0, p1}, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;-><init>(Lio/appium/android/apis/app/VoiceRecognition;)V
 
@@ -48,7 +46,6 @@
     .param p0, "x0"    # Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;
     .param p1, "x1"    # Ljava/lang/String;
 
-    .prologue
     .line 177
     invoke-direct {p0, p1}, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;->showToast(Ljava/lang/String;)V
 
@@ -59,7 +56,6 @@
     .locals 2
     .param p1, "text"    # Ljava/lang/String;
 
-    .prologue
     .line 227
     iget-object v0, p0, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;->this$0:Lio/appium/android/apis/app/VoiceRecognition;
 
@@ -78,38 +74,33 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 181
-    const-string v1, "VoiceRecognition"
+    const-string v0, "VoiceRecognition"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Receiving broadcast "
+    const-string v2, "Receiving broadcast "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 183
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;->getResultExtras(Z)Landroid/os/Bundle;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;->getResultExtras(Z)Landroid/os/Bundle;
 
     move-result-object v0
 

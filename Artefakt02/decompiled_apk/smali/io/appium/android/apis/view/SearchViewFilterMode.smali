@@ -14,8 +14,7 @@
 .field private mAdapter:Landroid/widget/ArrayAdapter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/widget/ArrayAdapter",
-            "<",
+            "Landroid/widget/ArrayAdapter<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -33,7 +32,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 33
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -48,11 +46,10 @@
 .method private setupSearchView()V
     .locals 2
 
-    .prologue
-    const/4 v1, 0x0
-
     .line 60
     iget-object v0, p0, Lio/appium/android/apis/view/SearchViewFilterMode;->mSearchView:Landroid/widget/SearchView;
+
+    const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/SearchView;->setIconifiedByDefault(Z)V
 
@@ -69,7 +66,7 @@
     .line 63
     iget-object v0, p0, Lio/appium/android/apis/view/SearchViewFilterMode;->mSearchView:Landroid/widget/SearchView;
 
-    const v1, 0x7f0c0246
+    const v1, 0x7f0e00fa
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/view/SearchViewFilterMode;->getString(I)Ljava/lang/String;
 
@@ -87,7 +84,6 @@
     .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 45
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -101,12 +97,12 @@
     invoke-virtual {v0, v1}, Landroid/view/Window;->requestFeature(I)Z
 
     .line 48
-    const v0, 0x7f0300c8
+    const v0, 0x7f0b00ec
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/SearchViewFilterMode;->setContentView(I)V
 
     .line 50
-    const v0, 0x7f090149
+    const v0, 0x7f0901af
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/SearchViewFilterMode;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +113,7 @@
     iput-object v0, p0, Lio/appium/android/apis/view/SearchViewFilterMode;->mSearchView:Landroid/widget/SearchView;
 
     .line 51
-    const v0, 0x7f09014a
+    const v0, 0x7f09011a
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/SearchViewFilterMode;->findViewById(I)Landroid/view/View;
 
@@ -132,11 +128,11 @@
 
     new-instance v1, Landroid/widget/ArrayAdapter;
 
-    const v2, 0x1090003
+    iget-object v2, p0, Lio/appium/android/apis/view/SearchViewFilterMode;->mStrings:[Ljava/lang/String;
 
-    iget-object v3, p0, Lio/appium/android/apis/view/SearchViewFilterMode;->mStrings:[Ljava/lang/String;
+    const v3, 0x1090003
 
-    invoke-direct {v1, p0, v2, v3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
+    invoke-direct {v1, p0, v3, v2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
     iput-object v1, p0, Lio/appium/android/apis/view/SearchViewFilterMode;->mAdapter:Landroid/widget/ArrayAdapter;
 
@@ -160,7 +156,6 @@
     .locals 2
     .param p1, "newText"    # Ljava/lang/String;
 
-    .prologue
     .line 67
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -173,11 +168,7 @@
 
     invoke-virtual {v0}, Landroid/widget/ListView;->clearTextFilter()V
 
-    .line 72
-    :goto_0
-    const/4 v0, 0x1
-
-    return v0
+    goto :goto_0
 
     .line 70
     :cond_0
@@ -189,14 +180,17 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setFilterText(Ljava/lang/String;)V
 
-    goto :goto_0
+    .line 72
+    :goto_0
+    const/4 v0, 0x1
+
+    return v0
 .end method
 
 .method public onQueryTextSubmit(Ljava/lang/String;)Z
     .locals 1
     .param p1, "query"    # Ljava/lang/String;
 
-    .prologue
     .line 76
     const/4 v0, 0x0
 

@@ -36,13 +36,12 @@
 
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/accessibility/AccessibilityNodeProviderActivity$VirtualSubtreeRootView;ILandroid/graphics/Rect;ILjava/lang/String;)V
-    .locals 1
+    .locals 0
     .param p2, "id"    # I
     .param p3, "bounds"    # Landroid/graphics/Rect;
     .param p4, "color"    # I
     .param p5, "text"    # Ljava/lang/String;
 
-    .prologue
     .line 336
     iput-object p1, p0, Lio/appium/android/apis/accessibility/AccessibilityNodeProviderActivity$VirtualSubtreeRootView$VirtualView;->this$0:Lio/appium/android/apis/accessibility/AccessibilityNodeProviderActivity$VirtualSubtreeRootView;
 
@@ -61,9 +60,9 @@
     iput-object p5, p0, Lio/appium/android/apis/accessibility/AccessibilityNodeProviderActivity$VirtualSubtreeRootView$VirtualView;->mText:Ljava/lang/String;
 
     .line 341
-    const/16 v0, 0x7f
+    const/16 p1, 0x7f
 
-    iput v0, p0, Lio/appium/android/apis/accessibility/AccessibilityNodeProviderActivity$VirtualSubtreeRootView$VirtualView;->mAlpha:I
+    iput p1, p0, Lio/appium/android/apis/accessibility/AccessibilityNodeProviderActivity$VirtualSubtreeRootView$VirtualView;->mAlpha:I
 
     .line 342
     return-void

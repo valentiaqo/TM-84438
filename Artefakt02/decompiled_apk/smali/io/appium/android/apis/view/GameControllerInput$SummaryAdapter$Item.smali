@@ -28,7 +28,6 @@
     .param p1, "itemId"    # I
     .param p2, "layoutResourceId"    # I
 
-    .prologue
     .line 453
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,7 +46,6 @@
 .method public getItemId()J
     .locals 2
 
-    .prologue
     .line 459
     iget v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;->mItemId:I
 
@@ -61,20 +59,22 @@
     .param p1, "convertView"    # Landroid/view/View;
     .param p2, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
     .line 463
-    iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;->mView:Landroid/view/View;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;->mView:Landroid/view/View;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 464
+    nop
+
+    .line 465
     invoke-virtual {p2}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "layout_inflater"
+    const-string v1, "layout_inflater"
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -100,21 +100,20 @@
     .line 469
     .end local v0    # "inflater":Landroid/view/LayoutInflater;
     :cond_0
-    iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;->mView:Landroid/view/View;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;->mView:Landroid/view/View;
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;->updateView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;->updateView(Landroid/view/View;)V
 
     .line 470
-    iget-object v1, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;->mView:Landroid/view/View;
+    iget-object v0, p0, Lio/appium/android/apis/view/GameControllerInput$SummaryAdapter$Item;->mView:Landroid/view/View;
 
-    return-object v1
+    return-object v0
 .end method
 
 .method protected initView(Landroid/view/View;)V
     .locals 0
     .param p1, "view"    # Landroid/view/View;
 
-    .prologue
     .line 474
     return-void
 .end method
@@ -123,7 +122,6 @@
     .locals 0
     .param p1, "view"    # Landroid/view/View;
 
-    .prologue
     .line 477
     return-void
 .end method

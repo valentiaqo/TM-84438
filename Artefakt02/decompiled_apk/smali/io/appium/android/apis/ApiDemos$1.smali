@@ -19,10 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator",
-        "<",
-        "Ljava/util/Map",
-        "<",
+        "Ljava/util/Comparator<",
+        "Ljava/util/Map<",
         "Ljava/lang/String;",
         "Ljava/lang/Object;",
         ">;>;"
@@ -38,11 +36,10 @@
 .method constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 116
+    .line 127
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 117
+    .line 128
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;
 
     move-result-object v0
@@ -55,23 +52,18 @@
 
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Object;
+    .locals 0
 
-    .prologue
-    .line 116
+    .line 127
     check-cast p1, Ljava/util/Map;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Ljava/util/Map;
 
-    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lio/appium/android/apis/ApiDemos$1;->compare(Ljava/util/Map;Ljava/util/Map;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public compare(Ljava/util/Map;Ljava/util/Map;)I
@@ -79,21 +71,18 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Map",
-            "<",
+            "Ljava/util/Map<",
             "Ljava/lang/String;",
             "Ljava/lang/Object;",
             ">;",
-            "Ljava/util/Map",
-            "<",
+            "Ljava/util/Map<",
             "Ljava/lang/String;",
             "Ljava/lang/Object;",
             ">;)I"
         }
     .end annotation
 
-    .prologue
-    .line 120
+    .line 131
     .local p1, "map1":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     .local p2, "map2":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     iget-object v0, p0, Lio/appium/android/apis/ApiDemos$1;->collator:Ljava/text/Collator;

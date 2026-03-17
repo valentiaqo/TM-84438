@@ -18,7 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 927
     invoke-direct {p0}, Landroid/app/admin/DeviceAdminReceiver;-><init>()V
 
@@ -32,9 +31,8 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 940
-    const v0, 0x7f0c01ec
+    const v0, 0x7f0e0084
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -48,9 +46,8 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 945
-    const v0, 0x7f0c01e8
+    const v0, 0x7f0e0085
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -67,9 +64,8 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 935
-    const v0, 0x7f0c01e7
+    const v0, 0x7f0e0086
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -86,9 +82,8 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 950
-    const v0, 0x7f0c01e9
+    const v0, 0x7f0e0087
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -101,59 +96,68 @@
 .end method
 
 .method public onPasswordExpiring(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 9
+    .locals 8
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 965
-    const-string v7, "device_policy"
+    const-string v0, "device_policy"
 
-    invoke-virtual {p1, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroid/app/admin/DevicePolicyManager;
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
 
     .line 967
-    .local v2, "dpm":Landroid/app/admin/DevicePolicyManager;
-    new-instance v7, Landroid/content/ComponentName;
+    .local v0, "dpm":Landroid/app/admin/DevicePolicyManager;
+    new-instance v1, Landroid/content/ComponentName;
 
-    const-class v8, Lio/appium/android/apis/app/DeviceAdminSample$DeviceAdminSampleReceiver;
+    const-class v2, Lio/appium/android/apis/app/DeviceAdminSample$DeviceAdminSampleReceiver;
 
-    invoke-direct {v7, p1, v8}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v1, p1, v2}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    invoke-virtual {v2, v7}, Landroid/app/admin/DevicePolicyManager;->getPasswordExpiration(Landroid/content/ComponentName;)J
+    invoke-virtual {v0, v1}, Landroid/app/admin/DevicePolicyManager;->getPasswordExpiration(Landroid/content/ComponentName;)J
 
-    move-result-wide v4
+    move-result-wide v1
 
     .line 969
-    .local v4, "expr":J
+    .local v1, "expr":J
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v7
+    move-result-wide v3
 
-    sub-long v0, v4, v7
+    sub-long v3, v1, v3
 
     .line 970
-    .local v0, "delta":J
-    const-wide/16 v7, 0x0
+    .local v3, "delta":J
+    const-wide/16 v5, 0x0
 
-    cmp-long v7, v0, v7
+    cmp-long v7, v3, v5
 
     if-gez v7, :cond_0
 
-    const/4 v3, 0x1
+    const/4 v5, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v5, 0x0
 
     .line 971
-    .local v3, "expired":Z
+    .local v5, "expired":Z
     :goto_0
-    if-eqz v3, :cond_1
+    if-eqz v5, :cond_1
 
-    const v7, 0x7f0c01e4
+    const v6, 0x7f0e0145
+
+    goto :goto_1
+
+    :cond_1
+    const v6, 0x7f0e0143
 
     :goto_1
-    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
@@ -168,21 +172,6 @@
 
     .line 975
     return-void
-
-    .line 970
-    .end local v3    # "expired":Z
-    .end local v6    # "message":Ljava/lang/String;
-    :cond_0
-    const/4 v3, 0x0
-
-    goto :goto_0
-
-    .line 971
-    .restart local v3    # "expired":Z
-    :cond_1
-    const v7, 0x7f0c01e5
-
-    goto :goto_1
 .end method
 
 .method public onPasswordFailed(Landroid/content/Context;Landroid/content/Intent;)V
@@ -190,9 +179,8 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 955
-    const v0, 0x7f0c01ea
+    const v0, 0x7f0e0088
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -209,9 +197,8 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 960
-    const v0, 0x7f0c01eb
+    const v0, 0x7f0e0089
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -224,29 +211,28 @@
 .end method
 
 .method showToast(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 4
+    .locals 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "msg"    # Ljava/lang/String;
 
-    .prologue
-    const/4 v3, 0x0
-
     .line 929
-    const v1, 0x7f0c01e6
+    const/4 v0, 0x1
 
-    const/4 v2, 0x1
+    new-array v0, v0, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const/4 v1, 0x0
 
-    aput-object p2, v2, v3
+    aput-object p2, v0, v1
 
-    invoke-virtual {p1, v1, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const v2, 0x7f0e0083
+
+    invoke-virtual {p1, v2, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 930
     .local v0, "status":Ljava/lang/String;
-    invoke-static {p1, v0, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {p1, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v1
 

@@ -15,7 +15,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     .line 36
     const/16 v0, 0xc
 
@@ -47,7 +46,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 31
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -60,32 +58,31 @@
     .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 53
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 54
-    const v1, 0x7f0300be
+    const v0, 0x7f0b00e2
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/ScreenOrientation;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/ScreenOrientation;->setContentView(I)V
 
     .line 56
-    const v1, 0x7f09013e
+    const v0, 0x7f090157
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/ScreenOrientation;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/ScreenOrientation;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/Spinner;
+    check-cast v0, Landroid/widget/Spinner;
 
-    iput-object v1, p0, Lio/appium/android/apis/app/ScreenOrientation;->mOrientation:Landroid/widget/Spinner;
+    iput-object v0, p0, Lio/appium/android/apis/app/ScreenOrientation;->mOrientation:Landroid/widget/Spinner;
 
     .line 57
-    const v1, 0x7f08000a
+    const v0, 0x7f030007
 
-    const v2, 0x1090008
+    const v1, 0x1090008
 
-    invoke-static {p0, v1, v2}, Landroid/widget/ArrayAdapter;->createFromResource(Landroid/content/Context;II)Landroid/widget/ArrayAdapter;
+    invoke-static {p0, v0, v1}, Landroid/widget/ArrayAdapter;->createFromResource(Landroid/content/Context;II)Landroid/widget/ArrayAdapter;
 
     move-result-object v0
 

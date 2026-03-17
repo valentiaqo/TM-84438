@@ -13,7 +13,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 35
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -36,7 +35,6 @@
     .locals 2
     .param p0, "x0"    # Lio/appium/android/apis/view/SplitTouchView;
 
-    .prologue
     .line 35
     iget v0, p0, Lio/appium/android/apis/view/SplitTouchView;->responseIndex:I
 
@@ -53,60 +51,59 @@
     .locals 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 38
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 40
-    const v3, 0x7f0300d7
+    const v0, 0x7f0b00fe
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/SplitTouchView;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/SplitTouchView;->setContentView(I)V
 
     .line 41
-    const v3, 0x7f090162
+    const v0, 0x7f090114
 
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/SplitTouchView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/SplitTouchView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ListView;
+
+    .line 42
+    .local v0, "list1":Landroid/widget/ListView;
+    const v1, 0x7f090115
+
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/SplitTouchView;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     check-cast v1, Landroid/widget/ListView;
 
-    .line 42
-    .local v1, "list1":Landroid/widget/ListView;
-    const v3, 0x7f090163
-
-    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/SplitTouchView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/ListView;
-
     .line 43
-    .local v2, "list2":Landroid/widget/ListView;
-    new-instance v0, Landroid/widget/ArrayAdapter;
+    .local v1, "list2":Landroid/widget/ListView;
+    new-instance v2, Landroid/widget/ArrayAdapter;
 
-    const v3, 0x1090003
+    sget-object v3, Lio/appium/android/apis/view/Cheeses;->sCheeseStrings:[Ljava/lang/String;
 
-    sget-object v4, Lio/appium/android/apis/view/Cheeses;->sCheeseStrings:[Ljava/lang/String;
+    const v4, 0x1090003
 
-    invoke-direct {v0, p0, v3, v4}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
+    invoke-direct {v2, p0, v4, v3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
     .line 45
-    .local v0, "adapter":Landroid/widget/ListAdapter;
-    invoke-virtual {v1, v0}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+    .local v2, "adapter":Landroid/widget/ListAdapter;
+    invoke-virtual {v0, v2}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 46
-    invoke-virtual {v2, v0}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+    invoke-virtual {v1, v2}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 48
     iget-object v3, p0, Lio/appium/android/apis/view/SplitTouchView;->itemClickListener:Landroid/widget/AdapterView$OnItemClickListener;
 
-    invoke-virtual {v1, v3}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v0, v3}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 49
     iget-object v3, p0, Lio/appium/android/apis/view/SplitTouchView;->itemClickListener:Landroid/widget/AdapterView$OnItemClickListener;
 
-    invoke-virtual {v2, v3}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v1, v3}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 50
     return-void

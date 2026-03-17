@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/graphics/Compass;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/graphics/Compass;
 
-    .prologue
     .line 38
     iput-object p1, p0, Lio/appium/android/apis/graphics/Compass$1;->this$0:Lio/appium/android/apis/graphics/Compass;
 
@@ -41,7 +41,6 @@
     .param p1, "sensor"    # Landroid/hardware/Sensor;
     .param p2, "accuracy"    # I
 
-    .prologue
     .line 49
     return-void
 .end method
@@ -50,7 +49,6 @@
     .locals 2
     .param p1, "event"    # Landroid/hardware/SensorEvent;
 
-    .prologue
     .line 42
     iget-object v0, p0, Lio/appium/android/apis/graphics/Compass$1;->this$0:Lio/appium/android/apis/graphics/Compass;
 

@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/DateWidgets2;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/DateWidgets2;
 
-    .prologue
     .line 46
     iput-object p1, p0, Lio/appium/android/apis/view/DateWidgets2$1;->this$0:Lio/appium/android/apis/view/DateWidgets2;
 
@@ -42,7 +42,6 @@
     .param p2, "hourOfDay"    # I
     .param p3, "minute"    # I
 
-    .prologue
     .line 49
     iget-object v0, p0, Lio/appium/android/apis/view/DateWidgets2$1;->this$0:Lio/appium/android/apis/view/DateWidgets2;
 

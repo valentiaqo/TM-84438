@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/content/ExternalStorage;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/content/ExternalStorage;
 
-    .prologue
     .line 159
     iput-object p1, p0, Lio/appium/android/apis/content/ExternalStorage$7;->this$0:Lio/appium/android/apis/content/ExternalStorage;
 
@@ -38,7 +38,6 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     .line 162
     const-string v0, "test"
 
@@ -50,15 +49,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

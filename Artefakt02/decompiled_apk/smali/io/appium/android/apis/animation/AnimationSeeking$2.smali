@@ -26,8 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/animation/AnimationSeeking;Lio/appium/android/apis/animation/AnimationSeeking$MyAnimationView;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/AnimationSeeking;
 
-    .prologue
     .line 72
     iput-object p1, p0, Lio/appium/android/apis/animation/AnimationSeeking$2;->this$0:Lio/appium/android/apis/animation/AnimationSeeking;
 
@@ -46,7 +46,6 @@
     .param p2, "progress"    # I
     .param p3, "fromUser"    # Z
 
-    .prologue
     .line 82
     iget-object v0, p0, Lio/appium/android/apis/animation/AnimationSeeking$2;->val$animView:Lio/appium/android/apis/animation/AnimationSeeking$MyAnimationView;
 
@@ -72,7 +71,6 @@
     .locals 0
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
-    .prologue
     .line 77
     return-void
 .end method
@@ -81,7 +79,6 @@
     .locals 0
     .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
-    .prologue
     .line 74
     return-void
 .end method

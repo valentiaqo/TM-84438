@@ -7,8 +7,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 29
+    .line 31
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     return-void
@@ -17,50 +16,68 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 5
-    .param p1, "icicle"    # Landroid/os/Bundle;
+    .locals 4
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 33
-    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+    .line 34
+    const v0, 0x7f0b0120
 
-    .line 35
-    const v2, 0x7f0300f7
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/WebView1;->setContentView(I)V
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/WebView1;->setContentView(I)V
+    .line 36
+    const v0, 0x7f090251
+
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/WebView1;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/webkit/WebView;
 
     .line 37
-    const-string v0, "text/html"
+    .local v0, "wv":Landroid/webkit/WebView;
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    .line 41
-    .local v0, "mimeType":Ljava/lang/String;
-    const v2, 0x7f090186
+    const/4 v2, 0x1
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/WebView1;->findViewById(I)Landroid/view/View;
+    const/16 v3, 0x13
+
+    if-lt v1, v3, :cond_0
+
+    .line 38
+    invoke-static {v2}, Landroid/webkit/WebView;->setWebContentsDebuggingEnabled(Z)V
+
+    .line 40
+    :cond_0
+    invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
     move-result-object v1
 
-    check-cast v1, Landroid/webkit/WebView;
+    invoke-virtual {v1, v2}, Landroid/webkit/WebSettings;->setBuiltInZoomControls(Z)V
 
-    .line 42
-    .local v1, "wv":Landroid/webkit/WebView;
-    const-string v2, "<a href=\'x\'>Hello World! - 1</a>"
+    .line 41
+    invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
-    const-string v3, "text/html"
+    move-result-object v1
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v1, v2, v3, v4}, Landroid/webkit/WebView;->loadData(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V
 
     .line 43
-    invoke-virtual {v1}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
+    new-instance v1, Landroid/webkit/WebViewClient;
 
-    move-result-object v2
+    invoke-direct {v1}, Landroid/webkit/WebViewClient;-><init>()V
 
-    const/4 v3, 0x1
+    invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setWebViewClient(Landroid/webkit/WebViewClient;)V
 
-    invoke-virtual {v2, v3}, Landroid/webkit/WebSettings;->setBuiltInZoomControls(Z)V
+    .line 45
+    const-string v1, "file:///android_asset/html/index.html"
 
-    .line 44
+    invoke-virtual {v0, v1}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+
+    .line 47
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+
+    .line 48
     return-void
 .end method

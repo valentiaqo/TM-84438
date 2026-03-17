@@ -7,7 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 33
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -20,19 +19,18 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 36
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 38
-    const v1, 0x7f030064
+    const v0, 0x7f0b0081
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/IncomingMessageInterstitial;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/IncomingMessageInterstitial;->setContentView(I)V
 
     .line 40
-    const v1, 0x7f0900bd
+    const v0, 0x7f090152
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/IncomingMessageInterstitial;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/IncomingMessageInterstitial;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -51,17 +49,16 @@
 .end method
 
 .method switchToApp()V
-    .locals 5
+    .locals 3
 
-    .prologue
     .line 56
     invoke-virtual {p0}, Lio/appium/android/apis/app/IncomingMessageInterstitial;->getIntent()Landroid/content/Intent;
 
-    move-result-object v3
+    move-result-object v0
 
-    const-string v4, "from"
+    const-string v1, "from"
 
-    invoke-virtual {v3, v4}, Landroid/content/Intent;->getCharSequenceExtra(Ljava/lang/String;)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->getCharSequenceExtra(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -69,11 +66,11 @@
     .local v0, "from":Ljava/lang/CharSequence;
     invoke-virtual {p0}, Lio/appium/android/apis/app/IncomingMessageInterstitial;->getIntent()Landroid/content/Intent;
 
-    move-result-object v3
+    move-result-object v1
 
-    const-string v4, "message"
+    const-string v2, "message"
 
-    invoke-virtual {v3, v4}, Landroid/content/Intent;->getCharSequenceExtra(Ljava/lang/String;)Ljava/lang/CharSequence;
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->getCharSequenceExtra(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v1
 

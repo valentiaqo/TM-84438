@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/ChronometerDemo;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/ChronometerDemo;
 
-    .prologue
     .line 85
     iput-object p1, p0, Lio/appium/android/apis/view/ChronometerDemo$5;->this$0:Lio/appium/android/apis/view/ChronometerDemo;
 
@@ -40,7 +40,6 @@
     .locals 2
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 87
     iget-object v0, p0, Lio/appium/android/apis/view/ChronometerDemo$5;->this$0:Lio/appium/android/apis/view/ChronometerDemo;
 

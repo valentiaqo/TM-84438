@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/DragAndDropDemo;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/DragAndDropDemo;
 
-    .prologue
     .line 48
     iput-object p1, p0, Lio/appium/android/apis/view/DragAndDropDemo$1;->this$0:Lio/appium/android/apis/view/DragAndDropDemo;
 
@@ -41,74 +41,80 @@
     .param p1, "v"    # Landroid/view/View;
     .param p2, "event"    # Landroid/view/DragEvent;
 
-    .prologue
-    const/4 v4, 0x0
-
     .line 50
+    iget-object v0, p0, Lio/appium/android/apis/view/DragAndDropDemo$1;->this$0:Lio/appium/android/apis/view/DragAndDropDemo;
+
+    iget-object v0, v0, Lio/appium/android/apis/view/DragAndDropDemo;->mResultText:Landroid/widget/TextView;
+
+    const-string v1, "Dragging..."
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 51
     invoke-virtual {p2}, Landroid/view/DragEvent;->getAction()I
 
     move-result v0
 
-    .line 51
+    .line 52
     .local v0, "action":I
-    packed-switch v0, :pswitch_data_0
+    const/4 v1, 0x1
 
-    .line 68
-    :goto_0
-    :pswitch_0
-    return v4
+    if-eq v0, v1, :cond_2
 
-    .line 56
-    :pswitch_1
-    iget-object v2, p0, Lio/appium/android/apis/view/DragAndDropDemo$1;->this$0:Lio/appium/android/apis/view/DragAndDropDemo;
+    const/4 v2, 0x4
 
-    iget-object v2, v2, Lio/appium/android/apis/view/DragAndDropDemo;->mHiddenDot:Lio/appium/android/apis/view/DraggableDot;
-
-    invoke-virtual {v2, v4}, Lio/appium/android/apis/view/DraggableDot;->setVisibility(I)V
-
-    goto :goto_0
-
-    .line 61
-    :pswitch_2
-    iget-object v2, p0, Lio/appium/android/apis/view/DragAndDropDemo$1;->this$0:Lio/appium/android/apis/view/DragAndDropDemo;
-
-    iget-object v2, v2, Lio/appium/android/apis/view/DragAndDropDemo;->mHiddenDot:Lio/appium/android/apis/view/DraggableDot;
-
-    const/4 v3, 0x4
-
-    invoke-virtual {v2, v3}, Lio/appium/android/apis/view/DraggableDot;->setVisibility(I)V
-
-    .line 64
-    invoke-virtual {p2}, Landroid/view/DragEvent;->getResult()Z
-
-    move-result v1
-
-    .line 65
-    .local v1, "dropped":Z
-    iget-object v2, p0, Lio/appium/android/apis/view/DragAndDropDemo$1;->this$0:Lio/appium/android/apis/view/DragAndDropDemo;
-
-    iget-object v3, v2, Lio/appium/android/apis/view/DragAndDropDemo;->mResultText:Landroid/widget/TextView;
-
-    if-eqz v1, :cond_0
-
-    const-string v2, "Dropped!"
-
-    :goto_1
-    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-
-    :cond_0
-    const-string v2, "No drop"
+    if-eq v0, v2, :cond_0
 
     goto :goto_1
 
-    .line 51
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_2
-    .end packed-switch
+    .line 62
+    :cond_0
+    iget-object v3, p0, Lio/appium/android/apis/view/DragAndDropDemo$1;->this$0:Lio/appium/android/apis/view/DragAndDropDemo;
+
+    iget-object v3, v3, Lio/appium/android/apis/view/DragAndDropDemo;->mHiddenDot:Lio/appium/android/apis/view/DraggableDot;
+
+    invoke-virtual {v3, v2}, Lio/appium/android/apis/view/DraggableDot;->setVisibility(I)V
+
+    .line 65
+    invoke-virtual {p2}, Landroid/view/DragEvent;->getResult()Z
+
+    move-result v2
+
+    .line 66
+    .local v2, "dropped":Z
+    iget-object v3, p0, Lio/appium/android/apis/view/DragAndDropDemo$1;->this$0:Lio/appium/android/apis/view/DragAndDropDemo;
+
+    iget-object v3, v3, Lio/appium/android/apis/view/DragAndDropDemo;->mResultText:Landroid/widget/TextView;
+
+    if-eqz v2, :cond_1
+
+    const-string v4, "Dropped!"
+
+    goto :goto_0
+
+    :cond_1
+    const-string v4, "No drop"
+
+    :goto_0
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_1
+
+    .line 57
+    .end local v2    # "dropped":Z
+    :cond_2
+    iget-object v2, p0, Lio/appium/android/apis/view/DragAndDropDemo$1;->this$0:Lio/appium/android/apis/view/DragAndDropDemo;
+
+    iget-object v2, v2, Lio/appium/android/apis/view/DragAndDropDemo;->mHiddenDot:Lio/appium/android/apis/view/DraggableDot;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Lio/appium/android/apis/view/DraggableDot;->setVisibility(I)V
+
+    .line 58
+    nop
+
+    .line 70
+    :goto_1
+    return v1
 .end method

@@ -15,11 +15,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 43
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 53
     return-void
 .end method
 
@@ -29,19 +27,18 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 47
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 48
-    const v1, 0x7f03002b
+    const v0, 0x7f0b0047
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/animation/BouncingBalls;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/animation/BouncingBalls;->setContentView(I)V
 
     .line 49
-    const v1, 0x7f090036
+    const v0, 0x7f090073
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/animation/BouncingBalls;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/animation/BouncingBalls;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

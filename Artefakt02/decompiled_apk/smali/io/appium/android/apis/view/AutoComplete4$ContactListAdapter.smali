@@ -27,7 +27,6 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "c"    # Landroid/database/Cursor;
 
-    .prologue
     .line 58
     invoke-direct {p0, p1, p2}, Landroid/widget/CursorAdapter;-><init>(Landroid/content/Context;Landroid/database/Cursor;)V
 
@@ -45,46 +44,43 @@
 
 # virtual methods
 .method public bindView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V
-    .locals 1
+    .locals 2
     .param p1, "view"    # Landroid/view/View;
     .param p2, "context"    # Landroid/content/Context;
     .param p3, "cursor"    # Landroid/database/Cursor;
 
-    .prologue
     .line 73
-    check-cast p1, Landroid/widget/TextView;
+    move-object v0, p1
 
-    .end local p1    # "view":Landroid/view/View;
-    const/4 v0, 0x1
+    check-cast v0, Landroid/widget/TextView;
 
-    invoke-interface {p3, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    const/4 v1, 0x1
 
-    move-result-object v0
+    invoke-interface {p3, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 74
     return-void
 .end method
 
 .method public bridge synthetic convertToString(Landroid/database/Cursor;)Ljava/lang/CharSequence;
-    .locals 1
-    .param p1, "x0"    # Landroid/database/Cursor;
+    .locals 0
 
-    .prologue
     .line 56
     invoke-virtual {p0, p1}, Lio/appium/android/apis/view/AutoComplete4$ContactListAdapter;->convertToString(Landroid/database/Cursor;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public convertToString(Landroid/database/Cursor;)Ljava/lang/String;
     .locals 1
     .param p1, "cursor"    # Landroid/database/Cursor;
 
-    .prologue
     .line 78
     const/4 v0, 0x1
 
@@ -96,12 +92,11 @@
 .end method
 
 .method public newView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 4
+    .locals 3
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "cursor"    # Landroid/database/Cursor;
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
     .line 64
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
@@ -109,11 +104,11 @@
 
     .line 65
     .local v0, "inflater":Landroid/view/LayoutInflater;
-    const v2, 0x109000a
+    const v1, 0x109000a
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v2, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v0, v1, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v1
 
@@ -134,34 +129,30 @@
 .end method
 
 .method public runQueryOnBackgroundThread(Ljava/lang/CharSequence;)Landroid/database/Cursor;
-    .locals 7
+    .locals 9
     .param p1, "constraint"    # Ljava/lang/CharSequence;
-
-    .prologue
-    const/4 v3, 0x0
 
     .line 83
     invoke-virtual {p0}, Lio/appium/android/apis/view/AutoComplete4$ContactListAdapter;->getFilterQueryProvider()Landroid/widget/FilterQueryProvider;
 
-    move-result-object v6
-
-    .line 84
-    .local v6, "filter":Landroid/widget/FilterQueryProvider;
-    if-eqz v6, :cond_0
-
-    .line 85
-    invoke-interface {v6, p1}, Landroid/widget/FilterQueryProvider;->runQuery(Ljava/lang/CharSequence;)Landroid/database/Cursor;
-
     move-result-object v0
 
-    .line 91
-    :goto_0
-    return-object v0
+    .line 84
+    .local v0, "filter":Landroid/widget/FilterQueryProvider;
+    if-eqz v0, :cond_0
+
+    .line 85
+    invoke-interface {v0, p1}, Landroid/widget/FilterQueryProvider;->runQuery(Ljava/lang/CharSequence;)Landroid/database/Cursor;
+
+    move-result-object v1
+
+    return-object v1
 
     .line 88
     :cond_0
-    sget-object v0, Landroid/provider/ContactsContract$Contacts;->CONTENT_FILTER_URI:Landroid/net/Uri;
+    sget-object v1, Landroid/provider/ContactsContract$Contacts;->CONTENT_FILTER_URI:Landroid/net/Uri;
 
+    .line 90
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -170,23 +161,28 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+    .line 88
+    invoke-static {v1, v2}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
     .line 91
     .local v1, "uri":Landroid/net/Uri;
-    iget-object v0, p0, Lio/appium/android/apis/view/AutoComplete4$ContactListAdapter;->mContent:Landroid/content/ContentResolver;
+    iget-object v3, p0, Lio/appium/android/apis/view/AutoComplete4$ContactListAdapter;->mContent:Landroid/content/ContentResolver;
 
-    sget-object v2, Lio/appium/android/apis/view/AutoComplete4;->CONTACT_PROJECTION:[Ljava/lang/String;
+    sget-object v5, Lio/appium/android/apis/view/AutoComplete4;->CONTACT_PROJECTION:[Ljava/lang/String;
 
-    move-object v4, v3
+    const/4 v6, 0x0
 
-    move-object v5, v3
+    const/4 v7, 0x0
 
-    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    const/4 v8, 0x0
 
-    move-result-object v0
+    move-object v4, v1
 
-    goto :goto_0
+    invoke-virtual/range {v3 .. v8}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v2
+
+    return-object v2
 .end method

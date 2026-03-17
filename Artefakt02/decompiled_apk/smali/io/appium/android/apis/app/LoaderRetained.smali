@@ -15,11 +15,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 44
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 60
     return-void
 .end method
 
@@ -28,9 +26,6 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 4
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const v3, 0x1020002
 
     .line 48
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
@@ -42,31 +37,33 @@
 
     .line 53
     .local v0, "fm":Landroid/app/FragmentManager;
-    invoke-virtual {v0, v3}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
+    const v1, 0x1020002
+
+    invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
     move-result-object v2
 
     if-nez v2, :cond_0
 
     .line 54
-    new-instance v1, Lio/appium/android/apis/app/LoaderRetained$CursorLoaderListFragment;
+    new-instance v2, Lio/appium/android/apis/app/LoaderRetained$CursorLoaderListFragment;
 
-    invoke-direct {v1}, Lio/appium/android/apis/app/LoaderRetained$CursorLoaderListFragment;-><init>()V
+    invoke-direct {v2}, Lio/appium/android/apis/app/LoaderRetained$CursorLoaderListFragment;-><init>()V
 
     .line 55
-    .local v1, "list":Lio/appium/android/apis/app/LoaderRetained$CursorLoaderListFragment;
+    .local v2, "list":Lio/appium/android/apis/app/LoaderRetained$CursorLoaderListFragment;
     invoke-virtual {v0}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, v3, v1}, Landroid/app/FragmentTransaction;->add(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
+    invoke-virtual {v3, v1, v2}, Landroid/app/FragmentTransaction;->add(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Landroid/app/FragmentTransaction;->commit()I
+    invoke-virtual {v1}, Landroid/app/FragmentTransaction;->commit()I
 
     .line 57
-    .end local v1    # "list":Lio/appium/android/apis/app/LoaderRetained$CursorLoaderListFragment;
+    .end local v2    # "list":Lio/appium/android/apis/app/LoaderRetained$CursorLoaderListFragment;
     :cond_0
     return-void
 .end method

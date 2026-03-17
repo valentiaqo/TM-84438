@@ -14,10 +14,6 @@
 .end annotation
 
 
-# static fields
-.field private static final LAYER_FLAGS:I = 0x1f
-
-
 # instance fields
 .field private mPaint:Landroid/graphics/Paint;
 
@@ -27,96 +23,100 @@
     .locals 2
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    const/4 v1, 0x1
-
-    .line 42
+    .line 35
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 43
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/graphics/Layers$SampleView;->setFocusable(Z)V
+    .line 36
+    const/4 v0, 0x1
 
-    .line 45
-    new-instance v0, Landroid/graphics/Paint;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/graphics/Layers$SampleView;->setFocusable(Z)V
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    .line 37
+    new-instance v1, Landroid/graphics/Paint;
 
-    iput-object v0, p0, Lio/appium/android/apis/graphics/Layers$SampleView;->mPaint:Landroid/graphics/Paint;
+    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
 
-    .line 46
-    iget-object v0, p0, Lio/appium/android/apis/graphics/Layers$SampleView;->mPaint:Landroid/graphics/Paint;
+    iput-object v1, p0, Lio/appium/android/apis/graphics/Layers$SampleView;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    .line 38
+    iget-object v1, p0, Lio/appium/android/apis/graphics/Layers$SampleView;->mPaint:Landroid/graphics/Paint;
 
-    .line 47
+    invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    .line 39
     return-void
 .end method
 
 
 # virtual methods
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 9
+    .locals 8
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
-    const/high16 v3, 0x43480000    # 200.0f
-
-    const/high16 v8, 0x42fa0000    # 125.0f
-
-    const/high16 v2, 0x41200000    # 10.0f
-
-    const/4 v1, 0x0
-
-    const/high16 v7, 0x42960000    # 75.0f
-
-    .line 50
+    .line 43
     const/4 v0, -0x1
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->drawColor(I)V
 
-    .line 52
-    invoke-virtual {p1, v2, v2}, Landroid/graphics/Canvas;->translate(FF)V
+    .line 44
+    const/high16 v0, 0x41200000    # 10.0f
 
-    .line 54
-    const/16 v5, 0x88
+    invoke-virtual {p1, v0, v0}, Landroid/graphics/Canvas;->translate(FF)V
 
-    const/16 v6, 0x1f
+    .line 45
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-object v0, p1
+    const/16 v1, 0x15
 
-    move v2, v1
+    if-lt v0, v1, :cond_0
 
-    move v4, v3
+    .line 46
+    const/4 v3, 0x0
 
-    invoke-virtual/range {v0 .. v6}, Landroid/graphics/Canvas;->saveLayerAlpha(FFFFII)I
+    const/4 v4, 0x0
 
-    .line 56
+    const/high16 v5, 0x43480000    # 200.0f
+
+    const/high16 v6, 0x43480000    # 200.0f
+
+    const/16 v7, 0x88
+
+    move-object v2, p1
+
+    invoke-virtual/range {v2 .. v7}, Landroid/graphics/Canvas;->saveLayerAlpha(FFFFI)I
+
+    .line 48
+    :cond_0
     iget-object v0, p0, Lio/appium/android/apis/graphics/Layers$SampleView;->mPaint:Landroid/graphics/Paint;
 
     const/high16 v1, -0x10000
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 57
+    .line 49
     iget-object v0, p0, Lio/appium/android/apis/graphics/Layers$SampleView;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v7, v7, v7, v0}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+    const/high16 v1, 0x42960000    # 75.0f
 
-    .line 58
+    invoke-virtual {p1, v1, v1, v1, v0}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+
+    .line 50
     iget-object v0, p0, Lio/appium/android/apis/graphics/Layers$SampleView;->mPaint:Landroid/graphics/Paint;
 
-    const v1, -0xffff01
+    const v2, -0xffff01
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 59
+    .line 51
     iget-object v0, p0, Lio/appium/android/apis/graphics/Layers$SampleView;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v8, v8, v7, v0}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+    const/high16 v2, 0x42fa0000    # 125.0f
 
-    .line 61
+    invoke-virtual {p1, v2, v2, v1, v0}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+
+    .line 52
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 62
+    .line 53
     return-void
 .end method

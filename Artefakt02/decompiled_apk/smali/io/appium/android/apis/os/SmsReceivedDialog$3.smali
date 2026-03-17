@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/os/SmsReceivedDialog;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/os/SmsReceivedDialog;
 
-    .prologue
     .line 89
     iput-object p1, p0, Lio/appium/android/apis/os/SmsReceivedDialog$3;->this$0:Lio/appium/android/apis/os/SmsReceivedDialog;
 
@@ -41,7 +41,6 @@
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "whichButton"    # I
 
-    .prologue
     .line 92
     new-instance v0, Landroid/content/Intent;
 

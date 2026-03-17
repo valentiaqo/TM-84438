@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/AlertDialogSamples;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/AlertDialogSamples;
 
-    .prologue
     .line 174
     iput-object p1, p0, Lio/appium/android/apis/app/AlertDialogSamples$13;->this$0:Lio/appium/android/apis/app/AlertDialogSamples;
 
@@ -41,17 +41,16 @@
     .param p1, "dialog"    # Landroid/content/DialogInterface;
     .param p2, "which"    # I
 
-    .prologue
     .line 178
-    iget-object v1, p0, Lio/appium/android/apis/app/AlertDialogSamples$13;->this$0:Lio/appium/android/apis/app/AlertDialogSamples;
+    iget-object v0, p0, Lio/appium/android/apis/app/AlertDialogSamples$13;->this$0:Lio/appium/android/apis/app/AlertDialogSamples;
 
-    invoke-virtual {v1}, Lio/appium/android/apis/app/AlertDialogSamples;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Lio/appium/android/apis/app/AlertDialogSamples;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v0
 
-    const v2, 0x7f080004
+    const v1, 0x7f03000a
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v0
 
@@ -71,32 +70,26 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
-
     invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
 
     const-string v3, " , "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
-
     aget-object v3, v0, p2
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 180
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
+    .line 181
     invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     .line 182

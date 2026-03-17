@@ -24,7 +24,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 43
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -51,19 +50,18 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 46
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 48
-    const v1, 0x7f03008a
+    const v0, 0x7f0b00a8
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/LocalServiceActivities$Controller;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/LocalServiceActivities$Controller;->setContentView(I)V
 
     .line 51
-    const v1, 0x7f090050
+    const v0, 0x7f0901e5
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/LocalServiceActivities$Controller;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/LocalServiceActivities$Controller;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -76,17 +74,17 @@
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 53
-    const v1, 0x7f090051
+    const v1, 0x7f0901f5
 
     invoke-virtual {p0, v1}, Lio/appium/android/apis/app/LocalServiceActivities$Controller;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v0    # "button":Landroid/widget/Button;
+    move-object v0, v1
+
     check-cast v0, Landroid/widget/Button;
 
     .line 54
-    .restart local v0    # "button":Landroid/widget/Button;
     iget-object v1, p0, Lio/appium/android/apis/app/LocalServiceActivities$Controller;->mStopListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V

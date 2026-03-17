@@ -16,11 +16,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 35
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
-    .line 366
     return-void
 .end method
 
@@ -30,7 +28,6 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 41
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -52,7 +49,6 @@
     .param p3, "position"    # I
     .param p4, "id"    # J
 
-    .prologue
     .line 51
     invoke-virtual {p0}, Lio/appium/android/apis/view/List6;->getListAdapter()Landroid/widget/ListAdapter;
 

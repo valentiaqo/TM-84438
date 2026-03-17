@@ -24,8 +24,8 @@
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/view/Grid3;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/Grid3;
 
-    .prologue
     .line 132
     iput-object p1, p0, Lio/appium/android/apis/view/Grid3$MultiChoiceModeListener;->this$0:Lio/appium/android/apis/view/Grid3;
 
@@ -41,7 +41,6 @@
     .param p1, "mode"    # Landroid/view/ActionMode;
     .param p2, "item"    # Landroid/view/MenuItem;
 
-    .prologue
     .line 144
     const/4 v0, 0x1
 
@@ -53,7 +52,6 @@
     .param p1, "mode"    # Landroid/view/ActionMode;
     .param p2, "menu"    # Landroid/view/Menu;
 
-    .prologue
     .line 134
     const-string v0, "Select Items"
 
@@ -74,7 +72,6 @@
     .locals 0
     .param p1, "mode"    # Landroid/view/ActionMode;
 
-    .prologue
     .line 148
     return-void
 .end method
@@ -86,19 +83,20 @@
     .param p3, "id"    # J
     .param p5, "checked"    # Z
 
-    .prologue
     .line 152
-    iget-object v1, p0, Lio/appium/android/apis/view/Grid3$MultiChoiceModeListener;->this$0:Lio/appium/android/apis/view/Grid3;
+    iget-object v0, p0, Lio/appium/android/apis/view/Grid3$MultiChoiceModeListener;->this$0:Lio/appium/android/apis/view/Grid3;
 
-    iget-object v1, v1, Lio/appium/android/apis/view/Grid3;->mGrid:Landroid/widget/GridView;
+    iget-object v0, v0, Lio/appium/android/apis/view/Grid3;->mGrid:Landroid/widget/GridView;
 
-    invoke-virtual {v1}, Landroid/widget/GridView;->getCheckedItemCount()I
+    invoke-virtual {v0}, Landroid/widget/GridView;->getCheckedItemCount()I
 
     move-result v0
 
     .line 153
     .local v0, "selectCount":I
-    packed-switch v0, :pswitch_data_0
+    const/4 v1, 0x1
+
+    if-eq v0, v1, :cond_0
 
     .line 158
     new-instance v1, Ljava/lang/StringBuilder;
@@ -109,17 +107,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, " items selected"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -127,23 +119,20 @@
 
     invoke-virtual {p1, v1}, Landroid/view/ActionMode;->setSubtitle(Ljava/lang/CharSequence;)V
 
-    .line 161
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 155
-    :pswitch_0
+    :cond_0
     const-string v1, "One item selected"
 
     invoke-virtual {p1, v1}, Landroid/view/ActionMode;->setSubtitle(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    .line 156
+    nop
 
-    .line 153
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
+    .line 161
+    :goto_0
+    return-void
 .end method
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
@@ -151,7 +140,6 @@
     .param p1, "mode"    # Landroid/view/ActionMode;
     .param p2, "menu"    # Landroid/view/Menu;
 
-    .prologue
     .line 140
     const/4 v0, 0x1
 

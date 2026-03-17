@@ -25,17 +25,7 @@
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/view/ExpandableList1;)V
     .locals 8
-
-    .prologue
-    const/4 v7, 0x4
-
-    const/4 v6, 0x3
-
-    const/4 v5, 0x2
-
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/ExpandableList1;
 
     .line 89
     iput-object p1, p0, Lio/appium/android/apis/view/ExpandableList1$MyExpandableListAdapter;->this$0:Lio/appium/android/apis/view/ExpandableList1;
@@ -43,94 +33,104 @@
     invoke-direct {p0}, Landroid/widget/BaseExpandableListAdapter;-><init>()V
 
     .line 91
-    new-array v0, v7, [Ljava/lang/String;
+    const/4 v0, 0x4
 
-    const-string v1, "People Names"
+    new-array v1, v0, [Ljava/lang/String;
 
-    aput-object v1, v0, v3
+    const-string v2, "People Names"
 
-    const-string v1, "Dog Names"
-
-    aput-object v1, v0, v4
-
-    const-string v1, "Cat Names"
-
-    aput-object v1, v0, v5
-
-    const-string v1, "Fish Names"
-
-    aput-object v1, v0, v6
-
-    iput-object v0, p0, Lio/appium/android/apis/view/ExpandableList1$MyExpandableListAdapter;->groups:[Ljava/lang/String;
-
-    .line 92
-    new-array v0, v7, [[Ljava/lang/String;
-
-    new-array v1, v7, [Ljava/lang/String;
-
-    const-string v2, "Arnold"
+    const/4 v3, 0x0
 
     aput-object v2, v1, v3
 
-    const-string v2, "Barry"
+    const-string v2, "Dog Names"
+
+    const/4 v4, 0x1
 
     aput-object v2, v1, v4
 
-    const-string v2, "Chuck"
+    const-string v2, "Cat Names"
+
+    const/4 v5, 0x2
 
     aput-object v2, v1, v5
 
-    const-string v2, "David"
+    const-string v2, "Fish Names"
+
+    const/4 v6, 0x3
 
     aput-object v2, v1, v6
 
-    aput-object v1, v0, v3
+    iput-object v1, p0, Lio/appium/android/apis/view/ExpandableList1$MyExpandableListAdapter;->groups:[Ljava/lang/String;
 
-    new-array v1, v7, [Ljava/lang/String;
+    .line 92
+    new-array v1, v0, [[Ljava/lang/String;
+
+    new-array v2, v0, [Ljava/lang/String;
+
+    const-string v7, "Arnold"
+
+    aput-object v7, v2, v3
+
+    const-string v7, "Barry"
+
+    aput-object v7, v2, v4
+
+    const-string v7, "Chuck"
+
+    aput-object v7, v2, v5
+
+    const-string v7, "David"
+
+    aput-object v7, v2, v6
+
+    aput-object v2, v1, v3
+
+    new-array v0, v0, [Ljava/lang/String;
 
     const-string v2, "Ace"
 
-    aput-object v2, v1, v3
+    aput-object v2, v0, v3
 
     const-string v2, "Bandit"
 
-    aput-object v2, v1, v4
+    aput-object v2, v0, v4
 
     const-string v2, "Cha-Cha"
 
-    aput-object v2, v1, v5
+    aput-object v2, v0, v5
 
     const-string v2, "Deuce"
 
-    aput-object v2, v1, v6
+    aput-object v2, v0, v6
 
-    aput-object v1, v0, v4
+    aput-object v0, v1, v4
 
-    new-array v1, v5, [Ljava/lang/String;
+    new-array v0, v5, [Ljava/lang/String;
 
     const-string v2, "Fluffy"
 
-    aput-object v2, v1, v3
+    aput-object v2, v0, v3
 
     const-string v2, "Snuggles"
 
-    aput-object v2, v1, v4
+    aput-object v2, v0, v4
 
-    aput-object v1, v0, v5
+    aput-object v0, v1, v5
 
-    new-array v1, v5, [Ljava/lang/String;
+    new-array v0, v5, [Ljava/lang/String;
 
     const-string v2, "Goldy"
 
-    aput-object v2, v1, v3
+    aput-object v2, v0, v3
 
     const-string v2, "Bubbles"
 
-    aput-object v2, v1, v4
+    aput-object v2, v0, v4
 
-    aput-object v1, v0, v6
+    aput-object v0, v1, v6
 
-    iput-object v0, p0, Lio/appium/android/apis/view/ExpandableList1$MyExpandableListAdapter;->children:[[Ljava/lang/String;
+    iput-object v1, p0, Lio/appium/android/apis/view/ExpandableList1$MyExpandableListAdapter;->children:[[Ljava/lang/String;
 
     return-void
 .end method
@@ -142,7 +142,6 @@
     .param p1, "groupPosition"    # I
     .param p2, "childPosition"    # I
 
-    .prologue
     .line 100
     iget-object v0, p0, Lio/appium/android/apis/view/ExpandableList1$MyExpandableListAdapter;->children:[[Ljava/lang/String;
 
@@ -158,7 +157,6 @@
     .param p1, "groupPosition"    # I
     .param p2, "childPosition"    # I
 
-    .prologue
     .line 104
     int-to-long v0, p2
 
@@ -173,7 +171,6 @@
     .param p4, "convertView"    # Landroid/view/View;
     .param p5, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
     .line 127
     invoke-virtual {p0}, Lio/appium/android/apis/view/ExpandableList1$MyExpandableListAdapter;->getGenericView()Landroid/widget/TextView;
 
@@ -199,7 +196,6 @@
     .locals 1
     .param p1, "groupPosition"    # I
 
-    .prologue
     .line 108
     iget-object v0, p0, Lio/appium/android/apis/view/ExpandableList1$MyExpandableListAdapter;->children:[[Ljava/lang/String;
 
@@ -211,19 +207,16 @@
 .end method
 
 .method public getGenericView()Landroid/widget/TextView;
-    .locals 5
-
-    .prologue
-    const/4 v4, 0x0
+    .locals 4
 
     .line 113
     new-instance v0, Landroid/widget/AbsListView$LayoutParams;
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    const/16 v3, 0x40
+    const/16 v2, 0x40
 
-    invoke-direct {v0, v2, v3}, Landroid/widget/AbsListView$LayoutParams;-><init>(II)V
+    invoke-direct {v0, v1, v2}, Landroid/widget/AbsListView$LayoutParams;-><init>(II)V
 
     .line 116
     .local v0, "lp":Landroid/widget/AbsListView$LayoutParams;
@@ -243,9 +236,11 @@
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setGravity(I)V
 
     .line 121
-    const/16 v2, 0x24
+    const/4 v2, 0x0
 
-    invoke-virtual {v1, v2, v4, v4, v4}, Landroid/widget/TextView;->setPadding(IIII)V
+    const/16 v3, 0x24
+
+    invoke-virtual {v1, v3, v2, v2, v2}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 122
     return-object v1
@@ -255,7 +250,6 @@
     .locals 1
     .param p1, "groupPosition"    # I
 
-    .prologue
     .line 133
     iget-object v0, p0, Lio/appium/android/apis/view/ExpandableList1$MyExpandableListAdapter;->groups:[Ljava/lang/String;
 
@@ -267,7 +261,6 @@
 .method public getGroupCount()I
     .locals 1
 
-    .prologue
     .line 137
     iget-object v0, p0, Lio/appium/android/apis/view/ExpandableList1$MyExpandableListAdapter;->groups:[Ljava/lang/String;
 
@@ -280,7 +273,6 @@
     .locals 2
     .param p1, "groupPosition"    # I
 
-    .prologue
     .line 141
     int-to-long v0, p1
 
@@ -294,7 +286,6 @@
     .param p3, "convertView"    # Landroid/view/View;
     .param p4, "parent"    # Landroid/view/ViewGroup;
 
-    .prologue
     .line 146
     invoke-virtual {p0}, Lio/appium/android/apis/view/ExpandableList1$MyExpandableListAdapter;->getGenericView()Landroid/widget/TextView;
 
@@ -319,7 +310,6 @@
 .method public hasStableIds()Z
     .locals 1
 
-    .prologue
     .line 156
     const/4 v0, 0x1
 
@@ -331,7 +321,6 @@
     .param p1, "groupPosition"    # I
     .param p2, "childPosition"    # I
 
-    .prologue
     .line 152
     const/4 v0, 0x1
 

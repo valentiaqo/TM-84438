@@ -7,7 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 26
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -20,17 +19,16 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 29
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 31
-    const v0, 0x7f0300c3
+    const v0, 0x7f0b00e7
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ScrollBar3;->setContentView(I)V
 
     .line 33
-    const v0, 0x7f090124
+    const v0, 0x7f090246
 
     invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ScrollBar3;->findViewById(I)Landroid/view/View;
 

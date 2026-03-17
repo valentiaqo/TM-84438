@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/FragmentCustomAnimations;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/FragmentCustomAnimations;
 
-    .prologue
     .line 46
     iput-object p1, p0, Lio/appium/android/apis/app/FragmentCustomAnimations$1;->this$0:Lio/appium/android/apis/app/FragmentCustomAnimations;
 
@@ -40,7 +40,6 @@
     .locals 1
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 48
     iget-object v0, p0, Lio/appium/android/apis/app/FragmentCustomAnimations$1;->this$0:Lio/appium/android/apis/app/FragmentCustomAnimations;
 

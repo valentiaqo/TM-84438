@@ -20,7 +20,6 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
     .line 77
     invoke-direct {p0, p1, p2}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$BaseToggleButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -33,7 +32,6 @@
 .method public bridge synthetic getText()Ljava/lang/CharSequence;
     .locals 1
 
-    .prologue
     .line 74
     invoke-super {p0}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$BaseToggleButton;->getText()Ljava/lang/CharSequence;
 
@@ -45,7 +43,6 @@
 .method public bridge synthetic isChecked()Z
     .locals 1
 
-    .prologue
     .line 74
     invoke-super {p0}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$BaseToggleButton;->isChecked()Z
 
@@ -58,7 +55,6 @@
     .locals 1
     .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
-    .prologue
     .line 82
     invoke-super {p0, p1}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$BaseToggleButton;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
@@ -77,21 +73,20 @@
     .locals 2
     .param p1, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    .prologue
     .line 91
     invoke-super {p0, p1}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$BaseToggleButton;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
     .line 95
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p1, v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setCheckable(Z)V
+    invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setCheckable(Z)V
 
     .line 96
     invoke-virtual {p0}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonInheritance;->isChecked()Z
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p1, v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setChecked(Z)V
+    invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setChecked(Z)V
 
     .line 98
     invoke-virtual {p0}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$AccessibleCompoundButtonInheritance;->getText()Ljava/lang/CharSequence;
@@ -116,10 +111,7 @@
 
 .method public bridge synthetic onMeasure(II)V
     .locals 0
-    .param p1, "x0"    # I
-    .param p2, "x1"    # I
 
-    .prologue
     .line 74
     invoke-super {p0, p1, p2}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$BaseToggleButton;->onMeasure(II)V
 
@@ -130,7 +122,6 @@
     .locals 2
     .param p1, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
-    .prologue
     .line 106
     invoke-super {p0, p1}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$BaseToggleButton;->onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
@@ -162,7 +153,6 @@
 .method public bridge synthetic performClick()Z
     .locals 1
 
-    .prologue
     .line 74
     invoke-super {p0}, Lio/appium/android/apis/accessibility/CustomViewAccessibilityActivity$BaseToggleButton;->performClick()Z
 

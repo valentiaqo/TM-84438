@@ -21,8 +21,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/PresentationWithMediaRouterActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/PresentationWithMediaRouterActivity;
 
-    .prologue
     .line 218
     iput-object p1, p0, Lio/appium/android/apis/app/PresentationWithMediaRouterActivity$1;->this$0:Lio/appium/android/apis/app/PresentationWithMediaRouterActivity;
 
@@ -38,7 +38,6 @@
     .param p1, "router"    # Landroid/media/MediaRouter;
     .param p2, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
-    .prologue
     .line 233
     const-string v0, "PresentationWithMediaRouterActivity"
 
@@ -50,11 +49,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -77,7 +72,6 @@
     .param p2, "type"    # I
     .param p3, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
-    .prologue
     .line 221
     const-string v0, "PresentationWithMediaRouterActivity"
 
@@ -89,21 +83,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, ", info="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -126,7 +112,6 @@
     .param p2, "type"    # I
     .param p3, "info"    # Landroid/media/MediaRouter$RouteInfo;
 
-    .prologue
     .line 227
     const-string v0, "PresentationWithMediaRouterActivity"
 
@@ -138,21 +123,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, ", info="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

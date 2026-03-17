@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/RedirectMain;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/RedirectMain;
 
-    .prologue
     .line 104
     iput-object p1, p0, Lio/appium/android/apis/app/RedirectMain$1;->this$0:Lio/appium/android/apis/app/RedirectMain;
 
@@ -37,18 +37,17 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 107
-    iget-object v1, p0, Lio/appium/android/apis/app/RedirectMain$1;->this$0:Lio/appium/android/apis/app/RedirectMain;
+    iget-object v0, p0, Lio/appium/android/apis/app/RedirectMain$1;->this$0:Lio/appium/android/apis/app/RedirectMain;
 
-    const-string v2, "RedirectData"
+    const-string v1, "RedirectData"
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v1, v2, v3}, Lio/appium/android/apis/app/RedirectMain;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v0, v1, v2}, Lio/appium/android/apis/app/RedirectMain;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 

@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/DialogActivity;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/DialogActivity;
 
-    .prologue
     .line 77
     iput-object p1, p0, Lio/appium/android/apis/app/DialogActivity$2;->this$0:Lio/appium/android/apis/app/DialogActivity;
 
@@ -37,16 +37,15 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 79
-    iget-object v2, p0, Lio/appium/android/apis/app/DialogActivity$2;->this$0:Lio/appium/android/apis/app/DialogActivity;
+    iget-object v0, p0, Lio/appium/android/apis/app/DialogActivity$2;->this$0:Lio/appium/android/apis/app/DialogActivity;
 
-    const v3, 0x7f090077
+    const v1, 0x7f0900f9
 
-    invoke-virtual {v2, v3}, Lio/appium/android/apis/app/DialogActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Lio/appium/android/apis/app/DialogActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

@@ -19,7 +19,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     .line 140
     sget-object v0, Lio/appium/android/apis/view/Cheeses;->sCheeseStrings:[Ljava/lang/String;
 
@@ -31,18 +30,15 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 44
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
-    .line 46
     return-void
 .end method
 
 .method static synthetic access$000()[Ljava/lang/String;
     .locals 1
 
-    .prologue
     .line 44
     sget-object v0, Lio/appium/android/apis/view/List14;->DATA:[Ljava/lang/String;
 
@@ -55,7 +51,6 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 136
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
 

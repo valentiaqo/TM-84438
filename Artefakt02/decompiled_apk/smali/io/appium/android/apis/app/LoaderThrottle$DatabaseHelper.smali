@@ -25,7 +25,6 @@
     .locals 3
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 126
     const-string v0, "loader_throttle.db"
 
@@ -45,7 +44,6 @@
     .locals 1
     .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
 
-    .prologue
     .line 136
     const-string v0, "CREATE TABLE main (_id INTEGER PRIMARY KEY,data TEXT);"
 
@@ -61,7 +59,6 @@
     .param p2, "oldVersion"    # I
     .param p3, "newVersion"    # I
 
-    .prologue
     .line 153
     const-string v0, "LoaderThrottle"
 
@@ -73,27 +70,17 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, " to "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
     invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     const-string v2, ", which will destroy all old data"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

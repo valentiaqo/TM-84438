@@ -23,7 +23,6 @@
     .locals 2
     .param p1, "s"    # Landroid/graphics/drawable/shapes/Shape;
 
-    .prologue
     .line 63
     invoke-direct {p0, p1}, Landroid/graphics/drawable/ShapeDrawable;-><init>(Landroid/graphics/drawable/shapes/Shape;)V
 
@@ -52,7 +51,6 @@
 .method public getStrokePaint()Landroid/graphics/Paint;
     .locals 1
 
-    .prologue
     .line 68
     iget-object v0, p0, Lio/appium/android/apis/graphics/ShapeDrawable1$SampleView$MyShapeDrawable;->mStrokePaint:Landroid/graphics/Paint;
 
@@ -65,7 +63,6 @@
     .param p2, "c"    # Landroid/graphics/Canvas;
     .param p3, "p"    # Landroid/graphics/Paint;
 
-    .prologue
     .line 72
     invoke-virtual {p1, p2, p3}, Landroid/graphics/drawable/shapes/Shape;->draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
 

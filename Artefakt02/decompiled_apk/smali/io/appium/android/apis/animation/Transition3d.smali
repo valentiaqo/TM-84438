@@ -10,7 +10,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lio/appium/android/apis/animation/Transition3d$1;,
         Lio/appium/android/apis/animation/Transition3d$SwapViews;,
         Lio/appium/android/apis/animation/Transition3d$DisplayNextView;
     }
@@ -35,52 +34,51 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
-    const/4 v3, 0x6
-
     .line 34
-    new-array v0, v3, [Ljava/lang/String;
+    const/4 v0, 0x6
 
-    const/4 v1, 0x0
+    new-array v1, v0, [Ljava/lang/String;
 
     const-string v2, "Lyon"
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x0
 
-    const/4 v1, 0x1
+    aput-object v2, v1, v3
 
     const-string v2, "Livermore"
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x1
 
-    const/4 v1, 0x2
+    aput-object v2, v1, v3
 
     const-string v2, "Tahoe Pier"
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x2
 
-    const/4 v1, 0x3
+    aput-object v2, v1, v3
 
     const-string v2, "Lake Tahoe"
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x3
 
-    const/4 v1, 0x4
+    aput-object v2, v1, v3
 
     const-string v2, "Grand Canyon"
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x4
 
-    const/4 v1, 0x5
+    aput-object v2, v1, v3
 
     const-string v2, "Bodie"
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x5
 
-    sput-object v0, Lio/appium/android/apis/animation/Transition3d;->PHOTOS_NAMES:[Ljava/lang/String;
+    aput-object v2, v1, v3
+
+    sput-object v1, Lio/appium/android/apis/animation/Transition3d;->PHOTOS_NAMES:[Ljava/lang/String;
 
     .line 44
-    new-array v0, v3, [I
+    new-array v0, v0, [I
 
     fill-array-data v0, :array_0
 
@@ -92,23 +90,21 @@
 
     :array_0
     .array-data 4
-        0x7f020032
-        0x7f020033
-        0x7f020034
-        0x7f020035
-        0x7f020036
-        0x7f020037
+        0x7f080094
+        0x7f080095
+        0x7f080096
+        0x7f080097
+        0x7f080098
+        0x7f080099
     .end array-data
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 27
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 141
     return-void
 .end method
 
@@ -116,7 +112,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/animation/Transition3d;
 
-    .prologue
     .line 27
     iget-object v0, p0, Lio/appium/android/apis/animation/Transition3d;->mContainer:Landroid/view/ViewGroup;
 
@@ -127,7 +122,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/animation/Transition3d;
 
-    .prologue
     .line 27
     iget-object v0, p0, Lio/appium/android/apis/animation/Transition3d;->mPhotosList:Landroid/widget/ListView;
 
@@ -138,7 +132,6 @@
     .locals 1
     .param p0, "x0"    # Lio/appium/android/apis/animation/Transition3d;
 
-    .prologue
     .line 27
     iget-object v0, p0, Lio/appium/android/apis/animation/Transition3d;->mImageView:Landroid/widget/ImageView;
 
@@ -146,80 +139,87 @@
 .end method
 
 .method private applyRotation(IFF)V
-    .locals 7
+    .locals 10
     .param p1, "position"    # I
     .param p2, "start"    # F
     .param p3, "end"    # F
 
-    .prologue
-    const/4 v6, 0x1
-
-    const/high16 v2, 0x40000000    # 2.0f
-
     .line 89
-    iget-object v1, p0, Lio/appium/android/apis/animation/Transition3d;->mContainer:Landroid/view/ViewGroup;
+    iget-object v0, p0, Lio/appium/android/apis/animation/Transition3d;->mContainer:Landroid/view/ViewGroup;
 
-    invoke-virtual {v1}, Landroid/view/ViewGroup;->getWidth()I
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getWidth()I
 
-    move-result v1
+    move-result v0
 
-    int-to-float v1, v1
+    int-to-float v0, v0
 
-    div-float v3, v1, v2
+    const/high16 v1, 0x40000000    # 2.0f
+
+    div-float/2addr v0, v1
 
     .line 90
-    .local v3, "centerX":F
-    iget-object v1, p0, Lio/appium/android/apis/animation/Transition3d;->mContainer:Landroid/view/ViewGroup;
+    .local v0, "centerX":F
+    iget-object v2, p0, Lio/appium/android/apis/animation/Transition3d;->mContainer:Landroid/view/ViewGroup;
 
-    invoke-virtual {v1}, Landroid/view/ViewGroup;->getHeight()I
+    invoke-virtual {v2}, Landroid/view/ViewGroup;->getHeight()I
 
-    move-result v1
+    move-result v2
 
-    int-to-float v1, v1
+    int-to-float v2, v2
 
-    div-float v4, v1, v2
+    div-float v1, v2, v1
 
     .line 94
-    .local v4, "centerY":F
-    new-instance v0, Lio/appium/android/apis/animation/Rotate3dAnimation;
+    .local v1, "centerY":F
+    new-instance v9, Lio/appium/android/apis/animation/Rotate3dAnimation;
 
-    const/high16 v5, 0x439b0000    # 310.0f
+    const/high16 v7, 0x439b0000    # 310.0f
 
-    move v1, p2
+    const/4 v8, 0x1
 
-    move v2, p3
+    move-object v2, v9
 
-    invoke-direct/range {v0 .. v6}, Lio/appium/android/apis/animation/Rotate3dAnimation;-><init>(FFFFFZ)V
+    move v3, p2
+
+    move v4, p3
+
+    move v5, v0
+
+    move v6, v1
+
+    invoke-direct/range {v2 .. v8}, Lio/appium/android/apis/animation/Rotate3dAnimation;-><init>(FFFFFZ)V
 
     .line 96
-    .local v0, "rotation":Lio/appium/android/apis/animation/Rotate3dAnimation;
-    const-wide/16 v1, 0x1f4
+    .local v2, "rotation":Lio/appium/android/apis/animation/Rotate3dAnimation;
+    const-wide/16 v3, 0x1f4
 
-    invoke-virtual {v0, v1, v2}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setDuration(J)V
+    invoke-virtual {v2, v3, v4}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setDuration(J)V
 
     .line 97
-    invoke-virtual {v0, v6}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setFillAfter(Z)V
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v3}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setFillAfter(Z)V
 
     .line 98
-    new-instance v1, Landroid/view/animation/AccelerateInterpolator;
+    new-instance v3, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-direct {v1}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
+    invoke-direct {v3}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
 
-    invoke-virtual {v0, v1}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+    invoke-virtual {v2, v3}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
     .line 99
-    new-instance v1, Lio/appium/android/apis/animation/Transition3d$DisplayNextView;
+    new-instance v3, Lio/appium/android/apis/animation/Transition3d$DisplayNextView;
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    invoke-direct {v1, p0, p1, v2}, Lio/appium/android/apis/animation/Transition3d$DisplayNextView;-><init>(Lio/appium/android/apis/animation/Transition3d;ILio/appium/android/apis/animation/Transition3d$1;)V
+    invoke-direct {v3, p0, p1, v4}, Lio/appium/android/apis/animation/Transition3d$DisplayNextView;-><init>(Lio/appium/android/apis/animation/Transition3d;ILio/appium/android/apis/animation/Transition3d$1;)V
 
-    invoke-virtual {v0, v1}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
+    invoke-virtual {v2, v3}, Lio/appium/android/apis/animation/Rotate3dAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
     .line 101
-    iget-object v1, p0, Lio/appium/android/apis/animation/Transition3d;->mContainer:Landroid/view/ViewGroup;
+    iget-object v3, p0, Lio/appium/android/apis/animation/Transition3d;->mContainer:Landroid/view/ViewGroup;
 
-    invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {v3, v2}, Landroid/view/ViewGroup;->startAnimation(Landroid/view/animation/Animation;)V
 
     .line 102
     return-void
@@ -231,7 +231,6 @@
     .locals 3
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 111
     const/4 v0, -0x1
 
@@ -246,61 +245,58 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 3
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/4 v3, 0x1
 
     .line 55
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 57
-    const v1, 0x7f030017
+    const v0, 0x7f0b0033
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/animation/Transition3d;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/animation/Transition3d;->setContentView(I)V
 
     .line 59
-    const v1, 0x102000a
+    const v0, 0x102000a
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/animation/Transition3d;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/animation/Transition3d;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/ListView;
+    check-cast v0, Landroid/widget/ListView;
 
-    iput-object v1, p0, Lio/appium/android/apis/animation/Transition3d;->mPhotosList:Landroid/widget/ListView;
+    iput-object v0, p0, Lio/appium/android/apis/animation/Transition3d;->mPhotosList:Landroid/widget/ListView;
 
     .line 60
-    const v1, 0x7f09003a
+    const v0, 0x7f090166
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/animation/Transition3d;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/animation/Transition3d;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/ImageView;
+    check-cast v0, Landroid/widget/ImageView;
 
-    iput-object v1, p0, Lio/appium/android/apis/animation/Transition3d;->mImageView:Landroid/widget/ImageView;
+    iput-object v0, p0, Lio/appium/android/apis/animation/Transition3d;->mImageView:Landroid/widget/ImageView;
 
     .line 61
-    const v1, 0x7f090036
+    const v0, 0x7f090073
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/animation/Transition3d;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/animation/Transition3d;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/view/ViewGroup;
+    check-cast v0, Landroid/view/ViewGroup;
 
-    iput-object v1, p0, Lio/appium/android/apis/animation/Transition3d;->mContainer:Landroid/view/ViewGroup;
+    iput-object v0, p0, Lio/appium/android/apis/animation/Transition3d;->mContainer:Landroid/view/ViewGroup;
 
     .line 64
     new-instance v0, Landroid/widget/ArrayAdapter;
 
-    const v1, 0x1090003
+    sget-object v1, Lio/appium/android/apis/animation/Transition3d;->PHOTOS_NAMES:[Ljava/lang/String;
 
-    sget-object v2, Lio/appium/android/apis/animation/Transition3d;->PHOTOS_NAMES:[Ljava/lang/String;
+    const v2, 0x1090003
 
-    invoke-direct {v0, p0, v1, v2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
+    invoke-direct {v0, p0, v2, v1}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
     .line 67
     .local v0, "adapter":Landroid/widget/ArrayAdapter;, "Landroid/widget/ArrayAdapter<Ljava/lang/String;>;"
@@ -316,12 +312,14 @@
     .line 71
     iget-object v1, p0, Lio/appium/android/apis/animation/Transition3d;->mImageView:Landroid/widget/ImageView;
 
-    invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setClickable(Z)V
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setClickable(Z)V
 
     .line 72
     iget-object v1, p0, Lio/appium/android/apis/animation/Transition3d;->mImageView:Landroid/widget/ImageView;
 
-    invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setFocusable(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setFocusable(Z)V
 
     .line 73
     iget-object v1, p0, Lio/appium/android/apis/animation/Transition3d;->mImageView:Landroid/widget/ImageView;
@@ -331,7 +329,7 @@
     .line 77
     iget-object v1, p0, Lio/appium/android/apis/animation/Transition3d;->mContainer:Landroid/view/ViewGroup;
 
-    invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->setPersistentDrawingCache(I)V
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setPersistentDrawingCache(I)V
 
     .line 78
     return-void
@@ -345,14 +343,13 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView",
-            "<*>;",
+            "Landroid/widget/AdapterView<",
+            "*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
-    .prologue
     .line 106
     .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lio/appium/android/apis/animation/Transition3d;->mImageView:Landroid/widget/ImageView;

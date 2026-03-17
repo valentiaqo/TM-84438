@@ -7,7 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 33
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -17,28 +16,21 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 6
+    .locals 5
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
-
-    .prologue
-    const/16 v5, 0x32
-
-    const/16 v4, 0xa
-
-    const/16 v3, 0x168
 
     .line 38
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 39
-    const v2, 0x7f0300bc
+    const v0, 0x7f0b00e0
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/RotatingButton;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/RotatingButton;->setContentView(I)V
 
     .line 40
-    const v2, 0x7f09013d
+    const v0, 0x7f090193
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -46,9 +38,9 @@
 
     .line 42
     .local v0, "rotatingButton":Landroid/widget/Button;
-    const v2, 0x7f090136
+    const v1, 0x7f090229
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -68,17 +60,17 @@
     invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
     .line 56
-    const v2, 0x7f090137
+    const v2, 0x7f09022a
 
     invoke-virtual {p0, v2}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v2
 
-    .end local v1    # "seekBar":Landroid/widget/SeekBar;
+    move-object v1, v2
+
     check-cast v1, Landroid/widget/SeekBar;
 
     .line 57
-    .restart local v1    # "seekBar":Landroid/widget/SeekBar;
     const/16 v2, 0x320
 
     invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setMax(I)V
@@ -91,45 +83,49 @@
     invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
     .line 71
-    const v2, 0x7f090138
+    const v2, 0x7f09019e
 
     invoke-virtual {p0, v2}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v2
 
-    .end local v1    # "seekBar":Landroid/widget/SeekBar;
+    move-object v1, v2
+
     check-cast v1, Landroid/widget/SeekBar;
 
     .line 72
-    .restart local v1    # "seekBar":Landroid/widget/SeekBar;
-    invoke-virtual {v1, v5}, Landroid/widget/SeekBar;->setMax(I)V
+    const/16 v2, 0x32
+
+    invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setMax(I)V
 
     .line 73
-    invoke-virtual {v1, v4}, Landroid/widget/SeekBar;->setProgress(I)V
+    const/16 v3, 0xa
+
+    invoke-virtual {v1, v3}, Landroid/widget/SeekBar;->setProgress(I)V
 
     .line 74
-    new-instance v2, Lio/appium/android/apis/view/RotatingButton$3;
+    new-instance v4, Lio/appium/android/apis/view/RotatingButton$3;
 
-    invoke-direct {v2, p0, v0}, Lio/appium/android/apis/view/RotatingButton$3;-><init>(Lio/appium/android/apis/view/RotatingButton;Landroid/widget/Button;)V
+    invoke-direct {v4, p0, v0}, Lio/appium/android/apis/view/RotatingButton$3;-><init>(Lio/appium/android/apis/view/RotatingButton;Landroid/widget/Button;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+    invoke-virtual {v1, v4}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
     .line 87
-    const v2, 0x7f090139
+    const v4, 0x7f09019f
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v4
 
-    .end local v1    # "seekBar":Landroid/widget/SeekBar;
+    move-object v1, v4
+
     check-cast v1, Landroid/widget/SeekBar;
 
     .line 88
-    .restart local v1    # "seekBar":Landroid/widget/SeekBar;
-    invoke-virtual {v1, v5}, Landroid/widget/SeekBar;->setMax(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setMax(I)V
 
     .line 89
-    invoke-virtual {v1, v4}, Landroid/widget/SeekBar;->setProgress(I)V
+    invoke-virtual {v1, v3}, Landroid/widget/SeekBar;->setProgress(I)V
 
     .line 90
     new-instance v2, Lio/appium/android/apis/view/RotatingButton$4;
@@ -139,60 +135,62 @@
     invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
     .line 103
-    const v2, 0x7f09013a
+    const v2, 0x7f090194
 
     invoke-virtual {p0, v2}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v2
 
-    .end local v1    # "seekBar":Landroid/widget/SeekBar;
+    move-object v1, v2
+
     check-cast v1, Landroid/widget/SeekBar;
 
     .line 104
-    .restart local v1    # "seekBar":Landroid/widget/SeekBar;
-    invoke-virtual {v1, v3}, Landroid/widget/SeekBar;->setMax(I)V
+    const/16 v2, 0x168
+
+    invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setMax(I)V
 
     .line 105
-    new-instance v2, Lio/appium/android/apis/view/RotatingButton$5;
+    new-instance v3, Lio/appium/android/apis/view/RotatingButton$5;
 
-    invoke-direct {v2, p0, v0}, Lio/appium/android/apis/view/RotatingButton$5;-><init>(Lio/appium/android/apis/view/RotatingButton;Landroid/widget/Button;)V
+    invoke-direct {v3, p0, v0}, Lio/appium/android/apis/view/RotatingButton$5;-><init>(Lio/appium/android/apis/view/RotatingButton;Landroid/widget/Button;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+    invoke-virtual {v1, v3}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
     .line 119
-    const v2, 0x7f09013b
+    const v3, 0x7f090195
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v3
 
-    .end local v1    # "seekBar":Landroid/widget/SeekBar;
+    move-object v1, v3
+
     check-cast v1, Landroid/widget/SeekBar;
 
     .line 120
-    .restart local v1    # "seekBar":Landroid/widget/SeekBar;
-    invoke-virtual {v1, v3}, Landroid/widget/SeekBar;->setMax(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setMax(I)V
 
     .line 121
-    new-instance v2, Lio/appium/android/apis/view/RotatingButton$6;
+    new-instance v3, Lio/appium/android/apis/view/RotatingButton$6;
 
-    invoke-direct {v2, p0, v0}, Lio/appium/android/apis/view/RotatingButton$6;-><init>(Lio/appium/android/apis/view/RotatingButton;Landroid/widget/Button;)V
+    invoke-direct {v3, p0, v0}, Lio/appium/android/apis/view/RotatingButton$6;-><init>(Lio/appium/android/apis/view/RotatingButton;Landroid/widget/Button;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+    invoke-virtual {v1, v3}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
     .line 135
-    const v2, 0x7f09013c
+    const v3, 0x7f090196
 
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Lio/appium/android/apis/view/RotatingButton;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v3
 
-    .end local v1    # "seekBar":Landroid/widget/SeekBar;
+    move-object v1, v3
+
     check-cast v1, Landroid/widget/SeekBar;
 
     .line 136
-    .restart local v1    # "seekBar":Landroid/widget/SeekBar;
-    invoke-virtual {v1, v3}, Landroid/widget/SeekBar;->setMax(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setMax(I)V
 
     .line 137
     new-instance v2, Lio/appium/android/apis/view/RotatingButton$7;

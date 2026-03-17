@@ -16,7 +16,6 @@
     .locals 0
     .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     .line 48
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
@@ -28,12 +27,9 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 6
+    .locals 5
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
-
-    .prologue
-    const/4 v5, 0x0
 
     .line 60
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -42,24 +38,26 @@
     invoke-direct {p0}, Lio/appium/android/apis/view/LabelView;->initLabelView()V
 
     .line 63
-    sget-object v3, Lio/appium/android/apis/R$styleable;->LabelView:[I
+    sget-object v0, Lio/appium/android/apis/R$styleable;->LabelView:[I
 
-    invoke-virtual {p1, p2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+    invoke-virtual {p1, p2, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
     .line 66
     .local v0, "a":Landroid/content/res/TypedArray;
-    invoke-virtual {v0, v5}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+    const/4 v1, 0x0
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
 
     .line 67
-    .local v1, "s":Ljava/lang/CharSequence;
-    if-eqz v1, :cond_0
+    .local v2, "s":Ljava/lang/CharSequence;
+    if-eqz v2, :cond_0
 
     .line 68
-    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -80,16 +78,16 @@
     .line 76
     const/4 v3, 0x2
 
-    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
+    invoke-virtual {v0, v3, v1}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
 
-    move-result v2
+    move-result v1
 
     .line 77
-    .local v2, "textSize":I
-    if-lez v2, :cond_1
+    .local v1, "textSize":I
+    if-lez v1, :cond_1
 
     .line 78
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/LabelView;->setTextSize(I)V
+    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/LabelView;->setTextSize(I)V
 
     .line 81
     :cond_1
@@ -100,10 +98,7 @@
 .end method
 
 .method private final initLabelView()V
-    .locals 4
-
-    .prologue
-    const/4 v3, 0x3
+    .locals 3
 
     .line 85
     new-instance v0, Landroid/graphics/Paint;
@@ -122,19 +117,19 @@
     .line 88
     iget-object v0, p0, Lio/appium/android/apis/view/LabelView;->mTextPaint:Landroid/graphics/Paint;
 
-    const/high16 v1, 0x41800000    # 16.0f
-
     invoke-virtual {p0}, Lio/appium/android/apis/view/LabelView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget v2, v2, Landroid/util/DisplayMetrics;->density:F
+    iget v1, v1, Landroid/util/DisplayMetrics;->density:F
 
-    mul-float/2addr v1, v2
+    const/high16 v2, 0x41800000    # 16.0f
+
+    mul-float v1, v1, v2
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setTextSize(F)V
 
@@ -146,7 +141,9 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 90
-    invoke-virtual {p0, v3, v3, v3, v3}, Lio/appium/android/apis/view/LabelView;->setPadding(IIII)V
+    const/4 v0, 0x3
+
+    invoke-virtual {p0, v0, v0, v0, v0}, Lio/appium/android/apis/view/LabelView;->setPadding(IIII)V
 
     .line 91
     return-void
@@ -156,7 +153,6 @@
     .locals 5
     .param p1, "measureSpec"    # I
 
-    .prologue
     .line 164
     const/4 v0, 0x0
 
@@ -187,18 +183,15 @@
     .line 169
     const/high16 v3, 0x40000000    # 2.0f
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_0
 
     .line 171
     move v0, v2
 
-    .line 181
-    :cond_0
-    :goto_0
-    return v0
+    goto :goto_0
 
     .line 174
-    :cond_1
+    :cond_0
     iget v3, p0, Lio/appium/android/apis/view/LabelView;->mAscent:I
 
     neg-int v3, v3
@@ -221,6 +214,7 @@
 
     add-int/2addr v3, v4
 
+    .line 175
     invoke-virtual {p0}, Lio/appium/android/apis/view/LabelView;->getPaddingBottom()I
 
     move-result v4
@@ -230,21 +224,23 @@
     .line 176
     const/high16 v3, -0x80000000
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v3, :cond_1
 
     .line 178
     invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
-    goto :goto_0
+    .line 181
+    :cond_1
+    :goto_0
+    return v0
 .end method
 
 .method private measureWidth(I)I
     .locals 5
     .param p1, "measureSpec"    # I
 
-    .prologue
     .line 138
     const/4 v0, 0x0
 
@@ -264,18 +260,15 @@
     .local v2, "specSize":I
     const/high16 v3, 0x40000000    # 2.0f
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_0
 
     .line 144
     move v0, v2
 
-    .line 155
-    :cond_0
-    :goto_0
-    return v0
+    goto :goto_0
 
     .line 147
-    :cond_1
+    :cond_0
     iget-object v3, p0, Lio/appium/android/apis/view/LabelView;->mTextPaint:Landroid/graphics/Paint;
 
     iget-object v4, p0, Lio/appium/android/apis/view/LabelView;->mText:Ljava/lang/String;
@@ -292,6 +285,7 @@
 
     add-int/2addr v3, v4
 
+    .line 148
     invoke-virtual {p0}, Lio/appium/android/apis/view/LabelView;->getPaddingRight()I
 
     move-result v4
@@ -301,14 +295,17 @@
     .line 149
     const/high16 v3, -0x80000000
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v3, :cond_1
 
     .line 151
     invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
-    goto :goto_0
+    .line 155
+    :cond_1
+    :goto_0
+    return v0
 .end method
 
 
@@ -317,7 +314,6 @@
     .locals 4
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
     .line 191
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
@@ -353,16 +349,17 @@
     .param p1, "widthMeasureSpec"    # I
     .param p2, "heightMeasureSpec"    # I
 
-    .prologue
     .line 128
     invoke-direct {p0, p1}, Lio/appium/android/apis/view/LabelView;->measureWidth(I)I
 
     move-result v0
 
+    .line 129
     invoke-direct {p0, p2}, Lio/appium/android/apis/view/LabelView;->measureHeight(I)I
 
     move-result v1
 
+    .line 128
     invoke-virtual {p0, v0, v1}, Lio/appium/android/apis/view/LabelView;->setMeasuredDimension(II)V
 
     .line 130
@@ -373,7 +370,6 @@
     .locals 0
     .param p1, "text"    # Ljava/lang/String;
 
-    .prologue
     .line 98
     iput-object p1, p0, Lio/appium/android/apis/view/LabelView;->mText:Ljava/lang/String;
 
@@ -391,7 +387,6 @@
     .locals 1
     .param p1, "color"    # I
 
-    .prologue
     .line 119
     iget-object v0, p0, Lio/appium/android/apis/view/LabelView;->mTextPaint:Landroid/graphics/Paint;
 
@@ -408,7 +403,6 @@
     .locals 2
     .param p1, "size"    # I
 
-    .prologue
     .line 109
     iget-object v0, p0, Lio/appium/android/apis/view/LabelView;->mTextPaint:Landroid/graphics/Paint;
 

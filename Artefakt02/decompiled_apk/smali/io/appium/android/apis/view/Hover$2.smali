@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/view/Hover;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/view/Hover;
 
-    .prologue
     .line 99
     iput-object p1, p0, Lio/appium/android/apis/view/Hover$2;->this$0:Lio/appium/android/apis/view/Hover;
 
@@ -41,7 +41,6 @@
     .param p1, "buttonView"    # Landroid/widget/CompoundButton;
     .param p2, "isChecked"    # Z
 
-    .prologue
     .line 102
     iget-object v0, p0, Lio/appium/android/apis/view/Hover$2;->this$0:Lio/appium/android/apis/view/Hover;
 

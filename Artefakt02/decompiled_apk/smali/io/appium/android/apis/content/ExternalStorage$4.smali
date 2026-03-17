@@ -24,8 +24,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/content/ExternalStorage;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/content/ExternalStorage;
 
-    .prologue
     .line 94
     iput-object p1, p0, Lio/appium/android/apis/content/ExternalStorage$4;->this$0:Lio/appium/android/apis/content/ExternalStorage;
 
@@ -40,7 +40,6 @@
     .locals 1
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 96
     iget-object v0, p0, Lio/appium/android/apis/content/ExternalStorage$4;->this$0:Lio/appium/android/apis/content/ExternalStorage;
 

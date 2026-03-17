@@ -15,8 +15,7 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/os/AsyncTask",
-        "<",
+        "Landroid/os/AsyncTask<",
         "Ljava/lang/Void;",
         "Ljava/lang/Void;",
         "Ljava/lang/Void;",
@@ -34,8 +33,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment;Landroid/content/ContentResolver;)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment;
 
-    .prologue
     .line 435
     iput-object p1, p0, Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment$1;->this$0:Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment;
 
@@ -49,59 +48,52 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # [Ljava/lang/Object;
+    .locals 0
 
-    .prologue
     .line 435
     check-cast p1, [Ljava/lang/Void;
 
-    .end local p1    # "x0":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment$1;->doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
     .locals 5
     .param p1, "params"    # [Ljava/lang/Void;
 
-    .prologue
     .line 437
-    const/16 v1, 0x5a
+    const/16 v0, 0x5a
 
-    .local v1, "c":C
+    .local v0, "c":C
     :goto_0
-    const/16 v3, 0x41
+    const/16 v1, 0x41
 
-    if-lt v1, v3, :cond_0
+    if-lt v0, v1, :cond_1
 
     .line 438
     invoke-virtual {p0}, Lio/appium/android/apis/app/LoaderThrottle$ThrottledLoaderListFragment$1;->isCancelled()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_1
+    if-eqz v1, :cond_0
 
-    .line 452
-    :cond_0
-    const/4 v3, 0x0
-
-    return-object v3
+    .line 439
+    goto :goto_2
 
     .line 441
-    :cond_1
-    new-instance v0, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v3, "Data "
+    const-string v2, "Data "
 
-    invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 442
-    .local v0, "builder":Ljava/lang/StringBuilder;
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    .local v1, "builder":Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 443
     new-instance v2, Landroid/content/ContentValues;
@@ -112,7 +104,7 @@
     .local v2, "values":Landroid/content/ContentValues;
     const-string v3, "data"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -133,17 +125,28 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 437
-    :goto_1
-    add-int/lit8 v3, v1, -0x1
-
-    int-to-char v1, v3
-
-    goto :goto_0
+    .line 450
+    goto :goto_1
 
     .line 449
     :catch_0
     move-exception v3
 
-    goto :goto_1
+    .line 437
+    .end local v1    # "builder":Ljava/lang/StringBuilder;
+    .end local v2    # "values":Landroid/content/ContentValues;
+    :goto_1
+    add-int/lit8 v1, v0, -0x1
+
+    int-to-char v0, v1
+
+    goto :goto_0
+
+    .line 452
+    .end local v0    # "c":C
+    :cond_1
+    :goto_2
+    const/4 v0, 0x0
+
+    return-object v0
 .end method

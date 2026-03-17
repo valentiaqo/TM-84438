@@ -35,8 +35,8 @@
 .field private final mClass:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/lang/Class",
-            "<TT;>;"
+            "Ljava/lang/Class<",
+            "TT;>;"
         }
     .end annotation
 .end field
@@ -56,12 +56,11 @@
             "(",
             "Landroid/app/Activity;",
             "Ljava/lang/String;",
-            "Ljava/lang/Class",
-            "<TT;>;)V"
+            "Ljava/lang/Class<",
+            "TT;>;)V"
         }
     .end annotation
 
-    .prologue
     .line 78
     .local p0, "this":Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;, "Lio/appium/android/apis/app/FragmentNestingTabs$TabListener<TT;>;"
     .local p3, "clz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
@@ -74,7 +73,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/Class;Landroid/os/Bundle;)V
-    .locals 3
+    .locals 2
     .param p1, "activity"    # Landroid/app/Activity;
     .param p2, "tag"    # Ljava/lang/String;
     .param p4, "args"    # Landroid/os/Bundle;
@@ -83,14 +82,13 @@
             "(",
             "Landroid/app/Activity;",
             "Ljava/lang/String;",
-            "Ljava/lang/Class",
-            "<TT;>;",
+            "Ljava/lang/Class<",
+            "TT;>;",
             "Landroid/os/Bundle;",
             ")V"
         }
     .end annotation
 
-    .prologue
     .line 81
     .local p0, "this":Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;, "Lio/appium/android/apis/app/FragmentNestingTabs$TabListener<TT;>;"
     .local p3, "clz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
@@ -109,41 +107,39 @@
     iput-object p4, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mArgs:Landroid/os/Bundle;
 
     .line 90
-    iget-object v1, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mActivity:Landroid/app/Activity;
+    iget-object v0, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {v0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v2, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mTag:Ljava/lang/String;
+    iget-object v1, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mTag:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
+    invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mFragment:Landroid/app/Fragment;
+    iput-object v0, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mFragment:Landroid/app/Fragment;
 
     .line 91
-    iget-object v1, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mFragment:Landroid/app/Fragment;
+    iget-object v0, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mFragment:Landroid/app/Fragment;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mFragment:Landroid/app/Fragment;
+    invoke-virtual {v0}, Landroid/app/Fragment;->isDetached()Z
 
-    invoke-virtual {v1}, Landroid/app/Fragment;->isDetached()Z
+    move-result v0
 
-    move-result v1
-
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 92
-    iget-object v1, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mActivity:Landroid/app/Activity;
+    iget-object v0, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {v0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
 
     move-result-object v0
 
@@ -169,7 +165,6 @@
     .param p1, "tab"    # Landroid/app/ActionBar$Tab;
     .param p2, "ft"    # Landroid/app/FragmentTransaction;
 
-    .prologue
     .line 114
     .local p0, "this":Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;, "Lio/appium/android/apis/app/FragmentNestingTabs$TabListener<TT;>;"
     iget-object v0, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mActivity:Landroid/app/Activity;
@@ -193,7 +188,6 @@
     .param p1, "tab"    # Landroid/app/ActionBar$Tab;
     .param p2, "ft"    # Landroid/app/FragmentTransaction;
 
-    .prologue
     .line 99
     .local p0, "this":Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;, "Lio/appium/android/apis/app/FragmentNestingTabs$TabListener<TT;>;"
     iget-object v0, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mFragment:Landroid/app/Fragment;
@@ -226,17 +220,15 @@
 
     invoke-virtual {p2, v0, v1, v2}, Landroid/app/FragmentTransaction;->add(ILandroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
-    .line 105
-    :goto_0
-    return-void
+    goto :goto_0
 
     .line 103
     :cond_0
-    iget-object v0, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mFragment:Landroid/app/Fragment;
-
     invoke-virtual {p2, v0}, Landroid/app/FragmentTransaction;->attach(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    goto :goto_0
+    .line 105
+    :goto_0
+    return-void
 .end method
 
 .method public onTabUnselected(Landroid/app/ActionBar$Tab;Landroid/app/FragmentTransaction;)V
@@ -244,7 +236,6 @@
     .param p1, "tab"    # Landroid/app/ActionBar$Tab;
     .param p2, "ft"    # Landroid/app/FragmentTransaction;
 
-    .prologue
     .line 108
     .local p0, "this":Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;, "Lio/appium/android/apis/app/FragmentNestingTabs$TabListener<TT;>;"
     iget-object v0, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mFragment:Landroid/app/Fragment;
@@ -252,8 +243,6 @@
     if-eqz v0, :cond_0
 
     .line 109
-    iget-object v0, p0, Lio/appium/android/apis/app/FragmentNestingTabs$TabListener;->mFragment:Landroid/app/Fragment;
-
     invoke-virtual {p2, v0}, Landroid/app/FragmentTransaction;->detach(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
     .line 111

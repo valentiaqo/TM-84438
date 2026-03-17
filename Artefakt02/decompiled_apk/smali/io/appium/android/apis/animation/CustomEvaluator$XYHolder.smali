@@ -25,10 +25,10 @@
 # direct methods
 .method public constructor <init>(Lio/appium/android/apis/animation/CustomEvaluator;FF)V
     .locals 0
+    .param p1, "this$0"    # Lio/appium/android/apis/animation/CustomEvaluator;
     .param p2, "x"    # F
     .param p3, "y"    # F
 
-    .prologue
     .line 63
     iput-object p1, p0, Lio/appium/android/apis/animation/CustomEvaluator$XYHolder;->this$0:Lio/appium/android/apis/animation/CustomEvaluator;
 
@@ -49,7 +49,6 @@
 .method public getX()F
     .locals 1
 
-    .prologue
     .line 69
     iget v0, p0, Lio/appium/android/apis/animation/CustomEvaluator$XYHolder;->mX:F
 
@@ -59,7 +58,6 @@
 .method public getY()F
     .locals 1
 
-    .prologue
     .line 77
     iget v0, p0, Lio/appium/android/apis/animation/CustomEvaluator$XYHolder;->mY:F
 
@@ -70,7 +68,6 @@
     .locals 0
     .param p1, "x"    # F
 
-    .prologue
     .line 73
     iput p1, p0, Lio/appium/android/apis/animation/CustomEvaluator$XYHolder;->mX:F
 
@@ -82,7 +79,6 @@
     .locals 0
     .param p1, "y"    # F
 
-    .prologue
     .line 81
     iput p1, p0, Lio/appium/android/apis/animation/CustomEvaluator$XYHolder;->mY:F
 

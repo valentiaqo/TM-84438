@@ -19,186 +19,158 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 41
     invoke-direct {p0}, Landroid/app/ExpandableListActivity;-><init>()V
 
-    .line 89
     return-void
 .end method
 
 
 # virtual methods
 .method public onContextItemSelected(Landroid/view/MenuItem;)Z
-    .locals 10
+    .locals 9
     .param p1, "item"    # Landroid/view/MenuItem;
-
-    .prologue
-    const/4 v6, 0x1
-
-    const/4 v7, 0x0
 
     .line 63
     invoke-interface {p1}, Landroid/view/MenuItem;->getMenuInfo()Landroid/view/ContextMenu$ContextMenuInfo;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;
+    check-cast v0, Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;
 
     .line 65
-    .local v2, "info":Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;
-    iget-object v5, v2, Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;->targetView:Landroid/view/View;
+    .local v0, "info":Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;
+    iget-object v1, v0, Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;->targetView:Landroid/view/View;
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v1, Landroid/widget/TextView;
 
-    invoke-virtual {v5}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-interface {v5}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 67
-    .local v3, "title":Ljava/lang/String;
-    iget-wide v8, v2, Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;->packedPosition:J
+    .local v1, "title":Ljava/lang/String;
+    iget-wide v2, v0, Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;->packedPosition:J
 
-    invoke-static {v8, v9}, Landroid/widget/ExpandableListView;->getPackedPositionType(J)I
+    invoke-static {v2, v3}, Landroid/widget/ExpandableListView;->getPackedPositionType(J)I
 
-    move-result v4
+    move-result v2
 
     .line 68
-    .local v4, "type":I
-    if-ne v4, v6, :cond_0
+    .local v2, "type":I
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    if-ne v2, v4, :cond_0
 
     .line 69
-    iget-wide v8, v2, Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;->packedPosition:J
+    iget-wide v5, v0, Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;->packedPosition:J
 
-    invoke-static {v8, v9}, Landroid/widget/ExpandableListView;->getPackedPositionGroup(J)I
+    invoke-static {v5, v6}, Landroid/widget/ExpandableListView;->getPackedPositionGroup(J)I
 
-    move-result v1
+    move-result v5
 
     .line 70
-    .local v1, "groupPos":I
-    iget-wide v8, v2, Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;->packedPosition:J
+    .local v5, "groupPos":I
+    iget-wide v6, v0, Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;->packedPosition:J
 
-    invoke-static {v8, v9}, Landroid/widget/ExpandableListView;->getPackedPositionChild(J)I
+    invoke-static {v6, v7}, Landroid/widget/ExpandableListView;->getPackedPositionChild(J)I
 
-    move-result v0
+    move-result v6
 
     .line 71
-    .local v0, "childPos":I
-    new-instance v5, Ljava/lang/StringBuilder;
+    .local v6, "childPos":I
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v8, ": Child "
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v8, " clicked in group "
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {p0, v7, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-static {p0, v5, v7}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    .line 72
+    invoke-virtual {v3}, Landroid/widget/Toast;->show()V
 
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/widget/Toast;->show()V
-
-    move v5, v6
-
-    .line 80
-    .end local v0    # "childPos":I
-    .end local v1    # "groupPos":I
-    :goto_0
-    return v5
+    .line 73
+    return v4
 
     .line 74
+    .end local v5    # "groupPos":I
+    .end local v6    # "childPos":I
     :cond_0
-    if-nez v4, :cond_1
+    if-nez v2, :cond_1
 
     .line 75
-    iget-wide v8, v2, Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;->packedPosition:J
+    iget-wide v5, v0, Landroid/widget/ExpandableListView$ExpandableListContextMenuInfo;->packedPosition:J
 
-    invoke-static {v8, v9}, Landroid/widget/ExpandableListView;->getPackedPositionGroup(J)I
+    invoke-static {v5, v6}, Landroid/widget/ExpandableListView;->getPackedPositionGroup(J)I
 
-    move-result v1
+    move-result v5
 
     .line 76
-    .restart local v1    # "groupPos":I
-    new-instance v5, Ljava/lang/StringBuilder;
+    .restart local v5    # "groupPos":I
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    const-string v7, ": Group "
 
-    const-string v8, ": Group "
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    const-string v7, " clicked"
 
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v8, " clicked"
+    move-result-object v6
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {p0, v6, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {p0, v5, v7}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/widget/Toast;->show()V
-
-    move v5, v6
+    invoke-virtual {v3}, Landroid/widget/Toast;->show()V
 
     .line 77
-    goto :goto_0
-
-    .end local v1    # "groupPos":I
-    :cond_1
-    move v5, v7
+    return v4
 
     .line 80
-    goto :goto_0
+    .end local v5    # "groupPos":I
+    :cond_1
+    return v3
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 47
     invoke-super {p0, p1}, Landroid/app/ExpandableListActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -231,18 +203,17 @@
     .param p2, "v"    # Landroid/view/View;
     .param p3, "menuInfo"    # Landroid/view/ContextMenu$ContextMenuInfo;
 
-    .prologue
-    const/4 v1, 0x0
-
     .line 57
     const-string v0, "Sample menu"
 
     invoke-interface {p1, v0}, Landroid/view/ContextMenu;->setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/ContextMenu;
 
     .line 58
-    const v0, 0x7f0c0376
+    const/4 v0, 0x0
 
-    invoke-interface {p1, v1, v1, v1, v0}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
+    const v1, 0x7f0e0142
+
+    invoke-interface {p1, v0, v0, v0, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
     .line 59
     return-void

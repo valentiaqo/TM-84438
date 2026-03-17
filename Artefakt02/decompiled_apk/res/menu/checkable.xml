@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="None">
         <menu>
-            <group android:id="@id/noncheckable_group" android:checkableBehavior="0">
+            <group android:id="@id/noncheckable_group" android:checkableBehavior="none">
                 <item android:id="@id/noncheckable_item_1" android:title="@string/item_1" />
                 <item android:id="@id/noncheckable_item_2" android:title="@string/item_2" />
                 <item android:id="@id/noncheckable_item_3" android:title="@string/item_3" />
@@ -12,7 +12,7 @@
     </item>
     <item android:title="All">
         <menu>
-            <group android:id="@id/checkable_group" android:checkableBehavior="1">
+            <group android:id="@id/checkable_group" android:checkableBehavior="all">
                 <item android:id="@id/checkable_item_1" android:title="@string/item_1" />
                 <item android:id="@id/checkable_item_2" android:checked="true" android:title="@string/item_2" />
                 <item android:id="@id/checkable_item_3" android:checked="true" android:title="@string/item_3" />
@@ -21,7 +21,7 @@
     </item>
     <item android:title="Single">
         <menu>
-            <group android:id="@id/exclusive_checkable_group" android:checkableBehavior="2">
+            <group android:id="@id/exclusive_checkable_group" android:checkableBehavior="single">
                 <item android:id="@id/exclusive_checkable_item_1" android:title="@string/item_1" />
                 <item android:id="@id/exclusive_checkable_item_2" android:title="@string/item_2" />
                 <item android:id="@id/exclusive_checkable_item_3" android:checked="true" android:title="@string/item_3" />

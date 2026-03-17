@@ -26,8 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;Landroid/os/Bundle;)V
     .locals 0
+    .param p1, "this$1"    # Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;
 
-    .prologue
     .line 215
     iput-object p1, p0, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver$4;->this$1:Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;
 
@@ -43,7 +43,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
     .line 219
     iget-object v0, p0, Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver$4;->this$1:Lio/appium/android/apis/app/VoiceRecognition$SupportedLanguageBroadcastReceiver;
 
@@ -53,10 +52,12 @@
 
     const-string v2, "android.speech.extra.LANGUAGE_PREFERENCE"
 
+    .line 220
     invoke-virtual {v1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 219
     invoke-static {v0, v1}, Lio/appium/android/apis/app/VoiceRecognition;->access$400(Lio/appium/android/apis/app/VoiceRecognition;Ljava/lang/String;)V
 
     .line 221

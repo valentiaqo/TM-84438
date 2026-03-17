@@ -11,7 +11,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     .line 28
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
@@ -31,19 +30,18 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 31
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 33
-    const v1, 0x7f030069
+    const v0, 0x7f0b0086
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/Intents;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/Intents;->setContentView(I)V
 
     .line 36
-    const v1, 0x7f0900c7
+    const v0, 0x7f0900d9
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/app/Intents;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/app/Intents;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

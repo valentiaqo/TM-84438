@@ -15,11 +15,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 24
     invoke-direct {p0}, Lio/appium/android/apis/graphics/GraphicsActivity;-><init>()V
 
-    .line 32
     return-void
 .end method
 
@@ -29,7 +27,6 @@
     .locals 1
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 28
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -46,9 +43,7 @@
 
 .method public bridge synthetic setContentView(Landroid/view/View;)V
     .locals 0
-    .param p1, "x0"    # Landroid/view/View;
 
-    .prologue
     .line 24
     invoke-super {p0, p1}, Lio/appium/android/apis/graphics/GraphicsActivity;->setContentView(Landroid/view/View;)V
 

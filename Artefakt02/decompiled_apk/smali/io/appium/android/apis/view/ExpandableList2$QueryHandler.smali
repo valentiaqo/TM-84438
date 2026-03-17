@@ -24,7 +24,6 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "adapter"    # Landroid/widget/CursorTreeAdapter;
 
-    .prologue
     .line 54
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -47,30 +46,18 @@
     .param p2, "cookie"    # Ljava/lang/Object;
     .param p3, "cursor"    # Landroid/database/Cursor;
 
-    .prologue
     .line 60
     packed-switch p1, :pswitch_data_0
-
-    .line 70
-    .end local p2    # "cookie":Ljava/lang/Object;
-    :goto_0
-    return-void
-
-    .line 62
-    .restart local p2    # "cookie":Ljava/lang/Object;
-    :pswitch_0
-    iget-object v1, p0, Lio/appium/android/apis/view/ExpandableList2$QueryHandler;->mAdapter:Landroid/widget/CursorTreeAdapter;
-
-    invoke-virtual {v1, p3}, Landroid/widget/CursorTreeAdapter;->setGroupCursor(Landroid/database/Cursor;)V
 
     goto :goto_0
 
     .line 66
-    :pswitch_1
-    check-cast p2, Ljava/lang/Integer;
+    :pswitch_0
+    move-object v0, p2
 
-    .end local p2    # "cookie":Ljava/lang/Object;
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
@@ -82,10 +69,23 @@
 
     goto :goto_0
 
-    .line 60
+    .line 62
+    .end local v0    # "groupPosition":I
+    :pswitch_1
+    iget-object v0, p0, Lio/appium/android/apis/view/ExpandableList2$QueryHandler;->mAdapter:Landroid/widget/CursorTreeAdapter;
+
+    invoke-virtual {v0, p3}, Landroid/widget/CursorTreeAdapter;->setGroupCursor(Landroid/database/Cursor;)V
+
+    .line 63
+    nop
+
+    .line 70
+    :goto_0
+    return-void
+
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_0
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method

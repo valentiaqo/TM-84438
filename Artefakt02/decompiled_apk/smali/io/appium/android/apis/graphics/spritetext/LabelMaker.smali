@@ -33,8 +33,7 @@
 .field private mLabels:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList",
-            "<",
+            "Ljava/util/ArrayList<",
             "Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;",
             ">;"
         }
@@ -62,15 +61,10 @@
 
 # direct methods
 .method public constructor <init>(ZII)V
-    .locals 5
+    .locals 4
     .param p1, "fullColor"    # Z
     .param p2, "strikeWidth"    # I
     .param p3, "strikeHeight"    # I
-
-    .prologue
-    const-wide/high16 v3, 0x3ff0000000000000L    # 1.0
-
-    const/4 v2, 0x0
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -96,7 +90,11 @@
 
     int-to-double v0, v0
 
-    div-double v0, v3, v0
+    const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
+
+    invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
+
+    div-double v0, v2, v0
 
     double-to-float v0, v0
 
@@ -107,9 +105,11 @@
 
     int-to-double v0, v0
 
-    div-double v0, v3, v0
+    invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
 
-    double-to-float v0, v0
+    div-double/2addr v2, v0
+
+    double-to-float v0, v2
 
     iput v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mTexelHeight:F
 
@@ -123,17 +123,19 @@
     .line 69
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mClearPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v0, v2, v2, v2, v2}, Landroid/graphics/Paint;->setARGB(IIII)V
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1, v1, v1, v1}, Landroid/graphics/Paint;->setARGB(IIII)V
 
     .line 70
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mClearPaint:Landroid/graphics/Paint;
 
-    sget-object v1, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+    sget-object v2, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 71
-    iput v2, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mState:I
+    iput v1, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mState:I
 
     .line 72
     return-void
@@ -144,13 +146,19 @@
     .param p1, "oldState"    # I
     .param p2, "newState"    # I
 
-    .prologue
     .line 364
     iget v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mState:I
 
-    if-eq v0, p1, :cond_0
+    if-ne v0, p1, :cond_0
+
+    .line 367
+    iput p2, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mState:I
+
+    .line 368
+    return-void
 
     .line 365
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Can\'t call this method now."
@@ -158,13 +166,6 @@
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
-
-    .line 367
-    :cond_0
-    iput p2, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mState:I
-
-    .line 368
-    return-void
 .end method
 
 
@@ -176,17 +177,16 @@
     .param p3, "minWidth"    # I
     .param p4, "minHeight"    # I
 
-    .prologue
+    .line 163
     const/4 v3, 0x0
 
-    .line 163
+    const/4 v4, 0x0
+
     move-object v0, p0
 
     move-object v1, p1
 
     move-object v2, p2
-
-    move-object v4, v3
 
     move v5, p3
 
@@ -206,10 +206,11 @@
     .param p3, "text"    # Ljava/lang/String;
     .param p4, "textPaint"    # Landroid/graphics/Paint;
 
-    .prologue
+    .line 155
     const/4 v5, 0x0
 
-    .line 155
+    const/4 v6, 0x0
+
     move-object v0, p0
 
     move-object v1, p1
@@ -220,8 +221,6 @@
 
     move-object v4, p4
 
-    move v6, v5
-
     invoke-virtual/range {v0 .. v6}, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->add(Ljavax/microedition/khronos/opengles/GL10;Landroid/graphics/drawable/Drawable;Ljava/lang/String;Landroid/graphics/Paint;II)I
 
     move-result v0
@@ -230,7 +229,7 @@
 .end method
 
 .method public add(Ljavax/microedition/khronos/opengles/GL10;Landroid/graphics/drawable/Drawable;Ljava/lang/String;Landroid/graphics/Paint;II)I
-    .locals 31
+    .locals 37
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
     .param p2, "background"    # Landroid/graphics/drawable/Drawable;
     .param p3, "text"    # Ljava/lang/String;
@@ -238,479 +237,476 @@
     .param p5, "minWidth"    # I
     .param p6, "minHeight"    # I
 
-    .prologue
     .line 176
-    const/4 v2, 0x2
-
-    const/4 v3, 0x2
-
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v2, v3}, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->checkState(II)V
+    move-object/from16 v1, p2
+
+    move-object/from16 v2, p3
+
+    move-object/from16 v3, p4
+
+    const/4 v4, 0x2
+
+    invoke-direct {v0, v4, v4}, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->checkState(II)V
 
     .line 177
-    if-eqz p2, :cond_4
+    const/4 v5, 0x0
 
-    const/4 v14, 0x1
+    if-eqz v1, :cond_0
+
+    const/4 v7, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v7, 0x0
 
     .line 178
-    .local v14, "drawBackground":Z
+    .local v7, "drawBackground":Z
     :goto_0
-    if-eqz p3, :cond_5
+    if-eqz v2, :cond_1
 
-    if-eqz p4, :cond_5
+    if-eqz v3, :cond_1
 
-    const/4 v15, 0x1
+    const/4 v5, 0x1
 
     .line 180
-    .local v15, "drawText":Z
-    :goto_1
-    new-instance v23, Landroid/graphics/Rect;
+    .local v5, "drawText":Z
+    :cond_1
+    new-instance v8, Landroid/graphics/Rect;
 
-    invoke-direct/range {v23 .. v23}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v8}, Landroid/graphics/Rect;-><init>()V
 
     .line 181
-    .local v23, "padding":Landroid/graphics/Rect;
-    if-eqz v14, :cond_0
+    .local v8, "padding":Landroid/graphics/Rect;
+    if-eqz v7, :cond_2
 
     .line 182
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
+    invoke-virtual {v1, v8}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
 
     .line 183
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->getMinimumWidth()I
 
-    move-result v2
+    move-result v9
 
-    move/from16 v0, p5
+    move/from16 v10, p5
 
-    invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
+    invoke-static {v10, v9}, Ljava/lang/Math;->max(II)I
 
-    move-result p5
+    move-result v9
 
     .line 184
+    .end local p5    # "minWidth":I
+    .local v9, "minWidth":I
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/drawable/Drawable;->getMinimumHeight()I
 
-    move-result v2
+    move-result v10
 
-    move/from16 v0, p6
+    move/from16 v11, p6
 
-    invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
+    invoke-static {v11, v10}, Ljava/lang/Math;->max(II)I
 
-    move-result p6
+    move-result v10
+
+    goto :goto_1
+
+    .line 181
+    .end local v9    # "minWidth":I
+    .restart local p5    # "minWidth":I
+    :cond_2
+    move/from16 v10, p5
+
+    move/from16 v11, p6
+
+    move v9, v10
+
+    move v10, v11
 
     .line 187
-    :cond_0
-    const/4 v10, 0x0
+    .end local p5    # "minWidth":I
+    .end local p6    # "minHeight":I
+    .restart local v9    # "minWidth":I
+    .local v10, "minHeight":I
+    :goto_1
+    const/4 v11, 0x0
 
     .line 188
-    .local v10, "ascent":I
-    const/4 v13, 0x0
+    .local v11, "ascent":I
+    const/4 v12, 0x0
 
     .line 189
-    .local v13, "descent":I
-    const/16 v20, 0x0
+    .local v12, "descent":I
+    const/4 v13, 0x0
 
     .line 190
-    .local v20, "measuredTextWidth":I
-    if-eqz v15, :cond_1
+    .local v13, "measuredTextWidth":I
+    if-eqz v5, :cond_3
 
     .line 192
     invoke-virtual/range {p4 .. p4}, Landroid/graphics/Paint;->ascent()F
 
-    move-result v2
+    move-result v14
 
-    neg-float v2, v2
+    neg-float v14, v14
 
-    float-to-double v2, v2
+    float-to-double v14, v14
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v14, v15}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-wide v2
+    move-result-wide v14
 
-    double-to-int v10, v2
+    double-to-int v11, v14
 
     .line 193
     invoke-virtual/range {p4 .. p4}, Landroid/graphics/Paint;->descent()F
 
-    move-result v2
+    move-result v14
 
-    float-to-double v2, v2
+    float-to-double v14, v14
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v14, v15}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-wide v2
+    move-result-wide v14
 
-    double-to-int v13, v2
+    double-to-int v12, v14
 
     .line 194
-    move-object/from16 v0, p4
+    invoke-virtual {v3, v2}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
 
-    move-object/from16 v1, p3
+    move-result v14
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+    float-to-double v14, v14
 
-    move-result v2
+    invoke-static {v14, v15}, Ljava/lang/Math;->ceil(D)D
 
-    float-to-double v2, v2
+    move-result-wide v14
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->ceil(D)D
-
-    move-result-wide v2
-
-    double-to-int v0, v2
-
-    move/from16 v20, v0
+    double-to-int v13, v14
 
     .line 196
-    :cond_1
-    add-int v24, v10, v13
+    :cond_3
+    add-int v14, v11, v12
 
     .line 197
-    .local v24, "textHeight":I
-    move-object/from16 v0, p0
+    .local v14, "textHeight":I
+    iget v15, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeWidth:I
 
-    iget v2, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeWidth:I
+    invoke-static {v15, v13}, Ljava/lang/Math;->min(II)I
 
-    move/from16 v0, v20
-
-    invoke-static {v2, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result v25
+    move-result v15
 
     .line 199
-    .local v25, "textWidth":I
-    move-object/from16 v0, v23
+    .local v15, "textWidth":I
+    iget v6, v8, Landroid/graphics/Rect;->top:I
 
-    iget v2, v0, Landroid/graphics/Rect;->top:I
+    iget v4, v8, Landroid/graphics/Rect;->bottom:I
 
-    move-object/from16 v0, v23
-
-    iget v3, v0, Landroid/graphics/Rect;->bottom:I
-
-    add-int v21, v2, v3
+    add-int/2addr v6, v4
 
     .line 200
-    .local v21, "padHeight":I
-    move-object/from16 v0, v23
+    .local v6, "padHeight":I
+    iget v4, v8, Landroid/graphics/Rect;->left:I
 
-    iget v2, v0, Landroid/graphics/Rect;->left:I
+    move/from16 p5, v12
 
-    move-object/from16 v0, v23
+    .end local v12    # "descent":I
+    .local p5, "descent":I
+    iget v12, v8, Landroid/graphics/Rect;->right:I
 
-    iget v3, v0, Landroid/graphics/Rect;->right:I
-
-    add-int v22, v2, v3
+    add-int/2addr v4, v12
 
     .line 201
-    .local v22, "padWidth":I
-    add-int v2, v24, v21
+    .local v4, "padWidth":I
+    add-int v12, v14, v6
 
-    move/from16 v0, p6
+    invoke-static {v10, v12}, Ljava/lang/Math;->max(II)I
 
-    invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
-
-    move-result v18
+    move-result v12
 
     .line 202
-    .local v18, "height":I
-    add-int v2, v25, v22
+    .local v12, "height":I
+    move/from16 p6, v10
 
-    move/from16 v0, p5
+    .end local v10    # "minHeight":I
+    .restart local p6    # "minHeight":I
+    add-int v10, v15, v4
 
-    invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
+    invoke-static {v9, v10}, Ljava/lang/Math;->max(II)I
 
-    move-result v8
+    move-result v10
 
     .line 203
-    .local v8, "width":I
-    sub-int v16, v18, v21
+    .local v10, "width":I
+    sub-int v17, v12, v6
 
     .line 204
-    .local v16, "effectiveTextHeight":I
-    sub-int v17, v8, v22
+    .local v17, "effectiveTextHeight":I
+    sub-int v18, v10, v4
 
     .line 206
-    .local v17, "effectiveTextWidth":I
-    sub-int v2, v16, v24
+    .local v18, "effectiveTextWidth":I
+    sub-int v19, v17, v14
 
-    div-int/lit8 v11, v2, 0x2
+    const/16 v16, 0x2
+
+    div-int/lit8 v19, v19, 0x2
 
     .line 207
-    .local v11, "centerOffsetHeight":I
-    sub-int v2, v17, v25
+    .local v19, "centerOffsetHeight":I
+    sub-int v20, v18, v15
 
-    div-int/lit8 v12, v2, 0x2
+    div-int/lit8 v20, v20, 0x2
 
     .line 213
-    .local v12, "centerOffsetWidth":I
-    move-object/from16 v0, p0
+    .local v20, "centerOffsetWidth":I
+    move/from16 v16, v4
 
-    iget v6, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mU:I
+    .end local v4    # "padWidth":I
+    .local v16, "padWidth":I
+    iget v4, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mU:I
 
     .line 214
-    .local v6, "u":I
-    move-object/from16 v0, p0
+    .local v4, "u":I
+    move/from16 v21, v6
 
-    iget v0, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mV:I
-
-    move/from16 v27, v0
+    .end local v6    # "padHeight":I
+    .local v21, "padHeight":I
+    iget v6, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mV:I
 
     .line 215
-    .local v27, "v":I
-    move-object/from16 v0, p0
+    .local v6, "v":I
+    move/from16 v22, v9
 
-    iget v0, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLineHeight:I
-
-    move/from16 v19, v0
+    .end local v9    # "minWidth":I
+    .local v22, "minWidth":I
+    iget v9, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLineHeight:I
 
     .line 217
-    .local v19, "lineHeight":I
-    move-object/from16 v0, p0
+    .local v9, "lineHeight":I
+    move/from16 v23, v13
 
-    iget v2, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeWidth:I
+    .end local v13    # "measuredTextWidth":I
+    .local v23, "measuredTextWidth":I
+    iget v13, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeWidth:I
 
-    if-le v8, v2, :cond_2
+    if-le v10, v13, :cond_4
 
     .line 218
-    move-object/from16 v0, p0
-
-    iget v8, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeWidth:I
+    iget v10, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeWidth:I
 
     .line 222
-    :cond_2
-    add-int v2, v6, v8
+    :cond_4
+    add-int v13, v4, v10
 
-    move-object/from16 v0, p0
+    move/from16 v24, v4
 
-    iget v3, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeWidth:I
+    .end local v4    # "u":I
+    .local v24, "u":I
+    iget v4, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeWidth:I
 
-    if-le v2, v3, :cond_3
+    if-le v13, v4, :cond_5
 
     .line 224
-    const/4 v6, 0x0
+    const/4 v4, 0x0
 
     .line 225
-    add-int v27, v27, v19
+    .end local v24    # "u":I
+    .restart local v4    # "u":I
+    add-int/2addr v6, v9
 
     .line 226
-    const/16 v19, 0x0
+    const/4 v9, 0x0
+
+    goto :goto_2
+
+    .line 222
+    .end local v4    # "u":I
+    .restart local v24    # "u":I
+    :cond_5
+    move/from16 v4, v24
 
     .line 228
-    :cond_3
-    move/from16 v0, v19
+    .end local v24    # "u":I
+    .restart local v4    # "u":I
+    :goto_2
+    invoke-static {v9, v12}, Ljava/lang/Math;->max(II)I
 
-    move/from16 v1, v18
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
-
-    move-result v19
+    move-result v9
 
     .line 229
-    add-int v2, v27, v19
+    add-int v13, v6, v9
 
-    move-object/from16 v0, p0
+    move/from16 v32, v14
 
-    iget v3, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeHeight:I
+    .end local v14    # "textHeight":I
+    .local v32, "textHeight":I
+    iget v14, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeHeight:I
 
-    if-le v2, v3, :cond_6
-
-    .line 230
-    new-instance v2, Ljava/lang/IllegalArgumentException;
-
-    const-string v3, "Out of texture space."
-
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 177
-    .end local v6    # "u":I
-    .end local v8    # "width":I
-    .end local v10    # "ascent":I
-    .end local v11    # "centerOffsetHeight":I
-    .end local v12    # "centerOffsetWidth":I
-    .end local v13    # "descent":I
-    .end local v14    # "drawBackground":Z
-    .end local v15    # "drawText":Z
-    .end local v16    # "effectiveTextHeight":I
-    .end local v17    # "effectiveTextWidth":I
-    .end local v18    # "height":I
-    .end local v19    # "lineHeight":I
-    .end local v20    # "measuredTextWidth":I
-    .end local v21    # "padHeight":I
-    .end local v22    # "padWidth":I
-    .end local v23    # "padding":Landroid/graphics/Rect;
-    .end local v24    # "textHeight":I
-    .end local v25    # "textWidth":I
-    .end local v27    # "v":I
-    :cond_4
-    const/4 v14, 0x0
-
-    goto/16 :goto_0
-
-    .line 178
-    .restart local v14    # "drawBackground":Z
-    :cond_5
-    const/4 v15, 0x0
-
-    goto/16 :goto_1
+    if-gt v13, v14, :cond_8
 
     .line 233
-    .restart local v6    # "u":I
-    .restart local v8    # "width":I
-    .restart local v10    # "ascent":I
-    .restart local v11    # "centerOffsetHeight":I
-    .restart local v12    # "centerOffsetWidth":I
-    .restart local v13    # "descent":I
-    .restart local v15    # "drawText":Z
-    .restart local v16    # "effectiveTextHeight":I
-    .restart local v17    # "effectiveTextWidth":I
-    .restart local v18    # "height":I
-    .restart local v19    # "lineHeight":I
-    .restart local v20    # "measuredTextWidth":I
-    .restart local v21    # "padHeight":I
-    .restart local v22    # "padWidth":I
-    .restart local v23    # "padding":Landroid/graphics/Rect;
-    .restart local v24    # "textHeight":I
-    .restart local v25    # "textWidth":I
-    .restart local v27    # "v":I
-    :cond_6
-    add-int v26, v6, v8
+    add-int v13, v4, v10
 
     .line 234
-    .local v26, "u2":I
-    add-int v29, v27, v10
+    .local v13, "u2":I
+    add-int v14, v6, v11
 
     .line 235
-    .local v29, "vBase":I
-    add-int v28, v27, v18
+    .local v14, "vBase":I
+    add-int v33, v6, v12
 
     .line 237
-    .local v28, "v2":I
-    if-eqz v14, :cond_7
+    .local v33, "v2":I
+    if-eqz v7, :cond_6
 
     .line 238
-    add-int v2, v6, v8
+    move/from16 v34, v7
 
-    add-int v3, v27, v18
+    .end local v7    # "drawBackground":Z
+    .local v34, "drawBackground":Z
+    add-int v7, v4, v10
 
-    move-object/from16 v0, p2
+    move/from16 v35, v13
 
-    move/from16 v1, v27
+    .end local v13    # "u2":I
+    .local v35, "u2":I
+    add-int v13, v6, v12
 
-    invoke-virtual {v0, v6, v1, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {v1, v4, v6, v7, v13}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 239
-    move-object/from16 v0, p0
+    iget-object v7, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mCanvas:Landroid/graphics/Canvas;
 
-    iget-object v2, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mCanvas:Landroid/graphics/Canvas;
+    invoke-virtual {v1, v7}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    move-object/from16 v0, p2
+    goto :goto_3
 
-    invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+    .line 237
+    .end local v34    # "drawBackground":Z
+    .end local v35    # "u2":I
+    .restart local v7    # "drawBackground":Z
+    .restart local v13    # "u2":I
+    :cond_6
+    move/from16 v34, v7
+
+    move/from16 v35, v13
 
     .line 242
-    :cond_7
-    if-eqz v15, :cond_8
+    .end local v7    # "drawBackground":Z
+    .end local v13    # "u2":I
+    .restart local v34    # "drawBackground":Z
+    .restart local v35    # "u2":I
+    :goto_3
+    if-eqz v5, :cond_7
 
     .line 243
-    move-object/from16 v0, p0
+    iget-object v7, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mCanvas:Landroid/graphics/Canvas;
 
-    iget-object v2, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mCanvas:Landroid/graphics/Canvas;
+    iget v13, v8, Landroid/graphics/Rect;->left:I
 
-    move-object/from16 v0, v23
+    add-int/2addr v13, v4
 
-    iget v3, v0, Landroid/graphics/Rect;->left:I
+    add-int v13, v13, v20
 
-    add-int/2addr v3, v6
+    int-to-float v13, v13
 
-    add-int/2addr v3, v12
+    iget v1, v8, Landroid/graphics/Rect;->top:I
 
-    int-to-float v3, v3
+    add-int/2addr v1, v14
 
-    move-object/from16 v0, v23
+    add-int v1, v1, v19
 
-    iget v4, v0, Landroid/graphics/Rect;->top:I
+    int-to-float v1, v1
 
-    add-int v4, v4, v29
-
-    add-int/2addr v4, v11
-
-    int-to-float v4, v4
-
-    move-object/from16 v0, p3
-
-    move-object/from16 v1, p4
-
-    invoke-virtual {v2, v0, v3, v4, v1}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+    invoke-virtual {v7, v2, v13, v1, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
     .line 250
-    :cond_8
-    add-int v2, v6, v8
+    :cond_7
+    add-int v1, v4, v10
 
-    move-object/from16 v0, p0
-
-    iput v2, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mU:I
+    iput v1, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mU:I
 
     .line 251
-    move/from16 v0, v27
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mV:I
+    iput v6, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mV:I
 
     .line 252
-    move/from16 v0, v19
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLineHeight:I
+    iput v9, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLineHeight:I
 
     .line 253
-    move-object/from16 v0, p0
+    iget-object v1, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLabels:Ljava/util/ArrayList;
 
-    iget-object v0, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLabels:Ljava/util/ArrayList;
+    new-instance v7, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;
 
-    move-object/from16 v30, v0
+    int-to-float v13, v10
 
-    new-instance v2, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;
+    int-to-float v2, v12
 
-    int-to-float v3, v8
+    int-to-float v3, v11
 
-    move/from16 v0, v18
+    add-int v29, v6, v12
 
-    int-to-float v4, v0
+    move/from16 v36, v5
 
-    int-to-float v5, v10
+    .end local v5    # "drawText":Z
+    .local v36, "drawText":Z
+    neg-int v5, v12
 
-    add-int v7, v27, v18
+    move-object/from16 v24, v7
 
-    move/from16 v0, v18
+    move/from16 v25, v13
 
-    neg-int v9, v0
+    move/from16 v26, v2
 
-    invoke-direct/range {v2 .. v9}, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;-><init>(FFFIIII)V
+    move/from16 v27, v3
 
-    move-object/from16 v0, v30
+    move/from16 v28, v4
 
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move/from16 v30, v10
+
+    move/from16 v31, v5
+
+    invoke-direct/range {v24 .. v31}, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;-><init>(FFFIIII)V
+
+    invoke-virtual {v1, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 255
-    move-object/from16 v0, p0
+    iget-object v1, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLabels:Ljava/util/ArrayList;
 
-    iget-object v2, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLabels:Ljava/util/ArrayList;
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    move-result v1
 
-    move-result v2
+    const/4 v2, 0x1
 
-    add-int/lit8 v2, v2, -0x1
+    sub-int/2addr v1, v2
 
-    return v2
+    return v1
+
+    .line 230
+    .end local v14    # "vBase":I
+    .end local v33    # "v2":I
+    .end local v34    # "drawBackground":Z
+    .end local v35    # "u2":I
+    .end local v36    # "drawText":Z
+    .restart local v5    # "drawText":Z
+    .restart local v7    # "drawBackground":Z
+    :cond_8
+    move/from16 v36, v5
+
+    move/from16 v34, v7
+
+    .end local v5    # "drawText":Z
+    .end local v7    # "drawBackground":Z
+    .restart local v34    # "drawBackground":Z
+    .restart local v36    # "drawText":Z
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string v2, "Out of texture space."
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 .end method
 
 .method public add(Ljavax/microedition/khronos/opengles/GL10;Ljava/lang/String;Landroid/graphics/Paint;)I
@@ -719,7 +715,6 @@
     .param p2, "text"    # Ljava/lang/String;
     .param p3, "textPaint"    # Landroid/graphics/Paint;
 
-    .prologue
     .line 143
     const/4 v0, 0x0
 
@@ -734,73 +729,70 @@
     .locals 4
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
 
-    .prologue
-    const/4 v3, 0x0
-
     .line 122
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    invoke-direct {p0, v1, v2}, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->checkState(II)V
+    invoke-direct {p0, v0, v1}, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->checkState(II)V
 
     .line 123
-    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLabels:Ljava/util/ArrayList;
+    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLabels:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     .line 124
-    iput v3, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mU:I
+    const/4 v0, 0x0
+
+    iput v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mU:I
 
     .line 125
-    iput v3, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mV:I
+    iput v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mV:I
 
     .line 126
-    iput v3, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLineHeight:I
+    iput v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLineHeight:I
 
     .line 127
     iget-boolean v1, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mFullColor:Z
 
     if-eqz v1, :cond_0
 
-    sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_4444:Landroid/graphics/Bitmap$Config;
+    sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_4444:Landroid/graphics/Bitmap$Config;
+
+    goto :goto_0
+
+    :cond_0
+    sget-object v1, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
 
     .line 129
-    .local v0, "config":Landroid/graphics/Bitmap$Config;
+    .local v1, "config":Landroid/graphics/Bitmap$Config;
     :goto_0
-    iget v1, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeWidth:I
+    iget v2, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeWidth:I
 
-    iget v2, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeHeight:I
+    iget v3, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mStrikeHeight:I
 
-    invoke-static {v1, v2, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    invoke-static {v2, v3, v1}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mBitmap:Landroid/graphics/Bitmap;
+    iput-object v2, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mBitmap:Landroid/graphics/Bitmap;
 
     .line 130
-    new-instance v1, Landroid/graphics/Canvas;
+    new-instance v2, Landroid/graphics/Canvas;
 
-    iget-object v2, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mBitmap:Landroid/graphics/Bitmap;
+    iget-object v3, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mBitmap:Landroid/graphics/Bitmap;
 
-    invoke-direct {v1, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v2, v3}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    iput-object v1, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mCanvas:Landroid/graphics/Canvas;
+    iput-object v2, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mCanvas:Landroid/graphics/Canvas;
 
     .line 131
-    iget-object v1, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mBitmap:Landroid/graphics/Bitmap;
+    iget-object v2, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mBitmap:Landroid/graphics/Bitmap;
 
-    invoke-virtual {v1, v3}, Landroid/graphics/Bitmap;->eraseColor(I)V
+    invoke-virtual {v2, v0}, Landroid/graphics/Bitmap;->eraseColor(I)V
 
     .line 132
     return-void
-
-    .line 127
-    .end local v0    # "config":Landroid/graphics/Bitmap$Config;
-    :cond_0
-    sget-object v0, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
-
-    goto :goto_0
 .end method
 
 .method public beginDrawing(Ljavax/microedition/khronos/opengles/GL10;FF)V
@@ -809,26 +801,19 @@
     .param p2, "viewWidth"    # F
     .param p3, "viewHeight"    # F
 
-    .prologue
-    const/high16 v7, 0x3ec00000    # 0.375f
-
-    const/high16 v3, 0x10000
-
-    const/4 v1, 0x0
-
     .line 313
     const/4 v0, 0x1
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    invoke-direct {p0, v0, v2}, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->checkState(II)V
+    invoke-direct {p0, v0, v1}, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->checkState(II)V
 
     .line 314
-    const/16 v0, 0xde1
+    iget v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mTextureID:I
 
-    iget v2, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mTextureID:I
+    const/16 v1, 0xde1
 
-    invoke-interface {p1, v0, v2}, Ljavax/microedition/khronos/opengles/GL10;->glBindTexture(II)V
+    invoke-interface {p1, v1, v0}, Ljavax/microedition/khronos/opengles/GL10;->glBindTexture(II)V
 
     .line 315
     const/16 v0, 0x1d00
@@ -843,12 +828,14 @@
     .line 317
     const/16 v0, 0x302
 
-    const/16 v2, 0x303
+    const/16 v1, 0x303
 
-    invoke-interface {p1, v0, v2}, Ljavax/microedition/khronos/opengles/GL10;->glBlendFunc(II)V
+    invoke-interface {p1, v0, v1}, Ljavax/microedition/khronos/opengles/GL10;->glBlendFunc(II)V
 
     .line 318
-    invoke-interface {p1, v3, v3, v3, v3}, Ljavax/microedition/khronos/opengles/GL10;->glColor4x(IIII)V
+    const/high16 v0, 0x10000
+
+    invoke-interface {p1, v0, v0, v0, v0}, Ljavax/microedition/khronos/opengles/GL10;->glColor4x(IIII)V
 
     .line 319
     const/16 v0, 0x1701
@@ -862,19 +849,21 @@
     invoke-interface {p1}, Ljavax/microedition/khronos/opengles/GL10;->glLoadIdentity()V
 
     .line 322
-    const/high16 v6, 0x3f800000    # 1.0f
+    const/4 v2, 0x0
 
-    move-object v0, p1
+    const/4 v4, 0x0
 
-    move v2, p2
+    const/4 v6, 0x0
 
-    move v3, v1
+    const/high16 v7, 0x3f800000    # 1.0f
 
-    move v4, p3
+    move-object v1, p1
 
-    move v5, v1
+    move v3, p2
 
-    invoke-interface/range {v0 .. v6}, Ljavax/microedition/khronos/opengles/GL10;->glOrthof(FFFFFF)V
+    move v5, p3
+
+    invoke-interface/range {v1 .. v7}, Ljavax/microedition/khronos/opengles/GL10;->glOrthof(FFFFFF)V
 
     .line 323
     const/16 v0, 0x1700
@@ -888,86 +877,94 @@
     invoke-interface {p1}, Ljavax/microedition/khronos/opengles/GL10;->glLoadIdentity()V
 
     .line 327
-    invoke-interface {p1, v7, v7, v1}, Ljavax/microedition/khronos/opengles/GL10;->glTranslatef(FFF)V
+    const/high16 v0, 0x3ec00000    # 0.375f
+
+    const/4 v1, 0x0
+
+    invoke-interface {p1, v0, v0, v1}, Ljavax/microedition/khronos/opengles/GL10;->glTranslatef(FFF)V
 
     .line 328
     return-void
 .end method
 
 .method public draw(Ljavax/microedition/khronos/opengles/GL10;FFI)V
-    .locals 7
+    .locals 15
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
     .param p2, "x"    # F
     .param p3, "y"    # F
     .param p4, "labelID"    # I
 
-    .prologue
-    const/16 v4, 0xde1
-
-    const/4 v0, 0x3
-
-    const/4 v3, 0x0
-
     .line 340
-    invoke-direct {p0, v0, v0}, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->checkState(II)V
+    move-object v0, p0
+
+    move-object/from16 v1, p1
+
+    const/4 v2, 0x3
+
+    invoke-direct {p0, v2, v2}, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->checkState(II)V
 
     .line 341
-    iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLabels:Ljava/util/ArrayList;
+    iget-object v2, v0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLabels:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move/from16 v3, p4
 
-    move-result-object v6
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    check-cast v6, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;
+    move-result-object v2
+
+    check-cast v2, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;
 
     .line 342
-    .local v6, "label":Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;
-    invoke-interface {p1, v4}, Ljavax/microedition/khronos/opengles/GL10;->glEnable(I)V
+    .local v2, "label":Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;
+    const/16 v4, 0xde1
 
-    move-object v0, p1
+    invoke-interface {v1, v4}, Ljavax/microedition/khronos/opengles/GL10;->glEnable(I)V
 
     .line 343
-    check-cast v0, Ljavax/microedition/khronos/opengles/GL11;
+    move-object v5, v1
 
-    const v1, 0x8b9d
+    check-cast v5, Ljavax/microedition/khronos/opengles/GL11;
 
-    iget-object v2, v6, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;->mCrop:[I
+    iget-object v6, v2, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;->mCrop:[I
 
-    invoke-interface {v0, v4, v1, v2, v3}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameteriv(II[II)V
+    const v7, 0x8b9d
 
-    move-object v0, p1
+    const/4 v8, 0x0
+
+    invoke-interface {v5, v4, v7, v6, v8}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameteriv(II[II)V
 
     .line 345
-    check-cast v0, Ljavax/microedition/khronos/opengles/GL11Ext;
+    move-object v9, v1
 
-    float-to-int v1, p2
+    check-cast v9, Ljavax/microedition/khronos/opengles/GL11Ext;
 
-    float-to-int v2, p3
+    move/from16 v4, p2
 
-    iget v4, v6, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;->width:F
+    float-to-int v10, v4
 
-    float-to-int v4, v4
+    move/from16 v5, p3
 
-    iget v5, v6, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;->height:F
+    float-to-int v11, v5
 
-    float-to-int v5, v5
+    iget v6, v2, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;->width:F
 
-    invoke-interface/range {v0 .. v5}, Ljavax/microedition/khronos/opengles/GL11Ext;->glDrawTexiOES(IIIII)V
+    float-to-int v13, v6
+
+    iget v6, v2, Lio/appium/android/apis/graphics/spritetext/LabelMaker$Label;->height:F
+
+    float-to-int v14, v6
+
+    const/4 v12, 0x0
+
+    invoke-interface/range {v9 .. v14}, Ljavax/microedition/khronos/opengles/GL11Ext;->glDrawTexiOES(IIIII)V
 
     .line 347
     return-void
 .end method
 
 .method public endAdding(Ljavax/microedition/khronos/opengles/GL10;)V
-    .locals 5
+    .locals 3
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
-
-    .prologue
-    const/4 v4, 0x0
-
-    const/16 v3, 0xde1
-
-    const/4 v2, 0x0
 
     .line 264
     const/4 v0, 0x2
@@ -979,12 +976,16 @@
     .line 265
     iget v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mTextureID:I
 
-    invoke-interface {p1, v3, v0}, Ljavax/microedition/khronos/opengles/GL10;->glBindTexture(II)V
+    const/16 v1, 0xde1
+
+    invoke-interface {p1, v1, v0}, Ljavax/microedition/khronos/opengles/GL10;->glBindTexture(II)V
 
     .line 266
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mBitmap:Landroid/graphics/Bitmap;
 
-    invoke-static {v3, v2, v0, v2}, Landroid/opengl/GLUtils;->texImage2D(IILandroid/graphics/Bitmap;I)V
+    const/4 v2, 0x0
+
+    invoke-static {v1, v2, v0, v2}, Landroid/opengl/GLUtils;->texImage2D(IILandroid/graphics/Bitmap;I)V
 
     .line 268
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mBitmap:Landroid/graphics/Bitmap;
@@ -992,10 +993,12 @@
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
     .line 269
-    iput-object v4, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mBitmap:Landroid/graphics/Bitmap;
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mBitmap:Landroid/graphics/Bitmap;
 
     .line 270
-    iput-object v4, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mCanvas:Landroid/graphics/Canvas;
+    iput-object v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mCanvas:Landroid/graphics/Canvas;
 
     .line 271
     return-void
@@ -1005,7 +1008,6 @@
     .locals 2
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
 
-    .prologue
     .line 355
     const/4 v0, 0x3
 
@@ -1042,7 +1044,6 @@
     .locals 1
     .param p1, "labelID"    # I
 
-    .prologue
     .line 302
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLabels:Ljava/util/ArrayList;
 
@@ -1061,7 +1062,6 @@
     .locals 1
     .param p1, "labelID"    # I
 
-    .prologue
     .line 290
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLabels:Ljava/util/ArrayList;
 
@@ -1080,7 +1080,6 @@
     .locals 1
     .param p1, "labelID"    # I
 
-    .prologue
     .line 280
     iget-object v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mLabels:Ljava/util/ArrayList;
 
@@ -1096,68 +1095,67 @@
 .end method
 
 .method public initialize(Ljavax/microedition/khronos/opengles/GL10;)V
-    .locals 6
+    .locals 4
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
 
-    .prologue
-    const/4 v5, 0x0
+    .line 81
+    const/4 v0, 0x1
 
-    const v4, 0x47012f00    # 33071.0f
+    iput v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mState:I
 
-    const/high16 v3, 0x46180000    # 9728.0f
+    .line 82
+    new-array v1, v0, [I
 
-    const/4 v1, 0x1
+    .line 83
+    .local v1, "textures":[I
+    const/4 v2, 0x0
+
+    invoke-interface {p1, v0, v1, v2}, Ljavax/microedition/khronos/opengles/GL10;->glGenTextures(I[II)V
+
+    .line 84
+    aget v0, v1, v2
+
+    iput v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mTextureID:I
+
+    .line 85
+    iget v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mTextureID:I
 
     const/16 v2, 0xde1
 
-    .line 81
-    iput v1, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mState:I
-
-    .line 82
-    new-array v0, v1, [I
-
-    .line 83
-    .local v0, "textures":[I
-    invoke-interface {p1, v1, v0, v5}, Ljavax/microedition/khronos/opengles/GL10;->glGenTextures(I[II)V
-
-    .line 84
-    aget v1, v0, v5
-
-    iput v1, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mTextureID:I
-
-    .line 85
-    iget v1, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mTextureID:I
-
-    invoke-interface {p1, v2, v1}, Ljavax/microedition/khronos/opengles/GL10;->glBindTexture(II)V
+    invoke-interface {p1, v2, v0}, Ljavax/microedition/khronos/opengles/GL10;->glBindTexture(II)V
 
     .line 88
-    const/16 v1, 0x2801
+    const/high16 v0, 0x46180000    # 9728.0f
 
-    invoke-interface {p1, v2, v1, v3}, Ljavax/microedition/khronos/opengles/GL10;->glTexParameterf(IIF)V
+    const/16 v3, 0x2801
+
+    invoke-interface {p1, v2, v3, v0}, Ljavax/microedition/khronos/opengles/GL10;->glTexParameterf(IIF)V
 
     .line 90
-    const/16 v1, 0x2800
+    const/16 v3, 0x2800
 
-    invoke-interface {p1, v2, v1, v3}, Ljavax/microedition/khronos/opengles/GL10;->glTexParameterf(IIF)V
+    invoke-interface {p1, v2, v3, v0}, Ljavax/microedition/khronos/opengles/GL10;->glTexParameterf(IIF)V
 
     .line 93
-    const/16 v1, 0x2802
+    const v0, 0x47012f00    # 33071.0f
 
-    invoke-interface {p1, v2, v1, v4}, Ljavax/microedition/khronos/opengles/GL10;->glTexParameterf(IIF)V
+    const/16 v3, 0x2802
+
+    invoke-interface {p1, v2, v3, v0}, Ljavax/microedition/khronos/opengles/GL10;->glTexParameterf(IIF)V
 
     .line 95
-    const/16 v1, 0x2803
+    const/16 v3, 0x2803
 
-    invoke-interface {p1, v2, v1, v4}, Ljavax/microedition/khronos/opengles/GL10;->glTexParameterf(IIF)V
+    invoke-interface {p1, v2, v3, v0}, Ljavax/microedition/khronos/opengles/GL10;->glTexParameterf(IIF)V
 
     .line 98
-    const/16 v1, 0x2300
+    const/16 v0, 0x2300
 
     const/16 v2, 0x2200
 
     const v3, 0x45f00800    # 7681.0f
 
-    invoke-interface {p1, v1, v2, v3}, Ljavax/microedition/khronos/opengles/GL10;->glTexEnvf(IIF)V
+    invoke-interface {p1, v0, v2, v3}, Ljavax/microedition/khronos/opengles/GL10;->glTexEnvf(IIF)V
 
     .line 100
     return-void
@@ -1167,36 +1165,35 @@
     .locals 4
     .param p1, "gl"    # Ljavax/microedition/khronos/opengles/GL10;
 
-    .prologue
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
-
     .line 106
     if-eqz p1, :cond_0
 
     .line 107
-    iget v1, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mState:I
+    iget v0, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mState:I
 
-    if-lez v1, :cond_0
+    if-lez v0, :cond_0
 
     .line 108
-    new-array v0, v3, [I
+    const/4 v0, 0x1
+
+    new-array v1, v0, [I
 
     .line 109
-    .local v0, "textures":[I
-    iget v1, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mTextureID:I
+    .local v1, "textures":[I
+    iget v2, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mTextureID:I
 
-    aput v1, v0, v2
+    const/4 v3, 0x0
+
+    aput v2, v1, v3
 
     .line 110
-    invoke-interface {p1, v3, v0, v2}, Ljavax/microedition/khronos/opengles/GL10;->glDeleteTextures(I[II)V
+    invoke-interface {p1, v0, v1, v3}, Ljavax/microedition/khronos/opengles/GL10;->glDeleteTextures(I[II)V
 
     .line 111
-    iput v2, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mState:I
+    iput v3, p0, Lio/appium/android/apis/graphics/spritetext/LabelMaker;->mState:I
 
     .line 114
-    .end local v0    # "textures":[I
+    .end local v1    # "textures":[I
     :cond_0
     return-void
 .end method

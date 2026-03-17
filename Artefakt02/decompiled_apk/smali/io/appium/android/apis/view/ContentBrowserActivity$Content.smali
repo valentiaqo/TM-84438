@@ -40,9 +40,6 @@
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
-    const/4 v2, 0x1
-
     .line 77
     invoke-direct {p0, p1, p2}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -68,27 +65,29 @@
     .line 80
     iget-object v0, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mText:Landroid/widget/TextView;
 
-    const/high16 v1, 0x41800000    # 16.0f
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v2, v1}, Landroid/widget/TextView;->setTextSize(IF)V
+    const/high16 v2, 0x41800000    # 16.0f
+
+    invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextSize(IF)V
 
     .line 81
     iget-object v0, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mText:Landroid/widget/TextView;
 
-    const v1, 0x7f0c0138
+    const v2, 0x7f0e00a4
 
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 82
     iget-object v0, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mText:Landroid/widget/TextView;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setClickable(Z)V
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setClickable(Z)V
 
     .line 83
     iget-object v0, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mText:Landroid/widget/TextView;
@@ -98,7 +97,7 @@
     .line 84
     iget-object v0, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextIsSelectable(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextIsSelectable(Z)V
 
     .line 85
     iget-object v0, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mText:Landroid/widget/TextView;
@@ -127,7 +126,6 @@
     .param p1, "title"    # Landroid/widget/TextView;
     .param p2, "seek"    # Landroid/widget/SeekBar;
 
-    .prologue
     .line 94
     iput-object p1, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mTitleView:Landroid/widget/TextView;
 
@@ -147,7 +145,6 @@
     .locals 2
     .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     .line 129
     invoke-virtual {p0}, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->getSystemUiVisibility()I
 
@@ -161,17 +158,16 @@
 
     const/4 v1, 0x1
 
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
     :goto_0
     invoke-virtual {p0, v1}, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->setNavVisibility(Z)V
 
     .line 131
     return-void
-
-    .line 130
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
 .end method
 
 .method protected onScrollChanged(IIII)V
@@ -181,7 +177,6 @@
     .param p3, "oldl"    # I
     .param p4, "oldt"    # I
 
-    .prologue
     .line 121
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/ScrollView;->onScrollChanged(IIII)V
 
@@ -198,11 +193,10 @@
     .locals 2
     .param p1, "visibility"    # I
 
-    .prologue
     .line 103
-    iget v1, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mLastSystemUiVis:I
+    iget v0, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mLastSystemUiVis:I
 
-    xor-int v0, v1, p1
+    xor-int/2addr v0, p1
 
     .line 104
     .local v0, "diff":I
@@ -231,7 +225,6 @@
     .locals 4
     .param p1, "visibility"    # I
 
-    .prologue
     .line 112
     invoke-super {p0, p1}, Landroid/widget/ScrollView;->onWindowVisibilityChanged(I)V
 
@@ -259,7 +252,6 @@
     .locals 0
     .param p1, "visibility"    # I
 
-    .prologue
     .line 134
     iput p1, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mBaseSystemUiVisibility:I
 
@@ -268,99 +260,93 @@
 .end method
 
 .method setNavVisibility(Z)V
-    .locals 7
+    .locals 6
     .param p1, "visible"    # Z
 
-    .prologue
-    const/4 v5, 0x4
-
-    const/4 v4, 0x0
-
     .line 138
-    iget v2, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mBaseSystemUiVisibility:I
+    iget v0, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mBaseSystemUiVisibility:I
 
     .line 139
-    .local v2, "newVis":I
+    .local v0, "newVis":I
     if-nez p1, :cond_0
 
     .line 140
-    or-int/lit8 v2, v2, 0x5
+    or-int/lit8 v0, v0, 0x5
 
     .line 142
     :cond_0
     invoke-virtual {p0}, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->getSystemUiVisibility()I
 
-    move-result v3
+    move-result v1
 
-    if-ne v2, v3, :cond_3
+    const/4 v2, 0x0
 
-    const/4 v0, 0x1
+    if-ne v0, v1, :cond_1
+
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v1, 0x0
 
     .line 146
-    .local v0, "changed":Z
+    .local v1, "changed":Z
     :goto_0
-    if-nez v0, :cond_1
+    if-nez v1, :cond_2
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
 
     .line 147
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->getHandler()Landroid/os/Handler;
 
-    move-result-object v1
+    move-result-object v3
 
     .line 148
-    .local v1, "h":Landroid/os/Handler;
-    if-eqz v1, :cond_2
+    .local v3, "h":Landroid/os/Handler;
+    if-eqz v3, :cond_3
 
     .line 149
-    iget-object v3, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mNavHider:Ljava/lang/Runnable;
+    iget-object v4, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mNavHider:Ljava/lang/Runnable;
 
-    invoke-virtual {v1, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 154
-    .end local v1    # "h":Landroid/os/Handler;
-    :cond_2
-    invoke-virtual {p0, v2}, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->setSystemUiVisibility(I)V
+    .end local v3    # "h":Landroid/os/Handler;
+    :cond_3
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->setSystemUiVisibility(I)V
 
     .line 155
-    iget-object v6, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mTitleView:Landroid/widget/TextView;
+    iget-object v3, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mTitleView:Landroid/widget/TextView;
+
+    const/4 v4, 0x4
 
     if-eqz p1, :cond_4
 
-    move v3, v4
+    const/4 v5, 0x0
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v5, 0x4
 
     :goto_1
-    invoke-virtual {v6, v3}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v3, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 156
     iget-object v3, p0, Lio/appium/android/apis/view/ContentBrowserActivity$Content;->mSeekView:Landroid/widget/SeekBar;
 
     if-eqz p1, :cond_5
 
+    goto :goto_2
+
+    :cond_5
+    const/4 v2, 0x4
+
     :goto_2
-    invoke-virtual {v3, v4}, Landroid/widget/SeekBar;->setVisibility(I)V
+    invoke-virtual {v3, v2}, Landroid/widget/SeekBar;->setVisibility(I)V
 
     .line 157
     return-void
-
-    .end local v0    # "changed":Z
-    :cond_3
-    move v0, v4
-
-    .line 142
-    goto :goto_0
-
-    .restart local v0    # "changed":Z
-    :cond_4
-    move v3, v5
-
-    .line 155
-    goto :goto_1
-
-    :cond_5
-    move v4, v5
-
-    .line 156
-    goto :goto_2
 .end method

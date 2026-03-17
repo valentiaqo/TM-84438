@@ -15,11 +15,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
     .line 34
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 46
     return-void
 .end method
 
@@ -29,19 +27,18 @@
     .locals 2
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     .line 38
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 40
-    const v1, 0x7f030059
+    const v0, 0x7f0b0076
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Grid2;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Grid2;->setContentView(I)V
 
     .line 42
-    const v1, 0x7f0900b7
+    const v0, 0x7f090138
 
-    invoke-virtual {p0, v1}, Lio/appium/android/apis/view/Grid2;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lio/appium/android/apis/view/Grid2;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
