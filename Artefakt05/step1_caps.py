@@ -2,8 +2,9 @@ import xml.etree.ElementTree as ET
 import json
 import os
 
+
 def extract_caps():
-    # Ścieżka do manifestu z Artefaktu 02
+    # Ścieżka do manifestu z Artefaktu02
     manifest_path = "../Artefakt02/decompiled_apk/AndroidManifest.xml"
 
     # Obsługa przestrzeni nazw Androida
@@ -20,7 +21,9 @@ def extract_caps():
         for activity in root.findall(".//activity", ns):
             intent = activity.find(".//intent-filter", ns)
             if intent is not None:
-                action = intent.find(".//action[@android:name='android.intent.action.MAIN']", ns)
+                action = intent.find(
+                    ".//action[@android:name='android.intent.action.MAIN']", ns
+                )
                 if action is not None:
                     main_activity = activity.get(f"{{{ns['android']}}}name")
                     break
@@ -36,11 +39,12 @@ def extract_caps():
 
         with open('51_caps.json', 'w') as f:
             json.dump(capabilities, f, indent=4)
+
         print(f"Sukces! Wykryto: {package} / {main_activity}")
 
     except Exception as e:
         print(f"Błąd czytania manifestu: {e}. Czy ścieżka do Artefakt02 jest poprawna?")
 
+
 if __name__ == "__main__":
     extract_caps()
- 

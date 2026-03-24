@@ -80,6 +80,7 @@
         "STARTBUTTON": "startButton",
         "TXT_SHORTCUT_INTENT": "txt_shortcut_intent",
         "LIST": "list",
+        "LIST_ITEM": "list_item",
         "GET_MUSIC": "get_music",
         "CHECKBOX_PRESENTATION": "checkbox_presentation",
         "DISPLAY_ID": "display_id",

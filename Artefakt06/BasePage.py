@@ -50,3 +50,5 @@ if __name__ == "__main__":
     # Przykładowe sprawdzenie czy system "widzi" selektor z poprzedniego bloku
     test_key = "ADD"
     print(f"Weryfikacja klucza '{test_key}': {bp.find_id(test_key)}")
+
+ 

@@ -30,6 +30,6 @@ Jako inżynier odpowiedzialny za architekturę, rekomenduję następujące uspra
 
 ---
 **Podpisano:**
-*Inżynier Testów:* **[Valentyn Ponomarenko]**
-*Numer Albumu:* `[84438]`
-*Data:* *[17.03.2026]*
+*Inżynier Testów:* **Vladyslav Petrenko**
+*Numer Albumu:* `94590`
+*Data: 17.03.2026*

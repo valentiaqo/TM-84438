@@ -7,6 +7,6 @@
     <system-out>Raport inżynierski MD został odnaleziony.</system-out>
   </testcase>
   <testcase name="Data_Layer_Connection" status="passed">
-    <system-out>Wczytano 389 selektorów z Bloku 5.</system-out>
+    <system-out>Wczytano 459 selektorów z Bloku 5.</system-out>
   </testcase>
 </testsuite>

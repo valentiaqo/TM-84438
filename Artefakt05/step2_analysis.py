@@ -39,7 +39,7 @@ def analyze_manifest():
         final_report = "\n".join(report)
         print("\033[92m" + final_report + "\033[0m")
 
-        with open(output_path, 'w') as f:
+        with open(output_path, 'w', encoding='utf-8') as f:
             f.write(final_report)
 
         print(f"\n[OK] Sukces! Artefakt zapisany jako: {output_path}")
